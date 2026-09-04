@@ -1,6 +1,7 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import PriceTable from './components/PriceTable.vue'
+import { readParams, writeParams, paramNum } from './lib/urlState.js'
 import prices from '../../data/prices.json'
 import pkg from '../package.json'
 
@@ -11,7 +12,15 @@ const generated = prices.generated_date
 const version = pkg.version
 const repo = 'https://github.com/hugobatista/opencodego-compare'
 
-const taxPct = ref(meta.salesTaxDefault * 100)
+const defaultTaxPct = meta.salesTaxDefault * 100
+const taxPct = ref(taxFromUrl())
+function taxFromUrl() {
+  const n = paramNum(readParams(), 'tax', defaultTaxPct)
+  return Math.min(100, Math.max(0, n))
+}
+watch(taxPct, (v) => {
+  writeParams({ tax: Math.abs(v - defaultTaxPct) < 1e-9 ? '' : String(Math.round(v * 10) / 10) })
+})
 const tax = computed(() => taxPct.value / 100)
 const feePct = ((meta.openrouterServiceFee ?? meta.serviceFee) * 100).toFixed(1)
 

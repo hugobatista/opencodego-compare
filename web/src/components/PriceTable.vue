@@ -1,6 +1,7 @@
 <script setup>
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, watch } from 'vue'
 import { buildRow } from '../lib/prices.js'
+import { readParams, writeParams, paramStr, paramList } from '../lib/urlState.js'
 import MultiSelect from './MultiSelect.vue'
 
 const props = defineProps({
@@ -97,6 +98,31 @@ const distinctOptions = computed(() => {
   return map
 })
 
+const urlParams = readParams()
+
+const sortRaw = paramStr(urlParams, 'sort', '')
+if (sortRaw) {
+  const [k, d] = sortRaw.split(':')
+  const col = COLS.find((c) => c.id === k)
+  if (col) sortKey.value = k
+  if (d === '-1') sortDir.value = -1
+}
+if (paramStr(urlParams, 'gozen', '1') === '0') onlyGoZen.value = false
+const orRaw = paramStr(urlParams, 'orshow', '3')
+if (orRaw === 'all') orShow.value = 'all'
+else if (Number.isInteger(Number(orRaw)) && Number(orRaw) >= 1 && Number(orRaw) <= 5) orShow.value = Number(orRaw)
+
+for (const c of COLS) {
+  if (c.kind === 'numeric') {
+    numFilters[c.id] = {
+      min: paramStr(urlParams, 'min_' + c.id, ''),
+      max: paramStr(urlParams, 'max_' + c.id, ''),
+    }
+  } else {
+    multiFilters[c.id] = paramList(urlParams, 'f_' + c.id)
+  }
+}
+
 const filtered = computed(() => {
   return limited.value.filter((r) => {
     for (const c of COLS) {
@@ -156,6 +182,51 @@ function reset() {
   sortDir.value = 1
   onlyGoZen.value = true
   orShow.value = 3
+  writeParams(toParams())
+}
+
+function toParams() {
+  const out = {}
+  out.sort = sortKey.value === 'in' && sortDir.value === 1 ? '' : sortKey.value + ':' + sortDir.value
+  out.gozen = onlyGoZen.value ? '' : '0'
+  out.orshow = orShow.value === 3 ? '' : String(orShow.value)
+  for (const c of COLS) {
+    if (c.kind === 'numeric') {
+      out['min_' + c.id] = numFilters[c.id].min
+      out['max_' + c.id] = numFilters[c.id].max
+    } else {
+      const opts = distinctOptions.value[c.id] || []
+      const sel = multiFilters[c.id]
+      out['f_' + c.id] = sel.length > 0 && sel.length < opts.length ? sel.map(encodeURIComponent).join(',') : ''
+    }
+  }
+  return out
+}
+
+watch(toParams, (p) => writeParams(p), { deep: true })
+
+const linkCopied = ref(false)
+function copyLink() {
+  const ok = () => {
+    linkCopied.value = true
+    setTimeout(() => (linkCopied.value = false), 1500)
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(location.href).then(ok, () => { fallbackCopy(location.href); ok() })
+  } else {
+    fallbackCopy(location.href)
+    ok()
+  }
+}
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea')
+  ta.value = text
+  ta.style.position = 'fixed'
+  ta.style.opacity = '0'
+  document.body.appendChild(ta)
+  ta.select()
+  try { document.execCommand('copy') } catch (e) { /* ignore */ }
+  document.body.removeChild(ta)
 }
 
 const colWidths = reactive({
@@ -213,6 +284,13 @@ function tableStyle() {
       </span>
       <span v-if="hiddenCount" class="count hint">{{ hiddenCount }} provider rows hidden</span>
       <button type="button" class="reset-btn" @click="reset">✕ Reset filters</button>
+      <button
+        type="button"
+        class="reset-btn"
+        :class="{ copied: linkCopied }"
+        @click="copyLink"
+        :disabled="linkCopied"
+      >{{ linkCopied ? 'Copied!' : 'Copy link' }}</button>
     </div>
 
     <div class="tablewrap">
@@ -346,6 +424,7 @@ function tableStyle() {
   transition: all 0.15s ease;
 }
 .reset-btn:hover { border-color: var(--accent); color: var(--accent); }
+.reset-btn.copied { border-color: var(--ok); color: var(--ok); }
 .count { color: var(--muted); }
 
 .tablewrap {
