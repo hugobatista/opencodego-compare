@@ -276,28 +276,28 @@ function tableStyle() {
               >{{ r.provider }}</a>
               <span v-else class="dash">—</span>
             </td>
-            <td class="num" :title="r.inCell.tip || null">
+            <td class="num">
               <div class="cell-disp" :class="{ dual: r.inCell.pair }">
-                <div class="real">{{ r.inCell.real }}</div>
-                <div v-if="r.inCell.pair" class="list">{{ r.inCell.list }}</div>
+                <div class="real" :title="r.inCell.realTip || null">{{ r.inCell.real }}</div>
+                <div v-if="r.inCell.pair" class="list" :title="r.inCell.listTip || null">{{ r.inCell.list }}</div>
               </div>
             </td>
-            <td class="num" :title="r.outCell.tip || null">
+            <td class="num">
               <div class="cell-disp" :class="{ dual: r.outCell.pair }">
-                <div class="real">{{ r.outCell.real }}</div>
-                <div v-if="r.outCell.pair" class="list">{{ r.outCell.list }}</div>
+                <div class="real" :title="r.outCell.realTip || null">{{ r.outCell.real }}</div>
+                <div v-if="r.outCell.pair" class="list" :title="r.outCell.listTip || null">{{ r.outCell.list }}</div>
               </div>
             </td>
-            <td class="num" :title="r.rdCell.tip || null">
+            <td class="num">
               <div class="cell-disp" :class="{ dual: r.rdCell.pair }">
-                <div class="real">{{ r.rdCell.real }}</div>
-                <div v-if="r.rdCell.pair" class="list">{{ r.rdCell.list }}</div>
+                <div class="real" :title="r.rdCell.realTip || null">{{ r.rdCell.real }}</div>
+                <div v-if="r.rdCell.pair" class="list" :title="r.rdCell.listTip || null">{{ r.rdCell.list }}</div>
               </div>
             </td>
-            <td class="num" :title="r.wrCell.tip || null">
+            <td class="num">
               <div class="cell-disp" :class="{ dual: r.wrCell.pair }">
-                <div class="real">{{ r.wrCell.real }}</div>
-                <div v-if="r.wrCell.pair" class="list">{{ r.wrCell.list }}</div>
+                <div class="real" :title="r.wrCell.realTip || null">{{ r.wrCell.real }}</div>
+                <div v-if="r.wrCell.pair" class="list" :title="r.wrCell.listTip || null">{{ r.wrCell.list }}</div>
               </div>
             </td>
             <td class="num" :title="'Context length'">{{ r.ctxDisp }}</td>

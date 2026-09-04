@@ -10,10 +10,27 @@ from bs4 import BeautifulSoup
 DATA_DIR = os.path.join(os.path.dirname(__file__), '..', 'data')
 ZEN_URL = 'https://opencode.ai/docs/zen'
 
-# Override defaults for Zen models
-ZEN_OVERRIDES = {
-    'Claude': {'logsPrompts': True, 'retentionDays': 30},
-}
+OFFPEAK_HOURS = '01-04, 06-10 UTC Mon-Fri'
+
+
+def zen_policy(model):
+    """logsPrompts / trainsOnData for a Zen model.
+
+    Zen docs (Privacy section): all providers follow a zero-retention
+    policy and do not use data for training, with exceptions below.
+    """
+    ml = model.lower()
+    if 'claude' in ml or 'anthropic' in ml:
+        return {'logsPrompts': True, 'trainsOnData': False, 'note': 'Retention: 30d'}
+    if ml.startswith('gpt') or 'openai' in ml:
+        return {'logsPrompts': True, 'trainsOnData': False, 'note': 'Retention: 30d'}
+    if 'nemotron' in ml and 'free' in ml:
+        return {'logsPrompts': True, 'trainsOnData': False, 'note': 'NVIDIA trial: logged'}
+    if 'contributor' in ml:
+        return {'logsPrompts': False, 'trainsOnData': True, 'note': 'Meta: trains on prompts'}
+    if ml in ('big pickle', 'mimo-v2.5 free', 'ling 3.0 flash fin free'):
+        return {'logsPrompts': False, 'trainsOnData': True, 'note': 'Trains during free period'}
+    return {'logsPrompts': False, 'trainsOnData': False, 'note': ''}
 
 
 def parse_money(s):
@@ -67,25 +84,21 @@ def scrape():
         cached_read = parse_money(cells[3])
         cached_write = parse_money(cells[4])
 
-        # Determine overrides
-        logs = None
-        trains = None
-        notes = ''
-        for prefix, ov in ZEN_OVERRIDES.items():
-            if prefix.lower() in model.lower():
-                logs = ov.get('logsPrompts')
-                if 'retentionDays' in ov:
-                    notes = f'Retention: {ov["retentionDays"]}d'
-                break
+        # Determine policy from Zen docs Privacy section
+        pol = zen_policy(model)
+        logs = pol['logsPrompts']
+        trains = pol['trainsOnData']
+        notes = pol['note']
 
         # Free models
         is_free = (input_p == 0 and output_p == 0)
         if is_free:
-            notes = 'Free tier'
+            notes = f'{notes} · Free tier' if notes else 'Free tier'
 
-        # Check for training info in model name or nearby text
-        if trains is None and 'training' in model.lower():
-            trains = True
+        # Detect peak/off-peak
+        peak_hours = None
+        if '(peak)' in model.lower() or '(off-peak)' in model.lower():
+            peak_hours = OFFPEAK_HOURS
 
         rows_out.append({
             'market': 'zen',
@@ -102,7 +115,7 @@ def scrape():
             'effRead': None,
             'effWrite': None,
             'effAll': None,
-            'peakHours': None,
+            'peakHours': peak_hours,
             'context': None,
             'latency': None,
             'tps': None,

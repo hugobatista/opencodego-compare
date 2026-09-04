@@ -52,21 +52,22 @@ def fetch_model_endpoints(model_id):
     u = html.replace('\\\\"', '"').replace('\\"', '"')
     promos = extract_promos(u)
 
-    # Find all dataPolicy regions — each corresponds to one provider endpoint
+    # Find all dataPolicy regions. A provider may appear SEVERAL times on the
+    # page (overview + providers list); only some occurrences carry the
+    # runtime stats (latency/throughput). Bound each region by the next
+    # dataPolicy occurrence and keep, per provider, the record with stats.
     dp_regions = [m.start() for m in re.finditer(r'"dataPolicy"', u)]
-    endpoints = []
-    seen_providers = set()
+    by_slug = {}
 
-    for start in dp_regions:
+    for i, start in enumerate(dp_regions):
         # Search backwards for the nearest slug
         before = u[max(0, start - 500):start]
         slug_match = re.findall(r'"slug"\s*:\s*"([^"]+)"', before)
         slug = slug_match[-1] if slug_match else None
-        if not slug or slug in seen_providers:
+        if not slug or slug == 'openrouter':
             continue
-        if slug == 'openrouter':
-            continue
-        seen_providers.add(slug)
+
+        end = dp_regions[i + 1] if i + 1 < len(dp_regions) else min(start + 40000, len(u))
 
         # dataPolicy
         dp_match = re.search(r'"dataPolicy"\s*:\s*\{([^}]+)\}', u[start:start + 300])
@@ -81,8 +82,8 @@ def fetch_model_endpoints(model_id):
             if training_m:
                 training = training_m.group(1) == 'true'
 
-        # Pricing (search forward from dataPolicy)
-        after = u[start:start + 3000]
+        # Pricing and stats (search forward within this endpoint object)
+        after = u[start:end]
         price_match = re.search(r'"pricing"\s*:\s*\{([^}]+)\}', after)
         pricing = {}
         if price_match:
@@ -117,7 +118,7 @@ def fetch_model_endpoints(model_id):
         if not pricing.get('prompt') and not pricing.get('completion'):
             continue
 
-        endpoints.append({
+        rec = {
             'provider': slug,
             'pricing': pricing,
             'data_policy': {
@@ -127,9 +128,16 @@ def fetch_model_endpoints(model_id):
             'discount': discount,
             'discount_note': promo_note(promos, discount, disp_name) if discount else None,
             'stats': stats,
-        })
+        }
 
-    return endpoints
+        # Prefer the occurrence with runtime stats; otherwise keep the first.
+        prev = by_slug.get(slug)
+        if prev is None:
+            by_slug[slug] = rec
+        elif rec['stats'] and not prev['stats']:
+            by_slug[slug] = rec
+
+    return list(by_slug.values())
 
 
 def main():

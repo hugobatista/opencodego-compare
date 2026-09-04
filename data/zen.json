@@ -18,9 +18,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": "Free tier"
+    "logsPrompts": false,
+    "trainsOnData": true,
+    "notes": "Trains during free period \u00b7 Free tier"
   },
   {
     "market": "zen",
@@ -41,9 +41,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": "Free tier"
+    "logsPrompts": false,
+    "trainsOnData": true,
+    "notes": "Trains during free period \u00b7 Free tier"
   },
   {
     "market": "zen",
@@ -64,9 +64,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": "Free tier"
+    "logsPrompts": false,
+    "trainsOnData": true,
+    "notes": "Trains during free period \u00b7 Free tier"
   },
   {
     "market": "zen",
@@ -87,9 +87,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": "Free tier"
+    "logsPrompts": true,
+    "trainsOnData": false,
+    "notes": "NVIDIA trial: logged \u00b7 Free tier"
   },
   {
     "market": "zen",
@@ -110,9 +110,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": "Free tier"
+    "logsPrompts": true,
+    "trainsOnData": false,
+    "notes": "NVIDIA trial: logged \u00b7 Free tier"
   },
   {
     "market": "zen",
@@ -133,9 +133,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": "Free tier"
+    "logsPrompts": false,
+    "trainsOnData": true,
+    "notes": "Meta: trains on prompts \u00b7 Free tier"
   },
   {
     "market": "zen",
@@ -156,9 +156,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": "Free tier"
+    "logsPrompts": false,
+    "trainsOnData": true,
+    "notes": "Meta: trains on prompts \u00b7 Free tier"
   },
   {
     "market": "zen",
@@ -179,8 +179,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -202,8 +202,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -225,8 +225,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -248,8 +248,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -271,8 +271,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -294,8 +294,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -317,8 +317,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -340,8 +340,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -363,8 +363,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -386,8 +386,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -409,8 +409,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -428,12 +428,12 @@
     "effRead": null,
     "effWrite": null,
     "effAll": null,
-    "peakHours": null,
+    "peakHours": "01-04, 06-10 UTC Mon-Fri",
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -451,12 +451,12 @@
     "effRead": null,
     "effWrite": null,
     "effAll": null,
-    "peakHours": null,
+    "peakHours": "01-04, 06-10 UTC Mon-Fri",
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -474,12 +474,12 @@
     "effRead": null,
     "effWrite": null,
     "effAll": null,
-    "peakHours": null,
+    "peakHours": "01-04, 06-10 UTC Mon-Fri",
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -497,12 +497,12 @@
     "effRead": null,
     "effWrite": null,
     "effAll": null,
-    "peakHours": null,
+    "peakHours": "01-04, 06-10 UTC Mon-Fri",
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -525,7 +525,7 @@
     "latency": null,
     "tps": null,
     "logsPrompts": true,
-    "trainsOnData": null,
+    "trainsOnData": false,
     "notes": "Retention: 30d"
   },
   {
@@ -548,7 +548,7 @@
     "latency": null,
     "tps": null,
     "logsPrompts": true,
-    "trainsOnData": null,
+    "trainsOnData": false,
     "notes": "Retention: 30d"
   },
   {
@@ -571,7 +571,7 @@
     "latency": null,
     "tps": null,
     "logsPrompts": true,
-    "trainsOnData": null,
+    "trainsOnData": false,
     "notes": "Retention: 30d"
   },
   {
@@ -594,7 +594,7 @@
     "latency": null,
     "tps": null,
     "logsPrompts": true,
-    "trainsOnData": null,
+    "trainsOnData": false,
     "notes": "Retention: 30d"
   },
   {
@@ -617,7 +617,7 @@
     "latency": null,
     "tps": null,
     "logsPrompts": true,
-    "trainsOnData": null,
+    "trainsOnData": false,
     "notes": "Retention: 30d"
   },
   {
@@ -640,7 +640,7 @@
     "latency": null,
     "tps": null,
     "logsPrompts": true,
-    "trainsOnData": null,
+    "trainsOnData": false,
     "notes": "Retention: 30d"
   },
   {
@@ -663,7 +663,7 @@
     "latency": null,
     "tps": null,
     "logsPrompts": true,
-    "trainsOnData": null,
+    "trainsOnData": false,
     "notes": "Retention: 30d"
   },
   {
@@ -686,7 +686,7 @@
     "latency": null,
     "tps": null,
     "logsPrompts": true,
-    "trainsOnData": null,
+    "trainsOnData": false,
     "notes": "Retention: 30d"
   },
   {
@@ -709,7 +709,7 @@
     "latency": null,
     "tps": null,
     "logsPrompts": true,
-    "trainsOnData": null,
+    "trainsOnData": false,
     "notes": "Retention: 30d"
   },
   {
@@ -732,7 +732,7 @@
     "latency": null,
     "tps": null,
     "logsPrompts": true,
-    "trainsOnData": null,
+    "trainsOnData": false,
     "notes": "Retention: 30d"
   },
   {
@@ -755,7 +755,7 @@
     "latency": null,
     "tps": null,
     "logsPrompts": true,
-    "trainsOnData": null,
+    "trainsOnData": false,
     "notes": "Retention: 30d"
   },
   {
@@ -778,7 +778,7 @@
     "latency": null,
     "tps": null,
     "logsPrompts": true,
-    "trainsOnData": null,
+    "trainsOnData": false,
     "notes": "Retention: 30d"
   },
   {
@@ -800,8 +800,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -823,8 +823,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -846,8 +846,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -869,8 +869,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -892,8 +892,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -915,8 +915,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -938,8 +938,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -961,8 +961,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -984,8 +984,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -1007,8 +1007,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -1030,8 +1030,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -1053,8 +1053,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -1076,8 +1076,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -1099,8 +1099,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
+    "logsPrompts": false,
+    "trainsOnData": false,
     "notes": ""
   },
   {
@@ -1122,9 +1122,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": ""
+    "logsPrompts": true,
+    "trainsOnData": false,
+    "notes": "Retention: 30d"
   },
   {
     "market": "zen",
@@ -1145,9 +1145,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": ""
+    "logsPrompts": true,
+    "trainsOnData": false,
+    "notes": "Retention: 30d"
   },
   {
     "market": "zen",
@@ -1168,9 +1168,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": ""
+    "logsPrompts": true,
+    "trainsOnData": false,
+    "notes": "Retention: 30d"
   },
   {
     "market": "zen",
@@ -1191,9 +1191,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": ""
+    "logsPrompts": true,
+    "trainsOnData": false,
+    "notes": "Retention: 30d"
   },
   {
     "market": "zen",
@@ -1214,9 +1214,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": ""
+    "logsPrompts": true,
+    "trainsOnData": false,
+    "notes": "Retention: 30d"
   },
   {
     "market": "zen",
@@ -1237,9 +1237,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": ""
+    "logsPrompts": true,
+    "trainsOnData": false,
+    "notes": "Retention: 30d"
   },
   {
     "market": "zen",
@@ -1260,9 +1260,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": ""
+    "logsPrompts": true,
+    "trainsOnData": false,
+    "notes": "Retention: 30d"
   },
   {
     "market": "zen",
@@ -1283,9 +1283,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": ""
+    "logsPrompts": true,
+    "trainsOnData": false,
+    "notes": "Retention: 30d"
   },
   {
     "market": "zen",
@@ -1306,9 +1306,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": ""
+    "logsPrompts": true,
+    "trainsOnData": false,
+    "notes": "Retention: 30d"
   },
   {
     "market": "zen",
@@ -1329,9 +1329,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": ""
+    "logsPrompts": true,
+    "trainsOnData": false,
+    "notes": "Retention: 30d"
   },
   {
     "market": "zen",
@@ -1352,9 +1352,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": ""
+    "logsPrompts": true,
+    "trainsOnData": false,
+    "notes": "Retention: 30d"
   },
   {
     "market": "zen",
@@ -1375,9 +1375,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": ""
+    "logsPrompts": true,
+    "trainsOnData": false,
+    "notes": "Retention: 30d"
   },
   {
     "market": "zen",
@@ -1398,9 +1398,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": ""
+    "logsPrompts": true,
+    "trainsOnData": false,
+    "notes": "Retention: 30d"
   },
   {
     "market": "zen",
@@ -1421,9 +1421,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": ""
+    "logsPrompts": true,
+    "trainsOnData": false,
+    "notes": "Retention: 30d"
   },
   {
     "market": "zen",
@@ -1444,9 +1444,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": ""
+    "logsPrompts": true,
+    "trainsOnData": false,
+    "notes": "Retention: 30d"
   },
   {
     "market": "zen",
@@ -1467,9 +1467,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": ""
+    "logsPrompts": true,
+    "trainsOnData": false,
+    "notes": "Retention: 30d"
   },
   {
     "market": "zen",
@@ -1490,9 +1490,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": ""
+    "logsPrompts": true,
+    "trainsOnData": false,
+    "notes": "Retention: 30d"
   },
   {
     "market": "zen",
@@ -1513,9 +1513,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": ""
+    "logsPrompts": true,
+    "trainsOnData": false,
+    "notes": "Retention: 30d"
   },
   {
     "market": "zen",
@@ -1536,9 +1536,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": ""
+    "logsPrompts": true,
+    "trainsOnData": false,
+    "notes": "Retention: 30d"
   },
   {
     "market": "zen",
@@ -1559,8 +1559,8 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": null,
-    "trainsOnData": null,
-    "notes": ""
+    "logsPrompts": true,
+    "trainsOnData": false,
+    "notes": "Retention: 30d"
   }
 ]

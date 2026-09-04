@@ -101,3 +101,18 @@ body {
 .hint { color: var(--muted); font-size: 0.8rem; margin: 0; max-width: 60ch; }
 
 input:focus { outline: none; border-color: var(--accent); }
+
+.footer {
+  margin-top: 14px; padding-top: 10px;
+  border-top: 1px solid var(--border);
+  color: var(--muted); font-size: 0.8rem;
+}
+.f-meta {
+  display: flex; flex-wrap: wrap; gap: 4px 18px; align-items: center;
+}
+.f-meta a { color: var(--accent); text-decoration: none; }
+.f-meta a:hover { text-decoration: underline; }
+.f-disclaimer {
+  margin: 6px 0 0; font-size: 0.78rem; max-width: 72ch;
+  line-height: 1.45;
+}

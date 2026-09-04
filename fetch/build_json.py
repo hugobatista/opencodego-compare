@@ -3,6 +3,7 @@
 
 import json
 import os
+import re
 from datetime import datetime, timezone
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), '..', 'data')
@@ -10,6 +11,8 @@ DATA_DIR = os.path.join(os.path.dirname(__file__), '..', 'data')
 OPENROUTER_SALES_TAX_DEFAULT = 0.2425
 OPENROUTER_SERVICE_FEE = 0.055
 OPENROUTER_SERVICE_FEE_MIN = 0.80
+
+CONTEXT_RE = re.compile(r'\(\s*[<>≤=]+\s*(\d+)\s*K\s*tokens?\s*\)', re.I)
 
 
 def load_json(name):
@@ -21,19 +24,59 @@ def load_json(name):
         return json.load(f)
 
 
-def build_go_rows(go_data):
+def norm_key(s):
+    return ''.join(c for c in (s or '').lower() if c.isalnum())
+
+
+def context_from_name(model):
+    m = CONTEXT_RE.search(model or '')
+    return int(m.group(1)) * 1000 if m else None
+
+
+def lookup_or_context(base, name_map, id_map):
+    """Find an OR context_length for a go/zen base name.
+
+    Mirrors the frontend rule: exact match, or prefix/containment match
+    when the normalized base has 8+ alnum chars (avoids short-name clashes).
+    """
+    b = norm_key(base)
+    if not b or len(b) < 8:
+        return None
+    exact = name_map.get(b) or id_map.get(b)
+    if exact:
+        return exact
+    cand = []
+    for m in (name_map, id_map):
+        for k, v in m.items():
+            if k in b or b in k:
+                cand.append((abs(len(k) - len(b)), v))
+    return min(cand)[1] if cand else None
+
+
+def fill_context(rows, name_map, id_map):
+    for r in rows:
+        if r.get('context'):
+            continue
+        r['context'] = (
+            context_from_name(r['model'])
+            or lookup_or_context(r.get('base'), name_map, id_map)
+        )
+    return rows
+
+
+def build_go_rows(go_data, or_name_ctx, or_id_ctx):
     """Go rows already have effective prices computed by scrape_go.py."""
-    return go_data
+    return fill_context(go_data, or_name_ctx, or_id_ctx)
 
 
-def build_zen_rows(zen_data):
+def build_zen_rows(zen_data, or_name_ctx, or_id_ctx):
     """Zen rows: real = listed (no multiplier)."""
     for row in zen_data:
         row['effIn'] = row['input']
         row['effOut'] = row['output']
         row['effRead'] = row['read']
         row['effWrite'] = row['write']
-    return zen_data
+    return fill_context(zen_data, or_name_ctx, or_id_ctx)
 
 
 def build_or_rows(openrouter_data, endpoints_data):
@@ -138,12 +181,22 @@ def main():
     openrouter_data = load_json('openrouter.json')
     endpoints_data = load_json('or_endpoints.json')
 
+    or_name_ctx = {}
+    or_id_ctx = {}
+    if openrouter_data:
+        for m in openrouter_data:
+            ctx = m.get('context_length')
+            if not ctx:
+                continue
+            or_name_ctx.setdefault(norm_key(m.get('name')), ctx)
+            or_id_ctx.setdefault(norm_key(m.get('id')), ctx)
+
     all_rows = []
 
     if go_data:
-        all_rows.extend(build_go_rows(go_data))
+        all_rows.extend(build_go_rows(go_data, or_name_ctx, or_id_ctx))
     if zen_data:
-        all_rows.extend(build_zen_rows(zen_data))
+        all_rows.extend(build_zen_rows(zen_data, or_name_ctx, or_id_ctx))
     if openrouter_data:
         all_rows.extend(build_or_rows(openrouter_data, endpoints_data))
 

@@ -2,10 +2,14 @@
 import { ref, computed } from 'vue'
 import PriceTable from './components/PriceTable.vue'
 import prices from '../../data/prices.json'
+import pkg from '../package.json'
 
 const meta = prices.meta
 const rows = prices.rows
 const generated = prices.generated_date
+
+const version = pkg.version
+const repo = 'https://github.com/hugobatista/opencodego-compare'
 
 const taxPct = ref(meta.salesTaxDefault * 100)
 const tax = computed(() => taxPct.value / 100)
@@ -70,4 +74,16 @@ const SOURCES = [
   </div>
 
   <PriceTable :rows="rows" :meta="meta" :tax="tax" />
+
+  <footer class="footer">
+    <div class="f-meta">
+      <span v-if="version">OpenCode Go vs alternatives · v{{ version }}</span>
+      <span>by Hugo Batista</span>
+      <a :href="repo + '/issues'" target="_blank" rel="noopener">Feedback &amp; issues</a>
+    </div>
+    <p class="f-disclaimer">
+      Disclaimer: not affiliated with any of these companies. Prices shown may
+      change — please confirm with the providers before making decisions.
+    </p>
+  </footer>
 </template>

@@ -48,20 +48,20 @@ export function buildRow(row, meta, tax) {
   }
 
   const mkCell = (eff, list) => {
-    if (free) return { free: true, real: 'Free', list: null, pair: false, tip: 'Free model' }
+    if (free) return { free: true, real: 'Free', list: null, pair: false, realTip: 'Free model', listTip: null }
     const rawReal = val(eff ?? list)
     const rawList = list === null || list === undefined ? null : list
     const pair = rawReal !== null && rawList !== null && Math.abs(rawReal - rawList) > 1e-6
     const disp = rawReal !== null ? fmtMoney(rawReal) : (rawList !== null ? fmtMoney(rawList) : '—')
     const money = (x) => '$' + Number(x).toFixed(2)
-    let tip = ''
+    let realTip = ''
     if (rawList !== null && rawReal !== null) {
       if (m === 'or') {
-        tip = `Real = listed ${money(rawList)} × (1 + ${(OPENROUTER_SERVICE_FEE * 100).toFixed(1)}% fee) × (1 + ${(tax * 100).toFixed(2)}% tax) = ${money(rawReal)}`
+        realTip = `Real = listed ${money(rawList)} × (1 + ${(OPENROUTER_SERVICE_FEE * 100).toFixed(1)}% fee) × (1 + ${(tax * 100).toFixed(2)}% tax) = ${money(rawReal)}`
       } else if (m === 'go' && eff != null && row.effAll > 0) {
-        tip = `Effective = listed ${money(rawList)} × (10 ÷ $${Number(row.effAll).toFixed(2)} monthly allowance) = ${money(rawReal)}`
+        realTip = `Effective = listed ${money(rawList)} × (10 ÷ $${Number(row.effAll).toFixed(2)} monthly allowance) = ${money(rawReal)}`
       } else {
-        tip = `Real = listed ${money(rawList)}`
+        realTip = `Real = listed ${money(rawList)}`
       }
     }
     return {
@@ -69,7 +69,8 @@ export function buildRow(row, meta, tax) {
       real: disp,
       list: rawList === null ? null : fmtMoney(rawList),
       pair,
-      tip: tip || null,
+      realTip: realTip || null,
+      listTip: rawList !== null ? `Listed price ${money(rawList)}` : null,
     }
   }
 
