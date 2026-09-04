@@ -169,6 +169,7 @@ const sorted = computed(() => {
 })
 
 function toggleSort(id) {
+  if (suppressClick.value) { suppressClick.value = false; return }
   if (sortKey.value === id) sortDir.value *= -1
   else { sortKey.value = id; sortDir.value = 1 }
 }
@@ -229,10 +230,115 @@ function fallbackCopy(text) {
   document.body.removeChild(ta)
 }
 
-const colWidths = reactive({
+const DEFAULT_WIDTHS = {
   model: 14, plan: 10, provider: 9, 'in': 7, out: 7, rd: 6, wr: 6,
   ctx: 6, lat: 6, tps: 5, logs: 4, trains: 4, peak: 6, allowance: 7, notes: 12,
-})
+}
+const colWidths = reactive({ ...DEFAULT_WIDTHS })
+const colOrder = ref(COLS.map((c) => c.id))
+
+const CELL_TITLES = {
+  ctx: 'Context length',
+  lat: '50th percentile latency',
+  tps: '50th percentile tokens per second',
+  logs: 'Provider logs your prompts',
+  trains: 'Provider trains on your data',
+  peak: 'Peak and off-peak hours',
+  allowance: 'Monthly allowance = usage included per month at full price; weekly = 50%; 5h = 20%. Effective Go price applies only if you use the full monthly allowance',
+}
+const NUM_DISP = { ctx: 'ctxDisp', lat: 'latDisp', tps: 'tpsDisp' }
+
+function colById(id) { return COLS.find((c) => c.id === id) }
+function tdTitle(colId) { return CELL_TITLES[colId] || undefined }
+function cellClass(colId, r) {
+  if (colId === 'model') return 'model'
+  if (colId === 'logs' || colId === 'trains') return 'yesno ' + r[colId]
+  if (colId === 'allowance') return 'allow'
+  if (colId === 'notes') return 'notes'
+  if (colById(colId).kind === 'numeric') return 'num'
+  return ''
+}
+
+function loadLayout() {
+  try {
+    const raw = localStorage.getItem('oc_layout')
+    if (!raw) return
+    const s = JSON.parse(raw)
+    if (s && Array.isArray(s.order)) {
+      const valid = s.order.filter((id) => colById(id))
+      const rest = COLS.filter((c) => !valid.includes(c.id)).map((c) => c.id)
+      colOrder.value = [...valid, ...rest]
+    }
+    if (s && s.widths && typeof s.widths === 'object') {
+      for (const id of Object.keys(s.widths)) {
+        const w = Number(s.widths[id])
+        if (colById(id) && Number.isFinite(w) && w >= 4) colWidths[id] = w
+      }
+    }
+  } catch (e) { /* ignore corrupted layout */ }
+}
+function saveLayout() {
+  try {
+    localStorage.setItem('oc_layout', JSON.stringify({ order: colOrder.value, widths: colWidths }))
+  } catch (e) { /* ignore */ }
+}
+function resetLayout() {
+  colOrder.value = COLS.map((c) => c.id)
+  for (const id of Object.keys(DEFAULT_WIDTHS)) colWidths[id] = DEFAULT_WIDTHS[id]
+  saveLayout()
+}
+loadLayout()
+
+const drag = ref(null)
+const suppressClick = ref(false)
+function onHeaderPointerDown(e, colId) {
+  if (e.button !== undefined && e.button !== 0) return
+  drag.value = { id: colId, startX: e.clientX, startY: e.clientY, active: false, overId: null, before: false }
+  window.addEventListener('pointermove', onHeaderPointerMove)
+  window.addEventListener('pointerup', onHeaderPointerUp)
+  window.addEventListener('pointercancel', onHeaderPointerUp)
+}
+function onHeaderPointerMove(e) {
+  const d = drag.value
+  if (!d) return
+  if (!d.active) {
+    if (Math.abs(e.clientX - d.startX) < 5 && Math.abs(e.clientY - d.startY) < 5) return
+    d.active = true
+    suppressClick.value = true
+  }
+  const th = e.target && e.target.closest ? e.target.closest('th') : null
+  const colId = th && th.dataset.col
+  if (!colId) { d.overId = null; return }
+  if (colId === d.id) { d.overId = null; return }
+  const rect = th.getBoundingClientRect()
+  const before = e.clientX < rect.left + rect.width / 2
+  if (d.overId === colId && d.before === before) return
+  d.overId = colId
+  d.before = before
+  moveCol(d.id, colId, before)
+}
+function moveCol(fromId, toId, before) {
+  const arr = [...colOrder.value]
+  const from = arr.indexOf(fromId)
+  if (from < 0) return
+  const [moved] = arr.splice(from, 1)
+  const to = arr.indexOf(toId)
+  if (to < 0) return
+  arr.splice(before ? to : to + 1, 0, moved)
+  colOrder.value = arr
+}
+function onHeaderPointerUp() {
+  const d = drag.value
+  if (!d) return
+  window.removeEventListener('pointermove', onHeaderPointerMove)
+  window.removeEventListener('pointerup', onHeaderPointerUp)
+  window.removeEventListener('pointercancel', onHeaderPointerUp)
+  if (d.active) {
+    saveLayout()
+    setTimeout(() => { suppressClick.value = false }, 0)
+  }
+  drag.value = null
+}
 
 const resizing = ref(null)
 function onResizeStart(e, colId) {
@@ -254,6 +360,7 @@ function onResizeEnd() {
   resizing.value = null
   document.removeEventListener('mousemove', onResizeMove)
   document.removeEventListener('mouseup', onResizeEnd)
+  saveLayout()
 }
 
 function tableStyle() {
@@ -291,40 +398,48 @@ function tableStyle() {
         @click="copyLink"
         :disabled="linkCopied"
       >{{ linkCopied ? 'Copied!' : 'Copy link' }}</button>
+      <button type="button" class="reset-btn" @click="resetLayout">Reset layout</button>
     </div>
 
     <div class="tablewrap">
       <table :style="tableStyle()">
         <colgroup>
-          <col v-for="c in COLS" :key="c.id" :style="{ width: colWidths[c.id] + '%' }">
+          <col v-for="colId in colOrder" :key="colId" :style="{ width: colWidths[colId] + '%' }">
         </colgroup>
         <thead>
           <tr class="cols">
             <th
-              v-for="c in COLS"
-              :key="c.id"
-              :class="[c.kind === 'numeric' ? 'num' : '', sortKey === c.id ? 'active' : '']"
-              @click="toggleSort(c.id)"
-              :title="c.kind === 'numeric' ? 'Click to sort' : 'Click to sort'"
+              v-for="colId in colOrder"
+              :key="colId"
+              :class="[
+                colById(colId).kind === 'numeric' ? 'num' : '',
+                sortKey === colId ? 'active' : '',
+                drag && drag.active && drag.id === colId ? 'dragging' : '',
+                drag && drag.active && drag.id !== colId && drag.overId === colId ? (drag.before ? 'drop-left' : 'drop-right') : '',
+              ]"
+              @click="toggleSort(colId)"
+              title="Click to sort. Drag to reorder."
+              :data-col="colId"
+              @pointerdown="onHeaderPointerDown($event, colId)"
             >
-              <span class="th-inner">{{ c.label }}</span>
-              <span v-if="sortKey === c.id" class="arrow">{{ sortDir < 0 ? '▲' : '▼' }}</span>
-              <span class="resize-handle" @mousedown.stop="onResizeStart($event, c.id)"></span>
+              <span class="th-inner">{{ colById(colId).label }}</span>
+              <span v-if="sortKey === colId" class="arrow">{{ sortDir < 0 ? '▲' : '▼' }}</span>
+              <span class="resize-handle" @pointerdown.stop @mousedown.stop="onResizeStart($event, colId)"></span>
             </th>
           </tr>
           <tr class="filters">
-            <th v-for="c in COLS" :key="c.id" :class="c.kind === 'numeric' ? 'num' : ''">
-              <template v-if="c.kind === 'numeric'">
+            <th v-for="colId in colOrder" :key="colId" :data-col="colId" :class="colById(colId).kind === 'numeric' ? 'num' : ''">
+              <template v-if="colById(colId).kind === 'numeric'">
                 <span class="rng">
-                  <input v-model="numFilters[c.id].min" placeholder="min" @input.stop>
-                  <input v-model="numFilters[c.id].max" placeholder="max" @input.stop>
+                  <input v-model="numFilters[colId].min" placeholder="min" @input.stop>
+                  <input v-model="numFilters[colId].max" placeholder="max" @input.stop>
                 </span>
               </template>
               <template v-else>
                 <MultiSelect
-                  :options="distinctOptions[c.id] || []"
-                  v-model:selected="multiFilters[c.id]"
-                  :label="c.label"
+                  :options="distinctOptions[colId] || []"
+                  v-model:selected="multiFilters[colId]"
+                  :label="colById(colId).label"
                 />
               </template>
             </th>
@@ -332,60 +447,62 @@ function tableStyle() {
         </thead>
         <tbody>
           <tr v-for="(r, i) in sorted" :key="i">
-            <td class="model">{{ r.model }}</td>
-            <td>
-              <a
-                v-if="r.planLink"
-                :href="r.planLink"
-                target="_blank"
-                rel="noopener"
-                class="plan"
-                :class="'p-' + r.market"
-              >{{ r.plan }}</a>
-              <span v-else class="plan" :class="'p-' + r.market">{{ r.plan }}</span>
+            <td
+              v-for="colId in colOrder"
+              :key="colId"
+              :class="cellClass(colId, r)"
+              :title="tdTitle(colId)"
+            >
+              <template v-if="colId === 'model'">{{ r.model }}</template>
+
+              <template v-else-if="colId === 'plan'">
+                <a
+                  v-if="r.planLink"
+                  :href="r.planLink"
+                  target="_blank"
+                  rel="noopener"
+                  class="plan"
+                  :class="'p-' + r.market"
+                >{{ r.plan }}</a>
+                <span v-else class="plan" :class="'p-' + r.market">{{ r.plan }}</span>
+              </template>
+
+              <template v-else-if="colId === 'provider'">
+                <a
+                  v-if="r.provider"
+                  :href="r.providerLink"
+                  target="_blank"
+                  rel="noopener"
+                  class="prov"
+                >{{ r.provider }}</a>
+                <span v-else class="dash">—</span>
+              </template>
+
+              <template v-else-if="colId === 'in' || colId === 'out' || colId === 'rd' || colId === 'wr'">
+                <div class="cell-disp" :class="{ dual: r[colId + 'Cell'].pair }">
+                  <div class="real" :title="r[colId + 'Cell'].realTip || null">{{ r[colId + 'Cell'].real }}</div>
+                  <div v-if="r[colId + 'Cell'].pair" class="list" :title="r[colId + 'Cell'].listTip || null">{{ r[colId + 'Cell'].list }}</div>
+                </div>
+              </template>
+
+              <template v-else-if="colId === 'ctx' || colId === 'lat' || colId === 'tps'">
+                {{ r[NUM_DISP[colId]] }}
+              </template>
+
+              <template v-else-if="colId === 'logs' || colId === 'trains'">
+                {{ r[colId] }}
+              </template>
+
+              <template v-else-if="colId === 'peak'">
+                {{ r.peak || '—' }}
+              </template>
+
+              <span v-else-if="colId === 'allowance'" v-html="r.allowance"></span>
+
+              <template v-else>
+                {{ r.notes }}
+              </template>
             </td>
-            <td>
-              <a
-                v-if="r.provider"
-                :href="r.providerLink"
-                target="_blank"
-                rel="noopener"
-                class="prov"
-              >{{ r.provider }}</a>
-              <span v-else class="dash">—</span>
-            </td>
-            <td class="num">
-              <div class="cell-disp" :class="{ dual: r.inCell.pair }">
-                <div class="real" :title="r.inCell.realTip || null">{{ r.inCell.real }}</div>
-                <div v-if="r.inCell.pair" class="list" :title="r.inCell.listTip || null">{{ r.inCell.list }}</div>
-              </div>
-            </td>
-            <td class="num">
-              <div class="cell-disp" :class="{ dual: r.outCell.pair }">
-                <div class="real" :title="r.outCell.realTip || null">{{ r.outCell.real }}</div>
-                <div v-if="r.outCell.pair" class="list" :title="r.outCell.listTip || null">{{ r.outCell.list }}</div>
-              </div>
-            </td>
-            <td class="num">
-              <div class="cell-disp" :class="{ dual: r.rdCell.pair }">
-                <div class="real" :title="r.rdCell.realTip || null">{{ r.rdCell.real }}</div>
-                <div v-if="r.rdCell.pair" class="list" :title="r.rdCell.listTip || null">{{ r.rdCell.list }}</div>
-              </div>
-            </td>
-            <td class="num">
-              <div class="cell-disp" :class="{ dual: r.wrCell.pair }">
-                <div class="real" :title="r.wrCell.realTip || null">{{ r.wrCell.real }}</div>
-                <div v-if="r.wrCell.pair" class="list" :title="r.wrCell.listTip || null">{{ r.wrCell.list }}</div>
-              </div>
-            </td>
-            <td class="num" :title="'Context length'">{{ r.ctxDisp }}</td>
-            <td class="num" :title="'50th percentile latency'">{{ r.latDisp }}</td>
-            <td class="num" :title="'50th percentile tokens per second'">{{ r.tpsDisp }}</td>
-            <td class="yesno" :class="r.logs" :title="'Provider logs your prompts'">{{ r.logs }}</td>
-            <td class="yesno" :class="r.trains" :title="'Provider trains on your data'">{{ r.trains }}</td>
-            <td :title="'Peak and off-peak hours'">{{ r.peak || '—' }}</td>
-            <td class="allow" v-html="r.allowance" title="Monthly allowance = usage included per month at full price; weekly = 50%; 5h = 20%. Effective Go price applies only if you use the full monthly allowance"></td>
-            <td class="notes">{{ r.notes }}</td>
           </tr>
         </tbody>
       </table>
@@ -454,9 +571,13 @@ thead tr.cols th {
   font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em;
   color: var(--muted); font-weight: 700; padding: 6px 8px;
   white-space: normal; line-height: 1.3; overflow-wrap: anywhere;
+  touch-action: none;
 }
 thead tr.cols th.active { color: var(--accent-strong); }
 thead tr.cols th:hover { color: var(--accent); }
+thead tr.cols th.dragging { opacity: 0.45; }
+thead tr.cols th.drop-left { box-shadow: inset 2px 0 0 var(--accent); }
+thead tr.cols th.drop-right { box-shadow: inset -2px 0 0 var(--accent); }
 thead tr.filters th { cursor: default; padding: 4px 6px; overflow: visible; }
 .th-inner { pointer-events: none; }
 .arrow { font-size: 0.5rem; pointer-events: none; margin-left: 1px; }

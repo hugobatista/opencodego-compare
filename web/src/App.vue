@@ -79,7 +79,7 @@ const SOURCES = [
         <span class="default">default {{ (meta.salesTaxDefault * 100).toFixed(2) }}%</span>
       </div>
     </label>
-    <p class="hint">Sort by clicking a column header. Filter with the dropdowns (multi-select) and the min/max fields.</p>
+    <p class="hint">Sort by clicking a column header. Drag headers to reorder — the layout is saved. Filter with the dropdowns (multi-select) and the min/max fields.</p>
   </div>
 
   <PriceTable :rows="rows" :meta="meta" :tax="tax" />
