@@ -34,7 +34,7 @@ Gotchas:
 
 - `fetch.yml` runs on `main` only, daily 05:05 UTC; auto-commits `data/` as `chore: refresh pricing data`, which then triggers `deploy.yml`.
 - `deploy.yml` also runs on push to `main` touching `web/**` or `data/**`. Builds the site, deploys to GitHub Pages under `/opencodego-compare/`.
-- Work happens on `dev`; pushes there do nothing.
+- All work happens on `main`; `dev` was removed.
 
 ## Verify
 
