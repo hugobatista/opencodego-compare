@@ -1,0 +1,39 @@
+name: fetch-data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '5 5 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r fetch/requirements.txt
+
+      - name: Run pipeline
+        run: |
+          python3 fetch/run_all.py
+          python3 fetch/build_json.py
+
+      - name: Commit data changes
+        run: |
+          git config user.name "opencode-bot"
+          git config user.email "actions@github.com"
+          git add data
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: refresh pricing data"
+          git push

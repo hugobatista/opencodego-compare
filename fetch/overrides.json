@@ -1,0 +1,6 @@
+{
+  "forceLogs": {"xAI": true},
+  "go": {
+    "exclude": ["MiniMax M2.5"]
+  }
+}
