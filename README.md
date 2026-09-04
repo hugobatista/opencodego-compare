@@ -13,7 +13,7 @@ All prices are in **$ per 1M tokens** and normalized so you can compare apples t
 ## ✨ Features
 
 - **Three markets, one table** — Go, Zen, and OpenRouter rows merged into a single sortable, filterable view.
-- **True cost, not list price** — hover any price cell to see how it was computed (effective Go price, OpenRouter fee + tax, or Zen listed price).
+- **True cost, not list price** — hover any price cell to see how it was computed (effective Go price, OpenRouter fee + tax, or Zen listed price). Go effective prices assume the full monthly allowance is used.
 - **Per-model filters** — filter by provider, context, latency, TPS, prompt logging, training on data, peak slots, and more.
 - **Free Zen models highlighted** — free tiers are detected and labeled automatically.
 - **Daily automated refresh** — prices are re-fetched by a scheduled CI job.
@@ -22,9 +22,11 @@ All prices are in **$ per 1M tokens** and normalized so you can compare apples t
 
 | Market | Formula |
 | --- | --- |
-| OpenCode Go | Effective = listed × (10 ÷ $10/mo allowance) |
+| OpenCode Go | Effective = listed × (10 ÷ monthly allowance) |
 | OpenRouter | Real = listed × 1.055 service fee × (1 + sales tax) |
 | OpenCode Zen | Real = listed |
+
+The Go effective price is a best-case rate: it assumes the flat $10/month fee is spread over the full monthly allowance included for that model. It is real only if you consume the whole allowance. Use less and the real cost per token is higher; go over and the excess is billed at listed price (Zen balance) or blocked.
 
 The sales tax defaults to 24.25% and is adjustable in the UI. See `data/prices.json` → `meta` for the current defaults.
 

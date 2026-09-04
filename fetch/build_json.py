@@ -211,7 +211,7 @@ def main():
                 'zen': 'https://opencode.ai/docs/zen',
                 'or': 'https://openrouter.ai',
             },
-            'note': 'Prices in $/1M tokens unless noted. Go effective prices assume $10/mo subscription.',
+            'note': 'Prices in $/1M tokens unless noted. Go effective prices assume $10/mo subscription and are realized only if the full monthly allowance is used.',
         },
         'rows': all_rows,
     }

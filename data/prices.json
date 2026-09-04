@@ -1,5 +1,5 @@
 {
-  "generated_date": "2026-09-04 22:49:05 UTC",
+  "generated_date": "2026-09-04 22:54:54 UTC",
   "meta": {
     "salesTaxDefault": 0.2425,
     "openrouterServiceFee": 0.055,
@@ -9,7 +9,7 @@
       "zen": "https://opencode.ai/docs/zen",
       "or": "https://openrouter.ai"
     },
-    "note": "Prices in $/1M tokens unless noted. Go effective prices assume $10/mo subscription."
+    "note": "Prices in $/1M tokens unless noted. Go effective prices assume $10/mo subscription and are realized only if the full monthly allowance is used."
   },
   "rows": [
     {

@@ -18,7 +18,11 @@ const pos = ref({ top: 0, left: 0, width: 0 })
 const filteredOptions = computed(() => {
   const q = query.value.trim().toLowerCase()
   if (!q) return props.options
-  return props.options.filter((o) => o.toLowerCase().includes(q))
+  const words = q.split(/\s+/)
+  return props.options.filter((o) => {
+    const opt = o.toLowerCase()
+    return words.every((w) => opt.includes(w))
+  })
 })
 
 const allSelected = computed(() => {

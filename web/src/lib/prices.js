@@ -2,13 +2,13 @@ const OPENROUTER_SERVICE_FEE = 0.055
 
 export function fmtMoney(v) {
   if (v === null || v === undefined) return '—'
-  return '$' + Number(v).toFixed(2)
+  return '$' + Number(v).toFixed(3)
 }
 
 export function fmtAllow(v) {
   const w = v * 0.5
   const f = v * 0.2
-  const money = (x) => Number(x).toFixed(2)
+  const money = (x) => Number(x).toFixed(3)
   return `$${money(v)} monthly<br>$${money(w)} weekly<br>$${money(f)} /5h`
 }
 
@@ -44,7 +44,7 @@ export function buildRow(row, meta, tax) {
     if (m === 'go') r = v  // already effective per-1M
     else if (m === 'or') r = computeReal(v, v, tax)
     else r = v
-    return Math.round(r * 100) / 100
+    return Math.round(r * 1000) / 1000
   }
 
   const mkCell = (eff, list) => {
@@ -53,13 +53,13 @@ export function buildRow(row, meta, tax) {
     const rawList = list === null || list === undefined ? null : list
     const pair = rawReal !== null && rawList !== null && Math.abs(rawReal - rawList) > 1e-6
     const disp = rawReal !== null ? fmtMoney(rawReal) : (rawList !== null ? fmtMoney(rawList) : '—')
-    const money = (x) => '$' + Number(x).toFixed(2)
+    const money = (x) => '$' + Number(x).toFixed(3)
     let realTip = ''
     if (rawList !== null && rawReal !== null) {
       if (m === 'or') {
         realTip = `Real = listed ${money(rawList)} × (1 + ${(OPENROUTER_SERVICE_FEE * 100).toFixed(1)}% fee) × (1 + ${(tax * 100).toFixed(2)}% tax) = ${money(rawReal)}`
       } else if (m === 'go' && eff != null && row.effAll > 0) {
-        realTip = `Effective = listed ${money(rawList)} × (10 ÷ $${Number(row.effAll).toFixed(2)} monthly allowance) = ${money(rawReal)}`
+        realTip = `Effective = listed ${money(rawList)} × (10 ÷ $${Number(row.effAll).toFixed(3)} monthly allowance) = ${money(rawReal)} — only if the full monthly allowance is used`
       } else {
         realTip = `Real = listed ${money(rawList)}`
       }
@@ -74,8 +74,7 @@ export function buildRow(row, meta, tax) {
     }
   }
 
-  const offpeak = /\(off-peak\)/i.test(row.model || '')
-  const peak = row.peakHours ? `${offpeak ? 'Off-Peak' : 'Peak'}: ${row.peakHours}` : null
+  const peak = row.peakHours || null
 
   const PLAN = {
     go: { label: 'OpenCode Go', link: meta.links?.go },

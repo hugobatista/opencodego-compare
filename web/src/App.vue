@@ -43,7 +43,7 @@ const SOURCES = [
 
   <div class="legend">
     <span><strong>Real</strong> price on top, <em>listed</em> below.</span>&nbsp;
-    <span><strong>Go:</strong> eff = listed × (10 ÷ monthly allowance), $10/mo.</span>&nbsp;
+    <span><strong>Go:</strong> eff = listed × (10 ÷ monthly allowance), $10/mo — only if you use the full monthly allowance.</span>&nbsp;
     <span><strong>OpenRouter:</strong> real = listed × (1 + {{ feePct }}% fee, min $0.80) × (1 + tax).</span>&nbsp;
     <span><strong>Zen:</strong> real = listed.</span>
   </div>

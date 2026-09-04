@@ -306,7 +306,7 @@ function tableStyle() {
             <td class="yesno" :class="r.logs" :title="'Provider logs your prompts'">{{ r.logs }}</td>
             <td class="yesno" :class="r.trains" :title="'Provider trains on your data'">{{ r.trains }}</td>
             <td :title="'Peak and off-peak hours'">{{ r.peak || '—' }}</td>
-            <td class="allow" v-html="r.allowance" title="Monthly allowance = price per month at full price; weekly = 50%; 5h = 20%"></td>
+            <td class="allow" v-html="r.allowance" title="Monthly allowance = usage included per month at full price; weekly = 50%; 5h = 20%. Effective Go price applies only if you use the full monthly allowance"></td>
             <td class="notes">{{ r.notes }}</td>
           </tr>
         </tbody>
