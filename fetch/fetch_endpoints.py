@@ -1,18 +1,56 @@
 #!/usr/bin/env python3
-"""Fetch per-provider endpoint details from OpenRouter model pages."""
+"""Fetch per-provider endpoint details for OpenRouter models.
 
+The structured API (1.4 KB/model) is the primary source. A per-model sha1
+digest of the API payload decides whether the heavy model page (417 KB) must
+be re-fetched to refresh data_policy and promo notes. Unchanged models reuse
+the previously written data, so daily runs only touch changed models.
+"""
+
+import hashlib
 import json
 import os
 import re
+import urllib.parse
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), '..', 'data')
 OR_BASE = 'https://openrouter.ai'
-
+OR_API = 'https://openrouter.ai/api/v1/models'
 
 PROMO_RE = re.compile(
     r'Limited-time\s+(\d+)%\s+discount\s+via\s+(.+?)\s+through\s+(.+?)\s*\.'
 )
+
+# Runtime stats change every run; they must not invalidate the cache.
+VOLATILE_FIELDS = (
+    'latency_last_30m',
+    'throughput_last_30m',
+    'uptime_last_30m',
+    'uptime_last_5m',
+    'uptime_last_1d',
+)
+
+API_WORKERS = 16
+HTML_WORKERS = 8
+
+
+def new_session():
+    """A request session with retries for transient failures."""
+    s = requests.Session()
+    s.headers['User-Agent'] = 'modelpricing-bot/1.0'
+    retry = Retry(
+        total=3,
+        backoff_factor=0.5,
+        status_forcelist=(429, 500, 502, 503, 504),
+        allowed_methods=('GET',),
+    )
+    s.mount('https://', HTTPAdapter(max_retries=retry))
+    return s
 
 
 def extract_promos(u):
@@ -35,13 +73,11 @@ def promo_note(promos, pct, name):
     return None
 
 
-def fetch_model_endpoints(model_id):
+def fetch_model_endpoints(model_id, session=None):
     """Fetch endpoints for a single model from its page."""
     url = f'{OR_BASE}/{model_id}'
     try:
-        resp = requests.get(url, timeout=60, headers={
-            'User-Agent': 'modelpricing-bot/1.0'
-        })
+        resp = (session or new_session()).get(url, timeout=60)
         resp.raise_for_status()
     except Exception as e:
         print(f'  Error fetching {model_id}: {e}')
@@ -140,6 +176,63 @@ def fetch_model_endpoints(model_id):
     return list(by_slug.values())
 
 
+def fetch_api_endpoints(session, model_id):
+    """Fetch the structured endpoint list for one model from the API."""
+    url = f'{OR_API}/{urllib.parse.quote(model_id, safe="/")}/endpoints'
+    resp = session.get(url, timeout=30)
+    resp.raise_for_status()
+    data = resp.json().get('data', {})
+    return data.get('endpoints', [])
+
+
+def api_digest(endpoints):
+    """sha1 over the API payload, ignoring volatile runtime stats."""
+    quiet = [{k: v for k, v in e.items() if k not in VOLATILE_FIELDS}
+             for e in endpoints]
+    raw = json.dumps(quiet, sort_keys=True, separators=(',', ':')).encode()
+    return hashlib.sha1(raw).hexdigest()
+
+
+def fetch_all_api(models, workers=API_WORKERS):
+    """Fetch the API payload for all models in parallel."""
+    session = new_session()
+    out = {}
+
+    def task(m):
+        model_id = m['id']
+        try:
+            eps = fetch_api_endpoints(session, model_id)
+        except Exception as e:
+            print(f'  API error {model_id}: {e}')
+            return model_id, None
+        return model_id, {'endpoints': eps, 'digest': api_digest(eps)}
+
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        futs = {ex.submit(task, m): m['id'] for m in models}
+        for i, fut in enumerate(as_completed(futs), 1):
+            model_id, res = fut.result()
+            out[model_id] = res
+            print(f'  API [{i}/{len(models)}] {model_id}')
+    return out
+
+
+def fetch_all_html(model_ids, workers=HTML_WORKERS):
+    """Fetch model pages for the given models in parallel."""
+    session = new_session()
+    out = {}
+
+    def task(model_id):
+        return model_id, fetch_model_endpoints(model_id, session)
+
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        futs = {ex.submit(task, mid): mid for mid in model_ids}
+        for i, fut in enumerate(as_completed(futs), 1):
+            model_id, eps = fut.result()
+            out[model_id] = eps
+            print(f'  HTML [{i}/{len(model_ids)}] refresh {model_id}')
+    return out
+
+
 def main():
     or_path = os.path.join(DATA_DIR, 'openrouter.json')
     if not os.path.exists(or_path):
@@ -149,21 +242,62 @@ def main():
     with open(or_path) as f:
         models = json.load(f)
 
-    result = {}
-    total = len(models)
-    for i, m in enumerate(models):
-        model_id = m['id']
-        print(f'[{i+1}/{total}] {model_id}')
-        endpoints = fetch_model_endpoints(model_id)
-        result[model_id] = {
-            'endpoints': endpoints,
-            'name': m.get('name', ''),
-        }
-
+    # The previous output doubles as the cache.
     out_path = os.path.join(DATA_DIR, 'or_endpoints.json')
+    cache = {}
+    if os.path.exists(out_path):
+        with open(out_path) as f:
+            cache = json.load(f)
+
+    print(f'Fetching API endpoints for {len(models)} models...')
+    api = fetch_all_api(models)
+
+    # Only models whose API data changed need the heavy HTML page re-fetched.
+    to_refresh = []
+    for m in models:
+        model_id = m['id']
+        a = api.get(model_id)
+        cached = cache.get(model_id, {})
+        if a is not None and (
+            not cached.get('endpoints') or cached.get('digest') != a['digest']
+        ):
+            to_refresh.append(model_id)
+
+    html = {}
+    if to_refresh:
+        print(f'Fetching HTML pages for {len(to_refresh)} changed models...')
+        html = fetch_all_html(to_refresh)
+
+    result = {}
+    reused = 0
+    for m in models:
+        model_id = m['id']
+        a = api.get(model_id)
+        cached = cache.get(model_id, {})
+        if a is None:
+            # API failed: keep whatever we have rather than losing data.
+            result[model_id] = {
+                'endpoints': cached.get('endpoints', []),
+                'digest': cached.get('digest'),
+            }
+        elif model_id in to_refresh:
+            eps = html.get(model_id)
+            if not eps and cached.get('endpoints'):
+                print(f'  Warning: HTML refresh failed for {model_id}, keeping cached')
+                eps = cached['endpoints']
+            result[model_id] = {'endpoints': eps or [], 'digest': a['digest']}
+        else:
+            result[model_id] = {
+                'endpoints': cached.get('endpoints', []),
+                'digest': cached.get('digest'),
+            }
+            reused += 1
+
     with open(out_path, 'w') as f:
         json.dump(result, f, indent=2)
     print(f'Saved endpoint data for {len(result)} models to {out_path}')
+    print(f'  Reused unchanged: {reused}')
+    print(f'  HTML re-fetched: {len(to_refresh)}')
 
 
 if __name__ == '__main__':

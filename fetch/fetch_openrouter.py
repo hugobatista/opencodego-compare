@@ -24,14 +24,20 @@ def main():
         if m.get('id') and 'auto' not in m['id'].lower()
     ]
 
-    # Filter out models where all endpoints have zero price
+    # Keep only the fields downstream needs and filter out models where all
+    # endpoints have zero price
     result = []
     for m in filtered:
         pricing = m.get('pricing', {})
         prompt = float(pricing.get('prompt', '0') or '0')
         completion = float(pricing.get('completion', '0') or '0')
         if prompt > 0 or completion > 0:
-            result.append(m)
+            result.append({
+                'id': m['id'],
+                'name': m.get('name', ''),
+                'context_length': m.get('context_length'),
+                'pricing': {k: v for k, v in pricing.items() if v},
+            })
 
     out_path = os.path.join(DATA_DIR, 'openrouter.json')
     with open(out_path, 'w') as f:
