@@ -201,7 +201,7 @@ def main():
         all_rows.extend(build_or_rows(openrouter_data, endpoints_data))
 
     output = {
-        'generated_date': datetime.now(timezone.utc).strftime('%Y-%m-%d'),
+        'generated_date': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC'),
         'meta': {
             'salesTaxDefault': OPENROUTER_SALES_TAX_DEFAULT,
             'openrouterServiceFee': OPENROUTER_SERVICE_FEE,

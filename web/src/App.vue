@@ -25,7 +25,7 @@ const SOURCES = [
 <template>
   <header class="hero">
     <h1>OpenCode Go vs alternatives</h1>
-    <p class="subtitle">Model pricing comparison — refreshed {{ generated }} (UTC)</p>
+    <p class="subtitle">Model pricing comparison — refreshed {{ generated }}</p>
     <div class="srcs">
       <a
         v-for="s in SOURCES"
