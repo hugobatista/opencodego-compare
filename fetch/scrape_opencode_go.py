@@ -66,7 +66,7 @@ def scrape():
     overrides_path = os.path.join(os.path.dirname(__file__), 'overrides.json')
     with open(overrides_path) as f:
         overrides = json.load(f)
-    go_exclude = overrides.get('go', {}).get('exclude', [])
+    go_exclude = overrides.get('opencode-go', {}).get('exclude', [])
 
     # Table 1: Pricing
     pricing_table = tables[1]
@@ -108,7 +108,7 @@ def scrape():
             eff_write = (cached_write or 0) * factor if cached_write is not None else None
 
         rows_out.append({
-            'market': 'go',
+            'market': 'opencode-go',
             'model': model,
             'base': model.split('(')[0].strip(),
             'plan': 'OpenCode Go',
@@ -164,7 +164,7 @@ def scrape():
                     row['logsPrompts'] = val['logsPrompts']
                     break
 
-    out_path = os.path.join(DATA_DIR, 'go.json')
+    out_path = os.path.join(DATA_DIR, 'opencode-go.json')
     with open(out_path, 'w') as f:
         json.dump(rows_out, f, indent=2)
     print(f'Saved {len(rows_out)} Go models to {out_path}')

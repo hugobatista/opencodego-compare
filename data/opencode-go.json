@@ -1,6 +1,6 @@
 [
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "Grok 4.6 (\u2264 200K tokens)",
     "base": "Grok 4.6",
     "plan": "OpenCode Go",
@@ -24,7 +24,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "Grok 4.6 (> 200K tokens)",
     "base": "Grok 4.6",
     "plan": "OpenCode Go",
@@ -48,7 +48,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "GPT 5.6 Luna (\u2264 272K tokens)",
     "base": "GPT 5.6 Luna",
     "plan": "OpenCode Go",
@@ -72,7 +72,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "GPT 5.6 Luna (> 272K tokens)",
     "base": "GPT 5.6 Luna",
     "plan": "OpenCode Go",
@@ -96,7 +96,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "GLM-5.3-Flash",
     "base": "GLM-5.3-Flash",
     "plan": "OpenCode Go",
@@ -120,7 +120,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "GLM-5.3",
     "base": "GLM-5.3",
     "plan": "OpenCode Go",
@@ -144,7 +144,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "GLM-5.2",
     "base": "GLM-5.2",
     "plan": "OpenCode Go",
@@ -168,7 +168,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "GLM-5.1",
     "base": "GLM-5.1",
     "plan": "OpenCode Go",
@@ -192,7 +192,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "Kimi K3",
     "base": "Kimi K3",
     "plan": "OpenCode Go",
@@ -216,7 +216,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "Kimi K2.7 Code",
     "base": "Kimi K2.7 Code",
     "plan": "OpenCode Go",
@@ -240,7 +240,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "Kimi K2.6",
     "base": "Kimi K2.6",
     "plan": "OpenCode Go",
@@ -264,7 +264,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "LongCat-2.0",
     "base": "LongCat-2.0",
     "plan": "OpenCode Go",
@@ -288,7 +288,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "MiMo V2.5",
     "base": "MiMo V2.5",
     "plan": "OpenCode Go",
@@ -312,7 +312,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "MiMo V2.5 Pro",
     "base": "MiMo V2.5 Pro",
     "plan": "OpenCode Go",
@@ -336,7 +336,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "MiniMax M3",
     "base": "MiniMax M3",
     "plan": "OpenCode Go",
@@ -360,7 +360,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "MiniMax M2.7",
     "base": "MiniMax M2.7",
     "plan": "OpenCode Go",
@@ -384,7 +384,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "Muse Spark 1.3 Contributor",
     "base": "Muse Spark 1.3 Contributor",
     "plan": "OpenCode Go",
@@ -408,7 +408,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "Muse Spark 1.2 Contributor",
     "base": "Muse Spark 1.2 Contributor",
     "plan": "OpenCode Go",
@@ -432,7 +432,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "Qwen3.8 Max",
     "base": "Qwen3.8 Max",
     "plan": "OpenCode Go",
@@ -456,7 +456,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "Qwen3.8 Flash",
     "base": "Qwen3.8 Flash",
     "plan": "OpenCode Go",
@@ -480,7 +480,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "Qwen3.7 Max",
     "base": "Qwen3.7 Max",
     "plan": "OpenCode Go",
@@ -504,7 +504,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "Qwen3.7 Plus (\u2264 256K tokens)",
     "base": "Qwen3.7 Plus",
     "plan": "OpenCode Go",
@@ -528,7 +528,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "Qwen3.7 Plus (> 256K tokens)",
     "base": "Qwen3.7 Plus",
     "plan": "OpenCode Go",
@@ -552,7 +552,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "Qwen3.6 Plus (\u2264 256K tokens)",
     "base": "Qwen3.6 Plus",
     "plan": "OpenCode Go",
@@ -576,7 +576,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "Qwen3.6 Plus (> 256K tokens)",
     "base": "Qwen3.6 Plus",
     "plan": "OpenCode Go",
@@ -600,7 +600,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "DeepSeek V4 Pro (Off-Peak)",
     "base": "DeepSeek V4 Pro",
     "plan": "OpenCode Go",
@@ -624,7 +624,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "DeepSeek V4 Pro (Peak)",
     "base": "DeepSeek V4 Pro",
     "plan": "OpenCode Go",
@@ -648,7 +648,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "DeepSeek V4 Flash (Off-Peak)",
     "base": "DeepSeek V4 Flash",
     "plan": "OpenCode Go",
@@ -672,7 +672,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "DeepSeek V4 Flash (Peak)",
     "base": "DeepSeek V4 Flash",
     "plan": "OpenCode Go",
@@ -696,7 +696,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "DeepSeek V4 Flash Vision Exp (Off-Peak)",
     "base": "DeepSeek V4 Flash Vision Exp",
     "plan": "OpenCode Go",
@@ -720,7 +720,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "DeepSeek V4 Flash Vision Exp (Peak)",
     "base": "DeepSeek V4 Flash Vision Exp",
     "plan": "OpenCode Go",
@@ -744,7 +744,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "Hy4 preview",
     "base": "Hy4 preview",
     "plan": "OpenCode Go",
@@ -768,7 +768,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "Hy3",
     "base": "Hy3",
     "plan": "OpenCode Go",
@@ -792,7 +792,7 @@
     "notes": ""
   },
   {
-    "market": "go",
+    "market": "opencode-go",
     "model": "Omen Alpha",
     "base": "Omen Alpha",
     "plan": "OpenCode Go",

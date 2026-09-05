@@ -199,7 +199,7 @@ def scrape():
 
         for disp_name, in_p, out_p, rd_p, wr_p in variants:
             rows_out.append({
-                'market': 'goat',
+                'market': 'command-code-goat',
                 'model': disp_name,
                 'base': disp_name.split('(')[0].strip(),
                 'plan': 'Command Code GOAT',
@@ -223,7 +223,7 @@ def scrape():
             'notes': notes,
         })
 
-    out_path = os.path.join(DATA_DIR, 'goat.json')
+    out_path = os.path.join(DATA_DIR, 'command-code-goat.json')
     with open(out_path, 'w') as f:
         json.dump(rows_out, f, indent=2)
     print(f'Saved {len(rows_out)} GOAT models to {out_path}')

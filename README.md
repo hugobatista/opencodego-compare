@@ -1,6 +1,6 @@
 # OpenCode Go vs Zen vs OpenRouter — Price Comparison 💸
 
-Compare real-world LLM pricing across [OpenCode Go](https://opencode.ai/docs/go), [Command Code GOAT](https://commandcode.ai/docs/plans/goat), [OpenCode Zen](https://opencode.ai/docs/zen), and [OpenRouter](https://openrouter.ai).
+Compare real-world LLM pricing across [OpenCode Go](https://opencode.ai/docs/go), [Command Code GOAT](https://commandcode.ai/docs/plans/goat), [OpenCode Zen](https://opencode.ai/docs/zen), [OpenRouter](https://openrouter.ai), and [DeepInfra](https://deepinfra.com/pricing).
 
 All prices are in **$ per 1M tokens** and normalized so you can compare apples to apples — listed prices, effective subscription costs, and OpenRouter's fee + tax markup are all visible side by side.
 
@@ -12,8 +12,8 @@ All prices are in **$ per 1M tokens** and normalized so you can compare apples t
 
 ## ✨ Features
 
-- **Four markets, one table** — Go, GOAT, Zen, and OpenRouter rows merged into a single sortable, filterable view.
-- **True cost, not list price** — hover any price cell to see how it was computed (effective Go price, OpenRouter fee + tax, or Zen listed price). Go effective prices assume the full monthly allowance is used.
+- **Five markets, one table** — Go, GOAT, Zen, OpenRouter, and DeepInfra rows merged into a single sortable, filterable view.
+- **True cost, not list price** — hover any price cell to see how it was computed (effective Go price, OpenRouter fee + tax, or listed price). Go effective prices assume the full monthly allowance is used.
 - **Per-model filters** — filter by provider, context, latency, TPS, prompt logging, training on data, peak slots, and more.
 - **Free Zen models highlighted** — free tiers are detected and labeled automatically.
 - **Daily automated refresh** — prices are re-fetched by a scheduled CI job.
@@ -26,6 +26,7 @@ All prices are in **$ per 1M tokens** and normalized so you can compare apples t
 | Command Code GOAT | Effective = listed × (10 ÷ per-model monthly credits) |
 | OpenRouter | Real = listed × 1.055 service fee × (1 + sales tax) |
 | OpenCode Zen | Real = listed |
+| DeepInfra | Real = listed |
 
 The Go and GOAT effective prices are best-case rates: they assume the flat $10/month fee is spread over the full monthly allowance or per-model credits included. They are real only if you consume the whole allowance. Use less and the real cost per token is higher; go over and the excess is billed at listed price (Zen balance), at regular rates (GOAT pay-as-you-go credits) or blocked.
 
@@ -54,7 +55,7 @@ Then open `http://localhost:5173`. Build with `npm run build`.
 
 ### Data pipeline
 
-The pipeline fetches live pricing from all four providers and regenerates `data/prices.json`.
+The pipeline fetches live pricing from all five providers and regenerates `data/prices.json`.
 
 ```bash
 pip install -r fetch/requirements.txt
@@ -62,7 +63,7 @@ python3 fetch/run_all.py
 python3 fetch/build_json.py
 ```
 
-Refresh order: `fetch_openrouter.py` → `fetch_endpoints.py` → `scrape_go.py` → `scrape_zen.py` → `scrape_goat.py` → `build_json.py`.
+Refresh order: `fetch_openrouter.py` → `fetch_deepinfra.py` → `fetch_endpoints.py` → `scrape_opencode_go.py` → `scrape_opencode_zen.py` → `scrape_command_code_goat.py` → `build_json.py`.
 
 > [!NOTE]
 > `build_json.py` must always run after any fetch step, or `data/prices.json` goes stale.

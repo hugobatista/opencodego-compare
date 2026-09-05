@@ -40,8 +40,8 @@ def context_from_name(model):
     return int(m.group(1)) * 1000 if m else None
 
 
-def lookup_or_context(base, name_map, id_map):
-    """Find an OR context_length for a go/zen base name.
+def lookup_openrouter_context(base, name_map, id_map):
+    """Find an openrouter context_length for a go/zen base name.
 
     Mirrors the frontend rule: exact match, or prefix/containment match
     when the normalized base has 8+ alnum chars (avoids short-name clashes).
@@ -66,29 +66,39 @@ def fill_context(rows, name_map, id_map):
             continue
         r['context'] = (
             context_from_name(r['model'])
-            or lookup_or_context(r.get('base'), name_map, id_map)
+            or lookup_openrouter_context(r.get('base'), name_map, id_map)
         )
     return rows
 
 
-def build_go_rows(go_data, or_name_ctx, or_id_ctx):
-    """Go rows already have effective prices computed by scrape_go.py."""
-    return fill_context(go_data, or_name_ctx, or_id_ctx)
+def build_opencode_go_rows(go_data, openrouter_name_ctx, openrouter_id_ctx):
+    """OpenCode Go rows already have effective prices computed by the scraper."""
+    return fill_context(go_data, openrouter_name_ctx, openrouter_id_ctx)
 
 
-def build_zen_rows(zen_data, or_name_ctx, or_id_ctx):
-    """Zen rows: real = listed (no multiplier)."""
+def build_opencode_zen_rows(zen_data, openrouter_name_ctx, openrouter_id_ctx):
+    """OpenCode Zen rows: real = listed (no multiplier)."""
     for row in zen_data:
         row['effIn'] = row['input']
         row['effOut'] = row['output']
         row['effRead'] = row['read']
         row['effWrite'] = row['write']
-    return fill_context(zen_data, or_name_ctx, or_id_ctx)
+    return fill_context(zen_data, openrouter_name_ctx, openrouter_id_ctx)
 
 
-def build_goat_rows(goat_data, or_name_ctx, or_id_ctx):
-    """GOAT rows already have effective prices computed by scrape_goat.py."""
-    return fill_context(goat_data, or_name_ctx, or_id_ctx)
+def build_command_code_goat_rows(goat_data, openrouter_name_ctx, openrouter_id_ctx):
+    """Command Code GOAT rows already have effective prices computed by the scraper."""
+    return fill_context(goat_data, openrouter_name_ctx, openrouter_id_ctx)
+
+
+def build_deepinfra_rows(deepinfra_data, openrouter_name_ctx, openrouter_id_ctx):
+    """DeepInfra rows: real = listed (no multiplier), like Zen."""
+    for row in deepinfra_data:
+        row['effIn'] = row['input']
+        row['effOut'] = row['output']
+        row['effRead'] = row['read']
+        row['effWrite'] = row['write']
+    return fill_context(deepinfra_data, openrouter_name_ctx, openrouter_id_ctx)
 
 
 MODELMARKETS_BASE = 'https://modelmarkets.ai'
@@ -224,7 +234,7 @@ def match_modelmarkets(mm_data):
 def link_candidates(row):
     """Names to try when matching a row to a modelmarkets entry."""
     base = row.get('base') or row.get('model') or ''
-    if row.get('market') == 'or':
+    if row.get('market') == 'openrouter':
         yield re.split(r'[:,@]', base)[-1]
     else:
         name = re.sub(r'\s*\(.*?\)\s*', '', base)
@@ -265,7 +275,7 @@ def add_model_links(rows, mm_data):
             row['hfLink'] = HUGGINGFACE_BASE + hf if hf else None
             org = matched.get('org')
             slug = matched.get('slug')
-            if org and slug and row.get('market') != 'or':
+            if org and slug and row.get('market') != 'openrouter':
                 row['developerId'] = f'{org}/{slug}'
             if org:
                 row['maker'] = maker_lookup(org) or pretty_noun(org)
@@ -280,7 +290,7 @@ def add_model_links(rows, mm_data):
     return rows
 
 
-def build_or_rows(openrouter_data, endpoints_data):
+def build_openrouter_rows(openrouter_data, endpoints_data):
     """Build OpenRouter rows with real prices including fee + tax."""
     rows = []
 
@@ -349,7 +359,7 @@ def build_or_rows(openrouter_data, endpoints_data):
 
         for ep in records:
             row = {
-                'market': 'or',
+                'market': 'openrouter',
                 'model': name,
                 'base': model_id,
                 'developerId': model_id,
@@ -385,33 +395,36 @@ def build_or_rows(openrouter_data, endpoints_data):
 
 
 def main():
-    go_data = load_json('go.json')
-    zen_data = load_json('zen.json')
-    goat_data = load_json('goat.json')
+    go_data = load_json('opencode-go.json')
+    zen_data = load_json('opencode-zen.json')
+    goat_data = load_json('command-code-goat.json')
+    deepinfra_data = load_json('deepinfra.json')
     openrouter_data = load_json('openrouter.json')
     endpoints_data = load_json('or_endpoints.json')
     modelmarkets_data = load_json('modelmarkets.json')
 
-    or_name_ctx = {}
-    or_id_ctx = {}
+    openrouter_name_ctx = {}
+    openrouter_id_ctx = {}
     if openrouter_data:
         for m in openrouter_data:
             ctx = m.get('context_length')
             if not ctx:
                 continue
-            or_name_ctx.setdefault(norm_key(m.get('name')), ctx)
-            or_id_ctx.setdefault(norm_key(m.get('id')), ctx)
+            openrouter_name_ctx.setdefault(norm_key(m.get('name')), ctx)
+            openrouter_id_ctx.setdefault(norm_key(m.get('id')), ctx)
 
     all_rows = []
 
     if go_data:
-        all_rows.extend(build_go_rows(go_data, or_name_ctx, or_id_ctx))
+        all_rows.extend(build_opencode_go_rows(go_data, openrouter_name_ctx, openrouter_id_ctx))
     if goat_data:
-        all_rows.extend(build_goat_rows(goat_data, or_name_ctx, or_id_ctx))
+        all_rows.extend(build_command_code_goat_rows(goat_data, openrouter_name_ctx, openrouter_id_ctx))
     if zen_data:
-        all_rows.extend(build_zen_rows(zen_data, or_name_ctx, or_id_ctx))
+        all_rows.extend(build_opencode_zen_rows(zen_data, openrouter_name_ctx, openrouter_id_ctx))
     if openrouter_data:
-        all_rows.extend(build_or_rows(openrouter_data, endpoints_data))
+        all_rows.extend(build_openrouter_rows(openrouter_data, endpoints_data))
+    if deepinfra_data:
+        all_rows.extend(build_deepinfra_rows(deepinfra_data, openrouter_name_ctx, openrouter_id_ctx))
 
     add_model_links(all_rows, modelmarkets_data)
     assign_variants(all_rows)
@@ -426,10 +439,11 @@ def main():
             'openrouterServiceFee': OPENROUTER_SERVICE_FEE,
             'openrouterServiceFeeMin': OPENROUTER_SERVICE_FEE_MIN,
             'links': {
-                'go': 'https://opencode.ai/docs/go',
-                'goat': 'https://commandcode.ai/docs/plans/goat',
-                'zen': 'https://opencode.ai/docs/zen',
-                'or': 'https://openrouter.ai',
+                'opencode-go': 'https://opencode.ai/docs/go',
+                'command-code-goat': 'https://commandcode.ai/docs/plans/goat',
+                'opencode-zen': 'https://opencode.ai/docs/zen',
+                'openrouter': 'https://openrouter.ai',
+                'deepinfra': 'https://deepinfra.com/pricing',
             },
             'note': 'Prices in $/1M tokens unless noted. Go effective prices assume $10/mo subscription and are realized only if the full monthly allowance is used. GOAT effective prices assume $10/mo subscription and the per-model monthly credit allowance.',
         },

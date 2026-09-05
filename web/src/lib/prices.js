@@ -41,13 +41,13 @@ export function computeReal(value, listed, tax) {
 
 export function buildRow(row, meta, tax) {
   const m = row.market
-  const free = (m === 'zen' || m === 'goat') && row.input === 0
+  const free = (m === 'opencode-zen' || m === 'command-code-goat') && row.input === 0
 
   const val = (v) => {
     if (v === null || v === undefined) return null
     let r
-    if (m === 'go' || m === 'goat') r = v  // already effective per-1M
-    else if (m === 'or') r = computeReal(v, v, tax)
+    if (m === 'opencode-go' || m === 'command-code-goat') r = v  // already effective per-1M
+    else if (m === 'openrouter') r = computeReal(v, v, tax)
     else r = v
     return Math.round(r * 1000) / 1000
   }
@@ -61,9 +61,9 @@ export function buildRow(row, meta, tax) {
     const money = (x) => '$' + Number(x).toFixed(3)
     let realTip = ''
     if (rawList !== null && rawReal !== null) {
-      if (m === 'or') {
+      if (m === 'openrouter') {
         realTip = `Real = listed ${money(rawList)} × (1 + ${(OPENROUTER_SERVICE_FEE * 100).toFixed(1)}% fee) × (1 + ${(tax * 100).toFixed(2)}% tax) = ${money(rawReal)}`
-      } else if ((m === 'go' || m === 'goat') && eff != null && row.effAll > 0) {
+      } else if ((m === 'opencode-go' || m === 'command-code-goat') && eff != null && row.effAll > 0) {
         realTip = `Effective = listed ${money(rawList)} × (10 ÷ $${Number(row.effAll).toFixed(3)} monthly allowance) = ${money(rawReal)} — only if the full monthly allowance is used`
       } else {
         realTip = `Real = listed ${money(rawList)}`
@@ -82,10 +82,11 @@ export function buildRow(row, meta, tax) {
   const peak = row.peakHours || null
 
   const PLAN = {
-    go: { label: 'OpenCode Go', link: meta.links?.go },
-    goat: { label: 'Command Code GOAT', link: meta.links?.goat },
-    zen: { label: 'OpenCode Zen', link: meta.links?.zen },
-    or: { label: 'OpenRouter', link: meta.links?.or },
+    'opencode-go': { label: 'OpenCode Go', link: meta.links?.['opencode-go'] },
+    'command-code-goat': { label: 'Command Code GOAT', link: meta.links?.['command-code-goat'] },
+    'opencode-zen': { label: 'OpenCode Zen', link: meta.links?.['opencode-zen'] },
+    openrouter: { label: 'OpenRouter', link: meta.links?.openrouter },
+    deepinfra: { label: 'DeepInfra', link: meta.links?.deepinfra },
   }
 
   return {
@@ -97,13 +98,13 @@ export function buildRow(row, meta, tax) {
     developerId: row.developerId || '',
     plan: row.plan || PLAN[m]?.label || m,
     planLink: PLAN[m]?.link || null,
-    provider: m === 'or' ? row.provider : '',
-    providerLink: m === 'or' ? row.providerLink : '',
-    variantLink: m === 'or' ? row.variantLink : null,
+    provider: m === 'openrouter' ? row.provider : '',
+    providerLink: m === 'openrouter' ? row.providerLink : '',
+    variantLink: (m === 'openrouter' || m === 'deepinfra') ? row.variantLink : null,
     modelLink: row.modelLink || null,
     hfLink: row.hfLink || null,
     notes: row.notes || '',
-    allowance: free ? '' : (m === 'go' ? fmtAllow(row.effAll) : (m === 'goat' && row.effAll > 0 ? fmtGoatAllow(row.effAll) : 'Pay per usage')),
+    allowance: free ? '' : (m === 'opencode-go' ? fmtAllow(row.effAll) : (m === 'command-code-goat' && row.effAll > 0 ? fmtGoatAllow(row.effAll) : 'Pay per usage')),
     logs: fmtBool(row.logsPrompts),
     trains: fmtBool(row.trainsOnData),
     peak,
@@ -125,9 +126,9 @@ export function buildRow(row, meta, tax) {
     textM: row.model || row.variant,
     textV: row.variant || row.model,
     textK: row.maker || '',
-    textP: m === 'or' ? row.provider : '',
+    textP: m === 'openrouter' ? row.provider : '',
     textPlan: PLAN[m]?.label || m,
-    textA: free ? '' : (m === 'go' ? fmtAllow(row.effAll).replace(/<br>/g, ' ') : (m === 'goat' && row.effAll > 0 ? fmtGoatAllow(row.effAll).replace(/<br>/g, ' ') : 'Pay per usage')),
+    textA: free ? '' : (m === 'opencode-go' ? fmtAllow(row.effAll).replace(/<br>/g, ' ') : (m === 'command-code-goat' && row.effAll > 0 ? fmtGoatAllow(row.effAll).replace(/<br>/g, ' ') : 'Pay per usage')),
     textN: row.notes || '',
   }
 }

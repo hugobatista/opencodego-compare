@@ -25,10 +25,11 @@ const tax = computed(() => taxPct.value / 100)
 const feePct = ((meta.openrouterServiceFee ?? meta.serviceFee) * 100).toFixed(1)
 
 const SOURCES = [
-  { key: 'go', name: 'OpenCode Go', url: meta.links.go },
-  { key: 'goat', name: 'Command Code GOAT', url: meta.links.goat },
-  { key: 'zen', name: 'OpenCode Zen', url: meta.links.zen },
-  { key: 'or', name: 'OpenRouter', url: meta.links.or },
+  { key: 'opencode-go', name: 'OpenCode Go', url: meta.links['opencode-go'] },
+  { key: 'command-code-goat', name: 'Command Code GOAT', url: meta.links['command-code-goat'] },
+  { key: 'opencode-zen', name: 'OpenCode Zen', url: meta.links['opencode-zen'] },
+  { key: 'openrouter', name: 'OpenRouter', url: meta.links.openrouter },
+  { key: 'deepinfra', name: 'DeepInfra', url: meta.links.deepinfra },
 ]
 </script>
 
@@ -56,7 +57,8 @@ const SOURCES = [
     <span><strong>Go:</strong> eff = listed × (10 ÷ monthly allowance), $10/mo — only if you use the full monthly allowance.</span>&nbsp;
     <span><strong>GOAT:</strong> eff = listed × (10 ÷ per-model monthly credits), $10/mo — only if you use the full allowance.</span>&nbsp;
     <span><strong>OpenRouter:</strong> real = listed × (1 + {{ feePct }}% fee, min $0.80) × (1 + tax).</span>&nbsp;
-    <span><strong>Zen:</strong> real = listed.</span>
+    <span><strong>Zen:</strong> real = listed.</span>&nbsp;
+    <span><strong>DeepInfra:</strong> real = listed.</span>
   </div>
 
   <div class="controls">

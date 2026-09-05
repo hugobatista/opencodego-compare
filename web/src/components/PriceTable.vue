@@ -44,33 +44,33 @@ for (const c of COLS) {
 
 const display = computed(() => props.rows.map((r) => buildRow(r, props.meta, props.tax)))
 
-const onlyGoZen = ref(true)
+const onlyCommonModels = ref(true)
 const norm = (s) => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '')
-const goZenFamilies = computed(() => {
+const commonFamilies = computed(() => {
   const set = new Set()
   for (const r of props.rows) {
-    if (r.market === 'or') continue
+    if (r.market === 'openrouter') continue
     if (r.model) set.add(norm(r.model))
   }
   return [...set].sort((a, b) => b.length - a.length)
 })
-const orMatches = (r) => {
-  if (r.market !== 'or' || !onlyGoZen.value) return true
+const openrouterMatches = (r) => {
+  if (r.market !== 'openrouter' || !onlyCommonModels.value) return true
   const fam = norm(r.model)
-  if (goZenFamilies.value.includes(fam)) return true
-  return goZenFamilies.value.some((b) => b.length >= 8 && fam.startsWith(b))
+  if (commonFamilies.value.includes(fam)) return true
+  return commonFamilies.value.some((b) => b.length >= 8 && fam.startsWith(b))
 }
 
-const pool = computed(() => display.value.filter(orMatches))
+const pool = computed(() => display.value.filter(openrouterMatches))
 
-const orShow = ref(3)
+const openrouterShow = ref(3)
 const limited = computed(() => {
-  const N = orShow.value
+  const N = openrouterShow.value
   if (N === 'all') return pool.value
   const byKey = new Map()
   const out = []
   for (const r of pool.value) {
-    if (r.market !== 'or') { out.push(r); continue }
+    if (r.market !== 'openrouter') { out.push(r); continue }
     const key = r.developerId || r.model
     const arr = byKey.get(key) || []
     arr.push(r)
@@ -131,10 +131,10 @@ if (sortRaw) {
   if (col) sortKey.value = k
   if (d === '-1') sortDir.value = -1
 }
-if (paramStr(urlParams, 'gozen', '1') === '0') onlyGoZen.value = false
-const orRaw = paramStr(urlParams, 'orshow', '3')
-if (orRaw === 'all') orShow.value = 'all'
-else if (Number.isInteger(Number(orRaw)) && Number(orRaw) >= 1 && Number(orRaw) <= 5) orShow.value = Number(orRaw)
+if (paramStr(urlParams, 'common', '1') === '0') onlyCommonModels.value = false
+const orRaw = paramStr(urlParams, 'openroutershow', '3')
+if (orRaw === 'all') openrouterShow.value = 'all'
+else if (Number.isInteger(Number(orRaw)) && Number(orRaw) >= 1 && Number(orRaw) <= 5) openrouterShow.value = Number(orRaw)
 
 for (const c of COLS) {
   if (c.kind === 'numeric') {
@@ -184,16 +184,16 @@ function reset() {
   }
   sortKey.value = 'in'
   sortDir.value = 1
-  onlyGoZen.value = true
-  orShow.value = 3
+  onlyCommonModels.value = true
+  openrouterShow.value = 3
   writeParams(toParams())
 }
 
 function toParams() {
   const out = {}
   out.sort = sortKey.value === 'in' && sortDir.value === 1 ? '' : sortKey.value + ':' + sortDir.value
-  out.gozen = onlyGoZen.value ? '' : '0'
-  out.orshow = orShow.value === 3 ? '' : String(orShow.value)
+  out.common = onlyCommonModels.value ? '' : '0'
+  out.openroutershow = openrouterShow.value === 3 ? '' : String(openrouterShow.value)
   for (const c of COLS) {
     if (c.kind === 'numeric') {
       out['min_' + c.id] = numFilters[c.id].min
@@ -378,12 +378,12 @@ function tableStyle() {
   <div>
     <div class="subbar">
       <label class="toggle">
-        <input type="checkbox" v-model="onlyGoZen">
+        <input type="checkbox" v-model="onlyCommonModels">
         <span>Only common models</span>
       </label>
       <label class="plimit">
         <span>Cheapest OR providers/model:</span>
-        <select v-model="orShow">
+        <select v-model="openrouterShow">
           <option :value="1">1</option>
           <option :value="2">2</option>
           <option :value="3">3</option>
@@ -647,14 +647,16 @@ a.vlink:hover { text-decoration: underline; color: var(--accent); }
 a.plan { text-decoration: none; }
 a.plan:hover { text-decoration: underline; }
 .plan { font-weight: 600; font-size: 0.8rem; white-space: normal; overflow-wrap: anywhere; }
-.p-go  { color: #2e7d32; }
-.p-goat { color: #b3541e; }
-.p-or  { color: #2b6cb0; }
-.p-zen { color: #7c3aed; }
-:global(.dark) .p-go, :global(html[data-theme=dark]) .p-go  { color: #a5d6a7; }
-:global(.dark) .p-goat, :global(html[data-theme=dark]) .p-goat { color: #ffab7d; }
-:global(.dark) .p-or,  :global(html[data-theme=dark]) .p-or  { color: #90caf9; }
-:global(.dark) .p-zen, :global(html[data-theme=dark]) .p-zen { color: #b39ddb; }
+.p-opencode-go  { color: #2e7d32; }
+.p-command-code-goat { color: #b3541e; }
+.p-openrouter  { color: #2b6cb0; }
+.p-opencode-zen { color: #7c3aed; }
+.p-deepinfra { color: #0e7490; }
+:global(.dark) .p-opencode-go, :global(html[data-theme=dark]) .p-opencode-go  { color: #a5d6a7; }
+:global(.dark) .p-command-code-goat, :global(html[data-theme=dark]) .p-command-code-goat { color: #ffab7d; }
+:global(.dark) .p-openrouter,  :global(html[data-theme=dark]) .p-openrouter  { color: #90caf9; }
+:global(.dark) .p-opencode-zen, :global(html[data-theme=dark]) .p-opencode-zen { color: #b39ddb; }
+:global(.dark) .p-deepinfra, :global(html[data-theme=dark]) .p-deepinfra { color: #67e8f9; }
 
 .yesno { font-size: 0.76rem; }
 .yesno.Yes { color: var(--bad); font-weight: 600; }

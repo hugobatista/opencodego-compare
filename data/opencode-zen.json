@@ -1,6 +1,6 @@
 [
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Big Pickle",
     "base": "Big Pickle",
     "plan": "OpenCode Zen",
@@ -24,7 +24,7 @@
     "notes": "Trains during free period \u00b7 Free tier"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "MiMo-V2.5 Free",
     "base": "MiMo-V2.5 Free",
     "plan": "OpenCode Zen",
@@ -48,7 +48,7 @@
     "notes": "Trains during free period \u00b7 Free tier"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Ling 3.0 Flash Fin Free",
     "base": "Ling 3.0 Flash Fin Free",
     "plan": "OpenCode Zen",
@@ -72,7 +72,7 @@
     "notes": "Trains during free period \u00b7 Free tier"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Nemotron 3 Ultra Free",
     "base": "Nemotron 3 Ultra Free",
     "plan": "OpenCode Zen",
@@ -96,7 +96,7 @@
     "notes": "NVIDIA trial: logged \u00b7 Free tier"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Nemotron 3.5 Lightning Free",
     "base": "Nemotron 3.5 Lightning Free",
     "plan": "OpenCode Zen",
@@ -120,7 +120,7 @@
     "notes": "NVIDIA trial: logged \u00b7 Free tier"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Muse Spark 1.3 Contributor Free",
     "base": "Muse Spark 1.3 Contributor Free",
     "plan": "OpenCode Zen",
@@ -144,7 +144,7 @@
     "notes": "Meta: trains on prompts \u00b7 Free tier"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "MiniMax M3",
     "base": "MiniMax M3",
     "plan": "OpenCode Zen",
@@ -168,7 +168,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "MiniMax M2.7",
     "base": "MiniMax M2.7",
     "plan": "OpenCode Zen",
@@ -192,7 +192,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GLM 5.3 Flash",
     "base": "GLM 5.3 Flash",
     "plan": "OpenCode Zen",
@@ -216,7 +216,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GLM 5.3",
     "base": "GLM 5.3",
     "plan": "OpenCode Zen",
@@ -240,7 +240,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GLM 5.2",
     "base": "GLM 5.2",
     "plan": "OpenCode Zen",
@@ -264,7 +264,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GLM 5.1",
     "base": "GLM 5.1",
     "plan": "OpenCode Zen",
@@ -288,7 +288,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Kimi K2.7 Code",
     "base": "Kimi K2.7 Code",
     "plan": "OpenCode Zen",
@@ -312,7 +312,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Kimi K3",
     "base": "Kimi K3",
     "plan": "OpenCode Zen",
@@ -336,7 +336,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Kimi K2.6",
     "base": "Kimi K2.6",
     "plan": "OpenCode Zen",
@@ -360,7 +360,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Qwen3.7 Max",
     "base": "Qwen3.7 Max",
     "plan": "OpenCode Zen",
@@ -384,7 +384,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Qwen3.7 Plus",
     "base": "Qwen3.7 Plus",
     "plan": "OpenCode Zen",
@@ -408,7 +408,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Qwen3.6 Plus",
     "base": "Qwen3.6 Plus",
     "plan": "OpenCode Zen",
@@ -432,7 +432,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Qwen3.5 Plus",
     "base": "Qwen3.5 Plus",
     "plan": "OpenCode Zen",
@@ -456,7 +456,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "DeepSeek V4 Pro",
     "base": "DeepSeek V4 Pro",
     "plan": "OpenCode Zen",
@@ -480,7 +480,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "DeepSeek V4 Flash",
     "base": "DeepSeek V4 Flash",
     "plan": "OpenCode Zen",
@@ -504,7 +504,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "DeepSeek V4 Flash Vision Exp",
     "base": "DeepSeek V4 Flash Vision Exp",
     "plan": "OpenCode Zen",
@@ -528,7 +528,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Claude Fable 5.1",
     "base": "Claude Fable 5.1",
     "plan": "OpenCode Zen",
@@ -552,7 +552,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Claude Fable 5",
     "base": "Claude Fable 5",
     "plan": "OpenCode Zen",
@@ -576,7 +576,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Claude Opus 5",
     "base": "Claude Opus 5",
     "plan": "OpenCode Zen",
@@ -600,7 +600,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Claude Opus 4.8",
     "base": "Claude Opus 4.8",
     "plan": "OpenCode Zen",
@@ -624,7 +624,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Claude Opus 4.7",
     "base": "Claude Opus 4.7",
     "plan": "OpenCode Zen",
@@ -648,7 +648,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Claude Opus 4.6",
     "base": "Claude Opus 4.6",
     "plan": "OpenCode Zen",
@@ -672,7 +672,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Claude Opus 4.5",
     "base": "Claude Opus 4.5",
     "plan": "OpenCode Zen",
@@ -696,7 +696,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Claude Sonnet 5",
     "base": "Claude Sonnet 5",
     "plan": "OpenCode Zen",
@@ -720,7 +720,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Claude Sonnet 4.6",
     "base": "Claude Sonnet 4.6",
     "plan": "OpenCode Zen",
@@ -744,7 +744,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Claude Sonnet 4.5 (\u2264 200K tokens)",
     "base": "Claude Sonnet 4.5 (\u2264 200K tokens)",
     "plan": "OpenCode Zen",
@@ -768,7 +768,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Claude Sonnet 4.5 (> 200K tokens)",
     "base": "Claude Sonnet 4.5 (> 200K tokens)",
     "plan": "OpenCode Zen",
@@ -792,7 +792,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Claude Haiku 4.5",
     "base": "Claude Haiku 4.5",
     "plan": "OpenCode Zen",
@@ -816,7 +816,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Gemini 3.8 Flash",
     "base": "Gemini 3.8 Flash",
     "plan": "OpenCode Zen",
@@ -840,7 +840,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Gemini 3.7 Flash",
     "base": "Gemini 3.7 Flash",
     "plan": "OpenCode Zen",
@@ -864,7 +864,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Gemini 3.6 Flash",
     "base": "Gemini 3.6 Flash",
     "plan": "OpenCode Zen",
@@ -888,7 +888,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Gemini 3.5 Flash",
     "base": "Gemini 3.5 Flash",
     "plan": "OpenCode Zen",
@@ -912,7 +912,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Gemini 3.5 Flash Lite",
     "base": "Gemini 3.5 Flash Lite",
     "plan": "OpenCode Zen",
@@ -936,7 +936,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Gemini 3.1 Pro (\u2264 200K tokens)",
     "base": "Gemini 3.1 Pro (\u2264 200K tokens)",
     "plan": "OpenCode Zen",
@@ -960,7 +960,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Gemini 3.1 Pro (> 200K tokens)",
     "base": "Gemini 3.1 Pro (> 200K tokens)",
     "plan": "OpenCode Zen",
@@ -984,7 +984,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Gemini 3 Flash",
     "base": "Gemini 3 Flash",
     "plan": "OpenCode Zen",
@@ -1008,7 +1008,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Grok 4.6 (\u2264 200K tokens)",
     "base": "Grok 4.6 (\u2264 200K tokens)",
     "plan": "OpenCode Zen",
@@ -1032,7 +1032,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Grok 4.6 (> 200K tokens)",
     "base": "Grok 4.6 (> 200K tokens)",
     "plan": "OpenCode Zen",
@@ -1056,7 +1056,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Grok 4.5 (\u2264 200K tokens)",
     "base": "Grok 4.5 (\u2264 200K tokens)",
     "plan": "OpenCode Zen",
@@ -1080,7 +1080,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Grok 4.5 (> 200K tokens)",
     "base": "Grok 4.5 (> 200K tokens)",
     "plan": "OpenCode Zen",
@@ -1104,7 +1104,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Grok Build 0.1",
     "base": "Grok Build 0.1",
     "plan": "OpenCode Zen",
@@ -1128,7 +1128,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Muse Spark 1.3",
     "base": "Muse Spark 1.3",
     "plan": "OpenCode Zen",
@@ -1152,7 +1152,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "Muse Spark 1.2",
     "base": "Muse Spark 1.2",
     "plan": "OpenCode Zen",
@@ -1176,7 +1176,7 @@
     "notes": ""
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GPT 6 Astra (\u2264 272K tokens)",
     "base": "GPT 6 Astra (\u2264 272K tokens)",
     "plan": "OpenCode Zen",
@@ -1200,7 +1200,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GPT 6 Astra (> 272K tokens)",
     "base": "GPT 6 Astra (> 272K tokens)",
     "plan": "OpenCode Zen",
@@ -1224,7 +1224,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GPT 5.6 Sol (\u2264 272K tokens)",
     "base": "GPT 5.6 Sol (\u2264 272K tokens)",
     "plan": "OpenCode Zen",
@@ -1248,7 +1248,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GPT 5.6 Sol (> 272K tokens)",
     "base": "GPT 5.6 Sol (> 272K tokens)",
     "plan": "OpenCode Zen",
@@ -1272,7 +1272,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GPT 5.6 Terra (\u2264 272K tokens)",
     "base": "GPT 5.6 Terra (\u2264 272K tokens)",
     "plan": "OpenCode Zen",
@@ -1296,7 +1296,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GPT 5.6 Terra (> 272K tokens)",
     "base": "GPT 5.6 Terra (> 272K tokens)",
     "plan": "OpenCode Zen",
@@ -1320,7 +1320,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GPT 5.6 Luna (\u2264 272K tokens)",
     "base": "GPT 5.6 Luna (\u2264 272K tokens)",
     "plan": "OpenCode Zen",
@@ -1344,7 +1344,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GPT 5.6 Luna (> 272K tokens)",
     "base": "GPT 5.6 Luna (> 272K tokens)",
     "plan": "OpenCode Zen",
@@ -1368,7 +1368,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GPT 5.5 (\u2264 272K tokens)",
     "base": "GPT 5.5 (\u2264 272K tokens)",
     "plan": "OpenCode Zen",
@@ -1392,7 +1392,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GPT 5.5 (> 272K tokens)",
     "base": "GPT 5.5 (> 272K tokens)",
     "plan": "OpenCode Zen",
@@ -1416,7 +1416,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GPT 5.5 Pro",
     "base": "GPT 5.5 Pro",
     "plan": "OpenCode Zen",
@@ -1440,7 +1440,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GPT 5.4 (\u2264 272K tokens)",
     "base": "GPT 5.4 (\u2264 272K tokens)",
     "plan": "OpenCode Zen",
@@ -1464,7 +1464,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GPT 5.4 (> 272K tokens)",
     "base": "GPT 5.4 (> 272K tokens)",
     "plan": "OpenCode Zen",
@@ -1488,7 +1488,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GPT 5.4 Pro",
     "base": "GPT 5.4 Pro",
     "plan": "OpenCode Zen",
@@ -1512,7 +1512,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GPT 5.4 Mini",
     "base": "GPT 5.4 Mini",
     "plan": "OpenCode Zen",
@@ -1536,7 +1536,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GPT 5.4 Nano",
     "base": "GPT 5.4 Nano",
     "plan": "OpenCode Zen",
@@ -1560,7 +1560,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GPT 5.3 Codex Spark",
     "base": "GPT 5.3 Codex Spark",
     "plan": "OpenCode Zen",
@@ -1584,7 +1584,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GPT 5.3 Codex",
     "base": "GPT 5.3 Codex",
     "plan": "OpenCode Zen",
@@ -1608,7 +1608,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GPT 5.2",
     "base": "GPT 5.2",
     "plan": "OpenCode Zen",
@@ -1632,7 +1632,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GPT 5.1",
     "base": "GPT 5.1",
     "plan": "OpenCode Zen",
@@ -1656,7 +1656,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GPT 5",
     "base": "GPT 5",
     "plan": "OpenCode Zen",
@@ -1680,7 +1680,7 @@
     "notes": "Retention: 30d"
   },
   {
-    "market": "zen",
+    "market": "opencode-zen",
     "model": "GPT 5 Nano",
     "base": "GPT 5 Nano",
     "plan": "OpenCode Zen",

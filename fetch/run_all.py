@@ -7,9 +7,10 @@ import os
 
 STAGE1 = [
     'fetch_openrouter.py',
-    'scrape_go.py',
-    'scrape_zen.py',
-    'scrape_goat.py',
+    'scrape_opencode_go.py',
+    'scrape_opencode_zen.py',
+    'scrape_command_code_goat.py',
+    'fetch_deepinfra.py',
 ]
 STAGE2 = [
     'fetch_endpoints.py',

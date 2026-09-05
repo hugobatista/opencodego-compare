@@ -1,6 +1,6 @@
 {
   "forceLogs": {"xAI": true},
-  "go": {
+  "opencode-go": {
     "exclude": ["MiniMax M2.5"]
   }
 }

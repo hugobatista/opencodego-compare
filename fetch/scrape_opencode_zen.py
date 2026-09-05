@@ -101,7 +101,7 @@ def scrape():
             peak_hours = OFFPEAK_HOURS
 
         rows_out.append({
-            'market': 'zen',
+            'market': 'opencode-zen',
             'model': model,
             'base': model,
             'plan': 'OpenCode Zen',
@@ -125,7 +125,7 @@ def scrape():
             'notes': notes,
         })
 
-    out_path = os.path.join(DATA_DIR, 'zen.json')
+    out_path = os.path.join(DATA_DIR, 'opencode-zen.json')
     with open(out_path, 'w') as f:
         json.dump(rows_out, f, indent=2)
     print(f'Saved {len(rows_out)} Zen models to {out_path}')
