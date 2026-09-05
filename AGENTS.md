@@ -16,13 +16,14 @@ Refresh in this exact order:
 python3 fetch/run_all.py && python3 fetch/build_json.py
 ```
 
-`run_all.py` stage 1 (`fetch_openrouter.py` + `scrape_go.py` + `scrape_zen.py`) runs in parallel, then `fetch_endpoints.py`, then `build_json.py`.
+`run_all.py` stage 1 (`fetch_openrouter.py` + `scrape_go.py` + `scrape_zen.py` + `fetch_modelmarkets.py`) runs in parallel, then `fetch_endpoints.py`, then `build_json.py`.
 `build_json.py` then merges all sources into `data/prices.json` and is run separately (CI does the same).
 `build_json.py` must always run after any fetch step, or `prices.json` goes stale.
 
 Gotchas:
 - Scrapers index tables by position (`tables[1]`, `tables[3]`) on `opencode.ai/docs/*`. Layout changes print a warning and exit 0 — check stderr/row counts, not exit codes.
 - `fetch_endpoints.py` uses the structured OpenRouter API per model and stores a sha1 `digest` in `or_endpoints.json`. The heavy HTML page is only re-fetched for models whose API digest changed (it carries `data_policy`, which the API lacks). The first run after this change fetches all HTML pages; later runs only changed models. `scrape_zen.py` is regex-based and fragile. `scrape_zen.py` hardcodes the per-model privacy policy.
+- `fetch_modelmarkets.py` fetches the models sitemap (allowed by robots.txt), caches `data/modelmarkets.json`, and re-fetches only pages whose sitemap `lastmod` changed. It regex-extracts the Hugging Face repo from each page (`hf` field) — only open-weight models have one. `build_json.py` matches every row to a slug by normalized name (OR: last segment of `base`; Go/Zen: name minus `(...)`/` Free`) — models absent from the modelmarkets catalog get no `modelLink`/`hfLink`.
 - Units: prices are $/1M tokens. Go effective = listed × 10 ÷ monthly allowance ($10/mo sub). OpenRouter real = listed × 1.055 fee × (1 + tax, default 24.25%). Zen real = listed.
 
 ## Config

@@ -453,7 +453,15 @@ function tableStyle() {
               :class="cellClass(colId, r)"
               :title="tdTitle(colId)"
             >
-              <template v-if="colId === 'model'">{{ r.model }}</template>
+              <template v-if="colId === 'model'">
+                <div class="cell-model">
+                  <span class="model-name">{{ r.model }}</span>
+                  <span class="model-links">
+                    <a v-if="r.modelLink" :href="r.modelLink" target="_blank" rel="noopener" class="mlink">ModelMarkets</a>
+                    <a v-if="r.hfLink" :href="r.hfLink" target="_blank" rel="noopener" class="mlink">HuggingFace</a>
+                  </span>
+                </div>
+              </template>
 
               <template v-else-if="colId === 'plan'">
                 <a
@@ -589,6 +597,16 @@ td.num { font-weight: 600; }
 .free { color: var(--ok); font-weight: 700; }
 
 td.model { font-weight: 600; overflow-wrap: anywhere; }
+
+.cell-model { display: flex; flex-direction: column; gap: 2px; }
+.model-name { overflow-wrap: anywhere; }
+.model-links { display: flex; flex-wrap: wrap; gap: 4px; font-weight: 400; }
+a.mlink {
+  color: var(--muted); font-size: 0.7rem; text-decoration: none;
+  border: 1px solid var(--border); border-radius: 5px; padding: 0 5px;
+  line-height: 1.5;
+}
+a.mlink:hover { color: var(--accent); border-color: var(--accent); }
 
 a.prov { color: var(--accent); text-decoration: none; }
 a.prov:hover { text-decoration: underline; }

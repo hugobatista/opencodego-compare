@@ -90,6 +90,8 @@ export function buildRow(row, meta, tax) {
     planLink: PLAN[m]?.link || null,
     provider: m === 'or' ? row.provider : '',
     providerLink: m === 'or' ? row.providerLink : '',
+    modelLink: row.modelLink || null,
+    hfLink: row.hfLink || null,
     notes: row.notes || '',
     allowance: free ? '' : (m === 'go' ? fmtAllow(row.effAll) : 'Pay per usage'),
     logs: fmtBool(row.logsPrompts),

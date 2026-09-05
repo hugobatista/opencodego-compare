@@ -9,6 +9,7 @@ STAGE1 = [
     'fetch_openrouter.py',
     'scrape_go.py',
     'scrape_zen.py',
+    'fetch_modelmarkets.py',
 ]
 STAGE2 = [
     'fetch_endpoints.py',

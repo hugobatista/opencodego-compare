@@ -79,6 +79,60 @@ def build_zen_rows(zen_data, or_name_ctx, or_id_ctx):
     return fill_context(zen_data, or_name_ctx, or_id_ctx)
 
 
+MODELMARKETS_BASE = 'https://modelmarkets.ai'
+HUGGINGFACE_BASE = 'https://huggingface.co/'
+
+
+def link_candidates(row):
+    """Names to try when matching a row to a modelmarkets entry."""
+    base = row.get('base') or row.get('model') or ''
+    if row.get('market') == 'or':
+        yield re.split(r'[:,@]', base)[-1]
+    else:
+        name = re.sub(r'\s*\(.*?\)\s*', '', base)
+        name = re.sub(r'\s+free\s*$', '', name, flags=re.I)
+        yield name.strip()
+    yield row.get('model') or base
+
+
+def build_modelmarkets_index(mm_data):
+    index = {}
+    for entry in mm_data or []:
+        index.setdefault(norm_key(entry.get('slug')), entry)
+    return index
+
+
+def add_model_links(rows, mm_data):
+    """Set modelLink/hfLink on every row, matched against modelmarkets."""
+    index = build_modelmarkets_index(mm_data)
+    for row in rows:
+        matched = None
+        for name in link_candidates(row):
+            entry = index.get(norm_key(name))
+            if entry:
+                matched = entry
+                break
+        if matched is None:
+            for name in link_candidates(row):
+                b = norm_key(name)
+                if len(b) < 8:
+                    continue
+                for key, entry in index.items():
+                    if key in b or b in key:
+                        matched = entry
+                        break
+                if matched:
+                    break
+        if matched:
+            row['modelLink'] = MODELMARKETS_BASE + matched['href']
+            hf = matched.get('hf')
+            row['hfLink'] = HUGGINGFACE_BASE + hf if hf else None
+        else:
+            row['modelLink'] = None
+            row['hfLink'] = None
+    return rows
+
+
 def build_or_rows(openrouter_data, endpoints_data):
     """Build OpenRouter rows with real prices including fee + tax."""
     rows = []
@@ -180,6 +234,7 @@ def main():
     zen_data = load_json('zen.json')
     openrouter_data = load_json('openrouter.json')
     endpoints_data = load_json('or_endpoints.json')
+    modelmarkets_data = load_json('modelmarkets.json')
 
     or_name_ctx = {}
     or_id_ctx = {}
@@ -199,6 +254,8 @@ def main():
         all_rows.extend(build_zen_rows(zen_data, or_name_ctx, or_id_ctx))
     if openrouter_data:
         all_rows.extend(build_or_rows(openrouter_data, endpoints_data))
+
+    add_model_links(all_rows, modelmarkets_data)
 
     output = {
         'generated_date': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC'),

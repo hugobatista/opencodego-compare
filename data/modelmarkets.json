@@ -1,0 +1,1528 @@
+[
+  {
+    "org": "google-deepmind",
+    "slug": "antigravity-agent-2026-05",
+    "href": "/models/google-deepmind/antigravity-agent-2026-05",
+    "lastmod": "2026-08-29T19:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "allenai",
+    "slug": "bolmo-7b",
+    "href": "/models/allenai/bolmo-7b",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": "allenai/Bolmo-7B"
+  },
+  {
+    "org": "anthropic",
+    "slug": "claude-fable-5",
+    "href": "/models/anthropic/claude-fable-5",
+    "lastmod": "2026-08-28T17:15:12+00:00",
+    "hf": null
+  },
+  {
+    "org": "anthropic",
+    "slug": "claude-fable-5-1",
+    "href": "/models/anthropic/claude-fable-5-1",
+    "lastmod": "2026-09-02T02:49:33+00:00",
+    "hf": null
+  },
+  {
+    "org": "anthropic",
+    "slug": "claude-haiku-4-5",
+    "href": "/models/anthropic/claude-haiku-4-5",
+    "lastmod": "2026-08-28T17:15:12+00:00",
+    "hf": null
+  },
+  {
+    "org": "anthropic",
+    "slug": "claude-mythos-5-1",
+    "href": "/models/anthropic/claude-mythos-5-1",
+    "lastmod": "2026-09-02T02:49:33+00:00",
+    "hf": null
+  },
+  {
+    "org": "anthropic",
+    "slug": "claude-opus-4-5",
+    "href": "/models/anthropic/claude-opus-4-5",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "anthropic",
+    "slug": "opus-4-6",
+    "href": "/models/anthropic/opus-4-6",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "anthropic",
+    "slug": "opus-4-7",
+    "href": "/models/anthropic/opus-4-7",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "anthropic",
+    "slug": "claude-opus-4-8",
+    "href": "/models/anthropic/claude-opus-4-8",
+    "lastmod": "2026-08-29T19:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "anthropic",
+    "slug": "claude-opus-5",
+    "href": "/models/anthropic/claude-opus-5",
+    "lastmod": "2026-08-28T17:15:12+00:00",
+    "hf": null
+  },
+  {
+    "org": "anthropic",
+    "slug": "claude-sonnet-4-5",
+    "href": "/models/anthropic/claude-sonnet-4-5",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "anthropic",
+    "slug": "sonnet-4-6",
+    "href": "/models/anthropic/sonnet-4-6",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "anthropic",
+    "slug": "claude-sonnet-5",
+    "href": "/models/anthropic/claude-sonnet-5",
+    "lastmod": "2026-08-28T17:15:12+00:00",
+    "hf": null
+  },
+  {
+    "org": "mistralai",
+    "slug": "codestral-22b-v0-1",
+    "href": "/models/mistralai/codestral-22b-v0-1",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "mistralai/Codestral-22B-v0.1"
+  },
+  {
+    "org": "coherelabs",
+    "slug": "command-a-03-2025",
+    "href": "/models/coherelabs/command-a-03-2025",
+    "lastmod": "2026-08-29T23:45:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "coherelabs",
+    "slug": "command-a-plus-05-2026-bf16",
+    "href": "/models/coherelabs/command-a-plus-05-2026-bf16",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "CohereLabs/command-a-plus-05-2026-bf16"
+  },
+  {
+    "org": "coherelabs",
+    "slug": "command-a-reasoning-08-2025",
+    "href": "/models/coherelabs/command-a-reasoning-08-2025",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "coherelabs",
+    "slug": "command-a-translate-08-2025",
+    "href": "/models/coherelabs/command-a-translate-08-2025",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "coherelabs",
+    "slug": "command-a-vision-07-2025",
+    "href": "/models/coherelabs/command-a-vision-07-2025",
+    "lastmod": "2026-08-29T23:45:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "deepseek-ai",
+    "slug": "deepseek-r1",
+    "href": "/models/deepseek-ai/deepseek-r1",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "deepseek-ai/DeepSeek-R1"
+  },
+  {
+    "org": "deepseek-ai",
+    "slug": "deepseek-v3",
+    "href": "/models/deepseek-ai/deepseek-v3",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "deepseek-ai/DeepSeek-V3"
+  },
+  {
+    "org": "deepseek-ai",
+    "slug": "deepseek-v3-2",
+    "href": "/models/deepseek-ai/deepseek-v3-2",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "deepseek-ai/DeepSeek-V3.2"
+  },
+  {
+    "org": "deepseek-ai",
+    "slug": "deepseek-v4-flash",
+    "href": "/models/deepseek-ai/deepseek-v4-flash",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "deepseek-ai/DeepSeek-V4-Flash"
+  },
+  {
+    "org": "deepseek-ai",
+    "slug": "deepseek-v4-flash-base",
+    "href": "/models/deepseek-ai/deepseek-v4-flash-base",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "deepseek-ai/DeepSeek-V4-Flash-Base"
+  },
+  {
+    "org": "deepseek-ai",
+    "slug": "deepseek-v4-flash-vision-exp",
+    "href": "/models/deepseek-ai/deepseek-v4-flash-vision-exp",
+    "lastmod": "2026-09-02T04:29:55+00:00",
+    "hf": "deepseek-ai/DeepSeek-V4-Flash-Vision-Exp"
+  },
+  {
+    "org": "deepseek-ai",
+    "slug": "deepseek-v4-pro",
+    "href": "/models/deepseek-ai/deepseek-v4-pro",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "deepseek-ai/DeepSeek-V4-Pro"
+  },
+  {
+    "org": "deepseek-ai",
+    "slug": "deepseek-v4-pro-0813",
+    "href": "/models/deepseek-ai/deepseek-v4-pro-0813",
+    "lastmod": "2026-09-03T05:28:13+00:00",
+    "hf": "deepseek-ai/DeepSeek-V4-Pro-0813"
+  },
+  {
+    "org": "deepseek-ai",
+    "slug": "deepseek-v4-pro-base",
+    "href": "/models/deepseek-ai/deepseek-v4-pro-base",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "deepseek-ai/DeepSeek-V4-Pro-Base"
+  },
+  {
+    "org": "mistralai",
+    "slug": "devstral-2-123b-instruct-2512",
+    "href": "/models/mistralai/devstral-2-123b-instruct-2512",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "mistralai/Devstral-2-123B-Instruct-2512"
+  },
+  {
+    "org": "baidu",
+    "slug": "ernie-4-5-0-3b-pt",
+    "href": "/models/baidu/ernie-4-5-0-3b-pt",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "baidu/ERNIE-4.5-0.3B-PT"
+  },
+  {
+    "org": "baidu",
+    "slug": "ernie-5-1",
+    "href": "/models/baidu/ernie-5-1",
+    "lastmod": "2026-08-29T23:45:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "baidu",
+    "slug": "ernie-x1-1",
+    "href": "/models/baidu/ernie-x1-1",
+    "lastmod": "2026-08-29T23:45:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "black-forest-labs",
+    "slug": "flux-2-klein-4b-fp8",
+    "href": "/models/black-forest-labs/flux-2-klein-4b-fp8",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "black-forest-labs/FLUX.2-klein-4b-fp8"
+  },
+  {
+    "org": "black-forest-labs",
+    "slug": "flux-2-klein-base-4b-fp8",
+    "href": "/models/black-forest-labs/flux-2-klein-base-4b-fp8",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "black-forest-labs/FLUX.2-klein-base-4b-fp8"
+  },
+  {
+    "org": "google-deepmind",
+    "slug": "gemini-2-5-flash",
+    "href": "/models/google-deepmind/gemini-2-5-flash",
+    "lastmod": "2026-08-29T19:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "google-deepmind",
+    "slug": "gemini-2-5-flash-lite",
+    "href": "/models/google-deepmind/gemini-2-5-flash-lite",
+    "lastmod": "2026-08-29T19:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "google-deepmind",
+    "slug": "gemini-2-5-pro",
+    "href": "/models/google-deepmind/gemini-2-5-pro",
+    "lastmod": "2026-08-29T19:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "google-deepmind",
+    "slug": "gemini-3-1-flash-lite",
+    "href": "/models/google-deepmind/gemini-3-1-flash-lite",
+    "lastmod": "2026-08-29T19:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "google-deepmind",
+    "slug": "gemini-3-1-pro-preview",
+    "href": "/models/google-deepmind/gemini-3-1-pro-preview",
+    "lastmod": "2026-08-29T19:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "google-deepmind",
+    "slug": "gemini-3-5-flash",
+    "href": "/models/google-deepmind/gemini-3-5-flash",
+    "lastmod": "2026-08-29T19:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "google-deepmind",
+    "slug": "gemini-3-5-flash-lite",
+    "href": "/models/google-deepmind/gemini-3-5-flash-lite",
+    "lastmod": "2026-08-29T19:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "google-deepmind",
+    "slug": "gemini-3-6-flash",
+    "href": "/models/google-deepmind/gemini-3-6-flash",
+    "lastmod": "2026-08-29T19:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "google-deepmind",
+    "slug": "gemini-3-7-flash",
+    "href": "/models/google-deepmind/gemini-3-7-flash",
+    "lastmod": "2026-08-29T19:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "google-deepmind",
+    "slug": "gemini-3-8-flash",
+    "href": "/models/google-deepmind/gemini-3-8-flash",
+    "lastmod": "2026-09-02T20:39:50+00:00",
+    "hf": null
+  },
+  {
+    "org": "google-deepmind",
+    "slug": "gemini-3-8-flash-cyber",
+    "href": "/models/google-deepmind/gemini-3-8-flash-cyber",
+    "lastmod": "2026-09-02T20:39:50+00:00",
+    "hf": null
+  },
+  {
+    "org": "google-deepmind",
+    "slug": "gemini-3-flash-preview",
+    "href": "/models/google-deepmind/gemini-3-flash-preview",
+    "lastmod": "2026-08-29T19:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "google-deepmind",
+    "slug": "gemini-2-5-computer-use-2025-10",
+    "href": "/models/google-deepmind/gemini-2-5-computer-use-2025-10",
+    "lastmod": "2026-08-29T19:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "google-deepmind",
+    "slug": "gemini-deep-research-2026-04",
+    "href": "/models/google-deepmind/gemini-deep-research-2026-04",
+    "lastmod": "2026-08-29T19:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "google-deepmind",
+    "slug": "gemini-deep-research-max-2026-04",
+    "href": "/models/google-deepmind/gemini-deep-research-max-2026-04",
+    "lastmod": "2026-08-29T19:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "google-deepmind",
+    "slug": "gemini-robotics-2",
+    "href": "/models/google-deepmind/gemini-robotics-2",
+    "lastmod": "2026-08-29T18:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "google-deepmind",
+    "slug": "gemma-4-12b-it",
+    "href": "/models/google-deepmind/gemma-4-12b-it",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": "google/gemma-4-12B-it"
+  },
+  {
+    "org": "google-deepmind",
+    "slug": "gemma-4-26b-a4b-it",
+    "href": "/models/google-deepmind/gemma-4-26b-a4b-it",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": "google/gemma-4-26B-A4B-it"
+  },
+  {
+    "org": "google-deepmind",
+    "slug": "gemma-4-31b-it",
+    "href": "/models/google-deepmind/gemma-4-31b-it",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": "google/gemma-4-31B-it"
+  },
+  {
+    "org": "google-deepmind",
+    "slug": "gemma-4-e2b-it",
+    "href": "/models/google-deepmind/gemma-4-e2b-it",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": "google/gemma-4-E2B-it"
+  },
+  {
+    "org": "google-deepmind",
+    "slug": "gemma-4-e4b-it",
+    "href": "/models/google-deepmind/gemma-4-e4b-it",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": "google/gemma-4-E4B-it"
+  },
+  {
+    "org": "zai-org",
+    "slug": "glm-5",
+    "href": "/models/zai-org/glm-5",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "zai-org/GLM-5"
+  },
+  {
+    "org": "zai-org",
+    "slug": "glm-5-1",
+    "href": "/models/zai-org/glm-5-1",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "zai-org/GLM-5.1"
+  },
+  {
+    "org": "zai-org",
+    "slug": "glm-5-2",
+    "href": "/models/zai-org/glm-5-2",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "zai-org/GLM-5.2"
+  },
+  {
+    "org": "zai-org",
+    "slug": "glm-5-3",
+    "href": "/models/zai-org/glm-5-3",
+    "lastmod": "2026-08-29T23:45:00+00:00",
+    "hf": "zai-org/GLM-5.3"
+  },
+  {
+    "org": "zai-org",
+    "slug": "glm-5-3-flash",
+    "href": "/models/zai-org/glm-5-3-flash",
+    "lastmod": "2026-09-02T06:38:27+00:00",
+    "hf": "zai-org/GLM-5.3-Flash"
+  },
+  {
+    "org": "zai-org",
+    "slug": "glm-5v-turbo",
+    "href": "/models/zai-org/glm-5v-turbo",
+    "lastmod": "2026-08-29T23:45:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "zai-org",
+    "slug": "glm-ocr",
+    "href": "/models/zai-org/glm-ocr",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "zai-org/GLM-OCR"
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-4-1",
+    "href": "/models/openai/gpt-4-1",
+    "lastmod": "2026-08-29T19:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-4-1-mini",
+    "href": "/models/openai/gpt-4-1-mini",
+    "lastmod": "2026-08-29T19:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-4-1-nano",
+    "href": "/models/openai/gpt-4-1-nano",
+    "lastmod": "2026-08-29T19:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-4o",
+    "href": "/models/openai/gpt-4o",
+    "lastmod": "2026-08-29T19:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-4o-mini",
+    "href": "/models/openai/gpt-4o-mini",
+    "lastmod": "2026-08-29T19:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-5",
+    "href": "/models/openai/gpt-5",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-5-1",
+    "href": "/models/openai/gpt-5-1",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-5-2",
+    "href": "/models/openai/gpt-5-2",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-5-2-pro",
+    "href": "/models/openai/gpt-5-2-pro",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-5-3-codex",
+    "href": "/models/openai/gpt-5-3-codex",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-5-4",
+    "href": "/models/openai/gpt-5-4",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-5-4-mini",
+    "href": "/models/openai/gpt-5-4-mini",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-5-4-nano",
+    "href": "/models/openai/gpt-5-4-nano",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-5-4-pro",
+    "href": "/models/openai/gpt-5-4-pro",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-5-5",
+    "href": "/models/openai/gpt-5-5",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-5-5-pro",
+    "href": "/models/openai/gpt-5-5-pro",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-5-6-luna",
+    "href": "/models/openai/gpt-5-6-luna",
+    "lastmod": "2026-08-28T17:15:12+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-5-6-sol",
+    "href": "/models/openai/gpt-5-6-sol",
+    "lastmod": "2026-08-28T17:15:12+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-5-6-terra",
+    "href": "/models/openai/gpt-5-6-terra",
+    "lastmod": "2026-08-28T17:15:12+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-5-mini",
+    "href": "/models/openai/gpt-5-mini",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-5-nano",
+    "href": "/models/openai/gpt-5-nano",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-5-pro",
+    "href": "/models/openai/gpt-5-pro",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-6-astra",
+    "href": "/models/openai/gpt-6-astra",
+    "lastmod": "2026-09-04T05:43:28+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-oss-120b",
+    "href": "/models/openai/gpt-oss-120b",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "openai/gpt-oss-120b"
+  },
+  {
+    "org": "openai",
+    "slug": "gpt-oss-20b",
+    "href": "/models/openai/gpt-oss-20b",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "openai/gpt-oss-20b"
+  },
+  {
+    "org": "nvidia",
+    "slug": "gr00t-n1-7-3b",
+    "href": "/models/nvidia/gr00t-n1-7-3b",
+    "lastmod": "2026-08-29T18:00:00+00:00",
+    "hf": "nvidia/GR00T-N1.7-3B"
+  },
+  {
+    "org": "ibm-granite",
+    "slug": "granite-4-1-30b",
+    "href": "/models/ibm-granite/granite-4-1-30b",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "ibm-granite/granite-4.1-30b"
+  },
+  {
+    "org": "ibm-granite",
+    "slug": "granite-4-1-3b",
+    "href": "/models/ibm-granite/granite-4-1-3b",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "ibm-granite/granite-4.1-3b"
+  },
+  {
+    "org": "ibm-granite",
+    "slug": "granite-4-1-8b",
+    "href": "/models/ibm-granite/granite-4-1-8b",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "ibm-granite/granite-4.1-8b"
+  },
+  {
+    "org": "ibm-granite",
+    "slug": "granite-4-2-30b",
+    "href": "/models/ibm-granite/granite-4-2-30b",
+    "lastmod": "2026-09-02T22:40:20+00:00",
+    "hf": "ibm-granite/granite-4.2-30b"
+  },
+  {
+    "org": "ibm-granite",
+    "slug": "granite-4-2-3b",
+    "href": "/models/ibm-granite/granite-4-2-3b",
+    "lastmod": "2026-09-02T22:40:20+00:00",
+    "hf": "ibm-granite/granite-4.2-3b"
+  },
+  {
+    "org": "ibm-granite",
+    "slug": "granite-4-2-8b",
+    "href": "/models/ibm-granite/granite-4-2-8b",
+    "lastmod": "2026-09-02T22:40:20+00:00",
+    "hf": "ibm-granite/granite-4.2-8b"
+  },
+  {
+    "org": "ibm-granite",
+    "slug": "granite-embedding-107m-multilingual",
+    "href": "/models/ibm-granite/granite-embedding-107m-multilingual",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "ibm-granite/granite-embedding-107m-multilingual"
+  },
+  {
+    "org": "ibm-granite",
+    "slug": "granite-embedding-278m-multilingual",
+    "href": "/models/ibm-granite/granite-embedding-278m-multilingual",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "ibm-granite/granite-embedding-278m-multilingual"
+  },
+  {
+    "org": "ibm-granite",
+    "slug": "granite-embedding-30m-english",
+    "href": "/models/ibm-granite/granite-embedding-30m-english",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "ibm-granite/granite-embedding-30m-english"
+  },
+  {
+    "org": "ibm-granite",
+    "slug": "granite-embedding-311m-multilingual-r2",
+    "href": "/models/ibm-granite/granite-embedding-311m-multilingual-r2",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "ibm-granite/granite-embedding-311m-multilingual-r2"
+  },
+  {
+    "org": "ibm-granite",
+    "slug": "granite-embedding-english-r2",
+    "href": "/models/ibm-granite/granite-embedding-english-r2",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "ibm-granite/granite-embedding-english-r2"
+  },
+  {
+    "org": "ibm-granite",
+    "slug": "granite-guardian-4-1-8b",
+    "href": "/models/ibm-granite/granite-guardian-4-1-8b",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "ibm-granite/granite-guardian-4.1-8b"
+  },
+  {
+    "org": "ibm-granite",
+    "slug": "granite-speech-5-0-470m-turboctc",
+    "href": "/models/ibm-granite/granite-speech-5-0-470m-turboctc",
+    "lastmod": "2026-09-02T22:40:20+00:00",
+    "hf": "ibm-granite/granite-speech-5.0-470m-turboctc"
+  },
+  {
+    "org": "ibm-granite",
+    "slug": "granite-speech-5-0-470m-turboctc-nc",
+    "href": "/models/ibm-granite/granite-speech-5-0-470m-turboctc-nc",
+    "lastmod": "2026-09-02T22:40:20+00:00",
+    "hf": "ibm-granite/granite-speech-5.0-470m-turboctc-nc"
+  },
+  {
+    "org": "ibm-granite",
+    "slug": "granite-vision-4-1-4b",
+    "href": "/models/ibm-granite/granite-vision-4-1-4b",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "ibm-granite/granite-vision-4.1-4b"
+  },
+  {
+    "org": "xai",
+    "slug": "grok-4-20-multi-agent-0309",
+    "href": "/models/xai/grok-4-20-multi-agent-0309",
+    "lastmod": "2026-08-29T19:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "xai",
+    "slug": "grok-4-3",
+    "href": "/models/xai/grok-4-3",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "xai",
+    "slug": "grok-4-5",
+    "href": "/models/xai/grok-4-5",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "xai",
+    "slug": "grok-4-6",
+    "href": "/models/xai/grok-4-6",
+    "lastmod": "2026-08-29T19:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "xai",
+    "slug": "grok-build-0-1",
+    "href": "/models/xai/grok-build-0-1",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "figure",
+    "slug": "helix-02",
+    "href": "/models/figure/helix-02",
+    "lastmod": "2026-08-29T18:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "tencent",
+    "slug": "hunyuan3d-2-1",
+    "href": "/models/tencent/hunyuan3d-2-1",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "tencent/Hunyuan3D-2.1"
+  },
+  {
+    "org": "tencent",
+    "slug": "hy3",
+    "href": "/models/tencent/hy3",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "tencent/Hy3"
+  },
+  {
+    "org": "tencent",
+    "slug": "hy4-preview",
+    "href": "/models/tencent/hy4-preview",
+    "lastmod": "2026-09-02T03:15:00+00:00",
+    "hf": "tencent/Hy4-preview"
+  },
+  {
+    "org": "thinkingmachines",
+    "slug": "inkling",
+    "href": "/models/thinkingmachines/inkling",
+    "lastmod": "2026-09-03T05:28:13+00:00",
+    "hf": "thinkingmachines/Inkling"
+  },
+  {
+    "org": "moonshotai",
+    "slug": "kimi-k2-5",
+    "href": "/models/moonshotai/kimi-k2-5",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "moonshotai/Kimi-K2.5"
+  },
+  {
+    "org": "moonshotai",
+    "slug": "kimi-k2-6",
+    "href": "/models/moonshotai/kimi-k2-6",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "moonshotai/Kimi-K2.6"
+  },
+  {
+    "org": "moonshotai",
+    "slug": "kimi-k2-7-code",
+    "href": "/models/moonshotai/kimi-k2-7-code",
+    "lastmod": "2026-09-03T05:28:13+00:00",
+    "hf": "moonshotai/Kimi-K2.7-Code"
+  },
+  {
+    "org": "moonshotai",
+    "slug": "kimi-k2-instruct",
+    "href": "/models/moonshotai/kimi-k2-instruct",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "moonshotai/Kimi-K2-Instruct"
+  },
+  {
+    "org": "moonshotai",
+    "slug": "kimi-k2-thinking",
+    "href": "/models/moonshotai/kimi-k2-thinking",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "moonshotai/Kimi-K2-Thinking"
+  },
+  {
+    "org": "moonshotai",
+    "slug": "kimi-k3",
+    "href": "/models/moonshotai/kimi-k3",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "moonshotai/Kimi-K3"
+  },
+  {
+    "org": "meta-llama",
+    "slug": "llama-3-1-405b",
+    "href": "/models/meta-llama/llama-3-1-405b",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "meta-llama/Llama-3.1-405B"
+  },
+  {
+    "org": "meta-llama",
+    "slug": "llama-3-1-405b-instruct",
+    "href": "/models/meta-llama/llama-3-1-405b-instruct",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "meta-llama/Llama-3.1-405B-Instruct"
+  },
+  {
+    "org": "meta-llama",
+    "slug": "llama-3-1-70b",
+    "href": "/models/meta-llama/llama-3-1-70b",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "meta-llama/Llama-3.1-70B"
+  },
+  {
+    "org": "meta-llama",
+    "slug": "llama-3-1-70b-instruct",
+    "href": "/models/meta-llama/llama-3-1-70b-instruct",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "meta-llama/Llama-3.1-70B-Instruct"
+  },
+  {
+    "org": "meta-llama",
+    "slug": "llama-3-1-8b",
+    "href": "/models/meta-llama/llama-3-1-8b",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "meta-llama/Llama-3.1-8B"
+  },
+  {
+    "org": "meta-llama",
+    "slug": "llama-3-1-8b-instruct",
+    "href": "/models/meta-llama/llama-3-1-8b-instruct",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "meta-llama/Llama-3.1-8B-Instruct"
+  },
+  {
+    "org": "meta-llama",
+    "slug": "llama-3-3-70b-instruct",
+    "href": "/models/meta-llama/llama-3-3-70b-instruct",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "meta-llama/Llama-3.3-70B-Instruct"
+  },
+  {
+    "org": "meta-llama",
+    "slug": "llama-4-maverick-17b-128e",
+    "href": "/models/meta-llama/llama-4-maverick-17b-128e",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "meta-llama/Llama-4-Maverick-17B-128E"
+  },
+  {
+    "org": "meta-llama",
+    "slug": "llama-4-maverick-17b-128e-instruct",
+    "href": "/models/meta-llama/llama-4-maverick-17b-128e-instruct",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "meta-llama/Llama-4-Maverick-17B-128E-Instruct"
+  },
+  {
+    "org": "meta-llama",
+    "slug": "llama-4-scout-17b-16e",
+    "href": "/models/meta-llama/llama-4-scout-17b-16e",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "meta-llama/Llama-4-Scout-17B-16E"
+  },
+  {
+    "org": "meta-llama",
+    "slug": "llama-4-scout-17b-16e-instruct",
+    "href": "/models/meta-llama/llama-4-scout-17b-16e-instruct",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "meta-llama/Llama-4-Scout-17B-16E-Instruct"
+  },
+  {
+    "org": "google-deepmind",
+    "slug": "lyria-3-5",
+    "href": "/models/google-deepmind/lyria-3-5",
+    "lastmod": "2026-09-05T05:25:01.618481+00:00",
+    "hf": null
+  },
+  {
+    "org": "microsoft",
+    "slug": "mai-transcribe",
+    "href": "/models/microsoft/mai-transcribe",
+    "lastmod": "2026-09-03T19:20:56+00:00",
+    "hf": null
+  },
+  {
+    "org": "minimaxai",
+    "slug": "minimax-m2-5",
+    "href": "/models/minimaxai/minimax-m2-5",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "MiniMaxAI/MiniMax-M2.5"
+  },
+  {
+    "org": "minimaxai",
+    "slug": "minimax-m2-7",
+    "href": "/models/minimaxai/minimax-m2-7",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "MiniMaxAI/MiniMax-M2.7"
+  },
+  {
+    "org": "minimaxai",
+    "slug": "minimax-m3",
+    "href": "/models/minimaxai/minimax-m3",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "MiniMaxAI/MiniMax-M3"
+  },
+  {
+    "org": "minimaxai",
+    "slug": "minimax-music3",
+    "href": "/models/minimaxai/minimax-music3",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "MiniMaxAI/MiniMax-Music3"
+  },
+  {
+    "org": "mistralai",
+    "slug": "ministral-3-14b-base-2512",
+    "href": "/models/mistralai/ministral-3-14b-base-2512",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "mistralai/Ministral-3-14B-Base-2512"
+  },
+  {
+    "org": "mistralai",
+    "slug": "ministral-3-14b-instruct-2512",
+    "href": "/models/mistralai/ministral-3-14b-instruct-2512",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "mistralai/Ministral-3-14B-Instruct-2512"
+  },
+  {
+    "org": "mistralai",
+    "slug": "ministral-3-14b-reasoning-2512",
+    "href": "/models/mistralai/ministral-3-14b-reasoning-2512",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "mistralai/Ministral-3-14B-Reasoning-2512"
+  },
+  {
+    "org": "mistralai",
+    "slug": "ministral-3-3b-base-2512",
+    "href": "/models/mistralai/ministral-3-3b-base-2512",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "mistralai/Ministral-3-3B-Base-2512"
+  },
+  {
+    "org": "mistralai",
+    "slug": "ministral-3-3b-instruct-2512",
+    "href": "/models/mistralai/ministral-3-3b-instruct-2512",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "mistralai/Ministral-3-3B-Instruct-2512"
+  },
+  {
+    "org": "mistralai",
+    "slug": "ministral-3-3b-reasoning-2512",
+    "href": "/models/mistralai/ministral-3-3b-reasoning-2512",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "mistralai/Ministral-3-3B-Reasoning-2512"
+  },
+  {
+    "org": "mistralai",
+    "slug": "ministral-3-8b-base-2512",
+    "href": "/models/mistralai/ministral-3-8b-base-2512",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "mistralai/Ministral-3-8B-Base-2512"
+  },
+  {
+    "org": "mistralai",
+    "slug": "ministral-3-8b-instruct-2512",
+    "href": "/models/mistralai/ministral-3-8b-instruct-2512",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "mistralai/Ministral-3-8B-Instruct-2512"
+  },
+  {
+    "org": "mistralai",
+    "slug": "ministral-3-8b-reasoning-2512",
+    "href": "/models/mistralai/ministral-3-8b-reasoning-2512",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "mistralai/Ministral-3-8B-Reasoning-2512"
+  },
+  {
+    "org": "mistralai",
+    "slug": "ministral-8b-instruct-2410",
+    "href": "/models/mistralai/ministral-8b-instruct-2410",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "mistralai/Ministral-8B-Instruct-2410"
+  },
+  {
+    "org": "mistralai",
+    "slug": "mistral-large-2512",
+    "href": "/models/mistralai/mistral-large-2512",
+    "lastmod": "2026-08-29T23:45:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "mistralai",
+    "slug": "mistral-medium-3-5-128b",
+    "href": "/models/mistralai/mistral-medium-3-5-128b",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "mistralai/Mistral-Medium-3.5-128B"
+  },
+  {
+    "org": "mistralai",
+    "slug": "mistral-small-4-119b-2603",
+    "href": "/models/mistralai/mistral-small-4-119b-2603",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "mistralai/Mistral-Small-4-119B-2603"
+  },
+  {
+    "org": "allenai",
+    "slug": "molmo2-8b",
+    "href": "/models/allenai/molmo2-8b",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "allenai/Molmo2-8B"
+  },
+  {
+    "org": "allenai",
+    "slug": "molmoact2",
+    "href": "/models/allenai/molmoact2",
+    "lastmod": "2026-08-29T18:00:00+00:00",
+    "hf": "allenai/MolmoAct2"
+  },
+  {
+    "org": "allenai",
+    "slug": "molmoact2-pretrain",
+    "href": "/models/allenai/molmoact2-pretrain",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "allenai/MolmoAct2-Pretrain"
+  },
+  {
+    "org": "allenai",
+    "slug": "molmoact2-think",
+    "href": "/models/allenai/molmoact2-think",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "allenai/MolmoAct2-Think"
+  },
+  {
+    "org": "allenai",
+    "slug": "molmoweb-4b",
+    "href": "/models/allenai/molmoweb-4b",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": "allenai/MolmoWeb-4B"
+  },
+  {
+    "org": "allenai",
+    "slug": "molmoweb-8b",
+    "href": "/models/allenai/molmoweb-8b",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": "allenai/MolmoWeb-8B"
+  },
+  {
+    "org": "meta-models",
+    "slug": "muse-glimmer-30b",
+    "href": "/models/meta-models/muse-glimmer-30b",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": "meta-models/Muse-Glimmer-30B"
+  },
+  {
+    "org": "meta-llama",
+    "slug": "muse-spark-1-1",
+    "href": "/models/meta-llama/muse-spark-1-1",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "meta-llama",
+    "slug": "muse-spark-1-2",
+    "href": "/models/meta-llama/muse-spark-1-2",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "meta-llama",
+    "slug": "muse-spark-1-3",
+    "href": "/models/meta-llama/muse-spark-1-3",
+    "lastmod": "2026-09-04T04:22:34+00:00",
+    "hf": null
+  },
+  {
+    "org": "amazon",
+    "slug": "nova-2-lite-v1-0",
+    "href": "/models/amazon/nova-2-lite-v1-0",
+    "lastmod": "2026-08-29T23:45:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "nvidia",
+    "slug": "nvidia-nemotron-3-5-lightning-30b-a3b-bf16",
+    "href": "/models/nvidia/nvidia-nemotron-3-5-lightning-30b-a3b-bf16",
+    "lastmod": "2026-09-03T05:28:13+00:00",
+    "hf": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16"
+  },
+  {
+    "org": "nvidia",
+    "slug": "nvidia-nemotron-3-nano-30b-a3b-base-bf16",
+    "href": "/models/nvidia/nvidia-nemotron-3-nano-30b-a3b-base-bf16",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-Base-BF16"
+  },
+  {
+    "org": "nvidia",
+    "slug": "nvidia-nemotron-3-nano-30b-a3b-bf16",
+    "href": "/models/nvidia/nvidia-nemotron-3-nano-30b-a3b-bf16",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16"
+  },
+  {
+    "org": "nvidia",
+    "slug": "nvidia-nemotron-3-super-120b-a12b-base-bf16",
+    "href": "/models/nvidia/nvidia-nemotron-3-super-120b-a12b-base-bf16",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-Base-BF16"
+  },
+  {
+    "org": "nvidia",
+    "slug": "nvidia-nemotron-3-super-120b-a12b-bf16",
+    "href": "/models/nvidia/nvidia-nemotron-3-super-120b-a12b-bf16",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16"
+  },
+  {
+    "org": "nvidia",
+    "slug": "nvidia-nemotron-3-ultra-550b-a55b-bf16",
+    "href": "/models/nvidia/nvidia-nemotron-3-ultra-550b-a55b-bf16",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16"
+  },
+  {
+    "org": "openai",
+    "slug": "o3",
+    "href": "/models/openai/o3",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "openai",
+    "slug": "o3-pro",
+    "href": "/models/openai/o3-pro",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "mistralai",
+    "slug": "mistral-ocr-4-1",
+    "href": "/models/mistralai/mistral-ocr-4-1",
+    "lastmod": "2026-08-29T23:45:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "allenai",
+    "slug": "olmo-3-1-32b-instruct",
+    "href": "/models/allenai/olmo-3-1-32b-instruct",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "allenai/Olmo-3.1-32B-Instruct"
+  },
+  {
+    "org": "allenai",
+    "slug": "olmo-3-32b-think",
+    "href": "/models/allenai/olmo-3-32b-think",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "allenai/Olmo-3-32B-Think"
+  },
+  {
+    "org": "allenai",
+    "slug": "olmo-3-7b-instruct",
+    "href": "/models/allenai/olmo-3-7b-instruct",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "allenai/Olmo-3-7B-Instruct"
+  },
+  {
+    "org": "allenai",
+    "slug": "olmo-3-7b-think",
+    "href": "/models/allenai/olmo-3-7b-think",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "allenai/Olmo-3-7B-Think"
+  },
+  {
+    "org": "openvla",
+    "slug": "openvla-7b",
+    "href": "/models/openvla/openvla-7b",
+    "lastmod": "2026-08-29T18:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "paddlepaddle",
+    "slug": "paddleocr-vl-1-5",
+    "href": "/models/paddlepaddle/paddleocr-vl-1-5",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "PaddlePaddle/PaddleOCR-VL-1.5"
+  },
+  {
+    "org": "microsoft",
+    "slug": "phi-4",
+    "href": "/models/microsoft/phi-4",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "microsoft/phi-4"
+  },
+  {
+    "org": "microsoft",
+    "slug": "phi-4-mini-instruct",
+    "href": "/models/microsoft/phi-4-mini-instruct",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "microsoft/Phi-4-mini-instruct"
+  },
+  {
+    "org": "microsoft",
+    "slug": "phi-4-mini-reasoning",
+    "href": "/models/microsoft/phi-4-mini-reasoning",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "microsoft/Phi-4-mini-reasoning"
+  },
+  {
+    "org": "microsoft",
+    "slug": "phi-4-multimodal-instruct",
+    "href": "/models/microsoft/phi-4-multimodal-instruct",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "microsoft/Phi-4-multimodal-instruct"
+  },
+  {
+    "org": "microsoft",
+    "slug": "phi-4-reasoning",
+    "href": "/models/microsoft/phi-4-reasoning",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "microsoft/Phi-4-reasoning"
+  },
+  {
+    "org": "physical-intelligence",
+    "slug": "pi-0-7",
+    "href": "/models/physical-intelligence/pi-0-7",
+    "lastmod": "2026-08-29T18:00:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "perplexity",
+    "slug": "pplx-pii-masking",
+    "href": "/models/perplexity/pplx-pii-masking",
+    "lastmod": "2026-09-03T16:22:53+00:00",
+    "hf": "perplexity-ai/pplx-pii-masking"
+  },
+  {
+    "org": "mistralai",
+    "slug": "pixtral-large-2411",
+    "href": "/models/mistralai/pixtral-large-2411",
+    "lastmod": "2026-08-29T23:45:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "qwen",
+    "slug": "qwen3-5-35b-a3b",
+    "href": "/models/qwen/qwen3-5-35b-a3b",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "Qwen/Qwen3.5-35B-A3B"
+  },
+  {
+    "org": "qwen",
+    "slug": "qwen3-5-35b-a3b-base",
+    "href": "/models/qwen/qwen3-5-35b-a3b-base",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "Qwen/Qwen3.5-35B-A3B-Base"
+  },
+  {
+    "org": "qwen",
+    "slug": "qwen3-5-397b-a17b",
+    "href": "/models/qwen/qwen3-5-397b-a17b",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "Qwen/Qwen3.5-397B-A17B"
+  },
+  {
+    "org": "qwen",
+    "slug": "qwen3-7-flash",
+    "href": "/models/qwen/qwen3-7-flash",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "qwen",
+    "slug": "qwen3-7-max",
+    "href": "/models/qwen/qwen3-7-max",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "qwen",
+    "slug": "qwen3-7-plus",
+    "href": "/models/qwen/qwen3-7-plus",
+    "lastmod": "2026-08-29T23:45:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "qwen",
+    "slug": "qwen3-8-2-4t-a95b",
+    "href": "/models/qwen/qwen3-8-2-4t-a95b",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "Qwen/Qwen3.8-2.4T-A95B"
+  },
+  {
+    "org": "qwen",
+    "slug": "qwen3-8-27b",
+    "href": "/models/qwen/qwen3-8-27b",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "Qwen/Qwen3.8-27B"
+  },
+  {
+    "org": "qwen",
+    "slug": "qwen3-8-flash",
+    "href": "/models/qwen/qwen3-8-flash",
+    "lastmod": "2026-08-29T23:45:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "qwen",
+    "slug": "qwen3-8-max",
+    "href": "/models/qwen/qwen3-8-max",
+    "lastmod": "2026-08-29T23:45:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "qwen",
+    "slug": "qwen3-coder-flash",
+    "href": "/models/qwen/qwen3-coder-flash",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "qwen",
+    "slug": "qwen3-coder-next",
+    "href": "/models/qwen/qwen3-coder-next",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "Qwen/Qwen3-Coder-Next"
+  },
+  {
+    "org": "qwen",
+    "slug": "qwen3-coder-next-base",
+    "href": "/models/qwen/qwen3-coder-next-base",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "Qwen/Qwen3-Coder-Next-Base"
+  },
+  {
+    "org": "qwen",
+    "slug": "qwen3-coder-plus",
+    "href": "/models/qwen/qwen3-coder-plus",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "qwen",
+    "slug": "qwen3-embedding-8b",
+    "href": "/models/qwen/qwen3-embedding-8b",
+    "lastmod": "2026-09-03T05:28:13+00:00",
+    "hf": "Qwen/Qwen3-Embedding-8B"
+  },
+  {
+    "org": "qwen",
+    "slug": "qwen3-reranker-8b",
+    "href": "/models/qwen/qwen3-reranker-8b",
+    "lastmod": "2026-09-03T05:28:13+00:00",
+    "hf": "Qwen/Qwen3-Reranker-8B"
+  },
+  {
+    "org": "qwen",
+    "slug": "qwen3-vl-flash",
+    "href": "/models/qwen/qwen3-vl-flash",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "qwen",
+    "slug": "qwen3-vl-plus",
+    "href": "/models/qwen/qwen3-vl-plus",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "bytedance-seed",
+    "slug": "seed-1-8",
+    "href": "/models/bytedance-seed/seed-1-8",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "bytedance-seed",
+    "slug": "seed-2-0-code",
+    "href": "/models/bytedance-seed/seed-2-0-code",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "bytedance-seed",
+    "slug": "seed-2-0-lite",
+    "href": "/models/bytedance-seed/seed-2-0-lite",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "bytedance-seed",
+    "slug": "seed-2-0-mini",
+    "href": "/models/bytedance-seed/seed-2-0-mini",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "bytedance-seed",
+    "slug": "seed-2-1-evolving",
+    "href": "/models/bytedance-seed/seed-2-1-evolving",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "bytedance-seed",
+    "slug": "seed-2-1-pro",
+    "href": "/models/bytedance-seed/seed-2-1-pro",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "bytedance-seed",
+    "slug": "seed-2-1-turbo",
+    "href": "/models/bytedance-seed/seed-2-1-turbo",
+    "lastmod": "2026-09-03T04:30:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "lerobot",
+    "slug": "smolvla-450m",
+    "href": "/models/lerobot/smolvla-450m",
+    "lastmod": "2026-08-29T18:00:00+00:00",
+    "hf": "front/assets"
+  },
+  {
+    "org": "perplexity",
+    "slug": "sonar",
+    "href": "/models/perplexity/sonar",
+    "lastmod": "2026-08-29T23:45:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "perplexity",
+    "slug": "sonar-deep-research",
+    "href": "/models/perplexity/sonar-deep-research",
+    "lastmod": "2026-08-29T23:45:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "perplexity",
+    "slug": "sonar-reasoning-pro",
+    "href": "/models/perplexity/sonar-reasoning-pro",
+    "lastmod": "2026-08-29T23:45:00+00:00",
+    "hf": null
+  },
+  {
+    "org": "stabilityai",
+    "slug": "stable-audio-3-medium",
+    "href": "/models/stabilityai/stable-audio-3-medium",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "stabilityai/stable-audio-3-medium"
+  },
+  {
+    "org": "stabilityai",
+    "slug": "stable-diffusion-3-5-large",
+    "href": "/models/stabilityai/stable-diffusion-3-5-large",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "stabilityai/stable-diffusion-3.5-large"
+  },
+  {
+    "org": "stabilityai",
+    "slug": "stable-diffusion-3-5-medium",
+    "href": "/models/stabilityai/stable-diffusion-3-5-medium",
+    "lastmod": "2026-08-28T16:37:44+00:00",
+    "hf": "stabilityai/stable-diffusion-3.5-medium"
+  },
+  {
+    "org": "microsoft",
+    "slug": "vibevoice-asr-streaming-1-5b",
+    "href": "/models/microsoft/vibevoice-asr-streaming-1-5b",
+    "lastmod": "2026-09-02T16:35:19+00:00",
+    "hf": "microsoft/VibeVoice-ASR-Streaming-1.5B"
+  },
+  {
+    "org": "microsoft",
+    "slug": "vibevoice-asr-streaming-7b",
+    "href": "/models/microsoft/vibevoice-asr-streaming-7b",
+    "lastmod": "2026-09-02T16:35:19+00:00",
+    "hf": "microsoft/VibeVoice-ASR-Streaming-7B"
+  }
+]
