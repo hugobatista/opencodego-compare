@@ -59,10 +59,12 @@ body {
 }
 .srcs .badge:hover { opacity: 0.8; }
 .b-go  { color: #1b5e20; background: rgba(46, 125, 50, 0.14); }
+.b-goat { color: #9a4a17; background: rgba(179, 84, 30, 0.14); }
 .b-or  { color: #1a56a8; background: rgba(43, 108, 176, 0.14); }
 .b-zen { color: #6b34c4; background: rgba(124, 58, 237, 0.13); }
 @media (prefers-color-scheme: dark) {
   .b-go  { color: #a5d6a7; }
+  .b-goat { color: #ffab7d; }
   .b-or  { color: #90caf9; }
   .b-zen { color: #b39ddb; }
 }

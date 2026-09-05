@@ -79,6 +79,11 @@ def build_zen_rows(zen_data, or_name_ctx, or_id_ctx):
     return fill_context(zen_data, or_name_ctx, or_id_ctx)
 
 
+def build_goat_rows(goat_data, or_name_ctx, or_id_ctx):
+    """GOAT rows already have effective prices computed by scrape_goat.py."""
+    return fill_context(goat_data, or_name_ctx, or_id_ctx)
+
+
 MODELMARKETS_BASE = 'https://modelmarkets.ai'
 HUGGINGFACE_BASE = 'https://huggingface.co/'
 
@@ -232,6 +237,7 @@ def build_or_rows(openrouter_data, endpoints_data):
 def main():
     go_data = load_json('go.json')
     zen_data = load_json('zen.json')
+    goat_data = load_json('goat.json')
     openrouter_data = load_json('openrouter.json')
     endpoints_data = load_json('or_endpoints.json')
     modelmarkets_data = load_json('modelmarkets.json')
@@ -250,6 +256,8 @@ def main():
 
     if go_data:
         all_rows.extend(build_go_rows(go_data, or_name_ctx, or_id_ctx))
+    if goat_data:
+        all_rows.extend(build_goat_rows(goat_data, or_name_ctx, or_id_ctx))
     if zen_data:
         all_rows.extend(build_zen_rows(zen_data, or_name_ctx, or_id_ctx))
     if openrouter_data:
@@ -265,10 +273,11 @@ def main():
             'openrouterServiceFeeMin': OPENROUTER_SERVICE_FEE_MIN,
             'links': {
                 'go': 'https://opencode.ai/docs/go',
+                'goat': 'https://commandcode.ai/docs/plans/goat',
                 'zen': 'https://opencode.ai/docs/zen',
                 'or': 'https://openrouter.ai',
             },
-            'note': 'Prices in $/1M tokens unless noted. Go effective prices assume $10/mo subscription and are realized only if the full monthly allowance is used.',
+            'note': 'Prices in $/1M tokens unless noted. Go effective prices assume $10/mo subscription and are realized only if the full monthly allowance is used. GOAT effective prices assume $10/mo subscription and the per-model monthly credit allowance.',
         },
         'rows': all_rows,
     }

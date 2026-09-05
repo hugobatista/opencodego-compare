@@ -244,7 +244,7 @@ const CELL_TITLES = {
   logs: 'Provider logs your prompts',
   trains: 'Provider trains on your data',
   peak: 'Peak and off-peak hours',
-  allowance: 'Monthly allowance = usage included per month at full price; weekly = 50%; 5h = 20%. Effective Go price applies only if you use the full monthly allowance',
+  allowance: 'Monthly allowance = usage included per month at full price; weekly = 50%; 5h = 20%. Effective Go/GOAT price applies only if you use the full monthly allowance',
 }
 const NUM_DISP = { ctx: 'ctxDisp', lat: 'latDisp', tps: 'tpsDisp' }
 
@@ -373,7 +373,7 @@ function tableStyle() {
     <div class="subbar">
       <label class="toggle">
         <input type="checkbox" v-model="onlyGoZen">
-        <span>Only OpenRouter models also on Go/Zen</span>
+        <span>Only common models</span>
       </label>
       <label class="plimit">
         <span>Cheapest OR providers/model:</span>
@@ -615,9 +615,11 @@ a.plan { text-decoration: none; }
 a.plan:hover { text-decoration: underline; }
 .plan { font-weight: 600; font-size: 0.8rem; white-space: nowrap; }
 .p-go  { color: #2e7d32; }
+.p-goat { color: #b3541e; }
 .p-or  { color: #2b6cb0; }
 .p-zen { color: #7c3aed; }
 :global(.dark) .p-go, :global(html[data-theme=dark]) .p-go  { color: #a5d6a7; }
+:global(.dark) .p-goat, :global(html[data-theme=dark]) .p-goat { color: #ffab7d; }
 :global(.dark) .p-or,  :global(html[data-theme=dark]) .p-or  { color: #90caf9; }
 :global(.dark) .p-zen, :global(html[data-theme=dark]) .p-zen { color: #b39ddb; }
 

@@ -1,6 +1,6 @@
 # OpenCode Go vs Zen vs OpenRouter — Price Comparison 💸
 
-Compare real-world LLM pricing across [OpenCode Go](https://opencode.ai/docs/go), [OpenCode Zen](https://opencode.ai/docs/zen), and [OpenRouter](https://openrouter.ai).
+Compare real-world LLM pricing across [OpenCode Go](https://opencode.ai/docs/go), [Command Code GOAT](https://commandcode.ai/docs/plans/goat), [OpenCode Zen](https://opencode.ai/docs/zen), and [OpenRouter](https://openrouter.ai).
 
 All prices are in **$ per 1M tokens** and normalized so you can compare apples to apples — listed prices, effective subscription costs, and OpenRouter's fee + tax markup are all visible side by side.
 
@@ -12,7 +12,7 @@ All prices are in **$ per 1M tokens** and normalized so you can compare apples t
 
 ## ✨ Features
 
-- **Three markets, one table** — Go, Zen, and OpenRouter rows merged into a single sortable, filterable view.
+- **Four markets, one table** — Go, GOAT, Zen, and OpenRouter rows merged into a single sortable, filterable view.
 - **True cost, not list price** — hover any price cell to see how it was computed (effective Go price, OpenRouter fee + tax, or Zen listed price). Go effective prices assume the full monthly allowance is used.
 - **Per-model filters** — filter by provider, context, latency, TPS, prompt logging, training on data, peak slots, and more.
 - **Free Zen models highlighted** — free tiers are detected and labeled automatically.
@@ -23,10 +23,11 @@ All prices are in **$ per 1M tokens** and normalized so you can compare apples t
 | Market | Formula |
 | --- | --- |
 | OpenCode Go | Effective = listed × (10 ÷ monthly allowance) |
+| Command Code GOAT | Effective = listed × (10 ÷ per-model monthly credits) |
 | OpenRouter | Real = listed × 1.055 service fee × (1 + sales tax) |
 | OpenCode Zen | Real = listed |
 
-The Go effective price is a best-case rate: it assumes the flat $10/month fee is spread over the full monthly allowance included for that model. It is real only if you consume the whole allowance. Use less and the real cost per token is higher; go over and the excess is billed at listed price (Zen balance) or blocked.
+The Go and GOAT effective prices are best-case rates: they assume the flat $10/month fee is spread over the full monthly allowance or per-model credits included. They are real only if you consume the whole allowance. Use less and the real cost per token is higher; go over and the excess is billed at listed price (Zen balance), at regular rates (GOAT pay-as-you-go credits) or blocked.
 
 The sales tax defaults to 24.25% and is adjustable in the UI. See `data/prices.json` → `meta` for the current defaults.
 
@@ -53,7 +54,7 @@ Then open `http://localhost:5173`. Build with `npm run build`.
 
 ### Data pipeline
 
-The pipeline fetches live pricing from all three providers and regenerates `data/prices.json`.
+The pipeline fetches live pricing from all four providers and regenerates `data/prices.json`.
 
 ```bash
 pip install -r fetch/requirements.txt
@@ -61,7 +62,7 @@ python3 fetch/run_all.py
 python3 fetch/build_json.py
 ```
 
-Refresh order: `fetch_openrouter.py` → `fetch_endpoints.py` → `scrape_go.py` → `scrape_zen.py` → `build_json.py`.
+Refresh order: `fetch_openrouter.py` → `fetch_endpoints.py` → `scrape_go.py` → `scrape_zen.py` → `scrape_goat.py` → `build_json.py`.
 
 > [!NOTE]
 > `build_json.py` must always run after any fetch step, or `data/prices.json` goes stale.

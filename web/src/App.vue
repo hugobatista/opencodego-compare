@@ -26,8 +26,9 @@ const feePct = ((meta.openrouterServiceFee ?? meta.serviceFee) * 100).toFixed(1)
 
 const SOURCES = [
   { key: 'go', name: 'OpenCode Go', url: meta.links.go },
-  { key: 'or', name: 'OpenRouter', url: meta.links.or },
+  { key: 'goat', name: 'Command Code GOAT', url: meta.links.goat },
   { key: 'zen', name: 'OpenCode Zen', url: meta.links.zen },
+  { key: 'or', name: 'OpenRouter', url: meta.links.or },
 ]
 </script>
 
@@ -53,6 +54,7 @@ const SOURCES = [
   <div class="legend">
     <span><strong>Real</strong> price on top, <em>listed</em> below.</span>&nbsp;
     <span><strong>Go:</strong> eff = listed × (10 ÷ monthly allowance), $10/mo — only if you use the full monthly allowance.</span>&nbsp;
+    <span><strong>GOAT:</strong> eff = listed × (10 ÷ per-model monthly credits), $10/mo — only if you use the full allowance.</span>&nbsp;
     <span><strong>OpenRouter:</strong> real = listed × (1 + {{ feePct }}% fee, min $0.80) × (1 + tax).</span>&nbsp;
     <span><strong>Zen:</strong> real = listed.</span>
   </div>

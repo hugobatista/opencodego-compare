@@ -12,6 +12,11 @@ export function fmtAllow(v) {
   return `$${money(v)} monthly<br>$${money(w)} weekly<br>$${money(f)} /5h`
 }
 
+export function fmtGoatAllow(v) {
+  const money = (x) => Number(x).toFixed(3)
+  return `$${money(v)} credits/mo<br>windows $35/wk<br>$14/5h`
+}
+
 export function fmtCtx(v) {
   if (!v) return '—'
   if (v >= 1e6) return (v / 1e6).toFixed(v >= 1e7 ? 1 : 2).replace(/\.?0+$/, '') + 'M'
@@ -36,12 +41,12 @@ export function computeReal(value, listed, tax) {
 
 export function buildRow(row, meta, tax) {
   const m = row.market
-  const free = m === 'zen' && row.input === 0
+  const free = (m === 'zen' || m === 'goat') && row.input === 0
 
   const val = (v) => {
     if (v === null || v === undefined) return null
     let r
-    if (m === 'go') r = v  // already effective per-1M
+    if (m === 'go' || m === 'goat') r = v  // already effective per-1M
     else if (m === 'or') r = computeReal(v, v, tax)
     else r = v
     return Math.round(r * 1000) / 1000
@@ -58,7 +63,7 @@ export function buildRow(row, meta, tax) {
     if (rawList !== null && rawReal !== null) {
       if (m === 'or') {
         realTip = `Real = listed ${money(rawList)} × (1 + ${(OPENROUTER_SERVICE_FEE * 100).toFixed(1)}% fee) × (1 + ${(tax * 100).toFixed(2)}% tax) = ${money(rawReal)}`
-      } else if (m === 'go' && eff != null && row.effAll > 0) {
+      } else if ((m === 'go' || m === 'goat') && eff != null && row.effAll > 0) {
         realTip = `Effective = listed ${money(rawList)} × (10 ÷ $${Number(row.effAll).toFixed(3)} monthly allowance) = ${money(rawReal)} — only if the full monthly allowance is used`
       } else {
         realTip = `Real = listed ${money(rawList)}`
@@ -78,6 +83,7 @@ export function buildRow(row, meta, tax) {
 
   const PLAN = {
     go: { label: 'OpenCode Go', link: meta.links?.go },
+    goat: { label: 'Command Code GOAT', link: meta.links?.goat },
     zen: { label: 'OpenCode Zen', link: meta.links?.zen },
     or: { label: 'OpenRouter', link: meta.links?.or },
   }
@@ -93,7 +99,7 @@ export function buildRow(row, meta, tax) {
     modelLink: row.modelLink || null,
     hfLink: row.hfLink || null,
     notes: row.notes || '',
-    allowance: free ? '' : (m === 'go' ? fmtAllow(row.effAll) : 'Pay per usage'),
+    allowance: free ? '' : (m === 'go' ? fmtAllow(row.effAll) : (m === 'goat' && row.effAll > 0 ? fmtGoatAllow(row.effAll) : 'Pay per usage')),
     logs: fmtBool(row.logsPrompts),
     trains: fmtBool(row.trainsOnData),
     peak,
@@ -115,7 +121,7 @@ export function buildRow(row, meta, tax) {
     textM: row.model,
     textP: m === 'or' ? row.provider : '',
     textPlan: PLAN[m]?.label || m,
-    textA: free ? '' : (m === 'go' ? fmtAllow(row.effAll).replace(/<br>/g, ' ') : 'Pay per usage'),
+    textA: free ? '' : (m === 'go' ? fmtAllow(row.effAll).replace(/<br>/g, ' ') : (m === 'goat' && row.effAll > 0 ? fmtGoatAllow(row.effAll).replace(/<br>/g, ' ') : 'Pay per usage')),
     textN: row.notes || '',
   }
 }
