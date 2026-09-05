@@ -226,6 +226,30 @@
     ],
     "digest": "b34aa4319a3201a08f3423fe61964d14f9b8ee10"
   },
+  "qwen/qwen3.8-max-0902": {
+    "endpoints": [
+      {
+        "provider": "alibaba",
+        "pricing": {
+          "prompt": 2e-06,
+          "completion": 6e-06,
+          "input_cache_read": 2.5e-07,
+          "input_cache_write": 2.5e-06
+        },
+        "data_policy": {
+          "retainsPrompts": false,
+          "training": false
+        },
+        "discount": 0.0,
+        "discount_note": null,
+        "stats": {
+          "p50_latency": 1060.5,
+          "p50_throughput": 42.0
+        }
+      }
+    ],
+    "digest": "4b56e52c8245756e3e03700238baad5e6406df8f"
+  },
   "meta/muse-spark-1.3-contributor": {
     "endpoints": [
       {
@@ -289,8 +313,8 @@
         "discount": 0.5,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2177.0,
-          "p50_throughput": 124.0
+          "p50_latency": 2629.5,
+          "p50_throughput": 109.0
         }
       },
       {
@@ -308,12 +332,12 @@
         "discount": 0.5,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2090.0,
-          "p50_throughput": 71.0
+          "p50_latency": 2338.5,
+          "p50_throughput": 66.0
         }
       }
     ],
-    "digest": "21230ade537c72d0ef340c1b15430a0451efceee"
+    "digest": "b08dde67078648b00f1a6409124162dd20b36103"
   },
   "google/gemini-3.8-flash:batch": {
     "endpoints": [
@@ -369,8 +393,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 7212.0,
-          "p50_throughput": 48.0
+          "p50_latency": 4251.0,
+          "p50_throughput": 34.0
         }
       },
       {
@@ -388,8 +412,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 6040.5,
-          "p50_throughput": 42.0
+          "p50_latency": 5849.0,
+          "p50_throughput": 39.0
         }
       },
       {
@@ -407,8 +431,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 9976.5,
-          "p50_throughput": 49.0
+          "p50_latency": 13630.0,
+          "p50_throughput": 52.0
         }
       },
       {
@@ -426,12 +450,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 4808.0,
-          "p50_throughput": 58.5
+          "p50_latency": 1820.0,
+          "p50_throughput": 57.0
         }
       }
     ],
-    "digest": "fa57b503510220671580c1284789e00e77e73c68"
+    "digest": "1ff0fda89fe05a744a150edda19494f483a4976f"
   },
   "anthropic/claude-fable-5.1:batch": {
     "endpoints": [
@@ -541,8 +565,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 488.5,
-          "p50_throughput": 50.5
+          "p50_latency": 402.5,
+          "p50_throughput": 108.5
         }
       },
       {
@@ -559,12 +583,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 280.0,
-          "p50_throughput": 7.0
+          "p50_latency": 15710.0,
+          "p50_throughput": 3.0
         }
       }
     ],
-    "digest": "0e3fb89c5b2874c909815d9c68d0a07bdfda965b"
+    "digest": "34a0122bd7bb4af015ef5db07e0d656329ac5a82"
   },
   "tencent/hy4-preview": {
     "endpoints": [
@@ -1089,8 +1113,8 @@
         "discount": 0.5,
         "discount_note": null,
         "stats": {
-          "p50_latency": 5735.5,
-          "p50_throughput": 23.0
+          "p50_latency": 6650.5,
+          "p50_throughput": 19.0
         }
       },
       {
@@ -1107,8 +1131,8 @@
         "discount": 0.5,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2415.0,
-          "p50_throughput": 33.0
+          "p50_latency": 4050.5,
+          "p50_throughput": 25.0
         }
       },
       {
@@ -1125,8 +1149,8 @@
         "discount": 0.5,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1116.5,
-          "p50_throughput": 39.0
+          "p50_latency": 1109.0,
+          "p50_throughput": 34.0
         }
       },
       {
@@ -1143,8 +1167,26 @@
         "discount": 0.5,
         "discount_note": null,
         "stats": {
-          "p50_latency": 3798.5,
-          "p50_throughput": 32.0
+          "p50_latency": 4199.0,
+          "p50_throughput": 28.0
+        }
+      },
+      {
+        "provider": "morph",
+        "pricing": {
+          "prompt": 9.7e-08,
+          "completion": 3.395e-07,
+          "input_cache_read": 1.94e-08
+        },
+        "data_policy": {
+          "retainsPrompts": false,
+          "training": false
+        },
+        "discount": 0.0,
+        "discount_note": null,
+        "stats": {
+          "p50_latency": 1658.5,
+          "p50_throughput": 23.0
         }
       },
       {
@@ -1161,26 +1203,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1332.0,
-          "p50_throughput": 37.0
-        }
-      },
-      {
-        "provider": "morph",
-        "pricing": {
-          "prompt": 1.3e-07,
-          "completion": 4.5e-07,
-          "input_cache_read": 2e-08
-        },
-        "data_policy": {
-          "retainsPrompts": false,
-          "training": false
-        },
-        "discount": 0.0,
-        "discount_note": null,
-        "stats": {
-          "p50_latency": 1355.5,
-          "p50_throughput": 39.0
+          "p50_latency": 1188.0,
+          "p50_throughput": 23.0
         }
       },
       {
@@ -1197,8 +1221,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1041.0,
-          "p50_throughput": 19.0
+          "p50_latency": 1338.0,
+          "p50_throughput": 42.0
         }
       },
       {
@@ -1215,8 +1239,8 @@
         "discount": 0.6667,
         "discount_note": null,
         "stats": {
-          "p50_latency": 542.0,
-          "p50_throughput": 62.0
+          "p50_latency": 577.5,
+          "p50_throughput": 37.0
         }
       },
       {
@@ -1233,8 +1257,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1064.0,
-          "p50_throughput": 50.0
+          "p50_latency": 1066.0,
+          "p50_throughput": 32.0
         }
       },
       {
@@ -1251,8 +1275,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2251.0,
-          "p50_throughput": 41.0
+          "p50_latency": 627.0,
+          "p50_throughput": 32.0
         }
       },
       {
@@ -1269,8 +1293,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1591.0,
-          "p50_throughput": 41.0
+          "p50_latency": 2206.0,
+          "p50_throughput": 33.0
         }
       },
       {
@@ -1287,8 +1311,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1522.0,
-          "p50_throughput": 42.0
+          "p50_latency": 1507.0,
+          "p50_throughput": 6.0
         }
       },
       {
@@ -1305,8 +1329,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1859.0,
-          "p50_throughput": 56.0
+          "p50_latency": 1957.0,
+          "p50_throughput": 57.0
         }
       },
       {
@@ -1323,8 +1347,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1188.0,
-          "p50_throughput": 39.0
+          "p50_latency": 1020.0,
+          "p50_throughput": 27.0
         }
       },
       {
@@ -1341,8 +1365,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2979.5,
-          "p50_throughput": 71.0
+          "p50_latency": 5163.0,
+          "p50_throughput": 49.0
         }
       },
       {
@@ -1359,8 +1383,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2879.5,
-          "p50_throughput": 32.0
+          "p50_latency": 4147.0,
+          "p50_throughput": 26.0
         }
       },
       {
@@ -1377,8 +1401,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2046.0,
-          "p50_throughput": 13.0
+          "p50_latency": 2008.5,
+          "p50_throughput": 25.0
         }
       },
       {
@@ -1395,8 +1419,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1194.5,
-          "p50_throughput": 50.0
+          "p50_latency": 943.0,
+          "p50_throughput": 45.0
         }
       },
       {
@@ -1413,8 +1437,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 766.0,
-          "p50_throughput": 61.0
+          "p50_latency": 2673.0,
+          "p50_throughput": 22.0
         }
       },
       {
@@ -1431,8 +1455,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1221.5,
-          "p50_throughput": 71.0
+          "p50_latency": 933.0,
+          "p50_throughput": 31.0
         }
       },
       {
@@ -1449,8 +1473,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 730.0,
-          "p50_throughput": 117.0
+          "p50_latency": 723.0,
+          "p50_throughput": 106.0
         }
       },
       {
@@ -1467,8 +1491,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 938.0,
-          "p50_throughput": 62.0
+          "p50_latency": 1435.0,
+          "p50_throughput": 27.0
         }
       },
       {
@@ -1485,8 +1509,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1512.0,
-          "p50_throughput": 26.0
+          "p50_latency": 1514.0,
+          "p50_throughput": 24.0
         }
       },
       {
@@ -1503,12 +1527,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1066.0,
-          "p50_throughput": 44.0
+          "p50_latency": 1603.5,
+          "p50_throughput": 41.0
         }
       }
     ],
-    "digest": "58d23763531ee96742a59f6893150c38d71f532e"
+    "digest": "4af5b8cc9e5000493ff21ee3491bc941bb6ee0e9"
   },
   "z-ai/glm-5.3-flash:batch": {
     "endpoints": [
@@ -2548,8 +2572,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 7303.0,
-          "p50_throughput": 16.0
+          "p50_latency": 3019.0,
+          "p50_throughput": 35.0
         }
       },
       {
@@ -2566,8 +2590,8 @@
         "discount": 0.1,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1289.5,
-          "p50_throughput": 66.5
+          "p50_latency": 1060.0,
+          "p50_throughput": 63.0
         }
       },
       {
@@ -2584,8 +2608,8 @@
         "discount": 0.15,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2498.5,
-          "p50_throughput": 61.0
+          "p50_latency": 1413.0,
+          "p50_throughput": 81.0
         }
       },
       {
@@ -2602,8 +2626,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1476.0,
-          "p50_throughput": 50.0
+          "p50_latency": 876.0,
+          "p50_throughput": 71.0
         }
       },
       {
@@ -2620,8 +2644,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2445.0,
-          "p50_throughput": 23.0
+          "p50_latency": 1648.5,
+          "p50_throughput": 44.0
         }
       },
       {
@@ -2638,8 +2662,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 953.0,
-          "p50_throughput": 39.0
+          "p50_latency": 805.5,
+          "p50_throughput": 52.0
         }
       },
       {
@@ -2656,8 +2680,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1722.0,
-          "p50_throughput": 27.0
+          "p50_latency": 1293.5,
+          "p50_throughput": 26.5
         }
       },
       {
@@ -2674,8 +2698,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2110.5,
-          "p50_throughput": 36.0
+          "p50_latency": 1343.0,
+          "p50_throughput": 33.0
         }
       },
       {
@@ -2692,8 +2716,8 @@
         "discount": 0.1,
         "discount_note": null,
         "stats": {
-          "p50_latency": 783.0,
-          "p50_throughput": 128.0
+          "p50_latency": 1156.0,
+          "p50_throughput": 104.5
         }
       },
       {
@@ -2710,8 +2734,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 3063.0,
-          "p50_throughput": 142.0
+          "p50_latency": 619.5,
+          "p50_throughput": 107.5
         }
       },
       {
@@ -2728,8 +2752,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1285.0,
-          "p50_throughput": 25.0
+          "p50_latency": 1071.5,
+          "p50_throughput": 21.0
         }
       },
       {
@@ -2746,8 +2770,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2274.0,
-          "p50_throughput": 38.0
+          "p50_latency": 1981.0,
+          "p50_throughput": 34.0
         }
       },
       {
@@ -2764,8 +2788,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1457.0,
-          "p50_throughput": 65.0
+          "p50_latency": 2019.0,
+          "p50_throughput": 59.0
         }
       },
       {
@@ -2782,8 +2806,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2608.5,
-          "p50_throughput": 39.0
+          "p50_latency": 2323.5,
+          "p50_throughput": 44.0
         }
       },
       {
@@ -2800,7 +2824,7 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 379.0,
+          "p50_latency": 339.0,
           "p50_throughput": 87.0
         }
       },
@@ -2818,8 +2842,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1204.0,
-          "p50_throughput": 28.0
+          "p50_latency": 2361.0,
+          "p50_throughput": 23.0
         }
       },
       {
@@ -2836,8 +2860,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 942.0,
-          "p50_throughput": 20.0
+          "p50_latency": 731.5,
+          "p50_throughput": 83.0
         }
       },
       {
@@ -2854,8 +2878,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 578.0,
-          "p50_throughput": 91.0
+          "p50_latency": 700.0,
+          "p50_throughput": 85.0
         }
       },
       {
@@ -2872,8 +2896,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 3172.5,
-          "p50_throughput": 65.0
+          "p50_latency": 1806.0,
+          "p50_throughput": 40.0
         }
       },
       {
@@ -2890,8 +2914,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1939.5,
-          "p50_throughput": 29.0
+          "p50_latency": 1500.0,
+          "p50_throughput": 45.0
         }
       },
       {
@@ -2908,8 +2932,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1117.0,
-          "p50_throughput": 53.0
+          "p50_latency": 1291.0,
+          "p50_throughput": 48.0
         }
       },
       {
@@ -2926,8 +2950,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2904.5,
-          "p50_throughput": 27.5
+          "p50_latency": 1525.0,
+          "p50_throughput": 40.0
         }
       },
       {
@@ -2944,7 +2968,7 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1805.5,
+          "p50_latency": 1363.0,
           "p50_throughput": 55.0
         }
       },
@@ -2962,8 +2986,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 3231.0,
-          "p50_throughput": 37.0
+          "p50_latency": 3143.0,
+          "p50_throughput": 43.0
         }
       },
       {
@@ -2980,12 +3004,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2235.5,
-          "p50_throughput": 25.0
+          "p50_latency": 1951.0,
+          "p50_throughput": 56.0
         }
       }
     ],
-    "digest": "b50df40fc3bdc797cbfcc8a87ef93a85e8475db5"
+    "digest": "2e4412a6df6823c3834a6bdab51cc49132e0bebf"
   },
   "qwen/qwen3.8-27b": {
     "endpoints": [
@@ -3002,8 +3026,26 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 6413.5,
-          "p50_throughput": 31.0
+          "p50_latency": 1605.0,
+          "p50_throughput": 11.0
+        }
+      },
+      {
+        "provider": "parasail",
+        "pricing": {
+          "prompt": 2.4e-07,
+          "completion": 2.2e-06,
+          "input_cache_read": 5e-08
+        },
+        "data_policy": {
+          "retainsPrompts": false,
+          "training": false
+        },
+        "discount": 0.0,
+        "discount_note": null,
+        "stats": {
+          "p50_latency": 884.0,
+          "p50_throughput": 58.0
         }
       },
       {
@@ -3020,8 +3062,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 622.0,
-          "p50_throughput": 44.0
+          "p50_latency": 390.0,
+          "p50_throughput": 59.0
         }
       },
       {
@@ -3038,15 +3080,15 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1162.0,
-          "p50_throughput": 48.0
+          "p50_latency": 873.5,
+          "p50_throughput": 57.0
         }
       },
       {
-        "provider": "parasail",
+        "provider": "phala",
         "pricing": {
-          "prompt": 2.8e-07,
-          "completion": 2.2e-06,
+          "prompt": 3e-07,
+          "completion": 3e-06,
           "input_cache_read": 5e-08
         },
         "data_policy": {
@@ -3056,8 +3098,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 675.5,
-          "p50_throughput": 58.0
+          "p50_latency": 671.0,
+          "p50_throughput": 24.0
         }
       },
       {
@@ -3074,8 +3116,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1828.0,
-          "p50_throughput": 30.0
+          "p50_latency": 1745.5,
+          "p50_throughput": 32.0
         }
       },
       {
@@ -3092,25 +3134,7 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 885.0,
-          "p50_throughput": 53.0
-        }
-      },
-      {
-        "provider": "phala",
-        "pricing": {
-          "prompt": 4e-07,
-          "completion": 3e-06,
-          "input_cache_read": 5e-08
-        },
-        "data_policy": {
-          "retainsPrompts": false,
-          "training": false
-        },
-        "discount": 0.0,
-        "discount_note": null,
-        "stats": {
-          "p50_latency": 885.0,
+          "p50_latency": 713.5,
           "p50_throughput": 51.0
         }
       },
@@ -3128,8 +3152,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 482.0,
-          "p50_throughput": 60.0
+          "p50_latency": 440.0,
+          "p50_throughput": 52.0
         }
       },
       {
@@ -3146,8 +3170,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2016.0,
-          "p50_throughput": 40.0
+          "p50_latency": 1246.0,
+          "p50_throughput": 33.0
         }
       },
       {
@@ -3165,8 +3189,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1205.0,
-          "p50_throughput": 36.0
+          "p50_latency": 886.0,
+          "p50_throughput": 50.0
         }
       },
       {
@@ -3183,8 +3207,8 @@
         "discount": 0.1,
         "discount_note": null,
         "stats": {
-          "p50_latency": 761.5,
-          "p50_throughput": 34.0
+          "p50_latency": 550.0,
+          "p50_throughput": 79.0
         }
       },
       {
@@ -3201,8 +3225,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 731.0,
-          "p50_throughput": 23.0
+          "p50_latency": 4208.0,
+          "p50_throughput": 19.0
         }
       },
       {
@@ -3218,12 +3242,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1598.0,
-          "p50_throughput": 53.0
+          "p50_latency": 1085.0,
+          "p50_throughput": 82.0
         }
       }
     ],
-    "digest": "0ff7ccfc3503efce74b4fb2d670bafebcbe107b8"
+    "digest": "9602fa65223e6bb1701fcba5df5c36c954dffe2b"
   },
   "google/gemini-3.7-flash": {
     "endpoints": [
@@ -3595,42 +3619,6 @@
   "deepseek/deepseek-v4-pro-0813": {
     "endpoints": [
       {
-        "provider": "streamlake",
-        "pricing": {
-          "prompt": 5.7948e-07,
-          "completion": 1.73844e-06,
-          "input_cache_read": 1.9316e-08
-        },
-        "data_policy": {
-          "retainsPrompts": true,
-          "training": false
-        },
-        "discount": 0.561,
-        "discount_note": null,
-        "stats": {
-          "p50_latency": 3009.0,
-          "p50_throughput": 48.0
-        }
-      },
-      {
-        "provider": "alibaba",
-        "pricing": {
-          "prompt": 5.808e-07,
-          "completion": 1.7424e-06,
-          "input_cache_read": 5.808e-08
-        },
-        "data_policy": {
-          "retainsPrompts": false,
-          "training": false
-        },
-        "discount": 0.0,
-        "discount_note": null,
-        "stats": {
-          "p50_latency": 1190.0,
-          "p50_throughput": 45.0
-        }
-      },
-      {
         "provider": "deepseek",
         "pricing": {
           "prompt": 6.6e-07,
@@ -3644,7 +3632,7 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1167.0,
+          "p50_latency": 1201.0,
           "p50_throughput": 22.0
         }
       },
@@ -3662,8 +3650,62 @@
         "discount": 0.16,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1255.5,
-          "p50_throughput": 52.0
+          "p50_latency": 1284.0,
+          "p50_throughput": 60.0
+        }
+      },
+      {
+        "provider": "baidu",
+        "pricing": {
+          "prompt": 1.11936e-06,
+          "completion": 3.35808e-06,
+          "input_cache_read": 1.11936e-07
+        },
+        "data_policy": {
+          "retainsPrompts": true,
+          "training": false
+        },
+        "discount": 0.152,
+        "discount_note": null,
+        "stats": {
+          "p50_latency": 878.0,
+          "p50_throughput": 57.0
+        }
+      },
+      {
+        "provider": "streamlake",
+        "pricing": {
+          "prompt": 1.12068e-06,
+          "completion": 3.36204e-06,
+          "input_cache_read": 3.7356e-08
+        },
+        "data_policy": {
+          "retainsPrompts": true,
+          "training": false
+        },
+        "discount": 0.151,
+        "discount_note": null,
+        "stats": {
+          "p50_latency": 3890.5,
+          "p50_throughput": 47.0
+        }
+      },
+      {
+        "provider": "alibaba",
+        "pricing": {
+          "prompt": 1.122e-06,
+          "completion": 3.366e-06,
+          "input_cache_read": 1.122e-07
+        },
+        "data_policy": {
+          "retainsPrompts": false,
+          "training": false
+        },
+        "discount": 0.0,
+        "discount_note": null,
+        "stats": {
+          "p50_latency": 1247.5,
+          "p50_throughput": 43.0
         }
       },
       {
@@ -3680,8 +3722,8 @@
         "discount": 0.15,
         "discount_note": null,
         "stats": {
-          "p50_latency": 4519.5,
-          "p50_throughput": 45.0
+          "p50_latency": 3584.0,
+          "p50_throughput": 46.0
         }
       },
       {
@@ -3698,8 +3740,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 991.0,
-          "p50_throughput": 47.0
+          "p50_latency": 770.0,
+          "p50_throughput": 79.0
         }
       },
       {
@@ -3716,26 +3758,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 835.0,
-          "p50_throughput": 82.0
-        }
-      },
-      {
-        "provider": "baidu",
-        "pricing": {
-          "prompt": 1.32e-06,
-          "completion": 3.96e-06,
-          "input_cache_read": 1.32e-07
-        },
-        "data_policy": {
-          "retainsPrompts": true,
-          "training": false
-        },
-        "discount": 0.0,
-        "discount_note": null,
-        "stats": {
-          "p50_latency": 859.0,
-          "p50_throughput": 57.0
+          "p50_latency": 629.0,
+          "p50_throughput": 103.0
         }
       },
       {
@@ -3752,8 +3776,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 3699.0,
-          "p50_throughput": 57.0
+          "p50_latency": 3851.0,
+          "p50_throughput": 42.0
         }
       },
       {
@@ -3770,8 +3794,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 997.0,
-          "p50_throughput": 53.0
+          "p50_latency": 1743.0,
+          "p50_throughput": 28.0
         }
       },
       {
@@ -3788,8 +3812,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 553.5,
-          "p50_throughput": 46.0
+          "p50_latency": 446.0,
+          "p50_throughput": 53.0
         }
       },
       {
@@ -3806,8 +3830,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 910.0,
-          "p50_throughput": 61.0
+          "p50_latency": 713.5,
+          "p50_throughput": 66.0
         }
       },
       {
@@ -3824,8 +3848,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 950.0,
-          "p50_throughput": 63.0
+          "p50_latency": 1294.5,
+          "p50_throughput": 59.0
         }
       },
       {
@@ -3842,8 +3866,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 980.0,
-          "p50_throughput": 45.0
+          "p50_latency": 780.5,
+          "p50_throughput": 51.0
         }
       },
       {
@@ -3860,8 +3884,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1276.0,
-          "p50_throughput": 26.0
+          "p50_latency": 1248.0,
+          "p50_throughput": 41.0
         }
       },
       {
@@ -3878,8 +3902,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1281.0,
-          "p50_throughput": 64.0
+          "p50_latency": 1314.0,
+          "p50_throughput": 66.0
         }
       },
       {
@@ -3896,8 +3920,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1301.0,
-          "p50_throughput": 60.0
+          "p50_latency": 1004.0,
+          "p50_throughput": 75.0
         }
       },
       {
@@ -3914,12 +3938,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1441.0,
-          "p50_throughput": 58.0
+          "p50_latency": 1234.0,
+          "p50_throughput": 51.0
         }
       }
     ],
-    "digest": "3af90ad4cf0be61479e97d0d80af85bbcfbb4051"
+    "digest": "4b634da8303d5d6da97866e900027f23748a79d8"
   },
   "deepseek/deepseek-v4-pro-0813:batch": {
     "endpoints": [
@@ -4523,30 +4547,6 @@
     ],
     "digest": "a00c52c87909d76186b493f22912e7c3746134ce"
   },
-  "qwen/qwen3.8-max": {
-    "endpoints": [
-      {
-        "provider": "alibaba",
-        "pricing": {
-          "prompt": 2e-06,
-          "completion": 6e-06,
-          "input_cache_read": 2.5e-07,
-          "input_cache_write": 2.5e-06
-        },
-        "data_policy": {
-          "retainsPrompts": false,
-          "training": false
-        },
-        "discount": 0.0,
-        "discount_note": null,
-        "stats": {
-          "p50_latency": 1623.0,
-          "p50_throughput": 41.0
-        }
-      }
-    ],
-    "digest": "5d895e13ef45779db1bdf9e90abc6a0a6d6de766"
-  },
   "~deepseek/deepseek-v4-flash-latest": {
     "endpoints": [
       {
@@ -5089,8 +5089,8 @@
         "discount": 0.643,
         "discount_note": null,
         "stats": {
-          "p50_latency": 677.0,
-          "p50_throughput": 118.0
+          "p50_latency": 767.0,
+          "p50_throughput": 117.0
         }
       },
       {
@@ -5107,8 +5107,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 658.0,
-          "p50_throughput": 17.0
+          "p50_latency": 652.0,
+          "p50_throughput": 14.0
         }
       },
       {
@@ -5125,8 +5125,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 795.0,
-          "p50_throughput": 116.0
+          "p50_latency": 689.0,
+          "p50_throughput": 137.0
         }
       },
       {
@@ -5143,8 +5143,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 720.5,
-          "p50_throughput": 33.0
+          "p50_latency": 763.0,
+          "p50_throughput": 39.0
         }
       },
       {
@@ -5161,8 +5161,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1536.0,
-          "p50_throughput": 31.0
+          "p50_latency": 511.0,
+          "p50_throughput": 19.0
         }
       },
       {
@@ -5179,8 +5179,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 525.0,
-          "p50_throughput": 45.0
+          "p50_latency": 467.0,
+          "p50_throughput": 41.0
         }
       },
       {
@@ -5197,8 +5197,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 774.0,
-          "p50_throughput": 20.0
+          "p50_latency": 651.0,
+          "p50_throughput": 38.0
         }
       },
       {
@@ -5215,8 +5215,8 @@
         "discount": 0.8,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1346.0,
-          "p50_throughput": 125.0
+          "p50_latency": 1047.0,
+          "p50_throughput": 106.0
         }
       },
       {
@@ -5233,8 +5233,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 498.0,
-          "p50_throughput": 123.0
+          "p50_latency": 467.0,
+          "p50_throughput": 110.0
         }
       },
       {
@@ -5251,8 +5251,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 963.5,
-          "p50_throughput": 115.0
+          "p50_latency": 560.0,
+          "p50_throughput": 150.0
         }
       },
       {
@@ -5269,8 +5269,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1058.0,
-          "p50_throughput": 61.0
+          "p50_latency": 677.0,
+          "p50_throughput": 125.0
         }
       },
       {
@@ -5287,8 +5287,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1207.5,
-          "p50_throughput": 15.0
+          "p50_latency": 832.0,
+          "p50_throughput": 52.0
         }
       },
       {
@@ -5305,8 +5305,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 621.0,
-          "p50_throughput": 66.0
+          "p50_latency": 1050.0,
+          "p50_throughput": 43.0
         }
       },
       {
@@ -5323,8 +5323,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 673.0,
-          "p50_throughput": 49.0
+          "p50_latency": 556.0,
+          "p50_throughput": 58.0
         }
       },
       {
@@ -5341,8 +5341,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 299.0,
-          "p50_throughput": 97.0
+          "p50_latency": 547.0,
+          "p50_throughput": 120.0
         }
       },
       {
@@ -5359,8 +5359,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 700.5,
-          "p50_throughput": 43.0
+          "p50_latency": 874.0,
+          "p50_throughput": 37.0
         }
       },
       {
@@ -5377,8 +5377,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 614.0,
-          "p50_throughput": 41.0
+          "p50_latency": 724.0,
+          "p50_throughput": 38.0
         }
       },
       {
@@ -5395,8 +5395,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1212.5,
-          "p50_throughput": 34.0
+          "p50_latency": 828.5,
+          "p50_throughput": 54.0
         }
       },
       {
@@ -5412,26 +5412,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 817.0,
-          "p50_throughput": 29.0
-        }
-      },
-      {
-        "provider": "alibaba",
-        "pricing": {
-          "prompt": 1.76e-07,
-          "completion": 5.28e-07,
-          "input_cache_read": 1.76e-08
-        },
-        "data_policy": {
-          "retainsPrompts": false,
-          "training": false
-        },
-        "discount": 0.0,
-        "discount_note": null,
-        "stats": {
-          "p50_latency": 1006.0,
-          "p50_throughput": 57.0
+          "p50_latency": 584.5,
+          "p50_throughput": 32.0
         }
       },
       {
@@ -5448,8 +5430,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1305.0,
-          "p50_throughput": 34.0
+          "p50_latency": 714.0,
+          "p50_throughput": 98.0
         }
       },
       {
@@ -5466,8 +5448,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1436.0,
-          "p50_throughput": 58.0
+          "p50_latency": 1510.5,
+          "p50_throughput": 62.0
         }
       },
       {
@@ -5484,8 +5466,26 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 856.0,
-          "p50_throughput": 91.0
+          "p50_latency": 1219.0,
+          "p50_throughput": 90.0
+        }
+      },
+      {
+        "provider": "alibaba",
+        "pricing": {
+          "prompt": 3.52e-07,
+          "completion": 1.056e-06,
+          "input_cache_read": 3.52e-08
+        },
+        "data_policy": {
+          "retainsPrompts": false,
+          "training": false
+        },
+        "discount": 0.0,
+        "discount_note": null,
+        "stats": {
+          "p50_latency": 1416.5,
+          "p50_throughput": 58.0
         }
       },
       {
@@ -5502,8 +5502,8 @@
         "discount": 0.2,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2159.0,
-          "p50_throughput": 81.0
+          "p50_latency": 1759.0,
+          "p50_throughput": 87.0
         }
       },
       {
@@ -5520,8 +5520,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2196.0,
-          "p50_throughput": 40.0
+          "p50_latency": 2057.0,
+          "p50_throughput": 51.0
         }
       },
       {
@@ -5538,8 +5538,8 @@
         "discount": 0.07,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1249.0,
-          "p50_throughput": 88.0
+          "p50_latency": 1674.5,
+          "p50_throughput": 73.0
         }
       },
       {
@@ -5556,8 +5556,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 679.0,
-          "p50_throughput": 26.0
+          "p50_latency": 465.5,
+          "p50_throughput": 54.0
         }
       },
       {
@@ -5574,8 +5574,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1783.0,
-          "p50_throughput": 53.0
+          "p50_latency": 1507.0,
+          "p50_throughput": 63.0
         }
       },
       {
@@ -5592,12 +5592,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 822.0,
-          "p50_throughput": 42.0
+          "p50_latency": 643.0,
+          "p50_throughput": 67.0
         }
       }
     ],
-    "digest": "c77765d719a8e6c467616b020bf99111be2cf34e"
+    "digest": "b0a90c7d9ce7963c0ccfa4fdffe432f4cf53d04d"
   },
   "deepseek/deepseek-v4-flash-0731:batch": {
     "endpoints": [
@@ -6054,8 +6054,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1593.0,
-          "p50_throughput": 26.0
+          "p50_latency": 902.5,
+          "p50_throughput": 106.5
         }
       },
       {
@@ -6072,8 +6072,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1395.0,
-          "p50_throughput": 77.0
+          "p50_latency": 770.0,
+          "p50_throughput": 87.0
         }
       },
       {
@@ -6090,12 +6090,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 687.0,
-          "p50_throughput": 50.0
+          "p50_latency": 233.0,
+          "p50_throughput": 43.0
         }
       }
     ],
-    "digest": "4b19fc268dd0190d04177d915f8d53ad4f477162"
+    "digest": "dc3bc40cc7a705619cfaed22d7d9913a4b39320b"
   },
   "thinkingmachines/inkling-small:batch": {
     "endpoints": [
@@ -6509,8 +6509,8 @@
         "discount": 0.65,
         "discount_note": null,
         "stats": {
-          "p50_latency": 756.0,
-          "p50_throughput": 111.0
+          "p50_latency": 1146.0,
+          "p50_throughput": 133.0
         }
       },
       {
@@ -6527,12 +6527,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 820.0,
-          "p50_throughput": 24.0
+          "p50_latency": 32085.5,
+          "p50_throughput": 13.0
         }
       }
     ],
-    "digest": "de1e5704152143c2920779d04cbdba325f470cd6"
+    "digest": "8723d74e60f1dfb344b03f1b9836ed8e590e4bc1"
   },
   "poolside/laguna-s-2.1": {
     "endpoints": [
@@ -6854,8 +6854,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 521.0,
-          "p50_throughput": 121.0
+          "p50_latency": 1116.0,
+          "p50_throughput": 73.0
         }
       },
       {
@@ -6872,8 +6872,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 484.0,
-          "p50_throughput": 66.0
+          "p50_latency": 2959.5,
+          "p50_throughput": 84.0
         }
       },
       {
@@ -6890,12 +6890,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 380.0,
-          "p50_throughput": 95.0
+          "p50_latency": 293.0,
+          "p50_throughput": 83.0
         }
       }
     ],
-    "digest": "1d3422601ec66ea4c732e9e229fa5a189f0f637a"
+    "digest": "c4143e0ad6d8455bda48e3fba0b60774256342ac"
   },
   "thinkingmachines/inkling:batch": {
     "endpoints": [
@@ -6950,24 +6950,6 @@
   "moonshotai/kimi-k3": {
     "endpoints": [
       {
-        "provider": "morph",
-        "pricing": {
-          "prompt": 2.5e-06,
-          "completion": 1.4e-05,
-          "input_cache_read": 2.9e-07
-        },
-        "data_policy": {
-          "retainsPrompts": false,
-          "training": false
-        },
-        "discount": 0.0,
-        "discount_note": null,
-        "stats": {
-          "p50_latency": 3986.0,
-          "p50_throughput": 6.0
-        }
-      },
-      {
         "provider": "makora",
         "pricing": {
           "prompt": 2.55e-06,
@@ -6981,8 +6963,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1042.5,
-          "p50_throughput": 63.5
+          "p50_latency": 1156.5,
+          "p50_throughput": 45.0
         }
       },
       {
@@ -6999,8 +6981,26 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1366.5,
-          "p50_throughput": 66.0
+          "p50_latency": 1297.0,
+          "p50_throughput": 58.0
+        }
+      },
+      {
+        "provider": "morph",
+        "pricing": {
+          "prompt": 2.6e-06,
+          "completion": 1.4e-05,
+          "input_cache_read": 2.9e-07
+        },
+        "data_policy": {
+          "retainsPrompts": false,
+          "training": false
+        },
+        "discount": 0.0,
+        "discount_note": null,
+        "stats": {
+          "p50_latency": 3078.0,
+          "p50_throughput": 9.0
         }
       },
       {
@@ -7017,8 +7017,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1521.0,
-          "p50_throughput": 25.0
+          "p50_latency": 1228.0,
+          "p50_throughput": 31.0
         }
       },
       {
@@ -7035,8 +7035,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 908.0,
-          "p50_throughput": 36.0
+          "p50_latency": 834.0,
+          "p50_throughput": 32.0
         }
       },
       {
@@ -7053,8 +7053,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1155.5,
-          "p50_throughput": 19.0
+          "p50_latency": 1240.5,
+          "p50_throughput": 44.0
         }
       },
       {
@@ -7071,8 +7071,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1777.0,
-          "p50_throughput": 31.0
+          "p50_latency": 1761.0,
+          "p50_throughput": 26.0
         }
       },
       {
@@ -7089,8 +7089,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1337.0,
-          "p50_throughput": 21.0
+          "p50_latency": 3218.5,
+          "p50_throughput": 17.0
         }
       },
       {
@@ -7107,8 +7107,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 740.0,
-          "p50_throughput": 75.0
+          "p50_latency": 396.0,
+          "p50_throughput": 41.0
         }
       },
       {
@@ -7125,8 +7125,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 696.0,
-          "p50_throughput": 120.0
+          "p50_latency": 218.0,
+          "p50_throughput": 125.0
         }
       },
       {
@@ -7143,8 +7143,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1244.0,
-          "p50_throughput": 44.0
+          "p50_latency": 1688.0,
+          "p50_throughput": 28.0
         }
       },
       {
@@ -7161,8 +7161,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2311.0,
-          "p50_throughput": 36.0
+          "p50_latency": 1852.0,
+          "p50_throughput": 40.0
         }
       },
       {
@@ -7179,8 +7179,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1600.0,
-          "p50_throughput": 54.0
+          "p50_latency": 663.5,
+          "p50_throughput": 63.0
         }
       },
       {
@@ -7197,8 +7197,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2499.0,
-          "p50_throughput": 24.5
+          "p50_latency": 3489.0,
+          "p50_throughput": 24.0
         }
       },
       {
@@ -7215,8 +7215,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1899.0,
-          "p50_throughput": 57.0
+          "p50_latency": 1282.0,
+          "p50_throughput": 50.0
         }
       },
       {
@@ -7233,8 +7233,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 4528.0,
-          "p50_throughput": 28.0
+          "p50_latency": 6006.0,
+          "p50_throughput": 18.0
         }
       },
       {
@@ -7251,8 +7251,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 985.0,
-          "p50_throughput": 67.0
+          "p50_latency": 726.0,
+          "p50_throughput": 87.0
         }
       },
       {
@@ -7269,12 +7269,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2937.5,
-          "p50_throughput": 6.0
+          "p50_latency": 2263.0,
+          "p50_throughput": 9.0
         }
       }
     ],
-    "digest": "d8bb20005178f9b85abb123486e78b7830c9cc14"
+    "digest": "8c4465a92dda2cbc22a2b43cc9490bd71e8474e3"
   },
   "moonshotai/kimi-k3:batch": {
     "endpoints": [
@@ -7725,8 +7725,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2704.5,
-          "p50_throughput": 65.0
+          "p50_latency": 3330.5,
+          "p50_throughput": 69.0
         }
       },
       {
@@ -7744,8 +7744,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 4358.5,
-          "p50_throughput": 32.0
+          "p50_latency": 4291.0,
+          "p50_throughput": 42.0
         }
       },
       {
@@ -7763,8 +7763,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2912.0,
-          "p50_throughput": 60.0
+          "p50_latency": 3348.5,
+          "p50_throughput": 66.0
         }
       },
       {
@@ -7782,8 +7782,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1488.0,
-          "p50_throughput": 103.0
+          "p50_latency": 928.0,
+          "p50_throughput": 135.0
         }
       },
       {
@@ -7801,12 +7801,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 3045.0,
-          "p50_throughput": 104.0
+          "p50_latency": 1995.0,
+          "p50_throughput": 64.0
         }
       }
     ],
-    "digest": "28515558366b9ab2b833a37d46a0eeb6a441c075"
+    "digest": "6ea141371496b811cb558f9cc8e522756ae81a78"
   },
   "openai/gpt-5.6-luna:batch": {
     "endpoints": [
@@ -8631,24 +8631,6 @@
   "tencent/hy3": {
     "endpoints": [
       {
-        "provider": "tencent",
-        "pricing": {
-          "prompt": 8.25e-08,
-          "completion": 3.3e-07,
-          "input_cache_read": 2.0625e-08
-        },
-        "data_policy": {
-          "retainsPrompts": false,
-          "training": false
-        },
-        "discount": 0.0,
-        "discount_note": null,
-        "stats": {
-          "p50_latency": 2009.0,
-          "p50_throughput": 66.0
-        }
-      },
-      {
         "provider": "gmicloud",
         "pricing": {
           "prompt": 1.26e-07,
@@ -8662,8 +8644,26 @@
         "discount": 0.1,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2027.0,
-          "p50_throughput": 5.0
+          "p50_latency": 2075.0,
+          "p50_throughput": 71.0
+        }
+      },
+      {
+        "provider": "tencent",
+        "pricing": {
+          "prompt": 1.32e-07,
+          "completion": 5.28e-07,
+          "input_cache_read": 3.3e-08
+        },
+        "data_policy": {
+          "retainsPrompts": false,
+          "training": false
+        },
+        "discount": 0.0,
+        "discount_note": null,
+        "stats": {
+          "p50_latency": 2490.5,
+          "p50_throughput": 65.0
         }
       },
       {
@@ -8680,8 +8680,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2801.0,
-          "p50_throughput": 77.0
+          "p50_latency": 1801.0,
+          "p50_throughput": 82.0
         }
       },
       {
@@ -8698,8 +8698,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 203.0,
-          "p50_throughput": 44.0
+          "p50_latency": 1037.0,
+          "p50_throughput": 67.0
         }
       },
       {
@@ -8716,8 +8716,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 3759.0,
-          "p50_throughput": 91.0
+          "p50_latency": 1297.0,
+          "p50_throughput": 104.0
         }
       },
       {
@@ -8734,12 +8734,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1289.0,
-          "p50_throughput": 103.0
+          "p50_latency": 1335.0,
+          "p50_throughput": 76.0
         }
       }
     ],
-    "digest": "82e904b5830be073adc82046ceafe79df59633b9"
+    "digest": "6e60138f8c6c1018d5a4cec50f98b059d95630e8"
   },
   "poolside/laguna-xs-2.1": {
     "endpoints": [
@@ -9253,39 +9253,39 @@
   "z-ai/glm-5.2": {
     "endpoints": [
       {
-        "provider": "baidu",
+        "provider": "streamlake",
         "pricing": {
-          "prompt": 4.186e-07,
-          "completion": 1.3156e-06,
-          "input_cache_read": 7.774e-08
+          "prompt": 3.43e-07,
+          "completion": 1.078e-06,
+          "input_cache_read": 6.37e-08
         },
         "data_policy": {
           "retainsPrompts": true,
           "training": false
         },
-        "discount": 0.701,
+        "discount": 0.755,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1012.0,
-          "p50_throughput": 63.0
+          "p50_latency": 2102.0,
+          "p50_throughput": 50.0
         }
       },
       {
-        "provider": "streamlake",
+        "provider": "baidu",
         "pricing": {
-          "prompt": 4.2e-07,
-          "completion": 1.32e-06,
-          "input_cache_read": 7.8e-08
+          "prompt": 3.57e-07,
+          "completion": 1.122e-06,
+          "input_cache_read": 6.63e-08
         },
         "data_policy": {
           "retainsPrompts": true,
           "training": false
         },
-        "discount": 0.7,
+        "discount": 0.745,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1261.0,
-          "p50_throughput": 51.0
+          "p50_latency": 805.0,
+          "p50_throughput": 73.0
         }
       },
       {
@@ -9302,8 +9302,8 @@
         "discount": 0.35,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1010.0,
-          "p50_throughput": 54.0
+          "p50_latency": 1048.0,
+          "p50_throughput": 60.0
         }
       },
       {
@@ -9320,8 +9320,8 @@
         "discount": 0.601,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1513.0,
-          "p50_throughput": 29.0
+          "p50_latency": 1573.0,
+          "p50_throughput": 61.0
         }
       },
       {
@@ -9338,8 +9338,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2258.5,
-          "p50_throughput": 47.5
+          "p50_latency": 809.0,
+          "p50_throughput": 48.0
         }
       },
       {
@@ -9356,8 +9356,8 @@
         "discount": 0.43,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1657.5,
-          "p50_throughput": 52.0
+          "p50_latency": 714.0,
+          "p50_throughput": 66.0
         }
       },
       {
@@ -9374,8 +9374,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1126.0,
-          "p50_throughput": 82.0
+          "p50_latency": 639.0,
+          "p50_throughput": 99.0
         }
       },
       {
@@ -9392,8 +9392,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 518.0,
-          "p50_throughput": 167.0
+          "p50_latency": 480.0,
+          "p50_throughput": 158.0
         }
       },
       {
@@ -9410,8 +9410,8 @@
         "discount": 0.33,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1201.5,
-          "p50_throughput": 53.0
+          "p50_latency": 1661.0,
+          "p50_throughput": 46.0
         }
       },
       {
@@ -9428,8 +9428,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1330.0,
-          "p50_throughput": 31.0
+          "p50_latency": 1412.0,
+          "p50_throughput": 28.0
         }
       },
       {
@@ -9446,8 +9446,8 @@
         "discount": 0.25,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2157.0,
-          "p50_throughput": 45.0
+          "p50_latency": 1627.0,
+          "p50_throughput": 57.0
         }
       },
       {
@@ -9464,8 +9464,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 489.0,
-          "p50_throughput": 49.0
+          "p50_latency": 397.0,
+          "p50_throughput": 58.0
         }
       },
       {
@@ -9482,8 +9482,8 @@
         "discount": 0.15,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1952.0,
-          "p50_throughput": 37.0
+          "p50_latency": 1465.0,
+          "p50_throughput": 57.0
         }
       },
       {
@@ -9500,8 +9500,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 862.0,
-          "p50_throughput": 30.0
+          "p50_latency": 566.0,
+          "p50_throughput": 45.0
         }
       },
       {
@@ -9518,8 +9518,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1400.0,
-          "p50_throughput": 18.0
+          "p50_latency": 1666.5,
+          "p50_throughput": 54.0
         }
       },
       {
@@ -9536,8 +9536,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 914.0,
-          "p50_throughput": 113.0
+          "p50_latency": 983.0,
+          "p50_throughput": 89.0
         }
       },
       {
@@ -9554,8 +9554,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 656.0,
-          "p50_throughput": 140.0
+          "p50_latency": 770.5,
+          "p50_throughput": 106.0
         }
       },
       {
@@ -9572,8 +9572,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1886.0,
-          "p50_throughput": 75.0
+          "p50_latency": 1074.5,
+          "p50_throughput": 100.0
         }
       },
       {
@@ -9590,8 +9590,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 688.0,
-          "p50_throughput": 134.0
+          "p50_latency": 640.0,
+          "p50_throughput": 99.0
         }
       },
       {
@@ -9608,8 +9608,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 640.0,
-          "p50_throughput": 49.0
+          "p50_latency": 499.0,
+          "p50_throughput": 131.0
         }
       },
       {
@@ -9626,8 +9626,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 870.5,
-          "p50_throughput": 54.0
+          "p50_latency": 682.0,
+          "p50_throughput": 93.0
         }
       },
       {
@@ -9644,8 +9644,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1038.5,
-          "p50_throughput": 25.0
+          "p50_latency": 897.5,
+          "p50_throughput": 85.0
         }
       },
       {
@@ -9662,8 +9662,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1197.0,
-          "p50_throughput": 55.0
+          "p50_latency": 827.0,
+          "p50_throughput": 74.0
         }
       },
       {
@@ -9680,8 +9680,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 361.0,
-          "p50_throughput": 87.0
+          "p50_latency": 323.0,
+          "p50_throughput": 102.0
         }
       },
       {
@@ -9698,8 +9698,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2477.0,
-          "p50_throughput": 64.0
+          "p50_latency": 1302.5,
+          "p50_throughput": 83.5
         }
       },
       {
@@ -9716,8 +9716,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 3425.0,
-          "p50_throughput": 52.0
+          "p50_latency": 3337.0,
+          "p50_throughput": 50.0
         }
       },
       {
@@ -9734,8 +9734,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1969.0,
-          "p50_throughput": 65.0
+          "p50_latency": 1250.0,
+          "p50_throughput": 119.5
         }
       },
       {
@@ -9752,8 +9752,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 991.0,
-          "p50_throughput": 126.0
+          "p50_latency": 591.5,
+          "p50_throughput": 137.0
         }
       },
       {
@@ -9770,8 +9770,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 794.5,
-          "p50_throughput": 99.5
+          "p50_latency": 585.0,
+          "p50_throughput": 110.0
         }
       },
       {
@@ -9788,30 +9788,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2074.0,
-          "p50_throughput": 26.0
-        }
-      },
-      {
-        "provider": "sail-research",
-        "pricing": {
-          "prompt": 5e-07,
-          "completion": 3.15e-06,
-          "input_cache_read": 1.15e-07
-        },
-        "data_policy": {
-          "retainsPrompts": false,
-          "training": false
-        },
-        "discount": 0.0,
-        "discount_note": null,
-        "stats": {
-          "p50_latency": 1209.0,
-          "p50_throughput": 33.0
+          "p50_latency": 1821.5,
+          "p50_throughput": 31.0
         }
       }
     ],
-    "digest": "a8a3a705c3db981dd6c60203a663675f0b189e3a"
+    "digest": "324acedbcb64e119256c4103ff323adb6d3d4574"
   },
   "moonshotai/kimi-k2.7-code": {
     "endpoints": [
@@ -9829,8 +9811,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 814.0,
-          "p50_throughput": 58.0
+          "p50_latency": 902.0,
+          "p50_throughput": 47.0
         }
       },
       {
@@ -9847,8 +9829,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 707.0,
-          "p50_throughput": 21.0
+          "p50_latency": 670.0,
+          "p50_throughput": 37.0
         }
       },
       {
@@ -9865,8 +9847,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 710.0,
-          "p50_throughput": 138.0
+          "p50_latency": 1196.0,
+          "p50_throughput": 112.0
         }
       },
       {
@@ -9883,8 +9865,8 @@
         "discount": 0.25,
         "discount_note": null,
         "stats": {
-          "p50_latency": 887.5,
-          "p50_throughput": 42.5
+          "p50_latency": 915.0,
+          "p50_throughput": 36.0
         }
       },
       {
@@ -9901,8 +9883,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2005.0,
-          "p50_throughput": 15.0
+          "p50_latency": 1038.5,
+          "p50_throughput": 30.5
         }
       },
       {
@@ -9919,8 +9901,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 267.0,
-          "p50_throughput": 163.0
+          "p50_latency": 216.0,
+          "p50_throughput": 168.0
         }
       },
       {
@@ -9937,8 +9919,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 768.0,
-          "p50_throughput": 68.0
+          "p50_latency": 906.0,
+          "p50_throughput": 62.0
         }
       },
       {
@@ -9955,8 +9937,8 @@
         "discount": 0.04,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1336.5,
-          "p50_throughput": 56.0
+          "p50_latency": 1474.5,
+          "p50_throughput": 37.0
         }
       },
       {
@@ -9973,8 +9955,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 603.5,
-          "p50_throughput": 77.5
+          "p50_latency": 405.5,
+          "p50_throughput": 89.0
         }
       },
       {
@@ -9991,8 +9973,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 390.0,
-          "p50_throughput": 132.0
+          "p50_latency": 321.0,
+          "p50_throughput": 189.0
         }
       },
       {
@@ -10009,8 +9991,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 4536.0,
-          "p50_throughput": 62.0
+          "p50_latency": 2835.0,
+          "p50_throughput": 35.0
         }
       },
       {
@@ -10027,8 +10009,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 968.0,
-          "p50_throughput": 59.0
+          "p50_latency": 1032.0,
+          "p50_throughput": 51.0
         }
       },
       {
@@ -10060,8 +10042,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 963.0,
-          "p50_throughput": 53.0
+          "p50_latency": 1829.5,
+          "p50_throughput": 49.0
         }
       },
       {
@@ -10078,8 +10060,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1174.0,
-          "p50_throughput": 65.5
+          "p50_latency": 1071.0,
+          "p50_throughput": 42.0
         }
       },
       {
@@ -10096,12 +10078,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1774.0,
-          "p50_throughput": 58.0
+          "p50_latency": 3274.0,
+          "p50_throughput": 62.0
         }
       }
     ],
-    "digest": "8d07ee7a388a4444c73fa914ae986b0d483e694a"
+    "digest": "8387b2aacc2bcdfc78dff312f377d66d11a7c472"
   },
   "~anthropic/claude-fable-latest": {
     "endpoints": [
@@ -10560,8 +10542,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 573.0,
-          "p50_throughput": 103.0
+          "p50_latency": 406.0,
+          "p50_throughput": 100.0
         }
       },
       {
@@ -10578,8 +10560,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 796.5,
-          "p50_throughput": 18.0
+          "p50_latency": 1080.5,
+          "p50_throughput": 45.0
         }
       },
       {
@@ -10596,8 +10578,8 @@
         "discount": 0.5,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1217.0,
-          "p50_throughput": 65.0
+          "p50_latency": 1501.0,
+          "p50_throughput": 72.0
         }
       },
       {
@@ -10614,8 +10596,26 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1079.0,
-          "p50_throughput": 92.0
+          "p50_latency": 1026.0,
+          "p50_throughput": 89.5
+        }
+      },
+      {
+        "provider": "together",
+        "pricing": {
+          "prompt": 3e-07,
+          "completion": 1.2e-06,
+          "input_cache_read": 6e-08
+        },
+        "data_policy": {
+          "retainsPrompts": false,
+          "training": false
+        },
+        "discount": 0.0,
+        "discount_note": null,
+        "stats": {
+          "p50_latency": 824.0,
+          "p50_throughput": 82.0
         }
       },
       {
@@ -10632,8 +10632,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 769.0,
-          "p50_throughput": 91.0
+          "p50_latency": 343.0,
+          "p50_throughput": 131.0
         }
       },
       {
@@ -10650,8 +10650,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2454.0,
-          "p50_throughput": 45.0
+          "p50_latency": 1090.0,
+          "p50_throughput": 70.0
         }
       },
       {
@@ -10668,8 +10668,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1031.0,
-          "p50_throughput": 50.0
+          "p50_latency": 1444.0,
+          "p50_throughput": 60.0
         }
       },
       {
@@ -10686,8 +10686,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 947.0,
-          "p50_throughput": 80.0
+          "p50_latency": 1373.0,
+          "p50_throughput": 57.0
         }
       },
       {
@@ -10703,8 +10703,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1746.5,
-          "p50_throughput": 161.5
+          "p50_latency": 1282.0,
+          "p50_throughput": 178.0
         }
       },
       {
@@ -10721,8 +10721,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1291.0,
-          "p50_throughput": 41.0
+          "p50_latency": 1167.0,
+          "p50_throughput": 16.0
         }
       },
       {
@@ -10739,27 +10739,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1621.0,
-          "p50_throughput": 143.0
+          "p50_latency": 433.5,
+          "p50_throughput": 164.0
         }
-      },
-      {
-        "provider": "together",
-        "pricing": {
-          "prompt": 3e-07,
-          "completion": 1.2e-06,
-          "input_cache_read": 6e-08
-        },
-        "data_policy": {
-          "retainsPrompts": false,
-          "training": false
-        },
-        "discount": 0.0,
-        "discount_note": null,
-        "stats": {}
       }
     ],
-    "digest": "e71e2a4d3110cab93d9d67b843ef371c02f8c7fc"
+    "digest": "a018fce434f1d81420bb82b14d13bbc8c7b2a40f"
   },
   "minimax/minimax-m3:batch": {
     "endpoints": [
@@ -11402,8 +11387,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 12714.0,
-          "p50_throughput": 6.0
+          "p50_latency": 12808.5,
+          "p50_throughput": 7.0
         }
       },
       {
@@ -11421,8 +11406,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 951.0,
-          "p50_throughput": 53.5
+          "p50_latency": 1436.5,
+          "p50_throughput": 136.0
         }
       },
       {
@@ -11442,7 +11427,7 @@
         "stats": {}
       }
     ],
-    "digest": "5779b5b6990eec4bea863f152121837318a4a8e4"
+    "digest": "05614c10d82460dcfcf0fd4618f5e8eb6b02b288"
   },
   "google/gemini-3.5-flash:batch": {
     "endpoints": [
@@ -11535,8 +11520,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 468.0,
-          "p50_throughput": 75.0
+          "p50_latency": 515.0,
+          "p50_throughput": 84.0
         }
       },
       {
@@ -11554,8 +11539,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 867.5,
-          "p50_throughput": 57.0
+          "p50_latency": 899.0,
+          "p50_throughput": 64.0
         }
       },
       {
@@ -11573,8 +11558,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1433.0,
-          "p50_throughput": 134.0
+          "p50_latency": 992.0,
+          "p50_throughput": 181.0
         }
       },
       {
@@ -11594,7 +11579,7 @@
         "stats": {}
       }
     ],
-    "digest": "22bc7d4a8c6b7abe6a1ab9b768acae9c3111ab90"
+    "digest": "fb9999b19d6c27fd98bed34a37547260015789a3"
   },
   "google/gemini-3.1-flash-lite:batch": {
     "endpoints": [
@@ -13007,8 +12992,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1069.0,
-          "p50_throughput": 22.0
+          "p50_latency": 10347.5,
+          "p50_throughput": 11.0
         }
       },
       {
@@ -13024,8 +13009,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1537.5,
-          "p50_throughput": 12.0
+          "p50_latency": 1408.0,
+          "p50_throughput": 26.0
         }
       },
       {
@@ -13042,8 +13027,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1562.5,
-          "p50_throughput": 20.0
+          "p50_latency": 5773.0,
+          "p50_throughput": 11.0
         }
       },
       {
@@ -13059,8 +13044,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 457.5,
-          "p50_throughput": 34.0
+          "p50_latency": 1623.0,
+          "p50_throughput": 23.0
         }
       },
       {
@@ -13076,8 +13061,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 786.5,
-          "p50_throughput": 41.0
+          "p50_latency": 1004.5,
+          "p50_throughput": 24.0
         }
       },
       {
@@ -13093,12 +13078,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 697.0,
-          "p50_throughput": 31.0
+          "p50_latency": 981.0,
+          "p50_throughput": 47.0
         }
       }
     ],
-    "digest": "4df2ddcaf86371f5febc7fa9f742f20f4a64d4b5"
+    "digest": "19b677de1b8b73aadd9c3def3b526c26ed03f5df"
   },
   "openai/gpt-5.5-pro": {
     "endpoints": [
@@ -13329,44 +13314,44 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 686.0,
-          "p50_throughput": 25.0
-        }
-      },
-      {
-        "provider": "streamlake",
-        "pricing": {
-          "prompt": 9.71442e-07,
-          "completion": 1.942884e-06,
-          "input_cache_read": 8.09535e-08
-        },
-        "data_policy": {
-          "retainsPrompts": true,
-          "training": false
-        },
-        "discount": 0.4417,
-        "discount_note": null,
-        "stats": {
-          "p50_latency": 1463.5,
-          "p50_throughput": 41.0
+          "p50_latency": 734.0,
+          "p50_throughput": 31.0
         }
       },
       {
         "provider": "baidu",
         "pricing": {
-          "prompt": 9.802e-07,
-          "completion": 1.9604e-06,
-          "input_cache_read": 8.12e-08
+          "prompt": 9.295e-07,
+          "completion": 1.859e-06,
+          "input_cache_read": 7.7e-08
         },
         "data_policy": {
           "retainsPrompts": true,
           "training": false
         },
-        "discount": 0.42,
+        "discount": 0.45,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1058.0,
-          "p50_throughput": 57.0
+          "p50_latency": 1026.0,
+          "p50_throughput": 59.0
+        }
+      },
+      {
+        "provider": "streamlake",
+        "pricing": {
+          "prompt": 9.20808e-07,
+          "completion": 1.841616e-06,
+          "input_cache_read": 7.6734e-08
+        },
+        "data_policy": {
+          "retainsPrompts": true,
+          "training": false
+        },
+        "discount": 0.4708,
+        "discount_note": null,
+        "stats": {
+          "p50_latency": 1843.5,
+          "p50_throughput": 38.0
         }
       },
       {
@@ -13383,8 +13368,8 @@
         "discount": 0.4,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2582.0,
-          "p50_throughput": 27.0
+          "p50_latency": 2681.0,
+          "p50_throughput": 26.0
         }
       },
       {
@@ -13401,8 +13386,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 940.0,
-          "p50_throughput": 31.0
+          "p50_latency": 758.0,
+          "p50_throughput": 50.0
         }
       },
       {
@@ -13434,8 +13419,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1035.0,
-          "p50_throughput": 34.0
+          "p50_latency": 989.0,
+          "p50_throughput": 47.0
         }
       },
       {
@@ -13452,8 +13437,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1237.0,
-          "p50_throughput": 48.0
+          "p50_latency": 1218.0,
+          "p50_throughput": 53.0
         }
       },
       {
@@ -13470,8 +13455,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1717.0,
-          "p50_throughput": 40.0
+          "p50_latency": 1905.0,
+          "p50_throughput": 38.0
         }
       },
       {
@@ -13488,8 +13473,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1600.0,
-          "p50_throughput": 57.0
+          "p50_latency": 1603.0,
+          "p50_throughput": 54.0
         }
       },
       {
@@ -13506,8 +13491,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1302.0,
-          "p50_throughput": 40.0
+          "p50_latency": 1171.5,
+          "p50_throughput": 50.0
         }
       },
       {
@@ -13524,8 +13509,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1372.0,
-          "p50_throughput": 36.0
+          "p50_latency": 1301.0,
+          "p50_throughput": 41.0
         }
       },
       {
@@ -13542,8 +13527,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2018.5,
-          "p50_throughput": 48.0
+          "p50_latency": 1870.0,
+          "p50_throughput": 44.0
         }
       },
       {
@@ -13560,8 +13545,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 720.0,
-          "p50_throughput": 63.0
+          "p50_latency": 621.0,
+          "p50_throughput": 60.0
         }
       },
       {
@@ -13577,7 +13562,10 @@
         },
         "discount": 0.0,
         "discount_note": null,
-        "stats": {}
+        "stats": {
+          "p50_latency": 607.0,
+          "p50_throughput": 55.0
+        }
       },
       {
         "provider": "azure/us",
@@ -13593,12 +13581,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1164.0,
-          "p50_throughput": 46.0
+          "p50_latency": 1300.0,
+          "p50_throughput": 59.0
         }
       }
     ],
-    "digest": "7e0add6a74ce91dd646c1e6e4b4cfd6d81141f8e"
+    "digest": "352a60358024c3618f54efde54d388db69fbbd34"
   },
   "deepseek/deepseek-v4-flash": {
     "endpoints": [
@@ -13616,44 +13604,44 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1025.0,
-          "p50_throughput": 11.0
+          "p50_latency": 1058.0,
+          "p50_throughput": 10.0
         }
       },
       {
         "provider": "streamlake",
         "pricing": {
-          "prompt": 8.75e-08,
-          "completion": 1.75e-07,
-          "input_cache_read": 1.75e-08
+          "prompt": 8.554e-08,
+          "completion": 1.7108e-07,
+          "input_cache_read": 1.7108e-08
         },
         "data_policy": {
           "retainsPrompts": true,
           "training": false
         },
-        "discount": 0.375,
+        "discount": 0.389,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1586.0,
-          "p50_throughput": 31.0
+          "p50_latency": 1716.5,
+          "p50_throughput": 36.0
         }
       },
       {
         "provider": "baidu",
         "pricing": {
-          "prompt": 8.764e-08,
-          "completion": 1.7528e-07,
-          "input_cache_read": 1.7528e-08
+          "prompt": 8.568e-08,
+          "completion": 1.7136e-07,
+          "input_cache_read": 1.7136e-08
         },
         "data_policy": {
           "retainsPrompts": true,
           "training": false
         },
-        "discount": 0.374,
+        "discount": 0.388,
         "discount_note": null,
         "stats": {
-          "p50_latency": 744.0,
-          "p50_throughput": 75.0
+          "p50_latency": 619.0,
+          "p50_throughput": 88.0
         }
       },
       {
@@ -13670,8 +13658,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1873.0,
-          "p50_throughput": 17.0
+          "p50_latency": 701.5,
+          "p50_throughput": 31.0
         }
       },
       {
@@ -13688,8 +13676,8 @@
         "discount": 0.2,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1878.0,
-          "p50_throughput": 46.0
+          "p50_latency": 1807.0,
+          "p50_throughput": 52.0
         }
       },
       {
@@ -13706,8 +13694,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1380.0,
-          "p50_throughput": 72.0
+          "p50_latency": 1319.0,
+          "p50_throughput": 85.0
         }
       },
       {
@@ -13724,8 +13712,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 842.0,
-          "p50_throughput": 78.0
+          "p50_latency": 841.0,
+          "p50_throughput": 88.0
         }
       },
       {
@@ -13742,8 +13730,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1004.0,
-          "p50_throughput": 27.0
+          "p50_latency": 938.0,
+          "p50_throughput": 45.0
         }
       },
       {
@@ -13760,8 +13748,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1498.0,
-          "p50_throughput": 43.0
+          "p50_latency": 1552.0,
+          "p50_throughput": 80.0
         }
       },
       {
@@ -13778,8 +13766,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1247.0,
-          "p50_throughput": 54.0
+          "p50_latency": 1468.0,
+          "p50_throughput": 57.0
         }
       },
       {
@@ -13796,8 +13784,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 988.0,
-          "p50_throughput": 38.0
+          "p50_latency": 1101.0,
+          "p50_throughput": 43.0
         }
       },
       {
@@ -13814,8 +13802,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 565.0,
-          "p50_throughput": 28.0
+          "p50_latency": 606.0,
+          "p50_throughput": 62.0
         }
       },
       {
@@ -13831,8 +13819,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 818.0,
-          "p50_throughput": 27.0
+          "p50_latency": 676.0,
+          "p50_throughput": 43.0
         }
       },
       {
@@ -13849,8 +13837,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1338.0,
-          "p50_throughput": 50.0
+          "p50_latency": 1399.0,
+          "p50_throughput": 89.0
         }
       },
       {
@@ -13867,12 +13855,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 8172.5,
-          "p50_throughput": 12.0
+          "p50_latency": 877.5,
+          "p50_throughput": 65.0
         }
       }
     ],
-    "digest": "58b4f5ce23cdf00416d5af7f6f28e17ccb472da9"
+    "digest": "afda75cfb03c8b55d9d024ed823c501c04e8fd71"
   },
   "tencent/hy3-preview": {
     "endpoints": [
@@ -13913,8 +13901,8 @@
         "discount": 0.3,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2372.0,
-          "p50_throughput": 22.0
+          "p50_latency": 3855.0,
+          "p50_throughput": 23.0
         }
       },
       {
@@ -13931,8 +13919,8 @@
         "discount": 0.61,
         "discount_note": null,
         "stats": {
-          "p50_latency": 839.0,
-          "p50_throughput": 40.0
+          "p50_latency": 1422.5,
+          "p50_throughput": 32.0
         }
       },
       {
@@ -13948,7 +13936,10 @@
         },
         "discount": 0.0,
         "discount_note": null,
-        "stats": {}
+        "stats": {
+          "p50_latency": 598.0,
+          "p50_throughput": 29.0
+        }
       },
       {
         "provider": "atlas-cloud",
@@ -13964,8 +13955,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 3355.0,
-          "p50_throughput": 36.0
+          "p50_latency": 5208.0,
+          "p50_throughput": 22.0
         }
       },
       {
@@ -13982,8 +13973,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1532.0,
-          "p50_throughput": 41.0
+          "p50_latency": 3841.5,
+          "p50_throughput": 23.0
         }
       },
       {
@@ -14000,8 +13991,8 @@
         "discount": 0.08,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2540.0,
-          "p50_throughput": 12.0
+          "p50_latency": 5008.0,
+          "p50_throughput": 22.0
         }
       },
       {
@@ -14018,12 +14009,12 @@
         "discount": null,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1204.0,
-          "p50_throughput": 39.0
+          "p50_latency": 2335.5,
+          "p50_throughput": 33.0
         }
       }
     ],
-    "digest": "a2b0cdec49180688a3ca4b653396199d5903665e"
+    "digest": "86a24e8a292393c54e4d76b709d9cac5a28ffd6f"
   },
   "xiaomi/mimo-v2.5": {
     "endpoints": [
@@ -14320,9 +14311,9 @@
       {
         "provider": "decart",
         "pricing": {
-          "prompt": 5.484e-07,
-          "completion": 2.3089e-06,
-          "input_cache_read": 9.24e-08
+          "prompt": 5.372e-07,
+          "completion": 2.2618e-06,
+          "input_cache_read": 9.05e-08
         },
         "data_policy": {
           "retainsPrompts": false,
@@ -14331,26 +14322,26 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 458.0,
-          "p50_throughput": 63.0
+          "p50_latency": 489.0,
+          "p50_throughput": 71.0
         }
       },
       {
         "provider": "baidu",
         "pricing": {
-          "prompt": 5.5955e-07,
-          "completion": 2.356e-06,
-          "input_cache_read": 9.424e-08
+          "prompt": 5.4815e-07,
+          "completion": 2.308e-06,
+          "input_cache_read": 9.232e-08
         },
         "data_policy": {
           "retainsPrompts": true,
           "training": false
         },
-        "discount": 0.411,
+        "discount": 0.423,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1383.5,
-          "p50_throughput": 48.0
+          "p50_latency": 1770.0,
+          "p50_throughput": 41.0
         }
       },
       {
@@ -14367,8 +14358,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 555.0,
-          "p50_throughput": 62.0
+          "p50_latency": 694.0,
+          "p50_throughput": 83.0
         }
       },
       {
@@ -14385,8 +14376,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1463.0,
-          "p50_throughput": 44.0
+          "p50_latency": 2107.0,
+          "p50_throughput": 40.0
         }
       },
       {
@@ -14403,8 +14394,8 @@
         "discount": 0.37,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1166.0,
-          "p50_throughput": 74.0
+          "p50_latency": 1548.5,
+          "p50_throughput": 32.0
         }
       },
       {
@@ -14421,8 +14412,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 316.0,
-          "p50_throughput": 265.0
+          "p50_latency": 296.5,
+          "p50_throughput": 187.0
         }
       },
       {
@@ -14439,8 +14430,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 650.0,
-          "p50_throughput": 16.0
+          "p50_latency": 764.5,
+          "p50_throughput": 42.0
         }
       },
       {
@@ -14457,8 +14448,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1198.0,
-          "p50_throughput": 15.0
+          "p50_latency": 1875.5,
+          "p50_throughput": 34.0
         }
       },
       {
@@ -14475,8 +14466,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1372.0,
-          "p50_throughput": 17.0
+          "p50_latency": 1671.0,
+          "p50_throughput": 29.0
         }
       },
       {
@@ -14493,8 +14484,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 442.0,
-          "p50_throughput": 150.0
+          "p50_latency": 440.5,
+          "p50_throughput": 137.5
         }
       },
       {
@@ -14511,8 +14502,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1012.0,
-          "p50_throughput": 41.0
+          "p50_latency": 1479.0,
+          "p50_throughput": 24.5
         }
       },
       {
@@ -14529,8 +14520,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1277.0,
-          "p50_throughput": 68.0
+          "p50_latency": 1466.0,
+          "p50_throughput": 19.0
         }
       },
       {
@@ -14547,8 +14538,8 @@
         "discount": 0.1,
         "discount_note": null,
         "stats": {
-          "p50_latency": 4397.0,
-          "p50_throughput": 50.0
+          "p50_latency": 5152.0,
+          "p50_throughput": 125.0
         }
       },
       {
@@ -14565,8 +14556,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 727.5,
-          "p50_throughput": 40.0
+          "p50_latency": 1124.0,
+          "p50_throughput": 52.0
         }
       },
       {
@@ -14583,8 +14574,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1235.0,
-          "p50_throughput": 55.0
+          "p50_latency": 2135.0,
+          "p50_throughput": 29.0
         }
       },
       {
@@ -14601,8 +14592,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 580.0,
-          "p50_throughput": 47.0
+          "p50_latency": 1267.5,
+          "p50_throughput": 45.0
         }
       },
       {
@@ -14619,8 +14610,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1888.5,
-          "p50_throughput": 45.0
+          "p50_latency": 1794.0,
+          "p50_throughput": 40.0
         }
       },
       {
@@ -14652,8 +14643,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 619.0,
-          "p50_throughput": 111.0
+          "p50_latency": 582.0,
+          "p50_throughput": 130.0
         }
       },
       {
@@ -14669,13 +14660,10 @@
         },
         "discount": 0.0,
         "discount_note": null,
-        "stats": {
-          "p50_latency": 670.0,
-          "p50_throughput": 50.0
-        }
+        "stats": {}
       }
     ],
-    "digest": "57688a0f429bddfdda4992dfa3d7cf793f7a5da3"
+    "digest": "724a01ab36c435c926e3ab251c4e48d6e6ab6169"
   },
   "anthropic/claude-opus-4.7": {
     "endpoints": [
@@ -14977,8 +14965,8 @@
         "discount": 0.351,
         "discount_note": null,
         "stats": {
-          "p50_latency": 909.0,
-          "p50_throughput": 76.0
+          "p50_latency": 970.0,
+          "p50_throughput": 66.0
         }
       },
       {
@@ -14995,8 +14983,8 @@
         "discount": 0.35,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1907.5,
-          "p50_throughput": 58.0
+          "p50_latency": 1803.5,
+          "p50_throughput": 69.5
         }
       },
       {
@@ -15013,8 +15001,8 @@
         "discount": 0.31,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1260.0,
-          "p50_throughput": 39.0
+          "p50_latency": 1525.0,
+          "p50_throughput": 36.0
         }
       },
       {
@@ -15031,8 +15019,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 3826.0,
-          "p50_throughput": 29.0
+          "p50_latency": 2836.5,
+          "p50_throughput": 49.0
         }
       },
       {
@@ -15049,8 +15037,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 10756.0,
-          "p50_throughput": 9.0
+          "p50_latency": 11506.0,
+          "p50_throughput": 6.0
         }
       },
       {
@@ -15067,8 +15055,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1313.0,
-          "p50_throughput": 51.0
+          "p50_latency": 1426.5,
+          "p50_throughput": 49.0
         }
       },
       {
@@ -15085,8 +15073,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 487.0,
-          "p50_throughput": 79.5
+          "p50_latency": 466.5,
+          "p50_throughput": 57.0
         }
       },
       {
@@ -15103,8 +15091,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2645.5,
-          "p50_throughput": 28.0
+          "p50_latency": 2005.5,
+          "p50_throughput": 41.0
         }
       },
       {
@@ -15121,8 +15109,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1251.5,
-          "p50_throughput": 60.0
+          "p50_latency": 1258.0,
+          "p50_throughput": 56.0
         }
       },
       {
@@ -15139,8 +15127,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2507.0,
-          "p50_throughput": 9.0
+          "p50_latency": 1412.0,
+          "p50_throughput": 12.0
         }
       },
       {
@@ -15157,8 +15145,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1236.5,
-          "p50_throughput": 58.0
+          "p50_latency": 1436.0,
+          "p50_throughput": 61.0
         }
       },
       {
@@ -15175,8 +15163,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2668.5,
-          "p50_throughput": 31.0
+          "p50_latency": 2487.0,
+          "p50_throughput": 39.0
         }
       },
       {
@@ -15192,8 +15180,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 973.0,
-          "p50_throughput": 26.0
+          "p50_latency": 668.0,
+          "p50_throughput": 31.0
         }
       },
       {
@@ -15210,8 +15198,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 270.0,
-          "p50_throughput": 80.0
+          "p50_latency": 449.0,
+          "p50_throughput": 71.0
         }
       },
       {
@@ -15228,8 +15216,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 9289.0,
-          "p50_throughput": 24.5
+          "p50_latency": 8832.0,
+          "p50_throughput": 23.0
         }
       },
       {
@@ -15246,12 +15234,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 10590.0,
-          "p50_throughput": 13.0
+          "p50_latency": 12705.0,
+          "p50_throughput": 11.0
         }
       }
     ],
-    "digest": "24d41c8ccdd6f27f88866413d9bd7662816cadd0"
+    "digest": "75f4928e934755f91eb7eac2be0c9bf3ef7c5dab"
   },
   "google/gemma-4-26b-a4b-it": {
     "endpoints": [
@@ -15430,8 +15418,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 480.0,
-          "p50_throughput": 36.0
+          "p50_latency": 686.5,
+          "p50_throughput": 35.0
         }
       },
       {
@@ -15448,8 +15436,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 565.5,
-          "p50_throughput": 51.0
+          "p50_latency": 632.0,
+          "p50_throughput": 46.0
         }
       },
       {
@@ -15466,7 +15454,7 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1566.5,
+          "p50_latency": 756.5,
           "p50_throughput": 38.0
         }
       },
@@ -15484,8 +15472,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2579.5,
-          "p50_throughput": 12.0
+          "p50_latency": 2790.0,
+          "p50_throughput": 20.0
         }
       },
       {
@@ -15501,8 +15489,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 4782.0,
-          "p50_throughput": 1.0
+          "p50_latency": 1126.0,
+          "p50_throughput": 26.0
         }
       },
       {
@@ -15518,8 +15506,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 17680.0,
-          "p50_throughput": 23.0
+          "p50_latency": 8672.0,
+          "p50_throughput": 28.0
         }
       },
       {
@@ -15536,8 +15524,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 678.0,
-          "p50_throughput": 18.0
+          "p50_latency": 705.0,
+          "p50_throughput": 23.0
         }
       },
       {
@@ -15553,8 +15541,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 508.0,
-          "p50_throughput": 127.0
+          "p50_latency": 687.5,
+          "p50_throughput": 74.0
         }
       },
       {
@@ -15570,8 +15558,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 896.0,
-          "p50_throughput": 19.0
+          "p50_latency": 589.0,
+          "p50_throughput": 16.0
         }
       },
       {
@@ -15588,8 +15576,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 728.0,
-          "p50_throughput": 30.0
+          "p50_latency": 900.5,
+          "p50_throughput": 29.0
         }
       },
       {
@@ -15605,8 +15593,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2968.0,
-          "p50_throughput": 23.0
+          "p50_latency": 2438.0,
+          "p50_throughput": 59.0
         }
       },
       {
@@ -15622,8 +15610,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1612.0,
-          "p50_throughput": 78.0
+          "p50_latency": 1405.0,
+          "p50_throughput": 99.5
         }
       },
       {
@@ -15639,8 +15627,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 697.5,
-          "p50_throughput": 11.0
+          "p50_latency": 1134.0,
+          "p50_throughput": 9.0
         }
       },
       {
@@ -15657,8 +15645,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 164.0,
-          "p50_throughput": 79.0
+          "p50_latency": 221.0,
+          "p50_throughput": 111.0
         }
       },
       {
@@ -15675,12 +15663,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 282.0,
-          "p50_throughput": 546.0
+          "p50_latency": 291.0,
+          "p50_throughput": 460.0
         }
       }
     ],
-    "digest": "46a9f8afca0c64ee61ff6eb51f7f92e53abbcf6d"
+    "digest": "1936eac95b532e4d6461c2419a8b8a8c24e93ce7"
   },
   "google/gemma-4-31b-it:batch": {
     "endpoints": [
@@ -16113,8 +16101,8 @@
         "discount": 0.6,
         "discount_note": null,
         "stats": {
-          "p50_latency": 5951.0,
-          "p50_throughput": 113.0
+          "p50_latency": 5883.5,
+          "p50_throughput": 115.0
         }
       },
       {
@@ -16131,8 +16119,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 527.0,
-          "p50_throughput": 65.0
+          "p50_latency": 606.0,
+          "p50_throughput": 40.0
         }
       },
       {
@@ -16149,8 +16137,8 @@
         "discount": 0.1,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1878.5,
-          "p50_throughput": 47.0
+          "p50_latency": 2144.0,
+          "p50_throughput": 33.0
         }
       },
       {
@@ -16167,8 +16155,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1066.0,
-          "p50_throughput": 12.0
+          "p50_latency": 1950.5,
+          "p50_throughput": 26.0
         }
       },
       {
@@ -16185,8 +16173,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1725.5,
-          "p50_throughput": 51.5
+          "p50_latency": 2429.0,
+          "p50_throughput": 34.0
         }
       },
       {
@@ -16203,8 +16191,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 839.5,
-          "p50_throughput": 71.0
+          "p50_latency": 1522.5,
+          "p50_throughput": 56.0
         }
       },
       {
@@ -16221,8 +16209,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2001.0,
-          "p50_throughput": 43.5
+          "p50_latency": 3255.0,
+          "p50_throughput": 25.0
         }
       },
       {
@@ -16238,8 +16226,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 269.5,
-          "p50_throughput": 265.5
+          "p50_latency": 243.0,
+          "p50_throughput": 271.5
         }
       },
       {
@@ -16256,8 +16244,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2034.0,
-          "p50_throughput": 65.0
+          "p50_latency": 1115.0,
+          "p50_throughput": 45.5
         }
       },
       {
@@ -16274,12 +16262,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 842.0,
-          "p50_throughput": 71.0
+          "p50_latency": 977.0,
+          "p50_throughput": 57.0
         }
       }
     ],
-    "digest": "5d76f639fda6a03d9f68870d8503f5d1c43b262f"
+    "digest": "de9cab3a945c622700ae178e62ff862585d4bdaf"
   },
   "openai/gpt-5.4-nano": {
     "endpoints": [
@@ -16657,8 +16645,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2040.0,
-          "p50_throughput": 12.0
+          "p50_latency": 1996.0,
+          "p50_throughput": 8.0
         }
       },
       {
@@ -16674,8 +16662,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 573.0,
-          "p50_throughput": 9.0
+          "p50_latency": 726.0,
+          "p50_throughput": 17.5
         }
       },
       {
@@ -16691,8 +16679,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 692.0,
-          "p50_throughput": 136.0
+          "p50_latency": 822.0,
+          "p50_throughput": 85.0
         }
       },
       {
@@ -16708,8 +16696,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 519.0,
-          "p50_throughput": 29.0
+          "p50_latency": 450.0,
+          "p50_throughput": 30.5
         }
       },
       {
@@ -16725,12 +16713,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 454.5,
-          "p50_throughput": 69.0
+          "p50_latency": 383.0,
+          "p50_throughput": 54.5
         }
       }
     ],
-    "digest": "2bbd8bb399a5f152624605711e9b6c8ea7e82c61"
+    "digest": "963e3e7344dcbcf67ceae970302ec3d2eb85eede"
   },
   "qwen/qwen3.5-9b:batch": {
     "endpoints": [
@@ -17281,8 +17269,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 719.0,
-          "p50_throughput": 24.0
+          "p50_latency": 873.5,
+          "p50_throughput": 29.0
         }
       },
       {
@@ -17298,8 +17286,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1136.0,
-          "p50_throughput": 11.0
+          "p50_latency": 2465.5,
+          "p50_throughput": 3.0
         }
       },
       {
@@ -17315,8 +17303,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 304.0,
-          "p50_throughput": 36.0
+          "p50_latency": 762.0,
+          "p50_throughput": 16.0
         }
       },
       {
@@ -17333,8 +17321,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 825.0,
-          "p50_throughput": 16.0
+          "p50_latency": 2061.0,
+          "p50_throughput": 1.0
         }
       },
       {
@@ -17351,8 +17339,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1177.0,
-          "p50_throughput": 13.0
+          "p50_latency": 3283.0,
+          "p50_throughput": 1.0
         }
       },
       {
@@ -17368,12 +17356,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 966.5,
-          "p50_throughput": 14.0
+          "p50_latency": 1011.0,
+          "p50_throughput": 12.5
         }
       }
     ],
-    "digest": "f72c44e089e29d382273306ff7e261d13fea5517"
+    "digest": "85b43726f6f4a1efe440c4705535d183444872dd"
   },
   "qwen/qwen3.5-122b-a10b": {
     "endpoints": [
@@ -17390,8 +17378,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1110.0,
-          "p50_throughput": 84.5
+          "p50_latency": 2180.5,
+          "p50_throughput": 16.0
         }
       },
       {
@@ -17407,8 +17395,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 462.0,
-          "p50_throughput": 132.0
+          "p50_latency": 1429.0,
+          "p50_throughput": 15.0
         }
       },
       {
@@ -17424,8 +17412,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 489.0,
-          "p50_throughput": 111.0
+          "p50_latency": 848.0,
+          "p50_throughput": 22.0
         }
       },
       {
@@ -17442,8 +17430,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1224.0,
-          "p50_throughput": 93.5
+          "p50_latency": 2051.0,
+          "p50_throughput": 19.0
         }
       },
       {
@@ -17459,12 +17447,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1262.5,
-          "p50_throughput": 63.0
+          "p50_latency": 1450.0,
+          "p50_throughput": 34.0
         }
       }
     ],
-    "digest": "51f1e2c52f098faadddd58810ea5657e33dd6963"
+    "digest": "0eb6dd01ef3a17141a56c1e518a0af6135381252"
   },
   "qwen/qwen3.5-flash-02-23": {
     "endpoints": [
@@ -18013,8 +18001,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1146.5,
-          "p50_throughput": 21.0
+          "p50_latency": 1190.0,
+          "p50_throughput": 76.0
         }
       },
       {
@@ -18031,8 +18019,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 432.0,
-          "p50_throughput": 35.0
+          "p50_latency": 980.5,
+          "p50_throughput": 49.0
         }
       },
       {
@@ -18049,8 +18037,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 578.0,
-          "p50_throughput": 40.0
+          "p50_latency": 906.5,
+          "p50_throughput": 54.0
         }
       },
       {
@@ -18067,8 +18055,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 493.5,
-          "p50_throughput": 16.0
+          "p50_latency": 1588.0,
+          "p50_throughput": 1.0
         }
       },
       {
@@ -18085,8 +18073,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1598.0,
-          "p50_throughput": 64.0
+          "p50_latency": 2229.5,
+          "p50_throughput": 1.0
         }
       },
       {
@@ -18103,8 +18091,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 703.5,
-          "p50_throughput": 26.0
+          "p50_latency": 1531.0,
+          "p50_throughput": 1.0
         }
       },
       {
@@ -18121,8 +18109,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 577.0,
-          "p50_throughput": 41.5
+          "p50_latency": 1972.0,
+          "p50_throughput": 3.0
         }
       },
       {
@@ -18138,8 +18126,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2040.5,
-          "p50_throughput": 49.0
+          "p50_latency": 1789.0,
+          "p50_throughput": 58.0
         }
       },
       {
@@ -18155,8 +18143,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 987.5,
-          "p50_throughput": 52.0
+          "p50_latency": 2309.5,
+          "p50_throughput": 1.0
         }
       },
       {
@@ -18172,12 +18160,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 913.0,
-          "p50_throughput": 21.0
+          "p50_latency": 2326.0,
+          "p50_throughput": 3.0
         }
       }
     ],
-    "digest": "da4f3e53beda87a3ea2098cdf1c3a63f276afd02"
+    "digest": "f72232dc76248475374b5ab0be5acf5196e03d82"
   },
   "minimax/minimax-m2.5": {
     "endpoints": [
@@ -18876,8 +18864,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2362.5,
-          "p50_throughput": 25.0
+          "p50_latency": 1949.0,
+          "p50_throughput": 29.0
         }
       },
       {
@@ -18894,8 +18882,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 878.0,
-          "p50_throughput": 42.0
+          "p50_latency": 803.0,
+          "p50_throughput": 57.0
         }
       },
       {
@@ -18912,8 +18900,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1050.0,
-          "p50_throughput": 24.0
+          "p50_latency": 1057.5,
+          "p50_throughput": 35.0
         }
       },
       {
@@ -18930,8 +18918,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 939.0,
-          "p50_throughput": 12.0
+          "p50_latency": 687.0,
+          "p50_throughput": 15.0
         }
       },
       {
@@ -18948,8 +18936,8 @@
         "discount": 0.05,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1059.0,
-          "p50_throughput": 152.0
+          "p50_latency": 1471.0,
+          "p50_throughput": 93.0
         }
       },
       {
@@ -18966,8 +18954,8 @@
         "discount": 0.05,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1906.0,
-          "p50_throughput": 34.0
+          "p50_latency": 1576.0,
+          "p50_throughput": 26.0
         }
       },
       {
@@ -18983,8 +18971,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1255.0,
-          "p50_throughput": 66.0
+          "p50_latency": 1216.5,
+          "p50_throughput": 69.5
         }
       },
       {
@@ -19001,12 +18989,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1938.5,
-          "p50_throughput": 40.0
+          "p50_latency": 1530.0,
+          "p50_throughput": 43.0
         }
       }
     ],
-    "digest": "f0a4552fa6802377c6bd83d0e2a1a3b732cd609b"
+    "digest": "1a7b5c63776568fc4c4ebd26b1d1677e8755837d"
   },
   "upstage/solar-pro-3": {
     "endpoints": [
@@ -19136,8 +19124,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 701.0,
-          "p50_throughput": 62.0
+          "p50_latency": 688.0,
+          "p50_throughput": 78.0
         }
       },
       {
@@ -19154,8 +19142,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 455.0,
-          "p50_throughput": 22.0
+          "p50_latency": 456.0,
+          "p50_throughput": 71.0
         }
       },
       {
@@ -19171,8 +19159,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 427.5,
-          "p50_throughput": 32.0
+          "p50_latency": 373.0,
+          "p50_throughput": 21.0
         }
       },
       {
@@ -19189,12 +19177,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 996.0,
-          "p50_throughput": 57.0
+          "p50_latency": 5536.0,
+          "p50_throughput": 22.0
         }
       }
     ],
-    "digest": "98fc9bb25152c603c80192f41718de8620bc0970"
+    "digest": "40ae68be4b616f7ff15b52bb2c08a2e202c60dd9"
   },
   "openai/gpt-5.2-codex": {
     "endpoints": [
@@ -19338,8 +19326,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1568.5,
-          "p50_throughput": 14.0
+          "p50_latency": 959.0,
+          "p50_throughput": 19.0
         }
       },
       {
@@ -19356,8 +19344,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1001.5,
-          "p50_throughput": 51.0
+          "p50_latency": 845.0,
+          "p50_throughput": 42.0
         }
       },
       {
@@ -19374,8 +19362,8 @@
         "discount": 0.1,
         "discount_note": null,
         "stats": {
-          "p50_latency": 3847.0,
-          "p50_throughput": 23.0
+          "p50_latency": 1760.0,
+          "p50_throughput": 25.0
         }
       },
       {
@@ -19392,8 +19380,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1898.0,
-          "p50_throughput": 13.0
+          "p50_latency": 1047.0,
+          "p50_throughput": 18.0
         }
       },
       {
@@ -19409,8 +19397,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 567.0,
-          "p50_throughput": 49.0
+          "p50_latency": 468.0,
+          "p50_throughput": 50.5
         }
       },
       {
@@ -19427,8 +19415,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 10551.0,
-          "p50_throughput": 36.0
+          "p50_latency": 12611.0,
+          "p50_throughput": 29.0
         }
       },
       {
@@ -19444,12 +19432,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 3726.0,
-          "p50_throughput": 14.0
+          "p50_latency": 1144.0,
+          "p50_throughput": 15.0
         }
       }
     ],
-    "digest": "3afa9a9603d191ad9d6204d9ec76440f0471fce4"
+    "digest": "db059cc41b7c5d9a1d657075ed605c835430bd89"
   },
   "google/gemini-3-flash-preview": {
     "endpoints": [
@@ -19468,8 +19456,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2221.5,
-          "p50_throughput": 7.0
+          "p50_latency": 2304.0,
+          "p50_throughput": 69.0
         }
       },
       {
@@ -19487,12 +19475,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1208.0,
-          "p50_throughput": 61.0
+          "p50_latency": 1180.0,
+          "p50_throughput": 60.0
         }
       }
     ],
-    "digest": "22198ee1b307dd41243adf60b07a45dbb47995f1"
+    "digest": "7bad7ce1f35ec7b3fd31d4fe26cabb56475f0b97"
   },
   "google/gemini-3-flash-preview:batch": {
     "endpoints": [
@@ -19802,8 +19790,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1836.0,
-          "p50_throughput": 20.0
+          "p50_latency": 2416.5,
+          "p50_throughput": 24.0
         }
       },
       {
@@ -19820,12 +19808,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 4953.5,
-          "p50_throughput": 26.5
+          "p50_latency": 1284.0,
+          "p50_throughput": 4.0
         }
       }
     ],
-    "digest": "c83518a5fce67e9f1f1ba4cb98b18f7790bf0755"
+    "digest": "59fa82342f481dfad7983cb308adbe6907d62e60"
   },
   "openai/gpt-5.1-codex-max": {
     "endpoints": [
@@ -21492,8 +21480,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1032.0,
-          "p50_throughput": 61.0
+          "p50_latency": 788.0,
+          "p50_throughput": 29.0
         }
       },
       {
@@ -21510,8 +21498,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 739.0,
-          "p50_throughput": 20.0
+          "p50_latency": 576.0,
+          "p50_throughput": 58.0
         }
       },
       {
@@ -21528,8 +21516,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1670.0,
-          "p50_throughput": 40.0
+          "p50_latency": 1128.0,
+          "p50_throughput": 41.0
         }
       },
       {
@@ -21546,8 +21534,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1762.0,
-          "p50_throughput": 32.0
+          "p50_latency": 810.0,
+          "p50_throughput": 43.0
         }
       },
       {
@@ -21564,12 +21552,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2819.0,
-          "p50_throughput": 45.0
+          "p50_latency": 3040.0,
+          "p50_throughput": 44.0
         }
       }
     ],
-    "digest": "1aef6aa7cc2e0fdabcef60d5175d9d73cd754ba1"
+    "digest": "43c13a88f88fae6aee1f500537958206e4e1297d"
   },
   "anthropic/claude-sonnet-4.5": {
     "endpoints": [
@@ -21902,7 +21890,7 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 507.0,
+          "p50_latency": 525.5,
           "p50_throughput": 58.0
         }
       },
@@ -21919,12 +21907,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1074.5,
-          "p50_throughput": 46.0
+          "p50_latency": 1106.0,
+          "p50_throughput": 47.0
         }
       }
     ],
-    "digest": "cb8ac62c0469d9e1161c7b4bfc3f931e90c115ef"
+    "digest": "fa7615d3054c3b92c00083657dfd5ac8468ff347"
   },
   "qwen/qwen3-vl-235b-a22b-instruct": {
     "endpoints": [
@@ -22561,8 +22549,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 456.5,
-          "p50_throughput": 56.5
+          "p50_latency": 484.0,
+          "p50_throughput": 27.0
         }
       },
       {
@@ -22579,12 +22567,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 446.0,
-          "p50_throughput": 50.0
+          "p50_latency": 505.0,
+          "p50_throughput": 4.0
         }
       }
     ],
-    "digest": "f476d056af3028d47347dde610c21aebed7cebb3"
+    "digest": "0acb3d778cb27c13dc71bd9db7409048dd1a1c01"
   },
   "z-ai/glm-4.5v": {
     "endpoints": [
@@ -22825,8 +22813,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 3690.0,
-          "p50_throughput": 93.0
+          "p50_latency": 1903.5,
+          "p50_throughput": 61.5
         }
       },
       {
@@ -22843,12 +22831,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1541.0,
-          "p50_throughput": 134.0
+          "p50_latency": 1093.0,
+          "p50_throughput": 109.0
         }
       }
     ],
-    "digest": "4bf3efd0d313f62da2915ec26e82adfe319fa442"
+    "digest": "8c2e8210a44439a89929dd841807943079f142e6"
   },
   "openai/gpt-5-nano:batch": {
     "endpoints": [
@@ -22901,8 +22889,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1348.0,
-          "p50_throughput": 44.0
+          "p50_latency": 870.0,
+          "p50_throughput": 48.0
         }
       },
       {
@@ -22919,8 +22907,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 337.0,
-          "p50_throughput": 36.0
+          "p50_latency": 296.0,
+          "p50_throughput": 70.0
         }
       },
       {
@@ -22936,8 +22924,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 500.0,
-          "p50_throughput": 38.0
+          "p50_latency": 581.0,
+          "p50_throughput": 26.0
         }
       },
       {
@@ -22953,8 +22941,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 537.0,
-          "p50_throughput": 77.0
+          "p50_latency": 711.0,
+          "p50_throughput": 144.0
         }
       },
       {
@@ -22970,8 +22958,25 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1299.0,
-          "p50_throughput": 20.0
+          "p50_latency": 1205.0,
+          "p50_throughput": 31.0
+        }
+      },
+      {
+        "provider": "mancer",
+        "pricing": {
+          "prompt": 5e-08,
+          "completion": 5e-07
+        },
+        "data_policy": {
+          "retainsPrompts": false,
+          "training": false
+        },
+        "discount": 0.0,
+        "discount_note": null,
+        "stats": {
+          "p50_latency": 439.0,
+          "p50_throughput": 91.0
         }
       },
       {
@@ -22988,25 +22993,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 611.0,
-          "p50_throughput": 37.0
-        }
-      },
-      {
-        "provider": "mancer",
-        "pricing": {
-          "prompt": 6e-08,
-          "completion": 5e-07
-        },
-        "data_policy": {
-          "retainsPrompts": false,
-          "training": false
-        },
-        "discount": 0.0,
-        "discount_note": null,
-        "stats": {
-          "p50_latency": 584.0,
-          "p50_throughput": 80.0
+          "p50_latency": 896.0,
+          "p50_throughput": 35.0
         }
       },
       {
@@ -23022,8 +23010,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 658.0,
-          "p50_throughput": 58.0
+          "p50_latency": 253.0,
+          "p50_throughput": 230.0
         }
       },
       {
@@ -23040,8 +23028,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 237.0,
-          "p50_throughput": 215.0
+          "p50_latency": 294.0,
+          "p50_throughput": 172.0
         }
       },
       {
@@ -23058,8 +23046,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 300.0,
-          "p50_throughput": 115.0
+          "p50_latency": 267.0,
+          "p50_throughput": 143.0
         }
       },
       {
@@ -23075,8 +23063,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 636.0,
-          "p50_throughput": 357.0
+          "p50_latency": 801.0,
+          "p50_throughput": 410.0
         }
       },
       {
@@ -23092,8 +23080,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 762.0,
-          "p50_throughput": 110.5
+          "p50_latency": 427.0,
+          "p50_throughput": 316.0
         }
       },
       {
@@ -23109,8 +23097,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 244.0,
-          "p50_throughput": 233.0
+          "p50_latency": 253.0,
+          "p50_throughput": 283.0
         }
       },
       {
@@ -23126,8 +23114,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 318.0,
-          "p50_throughput": 143.0
+          "p50_latency": 317.0,
+          "p50_throughput": 132.0
         }
       },
       {
@@ -23143,8 +23131,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 391.0,
-          "p50_throughput": 121.0
+          "p50_latency": 701.0,
+          "p50_throughput": 131.0
         }
       },
       {
@@ -23160,7 +23148,7 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 342.0,
+          "p50_latency": 343.5,
           "p50_throughput": 100.0
         }
       },
@@ -23178,8 +23166,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 173.0,
-          "p50_throughput": 314.0
+          "p50_latency": 185.0,
+          "p50_throughput": 328.0
         }
       },
       {
@@ -23195,8 +23183,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 844.0,
-          "p50_throughput": 160.0
+          "p50_latency": 1131.5,
+          "p50_throughput": 170.5
         }
       },
       {
@@ -23213,12 +23201,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 224.0,
-          "p50_throughput": 833.0
+          "p50_latency": 301.0,
+          "p50_throughput": 653.0
         }
       }
     ],
-    "digest": "fe469c948620b5b52c35881452eb055ce7ae94e6"
+    "digest": "5a5c8dafb2428c5f2347884582447a5ac788f4d3"
   },
   "openai/gpt-oss-120b:batch": {
     "endpoints": [
@@ -23513,8 +23501,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 3223.0,
-          "p50_throughput": 34.0
+          "p50_latency": 2931.0,
+          "p50_throughput": 36.0
         }
       },
       {
@@ -23530,7 +23518,7 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1304.5,
+          "p50_latency": 1073.0,
           "p50_throughput": 26.0
         }
       },
@@ -23548,8 +23536,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 118.0,
-          "p50_throughput": 106.0
+          "p50_latency": 92.0,
+          "p50_throughput": 160.0
         }
       },
       {
@@ -23565,8 +23553,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 276.0,
-          "p50_throughput": 82.0
+          "p50_latency": 243.0,
+          "p50_throughput": 99.0
         }
       },
       {
@@ -23583,8 +23571,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 469.0,
-          "p50_throughput": 58.0
+          "p50_latency": 362.0,
+          "p50_throughput": 73.0
         }
       },
       {
@@ -23600,8 +23588,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 369.0,
-          "p50_throughput": 60.0
+          "p50_latency": 330.5,
+          "p50_throughput": 79.0
         }
       },
       {
@@ -23617,8 +23605,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 495.0,
-          "p50_throughput": 139.0
+          "p50_latency": 595.0,
+          "p50_throughput": 149.0
         }
       },
       {
@@ -23634,8 +23622,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1161.0,
-          "p50_throughput": 30.0
+          "p50_latency": 1033.0,
+          "p50_throughput": 62.0
         }
       },
       {
@@ -23651,8 +23639,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 262.0,
-          "p50_throughput": 79.0
+          "p50_latency": 391.0,
+          "p50_throughput": 97.0
         }
       },
       {
@@ -23668,8 +23656,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 368.0,
-          "p50_throughput": 325.0
+          "p50_latency": 291.0,
+          "p50_throughput": 55.0
         }
       },
       {
@@ -23685,8 +23673,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 336.0,
-          "p50_throughput": 180.0
+          "p50_latency": 330.0,
+          "p50_throughput": 212.0
         }
       },
       {
@@ -23718,12 +23706,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 542.0,
-          "p50_throughput": 423.0
+          "p50_latency": 330.5,
+          "p50_throughput": 461.0
         }
       }
     ],
-    "digest": "28a9a37d071156aa6470cb38d150436209492a3a"
+    "digest": "e19ecffb1e4832ba7e1fe791a64b0082e04deea9"
   },
   "openai/gpt-oss-20b:batch": {
     "endpoints": [
@@ -24066,8 +24054,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 930.0,
-          "p50_throughput": 29.0
+          "p50_latency": 1176.0,
+          "p50_throughput": 51.0
         }
       },
       {
@@ -24083,8 +24071,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2152.5,
-          "p50_throughput": 16.5
+          "p50_latency": 1637.0,
+          "p50_throughput": 21.0
         }
       },
       {
@@ -24114,12 +24102,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2284.0,
-          "p50_throughput": 56.0
+          "p50_latency": 576.0,
+          "p50_throughput": 67.0
         }
       }
     ],
-    "digest": "b692c815c23ec83818bac6188b4f4fe38ea48ffc"
+    "digest": "7be540c5fb675b9614a3bc9da59de91d7edd1c76"
   },
   "qwen/qwen3-30b-a3b-instruct-2507": {
     "endpoints": [
@@ -24346,8 +24334,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1487.5,
-          "p50_throughput": 35.0
+          "p50_latency": 1036.0,
+          "p50_throughput": 37.0
         }
       },
       {
@@ -24364,8 +24352,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 547.0,
-          "p50_throughput": 65.0
+          "p50_latency": 916.0,
+          "p50_throughput": 43.0
         }
       },
       {
@@ -24382,8 +24370,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1814.0,
-          "p50_throughput": 22.0
+          "p50_latency": 2417.0,
+          "p50_throughput": 25.0
         }
       },
       {
@@ -24399,8 +24387,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1763.5,
-          "p50_throughput": 25.5
+          "p50_latency": 1077.0,
+          "p50_throughput": 30.0
         }
       },
       {
@@ -24416,12 +24404,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 991.0,
-          "p50_throughput": 12.0
+          "p50_latency": 1980.0,
+          "p50_throughput": 23.0
         }
       }
     ],
-    "digest": "406330dc7dd4e784ead96a8c5cf0692718917b2e"
+    "digest": "77e3c11e343970e24e12c3a1912f84935f4dbab8"
   },
   "bytedance/ui-tars-1.5-7b": {
     "endpoints": [
@@ -24966,8 +24954,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 605.0,
-          "p50_throughput": 88.0
+          "p50_latency": 522.0,
+          "p50_throughput": 96.0
         }
       },
       {
@@ -24985,8 +24973,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 684.0,
-          "p50_throughput": 72.0
+          "p50_latency": 651.0,
+          "p50_throughput": 61.0
         }
       },
       {
@@ -25004,8 +24992,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2709.0,
-          "p50_throughput": 3.0
+          "p50_latency": 2391.0,
+          "p50_throughput": 5.0
         }
       },
       {
@@ -25023,12 +25011,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1156.0,
-          "p50_throughput": 53.0
+          "p50_latency": 1028.0,
+          "p50_throughput": 69.0
         }
       }
     ],
-    "digest": "a9154d58e1ae9e826ccbe5191fd34db6c1e977a0"
+    "digest": "20e6b2da2ee3050f7afc85ac09d20bbd6312f77a"
   },
   "google/gemini-2.5-flash:batch": {
     "endpoints": [
@@ -26346,8 +26334,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 13612.0,
-          "p50_throughput": 0.0
+          "p50_latency": 957.0,
+          "p50_throughput": 33.0
         }
       },
       {
@@ -26363,7 +26351,7 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1376.0,
+          "p50_latency": 1508.0,
           "p50_throughput": 20.0
         }
       },
@@ -26381,8 +26369,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 2482.0,
-          "p50_throughput": 1.0
+          "p50_latency": 2581.5,
+          "p50_throughput": 24.0
         }
       },
       {
@@ -26399,12 +26387,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 414.0,
-          "p50_throughput": 17.0
+          "p50_latency": 376.0,
+          "p50_throughput": 36.0
         }
       }
     ],
-    "digest": "0f6430fe20058eb7d0dfa4993fd244bdb958ed6d"
+    "digest": "e1a3256ee583db606ff01f9bc0a923fb75b3e00d"
   },
   "openai/o1-pro": {
     "endpoints": [
@@ -27124,8 +27112,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 531.0,
-          "p50_throughput": 16.0
+          "p50_latency": 475.0,
+          "p50_throughput": 18.0
         }
       },
       {
@@ -27141,8 +27129,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 1070.0,
-          "p50_throughput": 15.0
+          "p50_latency": 1918.5,
+          "p50_throughput": 17.0
         }
       },
       {
@@ -27158,8 +27146,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 683.0,
-          "p50_throughput": 32.0
+          "p50_latency": 842.0,
+          "p50_throughput": 22.0
         }
       },
       {
@@ -27176,8 +27164,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 912.0,
-          "p50_throughput": 27.0
+          "p50_latency": 1294.0,
+          "p50_throughput": 25.0
         }
       },
       {
@@ -27194,7 +27182,7 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 814.0,
+          "p50_latency": 464.0,
           "p50_throughput": 41.0
         }
       },
@@ -27212,8 +27200,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 360.0,
-          "p50_throughput": 58.0
+          "p50_latency": 390.0,
+          "p50_throughput": 48.0
         }
       },
       {
@@ -27229,8 +27217,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 507.0,
-          "p50_throughput": 36.0
+          "p50_latency": 412.0,
+          "p50_throughput": 32.0
         }
       },
       {
@@ -27246,8 +27234,8 @@
         "discount": 0.25,
         "discount_note": null,
         "stats": {
-          "p50_latency": 482.0,
-          "p50_throughput": 113.0
+          "p50_latency": 390.0,
+          "p50_throughput": 39.0
         }
       },
       {
@@ -27264,8 +27252,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 189.0,
-          "p50_throughput": 136.0
+          "p50_latency": 183.0,
+          "p50_throughput": 169.0
         }
       },
       {
@@ -27282,8 +27270,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 216.5,
-          "p50_throughput": 62.0
+          "p50_latency": 360.0,
+          "p50_throughput": 58.0
         }
       },
       {
@@ -27299,8 +27287,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 372.0,
-          "p50_throughput": 66.0
+          "p50_latency": 267.0,
+          "p50_throughput": 38.0
         }
       },
       {
@@ -27316,12 +27304,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 644.0,
-          "p50_throughput": 28.0
+          "p50_latency": 758.0,
+          "p50_throughput": 18.0
         }
       }
     ],
-    "digest": "4478e4cb70fdf3cf37f910138196b26b6041068e"
+    "digest": "910846e41205de7b8f3d73d9faa5a1a56f96a2eb"
   },
   "amazon/nova-lite-v1": {
     "endpoints": [
@@ -27360,12 +27348,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 384.0,
-          "p50_throughput": 45.0
+          "p50_latency": 282.0,
+          "p50_throughput": 135.0
         }
       }
     ],
-    "digest": "517540f2cb18aa935226c49d6c275ffa27c626ef"
+    "digest": "4b35767cb88e2067051585f490386845d19c9887"
   },
   "amazon/nova-pro-v1": {
     "endpoints": [
@@ -27936,8 +27924,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 522.0,
-          "p50_throughput": 24.0
+          "p50_latency": 721.0,
+          "p50_throughput": 20.0
         }
       },
       {
@@ -27953,8 +27941,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 504.5,
-          "p50_throughput": 79.0
+          "p50_latency": 501.0,
+          "p50_throughput": 57.0
         }
       },
       {
@@ -27971,8 +27959,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 171.0,
-          "p50_throughput": 135.0
+          "p50_latency": 234.0,
+          "p50_throughput": 112.0
         }
       },
       {
@@ -27988,8 +27976,8 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 582.0,
-          "p50_throughput": 17.0
+          "p50_latency": 508.0,
+          "p50_throughput": 15.0
         }
       },
       {
@@ -28006,12 +27994,12 @@
         "discount": 0.0,
         "discount_note": null,
         "stats": {
-          "p50_latency": 105.0,
-          "p50_throughput": 114.0
+          "p50_latency": 235.0,
+          "p50_throughput": 111.0
         }
       }
     ],
-    "digest": "e6746bd5ff55ed6c46368e87b02e6566c0cc5e74"
+    "digest": "6556dbd854a3fa0aee5272b6b9a1f6e3633a8f84"
   },
   "mistralai/mistral-nemo": {
     "endpoints": [

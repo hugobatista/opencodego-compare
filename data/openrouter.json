@@ -84,6 +84,17 @@
     }
   },
   {
+    "id": "qwen/qwen3.8-max-0902",
+    "name": "Qwen: Qwen3.8 Max (0902)",
+    "context_length": 1000000,
+    "pricing": {
+      "prompt": "0.000002",
+      "completion": "0.000006",
+      "input_cache_read": "0.00000025",
+      "input_cache_write": "0.0000025"
+    }
+  },
+  {
     "id": "meta/muse-spark-1.3-contributor",
     "name": "Meta: Muse Spark 1.3 Contributor",
     "context_length": 1048576,
@@ -485,9 +496,9 @@
     "name": "DeepSeek: DeepSeek V4 Pro 0813",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.00000057948",
-      "completion": "0.00000173844",
-      "input_cache_read": "0.000000019316"
+      "prompt": "0.00000112068",
+      "completion": "0.00000336204",
+      "input_cache_read": "0.000000037356"
     }
   },
   {
@@ -579,17 +590,6 @@
       "completion": "0.00000425",
       "web_search": "0.0025",
       "input_cache_read": "0.00000015"
-    }
-  },
-  {
-    "id": "qwen/qwen3.8-max",
-    "name": "Qwen: Qwen3.8 Max",
-    "context_length": 1000000,
-    "pricing": {
-      "prompt": "0.000002",
-      "completion": "0.000006",
-      "input_cache_read": "0.00000025",
-      "input_cache_write": "0.0000025"
     }
   },
   {
@@ -1156,9 +1156,9 @@
     "name": "Tencent: Hy3",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.0000000825",
-      "completion": "0.00000033",
-      "input_cache_read": "0.000000020625",
+      "prompt": "0.000000132",
+      "completion": "0.000000528",
+      "input_cache_read": "0.000000033",
       "overrides": [
         {
           "utc_start": 0,
@@ -1668,9 +1668,9 @@
     "name": "MoonshotAI Kimi Latest",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.0000025",
-      "completion": "0.000014",
-      "input_cache_read": "0.00000029"
+      "prompt": "0.00000255",
+      "completion": "0.00001275",
+      "input_cache_read": "0.00000025599999"
     }
   },
   {
@@ -1874,9 +1874,9 @@
     "name": "DeepSeek: DeepSeek V4 Pro 0423",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.000000971442",
-      "completion": "0.000001942884",
-      "input_cache_read": "0.0000000809535"
+      "prompt": "0.000000920808",
+      "completion": "0.000001841616",
+      "input_cache_read": "0.000000076734"
     }
   },
   {
@@ -1884,9 +1884,9 @@
     "name": "DeepSeek: DeepSeek V4 Flash 0423",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.0000000875",
-      "completion": "0.000000175",
-      "input_cache_read": "0.0000000175"
+      "prompt": "0.00000008554",
+      "completion": "0.00000017108",
+      "input_cache_read": "0.000000017108"
     }
   },
   {
@@ -3773,9 +3773,8 @@
     "name": "Qwen: Qwen3 235B A22B Instruct 2507",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.0000000875",
-      "completion": "0.00000035",
-      "input_cache_read": "0.0000000175"
+      "prompt": "0.00000009",
+      "completion": "0.00000055"
     }
   },
   {
