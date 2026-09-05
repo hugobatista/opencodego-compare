@@ -26,7 +26,7 @@ All prices are in **$ per 1M tokens** and normalized so you can compare apples t
 | Command Code GOAT | Effective = listed × (10 ÷ per-model monthly credits) |
 | OpenRouter | Real = listed × 1.055 service fee × (1 + sales tax) |
 | OpenCode Zen | Real = listed |
-| DeepInfra | Real = listed |
+| DeepInfra | Real = listed; Priority ≈1.5× and Flex ≈0.8× shown as extra rows |
 
 The Go and GOAT effective prices are best-case rates: they assume the flat $10/month fee is spread over the full monthly allowance or per-model credits included. They are real only if you consume the whole allowance. Use less and the real cost per token is higher; go over and the excess is billed at listed price (Zen balance), at regular rates (GOAT pay-as-you-go credits) or blocked.
 

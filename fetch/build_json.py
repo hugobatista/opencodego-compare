@@ -212,11 +212,17 @@ def resolve_family(row, warned):
 
 
 def assign_variants(rows):
-    """model -> family (new model), old model -> variant."""
+    """model -> family (new model), old model -> variant.
+
+    Rows may carry an explicit `variant` (e.g. DeepInfra Priority/Flex
+    suffixes), which is preserved; otherwise the model name becomes the
+    variant and the family overrides it.
+    """
     rows_out = []
     warned = set()
     for row in rows:
-        row['variant'] = row.get('model', '')
+        if row.get('variant') is None:
+            row['variant'] = row.get('model', '')
         fam = resolve_family(row, warned)
         row['model'] = fam or row['variant']
         rows_out.append(row)
