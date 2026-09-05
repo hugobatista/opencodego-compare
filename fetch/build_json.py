@@ -4,9 +4,11 @@
 import json
 import os
 import re
+import sys
 from datetime import datetime, timezone
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), '..', 'data')
+FETCH_DIR = os.path.dirname(os.path.abspath(__file__))
 
 OPENROUTER_SALES_TAX_DEFAULT = 0.2425
 OPENROUTER_SERVICE_FEE = 0.055
@@ -21,6 +23,11 @@ def load_json(name):
         print(f'Warning: {path} not found, skipping')
         return None
     with open(path) as f:
+        return json.load(f)
+
+
+def load_config(name):
+    with open(os.path.join(FETCH_DIR, name)) as f:
         return json.load(f)
 
 
@@ -87,6 +94,132 @@ def build_goat_rows(goat_data, or_name_ctx, or_id_ctx):
 MODELMARKETS_BASE = 'https://modelmarkets.ai'
 HUGGINGFACE_BASE = 'https://huggingface.co/'
 
+MAKERS = load_config('makers.json')
+MAKERS_NORM = {norm_key(k): v for k, v in MAKERS.items()}
+MAKER_URLS = load_config('maker_urls.json')
+MAKER_URLS_NORM = {norm_key(k): v for k, v in MAKER_URLS.items()}
+FAMILIES = load_config('model_families.json')
+FAMILIES_NORM = {norm_key(k): v for k, v in FAMILIES.items()}
+
+
+def maker_lookup(key):
+    return MAKERS_NORM.get(norm_key(key))
+
+
+def maker_url_lookup(key):
+    return MAKER_URLS_NORM.get(norm_key(key))
+
+
+def pretty_noun(key):
+    """'deepseek-ai' -> 'DeepSeek AI', 'meta-llama' -> 'Meta Llama'."""
+    return ' '.join(w[:1].upper() + w[1:] if w else w for w in (key or '').replace('-', ' ').split()).strip()
+
+
+FAMILY_VARIANT_TOKENS = ['latest', 'exp', 'preview', 'beta', 'snapshot']
+
+
+def short_seg(devid):
+    """'deepseek/deepseek-v4-pro-0813' -> 'deepseek-v4-pro-0813'."""
+    s = (devid or '').split('/')[-1]
+    return s.lstrip('~').split(',')[0].split(':')[0]
+
+
+def family_stem_key(devid):
+    """Norm key of a devId stripped of dates and variant tokens.
+
+    'deepseek/deepseek-v4-pro-0813' and 'deepseek-ai/deepseek-v4-pro'
+    both map to 'deepseekv4pro', so dated OR variants share the family
+    mapping entry with their Go/GOAT counterparts.
+    """
+    seg = short_seg(devid)
+    if not seg:
+        return ''
+    seg = re.sub(r'-\d{2,6}\b', ' ', seg)
+    parts = seg.split('-')
+    parts = [p for p in parts if p.lower() not in FAMILY_VARIANT_TOKENS]
+    return norm_key(' '.join(parts))
+
+
+def clean_model_tail(name):
+    """Strip parentheticals, 'Free' and variant tokens from a display name."""
+    s = re.sub(r'\s*\(.*?\)\s*', ' ', name or '')
+    s = re.sub(r'\s+free\s*$', '', s, flags=re.I)
+    return ' '.join(s.split()).strip()
+
+
+def heuristic_family(devid, name):
+    """Best-effort family name when no mapping exists.
+
+    Keeps the source casing (OR/Go/GOAT names are already readable) and only
+    strips maker prefixes, dates and variant tokens.
+    """
+    s = clean_model_tail(name)
+    if ':' in s:
+        pre, _, rest = s.partition(':')
+        rest = rest.strip()
+        if MAKERS_NORM.get(norm_key(pre)):
+            s = rest
+    s = re.sub(r'\s+\d{4}\b', ' ', s)
+    for tok in FAMILY_VARIANT_TOKENS:
+        s = re.sub(rf'\s+{re.escape(tok)}\s*$', '', s, flags=re.I)
+    s = re.sub(r'\s{2,}', ' ', s).strip()
+    return s or name.split(':')[-1].strip()
+
+
+def resolve_family(row, warned):
+    """Resolve model (family) for a row. Returns family or None."""
+    devid = row.get('developerId')
+    if devid:
+        exact = FAMILIES_NORM.get(norm_key(short_seg(devid)))
+        if exact:
+            return exact
+        fam = FAMILIES_NORM.get(family_stem_key(devid))
+        if fam:
+            return fam
+    else:
+        for cand in (row.get('base'), row.get('model')):
+            if not cand:
+                continue
+            exact = FAMILIES_NORM.get(norm_key(cand))
+            if exact:
+                return exact
+            stem = family_stem_key(clean_model_tail(cand))
+            if stem and stem in FAMILIES_NORM:
+                return FAMILIES_NORM[stem]
+    name = row.get('model')
+    fam = heuristic_family(devid, name)
+    if devid not in warned and devid:
+        print(f'Family warning: no mapping for {devid!r} -> {fam!r}',
+              file=sys.stderr)
+        warned.add(devid)
+    elif not devid:
+        marker = row.get('base') or name
+        if marker not in warned:
+            print(f'Family warning: no developerId for {marker!r} -> {fam!r}',
+                  file=sys.stderr)
+            warned.add(marker)
+    return fam
+
+
+def assign_variants(rows):
+    """model -> family (new model), old model -> variant."""
+    rows_out = []
+    warned = set()
+    for row in rows:
+        row['variant'] = row.get('model', '')
+        fam = resolve_family(row, warned)
+        row['model'] = fam or row['variant']
+        rows_out.append(row)
+    return rows_out
+
+
+def match_modelmarkets(mm_data):
+    """Normalized slug -> modelmarkets entry."""
+    index = {}
+    for entry in mm_data or []:
+        index.setdefault(norm_key(entry.get('slug')), entry)
+    return index
+
 
 def link_candidates(row):
     """Names to try when matching a row to a modelmarkets entry."""
@@ -100,41 +233,50 @@ def link_candidates(row):
     yield row.get('model') or base
 
 
-def build_modelmarkets_index(mm_data):
-    index = {}
-    for entry in mm_data or []:
-        index.setdefault(norm_key(entry.get('slug')), entry)
-    return index
+def match_mm_entry(row, index):
+    matched = None
+    for name in link_candidates(row):
+        entry = index.get(norm_key(name))
+        if entry:
+            matched = entry
+            break
+    if matched is None:
+        candidates = []
+        for name in link_candidates(row):
+            b = norm_key(name)
+            if len(b) < 8:
+                continue
+            for key, entry in index.items():
+                if key in b or b in key:
+                    candidates.append((abs(len(key) - len(b)), entry))
+        if candidates:
+            matched = min(candidates)[1]
+    return matched
 
 
 def add_model_links(rows, mm_data):
-    """Set modelLink/hfLink on every row, matched against modelmarkets."""
-    index = build_modelmarkets_index(mm_data)
+    """Set modelLink/hfLink/developerId/maker on every row via modelmarkets."""
+    index = match_modelmarkets(mm_data)
     for row in rows:
-        matched = None
-        for name in link_candidates(row):
-            entry = index.get(norm_key(name))
-            if entry:
-                matched = entry
-                break
-        if matched is None:
-            for name in link_candidates(row):
-                b = norm_key(name)
-                if len(b) < 8:
-                    continue
-                for key, entry in index.items():
-                    if key in b or b in key:
-                        matched = entry
-                        break
-                if matched:
-                    break
+        matched = match_mm_entry(row, index)
         if matched:
             row['modelLink'] = MODELMARKETS_BASE + matched['href']
             hf = matched.get('hf')
             row['hfLink'] = HUGGINGFACE_BASE + hf if hf else None
+            org = matched.get('org')
+            slug = matched.get('slug')
+            if org and slug and row.get('market') != 'or':
+                row['developerId'] = f'{org}/{slug}'
+            if org:
+                row['maker'] = maker_lookup(org) or pretty_noun(org)
+                row['makerLink'] = maker_url_lookup(org)
         else:
             row['modelLink'] = None
             row['hfLink'] = None
+        row.setdefault('developerId', None)
+        row.setdefault('maker', None)
+        row.setdefault('makerLink', None)
+        row.setdefault('variantLink', None)
     return rows
 
 
@@ -202,13 +344,21 @@ def build_or_rows(openrouter_data, endpoints_data):
                 'trainsOnData': None,
             }]
 
+        maker = maker_lookup(model_id.split('/')[0].lstrip('~')) or maker_lookup('openrouter') or 'OpenRouter'
+        maker_link = maker_url_lookup(model_id.split('/')[0].lstrip('~')) or maker_url_lookup('openrouter')
+
         for ep in records:
             row = {
                 'market': 'or',
                 'model': name,
                 'base': model_id,
+                'developerId': model_id,
+                'maker': maker,
+                'makerLink': maker_link,
+                'variantLink': f'https://openrouter.ai/{model_id}',
+                'plan': 'OpenRouter',
                 'provider': ep['provider'],
-                'providerLink': f'https://openrouter.ai/{model_id}',
+                'providerLink': f'https://openrouter.ai/provider/{ep["provider"]}',
                 'input': ep['prompt'],
                 'output': ep['completion'],
                 'read': ep['read'],
@@ -264,6 +414,10 @@ def main():
         all_rows.extend(build_or_rows(openrouter_data, endpoints_data))
 
     add_model_links(all_rows, modelmarkets_data)
+    assign_variants(all_rows)
+
+    for row in all_rows:
+        row.pop('base', None)
 
     output = {
         'generated_date': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC'),

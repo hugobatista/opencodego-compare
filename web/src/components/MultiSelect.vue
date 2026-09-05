@@ -54,6 +54,10 @@ function toggleAll() {
   }
 }
 
+function reset() {
+  emit('update:selected', [])
+}
+
 function updatePos() {
   const r = btnEl.value.getBoundingClientRect()
   pos.value = { top: r.bottom + 4, left: r.left, width: Math.max(r.width, 200) }
@@ -130,7 +134,10 @@ onUnmounted(close)
             >
             <span>{{ filteredOptions.length && allSelected ? 'Clear' : 'Select all' }}</span>
           </label>
-          <span v-if="selected.length" class="ms-count">{{ selected.length }} picked</span>
+          <span class="ms-actions-right">
+            <button v-if="selected.length" type="button" class="ms-reset" @click.stop="reset">Reset</button>
+            <span v-if="selected.length" class="ms-count">{{ selected.length }} picked</span>
+          </span>
         </div>
         <div class="ms-list">
           <label
@@ -183,6 +190,13 @@ onUnmounted(close)
   display: flex; align-items: center; justify-content: space-between; gap: 8px;
   padding: 2px 4px 4px; border-bottom: 1px solid var(--border); margin-bottom: 4px;
 }
+.ms-actions-right { display: flex; align-items: center; gap: 8px; }
+.ms-reset {
+  font-size: 0.72rem; padding: 2px 8px; cursor: pointer;
+  border: 1px solid var(--border); border-radius: 4px;
+  background: var(--bg); color: var(--fg);
+}
+.ms-reset:hover { border-color: var(--accent); color: var(--accent-strong); }
 .ms-count { font-size: 0.7rem; color: var(--muted); white-space: nowrap; }
 .ms-list { overflow-y: auto; flex: 1; min-height: 0; }
 .ms-item {

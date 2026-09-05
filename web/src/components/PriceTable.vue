@@ -11,21 +11,23 @@ const props = defineProps({
 })
 
 const COLS = [
-  { id: 'model',   label: 'Model',           kind: 'text',   key: 'textM' },
-  { id: 'plan',    label: 'Plan',            kind: 'text',   key: 'textPlan' },
-  { id: 'provider', label: 'Provider',       kind: 'text',   key: 'textP' },
-  { id: 'in',      label: 'Input/1M',        kind: 'numeric', key: 'valIn' },
-  { id: 'out',     label: 'Output/1M',       kind: 'numeric', key: 'valOut' },
-  { id: 'rd',      label: 'Cached Read/1M',  kind: 'numeric', key: 'valRd' },
-  { id: 'wr',      label: 'Cached Write/1M', kind: 'numeric', key: 'valWr' },
-  { id: 'ctx',     label: 'Context',         kind: 'numeric', key: 'ctxVal' },
-  { id: 'lat',     label: 'Latency (p50)',   kind: 'numeric', key: 'latVal' },
-  { id: 'tps',     label: 'TPS (p50)',       kind: 'numeric', key: 'tpsVal' },
-  { id: 'logs',    label: 'Log prompts',     kind: 'choice',  key: 'logs' },
-  { id: 'trains',  label: 'Training',        kind: 'choice',  key: 'trains' },
-  { id: 'peak',    label: 'Peak slots',      kind: 'choice',  key: 'peak' },
-  { id: 'allowance', label: 'Allowance',     kind: 'text',   key: 'textA' },
-  { id: 'notes',   label: 'Notes',           kind: 'text',   key: 'textN' },
+  { id: 'maker',    label: 'Maker',           kind: 'text',   key: 'textK' },
+  { id: 'model',    label: 'Model',           kind: 'text',   key: 'textM' },
+  { id: 'variant',  label: 'Variant',         kind: 'text',   key: 'textV' },
+  { id: 'plan',     label: 'Plan',            kind: 'text',   key: 'textPlan' },
+  { id: 'provider', label: 'Provider',        kind: 'text',   key: 'textP' },
+  { id: 'in',       label: 'Input/1M',        kind: 'numeric', key: 'valIn' },
+  { id: 'out',      label: 'Output/1M',       kind: 'numeric', key: 'valOut' },
+  { id: 'rd',       label: 'Cached Read/1M',  kind: 'numeric', key: 'valRd' },
+  { id: 'wr',       label: 'Cached Write/1M', kind: 'numeric', key: 'valWr' },
+  { id: 'ctx',      label: 'Context',         kind: 'numeric', key: 'ctxVal' },
+  { id: 'lat',      label: 'Latency (p50)',   kind: 'numeric', key: 'latVal' },
+  { id: 'tps',      label: 'TPS (p50)',       kind: 'numeric', key: 'tpsVal' },
+  { id: 'logs',     label: 'Log prompts',     kind: 'choice',  key: 'logs' },
+  { id: 'trains',   label: 'Training',        kind: 'choice',  key: 'trains' },
+  { id: 'peak',     label: 'Peak slots',      kind: 'choice',  key: 'peak' },
+  { id: 'allowance', label: 'Allowance',      kind: 'text',    key: 'textA' },
+  { id: 'notes',    label: 'Notes',           kind: 'text',    key: 'textN' },
 ]
 
 const sortKey = ref('in')
@@ -44,20 +46,19 @@ const display = computed(() => props.rows.map((r) => buildRow(r, props.meta, pro
 
 const onlyGoZen = ref(true)
 const norm = (s) => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '')
-const clean = (s) => norm(String(s || '').replace(/\s*\([^)]*\)\s*/g, ''))
-const goZenBases = computed(() => {
+const goZenFamilies = computed(() => {
   const set = new Set()
   for (const r of props.rows) {
     if (r.market === 'or') continue
-    if (r.base) set.add(clean(r.base))
+    if (r.model) set.add(norm(r.model))
   }
   return [...set].sort((a, b) => b.length - a.length)
 })
 const orMatches = (r) => {
   if (r.market !== 'or' || !onlyGoZen.value) return true
-  const seg = clean(String(r.base || r.model).split('/').pop().split(':')[0])
-  if (goZenBases.value.includes(seg)) return true
-  return goZenBases.value.some((b) => b.length >= 8 && seg.startsWith(b))
+  const fam = norm(r.model)
+  if (goZenFamilies.value.includes(fam)) return true
+  return goZenFamilies.value.some((b) => b.length >= 8 && fam.startsWith(b))
 }
 
 const pool = computed(() => display.value.filter(orMatches))
@@ -66,15 +67,16 @@ const orShow = ref(3)
 const limited = computed(() => {
   const N = orShow.value
   if (N === 'all') return pool.value
-  const byBase = new Map()
+  const byKey = new Map()
   const out = []
   for (const r of pool.value) {
     if (r.market !== 'or') { out.push(r); continue }
-    const arr = byBase.get(r.base) || []
+    const key = r.developerId || r.model
+    const arr = byKey.get(key) || []
     arr.push(r)
-    byBase.set(r.base, arr)
+    byKey.set(key, arr)
   }
-  for (const arr of byBase.values()) {
+  for (const arr of byKey.values()) {
     if (arr.length <= N) { out.push(...arr); continue }
     const sorted = [...arr].sort((a, b) => (a.pxCost ?? 1e18) - (b.pxCost ?? 1e18))
     out.push(...sorted.slice(0, N))
@@ -83,12 +85,34 @@ const limited = computed(() => {
 })
 const hiddenCount = computed(() => Math.max(0, pool.value.length - limited.value.length))
 
+function passesOthers(row, exceptId) {
+  for (const c of COLS) {
+    if (c.id === exceptId) continue
+    if (c.kind === 'numeric') {
+      const nf = numFilters[c.id]
+      const v = row[c.key]
+      if (nf.min !== '' || nf.max !== '') {
+        if (v === null || v === undefined || Number.isNaN(Number(v))) return false
+        if (nf.min !== '' && Number(v) < parseFloat(nf.min)) return false
+        if (nf.max !== '' && Number(v) > parseFloat(nf.max)) return false
+      }
+    } else {
+      const sel = multiFilters[c.id] || []
+      if (sel.length === 0) continue
+      const v = row[c.key]
+      if (v === null || v === undefined || !sel.includes(String(v))) return false
+    }
+  }
+  return true
+}
+
 const distinctOptions = computed(() => {
   const map = {}
   for (const c of COLS) {
     if (c.kind === 'numeric') continue
     const set = new Set()
     for (const r of limited.value) {
+      if (!passesOthers(r, c.id)) continue
       const v = r[c.key]
       if (v === null || v === undefined || v === '') continue
       set.add(String(v))
@@ -124,28 +148,7 @@ for (const c of COLS) {
 }
 
 const filtered = computed(() => {
-  return limited.value.filter((r) => {
-    for (const c of COLS) {
-      if (c.kind !== 'numeric') {
-        const sel = multiFilters[c.id]
-        const opts = distinctOptions.value[c.id] || []
-        // empty or full selection = no filter
-        if (sel && sel.length > 0 && sel.length < opts.length) {
-          const v = r[c.key]
-          if (v === null || v === undefined || !sel.includes(String(v))) return false
-        }
-      } else {
-        const nf = numFilters[c.id]
-        const v = r[c.key]
-        if (nf.min !== '' || nf.max !== '') {
-          if (v === null || v === undefined || Number.isNaN(Number(v))) return false
-          if (nf.min !== '' && Number(v) < parseFloat(nf.min)) return false
-          if (nf.max !== '' && Number(v) > parseFloat(nf.max)) return false
-        }
-      }
-    }
-    return true
-  })
+  return limited.value.filter(passesOthers)
 })
 
 const sorted = computed(() => {
@@ -231,13 +234,16 @@ function fallbackCopy(text) {
 }
 
 const DEFAULT_WIDTHS = {
-  model: 14, plan: 10, provider: 9, 'in': 7, out: 7, rd: 6, wr: 6,
+  maker: 9, model: 14, variant: 13, plan: 10, provider: 9, 'in': 7, out: 7, rd: 6, wr: 6,
   ctx: 6, lat: 6, tps: 5, logs: 4, trains: 4, peak: 6, allowance: 7, notes: 12,
 }
 const colWidths = reactive({ ...DEFAULT_WIDTHS })
 const colOrder = ref(COLS.map((c) => c.id))
 
 const CELL_TITLES = {
+  model: 'Model family — groups all variants',
+  variant: 'Specific model variant',
+  maker: 'Model manufacturer/creator',
   ctx: 'Context length',
   lat: '50th percentile latency',
   tps: '50th percentile tokens per second',
@@ -505,6 +511,28 @@ function tableStyle() {
                 {{ r.peak || '—' }}
               </template>
 
+              <template v-else-if="colId === 'maker'">
+                <a
+                  v-if="r.makerLink"
+                  :href="r.makerLink"
+                  target="_blank"
+                  rel="noopener"
+                  class="maker"
+                >{{ r.maker || '—' }}</a>
+                <span v-else class="dash">{{ r.maker || '—' }}</span>
+              </template>
+
+              <template v-else-if="colId === 'variant'">
+                <a
+                  v-if="r.variantLink"
+                  :href="r.variantLink"
+                  target="_blank"
+                  rel="noopener"
+                  class="vlink"
+                >{{ r.variant || '—' }}</a>
+                <span v-else class="vname">{{ r.variant || '—' }}</span>
+              </template>
+
               <span v-else-if="colId === 'allowance'" v-html="r.allowance"></span>
 
               <template v-else>
@@ -611,9 +639,14 @@ a.mlink:hover { color: var(--accent); border-color: var(--accent); }
 a.prov { color: var(--accent); text-decoration: none; }
 a.prov:hover { text-decoration: underline; }
 .dash { color: var(--muted); }
+a.maker { color: var(--accent-strong); text-decoration: none; font-weight: 600; }
+a.maker:hover { text-decoration: underline; }
+a.vlink { color: var(--text); text-decoration: none; }
+a.vlink:hover { text-decoration: underline; color: var(--accent); }
+.vname { overflow-wrap: anywhere; }
 a.plan { text-decoration: none; }
 a.plan:hover { text-decoration: underline; }
-.plan { font-weight: 600; font-size: 0.8rem; white-space: nowrap; }
+.plan { font-weight: 600; font-size: 0.8rem; white-space: normal; overflow-wrap: anywhere; }
 .p-go  { color: #2e7d32; }
 .p-goat { color: #b3541e; }
 .p-or  { color: #2b6cb0; }
