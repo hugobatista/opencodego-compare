@@ -110,8 +110,9 @@ def scrape():
                 'context': None,
                 'latency': None,
                 'tps': None,
-                'logsPrompts': False,
-                'trainsOnData': False,
+                'logsPrompts': None,
+                'trainsOnData': None,
+                'privacyNote': '99% of models route via ZDR-capable upstreams, most ZDR by default',
                 'notes': '',
             })
 

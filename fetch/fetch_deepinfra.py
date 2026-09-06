@@ -46,6 +46,26 @@ def fetch_tier_mults():
     return out
 
 
+def model_policy(base):
+    """logsPrompts / trainsOnData per DeepInfra's data-privacy docs.
+
+    DeepInfra docs (docs.deepinfra.com/account/data-privacy): inputs/outputs
+    are held in memory only, not stored to disk; no training; no content
+    logging beyond debug/security sampling. So first-party hosting asserts
+    no retention and no training. Google and Anthropic models are routed to
+    the model owner, whose policy applies: Google logs prompts/responses for
+    Prohibited Use Policy checks (logs, no training); Anthropic retains per
+    their Trust Center (logs, no training).
+    Returns (logs, trains, notes, privacy_note).
+    """
+    bl = (base or '').lower()
+    if 'gemini' in bl:
+        return True, False, 'Google logs for abuse checks', 'Google logs for abuse checks'
+    if 'claude' in bl:
+        return True, False, 'Anthropic retains per Trust Center', 'Anthropic retains per Trust Center'
+    return False, False, '', 'ZDR: held in memory only, no logging/training'
+
+
 def main():
     os.makedirs(DATA_DIR, exist_ok=True)
     resp = requests.get(MODELS_URL, timeout=60, headers=HEADERS)
@@ -75,6 +95,7 @@ def main():
         read = pricing.get('cache_read_tokens')
         # base = last path segment, like OpenRouter, for modelmarkets matching
         base = mid.split('/')[-1]
+        logs, trains, pol_note, privacy_note = model_policy(base)
         contextual = {
             'market': 'deepinfra',
             'model': base,
@@ -92,9 +113,10 @@ def main():
             'context': meta.get('context_length'),
             'latency': None,
             'tps': None,
-            'logsPrompts': None,
-            'trainsOnData': None,
-            'notes': '',
+            'logsPrompts': logs,
+            'trainsOnData': trains,
+            'privacyNote': privacy_note,
+            'notes': pol_note,
             'variantLink': f'https://deepinfra.com/{mid}',
         }
 
@@ -104,7 +126,8 @@ def main():
             row['input'] = inp * mult
             row['output'] = out * mult
             row['read'] = read * mult if read is not None else None
-            row['notes'] = notes
+            bits = [b for b in (notes, pol_note) if b]
+            row['notes'] = ' · '.join(bits)
             rows.append(row)
 
         # Standard tier (base price)

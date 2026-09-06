@@ -155,8 +155,9 @@ def scrape():
                 'context': parse_context(cells[1]),
                 'latency': None,
                 'tps': parse_tps(cells[3]),
-                'logsPrompts': False,
-                'trainsOnData': False,
+                'logsPrompts': None,
+                'trainsOnData': None,
+                'privacyNote': '99% of models route via ZDR-capable upstreams, most ZDR by default',
                 'notes': notes,
             })
 

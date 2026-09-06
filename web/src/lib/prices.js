@@ -25,7 +25,7 @@ export function fmtWhole(v, suffix) {
 }
 
 export function fmtBool(v) {
-  if (v === null || v === undefined) return '—'
+  if (v === null || v === undefined) return '?'
   return v ? 'Yes' : 'No'
 }
 
@@ -104,6 +104,7 @@ export function buildRow(row, meta, tax) {
     modelLink: row.modelLink || null,
     hfLink: row.hfLink || null,
     notes: row.notes || '',
+    privacyNote: row.privacyNote || '',
     allowance: allowance(false),
     logs: fmtBool(row.logsPrompts),
     trains: fmtBool(row.trainsOnData),

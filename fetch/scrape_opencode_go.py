@@ -129,6 +129,7 @@ def scrape():
             'tps': None,
             'logsPrompts': None,
             'trainsOnData': None,
+            'privacyNote': '',
             'notes': '',
         })
 
@@ -148,20 +149,25 @@ def scrape():
             retention_map[base_name] = {
                 'trainsOnData': training,
                 'logsPrompts': data_retention,
+                'privacyNote': cells[2].strip(),
             }
 
     # Merge retention into rows
     for row in rows_out:
         base = row['base']
+        matched = False
         if base in retention_map:
             row['trainsOnData'] = retention_map[base]['trainsOnData']
             row['logsPrompts'] = retention_map[base]['logsPrompts']
+            row['privacyNote'] = retention_map[base]['privacyNote']
+            matched = True
         # Fallback: try matching by partial name
-        if row['trainsOnData'] is None:
+        if not matched:
             for key, val in retention_map.items():
                 if key.lower() in base.lower() or base.lower() in key.lower():
                     row['trainsOnData'] = val['trainsOnData']
                     row['logsPrompts'] = val['logsPrompts']
+                    row['privacyNote'] = val['privacyNote']
                     break
 
     out_path = os.path.join(DATA_DIR, 'opencode-go.json')

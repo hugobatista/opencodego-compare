@@ -19,9 +19,10 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
+    "logsPrompts": true,
     "trainsOnData": true,
-    "notes": "Trains during free period \u00b7 Free tier"
+    "privacyNote": "Free trial: data collected, may be used to improve the model",
+    "notes": "Free trial: data collected, may be used to improve the model \u00b7 Free tier"
   },
   {
     "market": "opencode-zen",
@@ -43,9 +44,10 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
+    "logsPrompts": true,
     "trainsOnData": true,
-    "notes": "Trains during free period \u00b7 Free tier"
+    "privacyNote": "Free trial: data collected, may be used to improve the model",
+    "notes": "Free trial: data collected, may be used to improve the model \u00b7 Free tier"
   },
   {
     "market": "opencode-zen",
@@ -67,9 +69,10 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
+    "logsPrompts": true,
     "trainsOnData": true,
-    "notes": "Trains during free period \u00b7 Free tier"
+    "privacyNote": "Free trial: data collected, may be used to improve the model",
+    "notes": "Free trial: data collected, may be used to improve the model \u00b7 Free tier"
   },
   {
     "market": "opencode-zen",
@@ -92,8 +95,9 @@
     "latency": null,
     "tps": null,
     "logsPrompts": true,
-    "trainsOnData": false,
-    "notes": "NVIDIA trial: logged \u00b7 Free tier"
+    "trainsOnData": true,
+    "privacyNote": "NVIDIA trial: logged, used to improve NVIDIA products",
+    "notes": "NVIDIA trial: logged, used to improve NVIDIA products \u00b7 Free tier"
   },
   {
     "market": "opencode-zen",
@@ -116,8 +120,9 @@
     "latency": null,
     "tps": null,
     "logsPrompts": true,
-    "trainsOnData": false,
-    "notes": "NVIDIA trial: logged \u00b7 Free tier"
+    "trainsOnData": true,
+    "privacyNote": "NVIDIA trial: logged, used to improve NVIDIA products",
+    "notes": "NVIDIA trial: logged, used to improve NVIDIA products \u00b7 Free tier"
   },
   {
     "market": "opencode-zen",
@@ -139,8 +144,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
+    "logsPrompts": true,
     "trainsOnData": true,
+    "privacyNote": "Meta: trains on prompts",
     "notes": "Meta: trains on prompts \u00b7 Free tier"
   },
   {
@@ -165,6 +171,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -189,6 +196,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -213,6 +221,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -237,6 +246,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -261,6 +271,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -285,6 +296,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -309,6 +321,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -333,6 +346,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -357,6 +371,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -381,6 +396,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -405,6 +421,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -429,6 +446,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -453,6 +471,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -477,6 +496,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -501,6 +521,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -525,6 +546,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -549,6 +571,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -573,6 +596,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -597,6 +621,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -621,6 +646,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -645,6 +671,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -669,6 +696,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -693,6 +721,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -717,6 +746,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -741,6 +771,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -765,6 +796,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -789,6 +821,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -813,6 +846,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -837,6 +871,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -861,6 +896,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -885,6 +921,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -909,6 +946,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -933,6 +971,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -957,6 +996,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -981,6 +1021,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -1005,6 +1046,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -1029,6 +1071,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -1053,6 +1096,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -1077,6 +1121,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -1101,6 +1146,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -1125,6 +1171,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -1149,6 +1196,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -1173,6 +1221,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "Zen zero-retention default; no training",
     "notes": ""
   },
   {
@@ -1197,6 +1246,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -1221,6 +1271,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -1245,6 +1296,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -1269,6 +1321,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -1293,6 +1346,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -1317,6 +1371,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -1341,6 +1396,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -1365,6 +1421,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -1389,6 +1446,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -1413,6 +1471,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -1437,6 +1496,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -1461,6 +1521,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -1485,6 +1546,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -1509,6 +1571,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -1533,6 +1596,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -1557,6 +1621,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -1581,6 +1646,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -1605,6 +1671,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -1629,6 +1696,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -1653,6 +1721,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -1677,6 +1746,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   },
   {
@@ -1701,6 +1771,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "Retention: 30d",
     "notes": "Retention: 30d"
   }
 ]

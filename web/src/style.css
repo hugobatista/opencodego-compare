@@ -11,6 +11,7 @@
   --accent-strong: #1e54a0;
   --ok: #238636;
   --bad: #c0392b;
+  --warn: #b89118;
   --card: #ffffff;
 }
 
@@ -27,6 +28,7 @@
     --accent-strong: #a5cfff;
     --ok: #61c176;
     --bad: #ef6f60;
+    --warn: #d4b32e;
     --card: #17181d;
   }
 }

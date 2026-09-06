@@ -396,6 +396,7 @@ def build_openrouter_rows(openrouter_data, endpoints_data):
                 'tps': ep['tps'],
                 'logsPrompts': ep['logsPrompts'],
                 'trainsOnData': ep['trainsOnData'],
+                'privacyNote': '',
                 'notes': '',
             }
             if ep['discount']:

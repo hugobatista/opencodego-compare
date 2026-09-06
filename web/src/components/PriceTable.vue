@@ -260,7 +260,14 @@ const CELL_TITLES = {
 const NUM_DISP = { ctx: 'ctxDisp', lat: 'latDisp', tps: 'tpsDisp', commitment: 'textCommitment' }
 
 function colById(id) { return COLS.find((c) => c.id === id) }
-function tdTitle(colId) { return CELL_TITLES[colId] || undefined }
+function tdTitle(colId, r) {
+  if (colId === 'logs' || colId === 'trains') {
+    const note = r.privacyNote ? ' — ' + r.privacyNote : ''
+    if (r[colId] === '?') return 'Not disclosed / unconfirmed by provider' + note
+    return CELL_TITLES[colId] + ' — ' + r[colId] + note
+  }
+  return CELL_TITLES[colId] || undefined
+}
 function cellClass(colId, r) {
   if (colId === 'model') return 'model'
   if (colId === 'logs' || colId === 'trains') return 'yesno ' + r[colId]
@@ -462,7 +469,7 @@ function tableStyle() {
               v-for="colId in colOrder"
               :key="colId"
               :class="cellClass(colId, r)"
-              :title="tdTitle(colId)"
+              :title="tdTitle(colId, r)"
             >
               <template v-if="colId === 'model'">
                 <div class="cell-model">
@@ -656,6 +663,7 @@ a.plan:hover { text-decoration: underline; }
 .yesno { font-size: 0.76rem; }
 .yesno.Yes { color: var(--bad); font-weight: 600; }
 .yesno.No { color: var(--ok); }
+.yesno.\? { color: var(--warn); font-weight: 600; }
 td.notes { color: var(--muted); overflow-wrap: anywhere; }
 td.allow { color: var(--muted); font-size: 0.76rem; line-height: 1.25; }
 

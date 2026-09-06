@@ -19,8 +19,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -43,8 +44,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -67,8 +69,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -91,8 +94,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -115,8 +119,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -139,8 +144,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -163,8 +169,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -187,8 +194,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -211,8 +219,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -235,8 +244,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -259,8 +269,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -283,8 +294,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -307,8 +319,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -331,8 +344,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -355,8 +369,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -379,8 +394,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -403,8 +419,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -427,8 +444,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -451,8 +469,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -475,8 +494,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -499,8 +519,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -523,8 +544,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -547,8 +569,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -571,8 +594,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -595,8 +619,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -619,8 +644,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -643,8 +669,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -667,8 +694,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -691,8 +719,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -715,8 +744,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -739,8 +769,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -763,8 +794,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -787,8 +819,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -811,8 +844,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -835,8 +869,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -859,8 +894,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -883,8 +919,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -907,8 +944,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -931,8 +969,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -955,8 +994,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -979,8 +1019,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1003,8 +1044,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1027,8 +1069,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1051,8 +1094,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1075,8 +1119,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1099,8 +1144,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1123,8 +1169,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1147,8 +1194,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1171,8 +1219,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1195,8 +1244,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1219,8 +1269,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1243,8 +1294,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1267,8 +1319,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1291,8 +1344,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1315,8 +1369,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1339,8 +1394,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1363,8 +1419,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1387,8 +1444,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1411,8 +1469,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1435,8 +1494,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1459,8 +1519,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1483,8 +1544,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1507,8 +1569,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1531,8 +1594,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1555,8 +1619,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1579,8 +1644,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1603,8 +1669,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1627,8 +1694,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1651,8 +1719,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1675,8 +1744,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1699,8 +1769,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1723,8 +1794,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1747,8 +1819,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1771,8 +1844,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1795,8 +1869,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1819,8 +1894,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1843,8 +1919,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1867,8 +1944,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1891,8 +1969,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1915,8 +1994,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1939,8 +2019,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1963,8 +2044,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -1987,8 +2069,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2011,8 +2094,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2035,8 +2119,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2059,8 +2144,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2083,8 +2169,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2107,8 +2194,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2131,8 +2219,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2155,8 +2244,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2179,8 +2269,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2203,8 +2294,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2227,8 +2319,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2251,8 +2344,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2275,8 +2369,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2299,8 +2394,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2323,8 +2419,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2347,8 +2444,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2371,8 +2469,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2395,8 +2494,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2419,8 +2519,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2443,8 +2544,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2467,8 +2569,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2491,8 +2594,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2515,8 +2619,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2539,8 +2644,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2563,8 +2669,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2587,8 +2694,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2611,8 +2719,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2635,8 +2744,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2659,8 +2769,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2683,8 +2794,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2707,8 +2819,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2731,8 +2844,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2755,8 +2869,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2779,8 +2894,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2803,8 +2919,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2827,8 +2944,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2851,8 +2969,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2875,8 +2994,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2899,8 +3019,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2923,8 +3044,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2947,8 +3069,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2971,8 +3094,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -2995,8 +3119,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -3019,8 +3144,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -3043,8 +3169,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -3067,8 +3194,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -3091,8 +3219,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -3115,8 +3244,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -3139,8 +3269,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -3163,8 +3294,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -3187,8 +3319,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -3211,8 +3344,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -3235,8 +3369,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -3259,8 +3394,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -3283,8 +3419,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   },
   {
@@ -3307,8 +3444,9 @@
     "context": null,
     "latency": null,
     "tps": null,
-    "logsPrompts": false,
-    "trainsOnData": false,
+    "logsPrompts": null,
+    "trainsOnData": null,
+    "privacyNote": "99% of models route via ZDR-capable upstreams, most ZDR by default",
     "notes": ""
   }
 ]

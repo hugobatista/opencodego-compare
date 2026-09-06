@@ -21,6 +21,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "30 days",
     "notes": ""
   },
   {
@@ -45,6 +46,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "30 days",
     "notes": ""
   },
   {
@@ -69,6 +71,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "30 days",
     "notes": ""
   },
   {
@@ -93,6 +96,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": false,
+    "privacyNote": "30 days",
     "notes": ""
   },
   {
@@ -117,6 +121,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days",
     "notes": ""
   },
   {
@@ -141,6 +146,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days",
     "notes": ""
   },
   {
@@ -165,6 +171,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days",
     "notes": ""
   },
   {
@@ -189,6 +196,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days",
     "notes": ""
   },
   {
@@ -213,6 +221,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days",
     "notes": ""
   },
   {
@@ -237,6 +246,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days",
     "notes": ""
   },
   {
@@ -261,6 +271,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days",
     "notes": ""
   },
   {
@@ -285,6 +296,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days",
     "notes": ""
   },
   {
@@ -309,6 +321,7 @@
     "tps": null,
     "logsPrompts": null,
     "trainsOnData": null,
+    "privacyNote": "",
     "notes": ""
   },
   {
@@ -333,6 +346,7 @@
     "tps": null,
     "logsPrompts": null,
     "trainsOnData": null,
+    "privacyNote": "",
     "notes": ""
   },
   {
@@ -357,6 +371,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days",
     "notes": ""
   },
   {
@@ -381,6 +396,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days",
     "notes": ""
   },
   {
@@ -405,6 +421,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": true,
+    "privacyNote": "Not ZDR",
     "notes": ""
   },
   {
@@ -429,6 +446,7 @@
     "tps": null,
     "logsPrompts": true,
     "trainsOnData": true,
+    "privacyNote": "Not ZDR",
     "notes": ""
   },
   {
@@ -453,6 +471,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days",
     "notes": ""
   },
   {
@@ -477,6 +496,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days",
     "notes": ""
   },
   {
@@ -501,6 +521,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days",
     "notes": ""
   },
   {
@@ -525,6 +546,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days",
     "notes": ""
   },
   {
@@ -549,6 +571,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days",
     "notes": ""
   },
   {
@@ -573,6 +596,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days",
     "notes": ""
   },
   {
@@ -597,6 +621,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days",
     "notes": ""
   },
   {
@@ -621,6 +646,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days*",
     "notes": ""
   },
   {
@@ -645,6 +671,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days*",
     "notes": ""
   },
   {
@@ -669,6 +696,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days*",
     "notes": ""
   },
   {
@@ -693,6 +721,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days*",
     "notes": ""
   },
   {
@@ -717,6 +746,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days*",
     "notes": ""
   },
   {
@@ -741,6 +771,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days*",
     "notes": ""
   },
   {
@@ -765,6 +796,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days",
     "notes": ""
   },
   {
@@ -789,6 +821,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days",
     "notes": ""
   },
   {
@@ -813,6 +846,7 @@
     "tps": null,
     "logsPrompts": false,
     "trainsOnData": false,
+    "privacyNote": "0 days",
     "notes": ""
   }
 ]

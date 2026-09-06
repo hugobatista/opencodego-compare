@@ -21,16 +21,21 @@ def zen_policy(model):
     """
     ml = model.lower()
     if 'claude' in ml or 'anthropic' in ml:
-        return {'logsPrompts': True, 'trainsOnData': False, 'note': 'Retention: 30d'}
+        return {'logsPrompts': True, 'trainsOnData': False, 'note': 'Retention: 30d', 'privacyNote': 'Retention: 30d'}
     if ml.startswith('gpt') or 'openai' in ml:
-        return {'logsPrompts': True, 'trainsOnData': False, 'note': 'Retention: 30d'}
+        return {'logsPrompts': True, 'trainsOnData': False, 'note': 'Retention: 30d', 'privacyNote': 'Retention: 30d'}
     if 'nemotron' in ml and 'free' in ml:
-        return {'logsPrompts': True, 'trainsOnData': False, 'note': 'NVIDIA trial: logged'}
+        return {'logsPrompts': True, 'trainsOnData': True, 'note': 'NVIDIA trial: logged, used to improve NVIDIA products', 'privacyNote': 'NVIDIA trial: logged, used to improve NVIDIA products'}
     if 'contributor' in ml:
-        return {'logsPrompts': False, 'trainsOnData': True, 'note': 'Meta: trains on prompts'}
+        return {'logsPrompts': True, 'trainsOnData': True, 'note': 'Meta: trains on prompts', 'privacyNote': 'Meta: trains on prompts'}
     if ml in ('big pickle', 'mimo-v2.5 free', 'ling 3.0 flash fin free'):
-        return {'logsPrompts': False, 'trainsOnData': True, 'note': 'Trains during free period'}
-    return {'logsPrompts': False, 'trainsOnData': False, 'note': ''}
+        return {
+            'logsPrompts': True,
+            'trainsOnData': True,
+            'note': 'Free trial: data collected, may be used to improve the model',
+            'privacyNote': 'Free trial: data collected, may be used to improve the model',
+        }
+    return {'logsPrompts': False, 'trainsOnData': False, 'note': '', 'privacyNote': 'Zen zero-retention default; no training'}
 
 
 def parse_money(s):
@@ -122,6 +127,7 @@ def scrape():
             'tps': None,
             'logsPrompts': logs,
             'trainsOnData': trains,
+            'privacyNote': pol['privacyNote'],
             'notes': notes,
         })
 
