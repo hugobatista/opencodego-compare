@@ -10,6 +10,8 @@ STAGE1 = [
     'scrape_opencode_go.py',
     'scrape_opencode_zen.py',
     'scrape_command_code_goat.py',
+    'scrape_command_code_pro.py',
+    'scrape_command_code_max.py',
     'fetch_deepinfra.py',
 ]
 STAGE2 = [

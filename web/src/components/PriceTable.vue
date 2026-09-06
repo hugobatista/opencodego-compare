@@ -1,6 +1,7 @@
 <script setup>
 import { ref, reactive, computed, watch } from 'vue'
 import { buildRow } from '../lib/prices.js'
+import { useDark, planColor } from '../lib/theme.js'
 import { readParams, writeParams, paramStr, paramList } from '../lib/urlState.js'
 import MultiSelect from './MultiSelect.vue'
 
@@ -9,6 +10,8 @@ const props = defineProps({
   meta: { type: Object, required: true },
   tax: { type: Number, default: 0.2425 },
 })
+
+const isDark = useDark()
 
 const COLS = [
   { id: 'maker',    label: 'Maker',           kind: 'text',   key: 'textK' },
@@ -252,7 +255,7 @@ const CELL_TITLES = {
   trains: 'Provider trains on your data',
   peak: 'Peak and off-peak hours',
   commitment: 'Minimum monthly subscription commitment in USD',
-  allowance: 'Monthly allowance = usage included per month at full price; weekly = 50%; 5h = 20%. Effective Go/GOAT price applies only if you use the full monthly allowance',
+  allowance: 'Monthly allowance = usage included per month at full price; weekly = 50%; 5h = 20%. Subscription effective prices apply only if you use the full monthly allowance',
 }
 const NUM_DISP = { ctx: 'ctxDisp', lat: 'latDisp', tps: 'tpsDisp', commitment: 'textCommitment' }
 
@@ -478,9 +481,9 @@ function tableStyle() {
                   target="_blank"
                   rel="noopener"
                   class="plan"
-                  :class="'p-' + r.market"
+                  :style="{ color: planColor(r.planMeta, isDark.value) }"
                 >{{ r.plan }}</a>
-                <span v-else class="plan" :class="'p-' + r.market">{{ r.plan }}</span>
+                <span v-else class="plan" :style="{ color: planColor(r.planMeta, isDark.value) }">{{ r.plan }}</span>
               </template>
 
               <template v-else-if="colId === 'provider'">
@@ -649,16 +652,6 @@ a.vlink:hover { text-decoration: underline; color: var(--accent); }
 a.plan { text-decoration: none; }
 a.plan:hover { text-decoration: underline; }
 .plan { font-weight: 600; font-size: 0.8rem; white-space: normal; overflow-wrap: anywhere; }
-.p-opencode-go  { color: #2e7d32; }
-.p-command-code-goat { color: #b3541e; }
-.p-openrouter  { color: #2b6cb0; }
-.p-opencode-zen { color: #7c3aed; }
-.p-deepinfra { color: #0e7490; }
-:global(.dark) .p-opencode-go, :global(html[data-theme=dark]) .p-opencode-go  { color: #a5d6a7; }
-:global(.dark) .p-command-code-goat, :global(html[data-theme=dark]) .p-command-code-goat { color: #ffab7d; }
-:global(.dark) .p-openrouter,  :global(html[data-theme=dark]) .p-openrouter  { color: #90caf9; }
-:global(.dark) .p-opencode-zen, :global(html[data-theme=dark]) .p-opencode-zen { color: #b39ddb; }
-:global(.dark) .p-deepinfra, :global(html[data-theme=dark]) .p-deepinfra { color: #67e8f9; }
 
 .yesno { font-size: 0.76rem; }
 .yesno.Yes { color: var(--bad); font-weight: 600; }

@@ -1,0 +1,72 @@
+{
+  "providers": {
+    "opencode":     { "name": "OpenCode",     "url": "https://opencode.ai" },
+    "command-code": { "name": "Command Code", "url": "https://commandcode.ai" },
+    "openrouter":   { "name": "OpenRouter",   "url": "https://openrouter.ai" },
+    "deepinfra":    { "name": "DeepInfra",    "url": "https://deepinfra.com" }
+  },
+  "plans": {
+    "opencode-go": {
+      "name": "OpenCode Go",
+      "provider": "opencode",
+      "url": "https://opencode.ai/docs/go",
+      "subPrice": 10,
+      "color": "#2e7d32",
+      "colorDark": "#a5d6a7"
+    },
+    "opencode-zen": {
+      "name": "OpenCode Zen",
+      "provider": "opencode",
+      "url": "https://opencode.ai/docs/zen",
+      "color": "#7c3aed",
+      "colorDark": "#b39ddb"
+    },
+    "command-code-goat": {
+      "name": "Command Code GOAT",
+      "provider": "command-code",
+      "url": "https://commandcode.ai/docs/plans/goat",
+      "subPrice": 10,
+      "color": "#b3541e",
+      "colorDark": "#ffab7d"
+    },
+    "command-code-pro": {
+      "name": "Command Code Pro",
+      "provider": "command-code",
+      "url": "https://commandcode.ai/docs/plans/pro",
+      "subPrice": 20,
+      "color": "#ad1457",
+      "colorDark": "#f48fb1"
+    },
+    "command-code-max-10x": {
+      "name": "Command Code Max 10x",
+      "provider": "command-code",
+      "url": "https://commandcode.ai/docs/plans/max",
+      "subPrice": 100,
+      "color": "#00695c",
+      "colorDark": "#80cbc4"
+    },
+    "command-code-max-20x": {
+      "name": "Command Code Max 20x",
+      "provider": "command-code",
+      "url": "https://commandcode.ai/docs/plans/max",
+      "subPrice": 200,
+      "color": "#5e35b1",
+      "colorDark": "#d1c4e9"
+    },
+    "openrouter": {
+      "name": "OpenRouter",
+      "provider": "openrouter",
+      "url": "https://openrouter.ai",
+      "feeTax": true,
+      "color": "#2b6cb0",
+      "colorDark": "#90caf9"
+    },
+    "deepinfra": {
+      "name": "DeepInfra",
+      "provider": "deepinfra",
+      "url": "https://deepinfra.com/pricing",
+      "color": "#0e7490",
+      "colorDark": "#67e8f9"
+    }
+  }
+}

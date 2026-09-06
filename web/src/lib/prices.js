@@ -12,11 +12,6 @@ export function fmtAllow(v) {
   return `$${money(v)} monthly<br>$${money(w)} weekly<br>$${money(f)} /5h`
 }
 
-export function fmtGoatAllow(v) {
-  const money = (x) => Number(x).toFixed(3)
-  return `$${money(v)} credits/mo<br>windows $35/wk<br>$14/5h`
-}
-
 export function fmtCtx(v) {
   if (!v) return '—'
   if (v >= 1e6) return (v / 1e6).toFixed(v >= 1e7 ? 1 : 2).replace(/\.?0+$/, '') + 'M'
@@ -34,21 +29,21 @@ export function fmtBool(v) {
   return v ? 'Yes' : 'No'
 }
 
-export function computeReal(value, listed, tax) {
+export function computeReal(value, tax) {
   if (value === null || value === undefined) return null
   return value * (1 + OPENROUTER_SERVICE_FEE) * (1 + tax)
 }
 
 export function buildRow(row, meta, tax) {
   const m = row.market
-  const free = (m === 'opencode-zen' || m === 'command-code-goat') && row.input === 0
+  const plan = meta.plans?.[m] || {}
+  const subPrice = plan.subPrice
+  const feeTax = !!plan.feeTax
+  const free = row.input === 0 && row.output === 0
 
   const val = (v) => {
     if (v === null || v === undefined) return null
-    let r
-    if (m === 'opencode-go' || m === 'command-code-goat') r = v  // already effective per-1M
-    else if (m === 'openrouter') r = computeReal(v, v, tax)
-    else r = v
+    let r = feeTax ? computeReal(v, tax) : v
     return Math.round(r * 1000) / 1000
   }
 
@@ -61,10 +56,10 @@ export function buildRow(row, meta, tax) {
     const money = (x) => '$' + Number(x).toFixed(3)
     let realTip = ''
     if (rawList !== null && rawReal !== null) {
-      if (m === 'openrouter') {
+      if (feeTax) {
         realTip = `Real = listed ${money(rawList)} × (1 + ${(OPENROUTER_SERVICE_FEE * 100).toFixed(1)}% fee) × (1 + ${(tax * 100).toFixed(2)}% tax) = ${money(rawReal)}`
-      } else if ((m === 'opencode-go' || m === 'command-code-goat') && eff != null && row.effAll > 0) {
-        realTip = `Effective = listed ${money(rawList)} × (10 ÷ $${Number(row.effAll).toFixed(3)} monthly allowance) = ${money(rawReal)} — only if the full monthly allowance is used`
+      } else if (subPrice && eff != null && row.effAll > 0) {
+        realTip = `Effective = listed ${money(rawList)} × (${subPrice} ÷ $${Number(row.effAll).toFixed(3)} monthly allowance) = ${money(rawReal)} — only if the full monthly allowance is used`
       } else {
         realTip = `Real = listed ${money(rawList)}`
       }
@@ -81,38 +76,35 @@ export function buildRow(row, meta, tax) {
 
   const peak = row.peakHours || null
 
-  const PLAN = {
-    'opencode-go': { label: 'OpenCode Go', link: meta.links?.['opencode-go'] },
-    'command-code-goat': { label: 'Command Code GOAT', link: meta.links?.['command-code-goat'] },
-    'opencode-zen': { label: 'OpenCode Zen', link: meta.links?.['opencode-zen'] },
-    openrouter: { label: 'OpenRouter', link: meta.links?.openrouter },
-    deepinfra: { label: 'DeepInfra', link: meta.links?.deepinfra },
-  }
+  const providerId = plan.provider
+  const prov = providerId ? meta.providers?.[providerId] : null
+  const provider = m === 'openrouter' ? row.provider : (prov?.name || '')
+  const providerLink = m === 'openrouter' ? row.providerLink : (prov?.url || null)
 
-  const COMMITMENT = {
-    'opencode-go': 10,
-    'command-code-goat': 10,
-    'opencode-zen': 0,
-    openrouter: 0,
-    deepinfra: 0,
+  const allowance = (forText) => {
+    const br = forText ? ' ' : '<br>'
+    if (free) return ''
+    if (subPrice) return fmtAllow(row.effAll).replace(/<br>/g, br)
+    return 'Pay per usage'
   }
 
   return {
     market: m,
+    planMeta: plan,
     model: row.model || row.variant,
     variant: row.variant || row.model,
     maker: row.maker || '',
     makerLink: row.makerLink || null,
     developerId: row.developerId || '',
-    plan: row.plan || PLAN[m]?.label || m,
-    planLink: PLAN[m]?.link || null,
-    provider: m === 'openrouter' ? row.provider : '',
-    providerLink: m === 'openrouter' ? row.providerLink : '',
+    plan: row.plan || plan.name || m,
+    planLink: plan.url || null,
+    provider,
+    providerLink,
     variantLink: (m === 'openrouter' || m === 'deepinfra') ? row.variantLink : null,
     modelLink: row.modelLink || null,
     hfLink: row.hfLink || null,
     notes: row.notes || '',
-    allowance: free ? '' : (m === 'opencode-go' ? fmtAllow(row.effAll) : (m === 'command-code-goat' && row.effAll > 0 ? fmtGoatAllow(row.effAll) : 'Pay per usage')),
+    allowance: allowance(false),
     logs: fmtBool(row.logsPrompts),
     trains: fmtBool(row.trainsOnData),
     peak,
@@ -134,12 +126,9 @@ export function buildRow(row, meta, tax) {
     textM: row.model || row.variant,
     textV: row.variant || row.model,
     textK: row.maker || '',
-    textP: m === 'openrouter' ? row.provider : '',
-    textPlan: PLAN[m]?.label || m,
-    textA: free ? '' : (m === 'opencode-go' ? fmtAllow(row.effAll).replace(/<br>/g, ' ') : (m === 'command-code-goat' && row.effAll > 0 ? fmtGoatAllow(row.effAll).replace(/<br>/g, ' ') : 'Pay per usage')),
+    textP: provider,
+    textPlan: row.plan || plan.name || m,
+    textA: allowance(true),
     textN: row.notes || '',
-    commitment: COMMITMENT[m] ?? 0,
-    valCommit: COMMITMENT[m] ?? 0,
-    textCommitment: COMMITMENT[m] > 0 ? '$' + COMMITMENT[m] + '/mo' : '$0',
   }
 }

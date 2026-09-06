@@ -91,6 +91,11 @@ def build_command_code_goat_rows(goat_data, openrouter_name_ctx, openrouter_id_c
     return fill_context(goat_data, openrouter_name_ctx, openrouter_id_ctx)
 
 
+def build_subscription_rows(data, openrouter_name_ctx, openrouter_id_ctx):
+    """Command Code Pro/Max rows already have effective prices computed by the scraper."""
+    return fill_context(data, openrouter_name_ctx, openrouter_id_ctx)
+
+
 def build_deepinfra_rows(deepinfra_data, openrouter_name_ctx, openrouter_id_ctx):
     """DeepInfra rows: real = listed (no multiplier), like Zen."""
     for row in deepinfra_data:
@@ -110,6 +115,7 @@ MAKER_URLS = load_config('maker_urls.json')
 MAKER_URLS_NORM = {norm_key(k): v for k, v in MAKER_URLS.items()}
 FAMILIES = load_config('model_families.json')
 FAMILIES_NORM = {norm_key(k): v for k, v in FAMILIES.items()}
+PLANS = load_config('plans.json')
 
 
 def maker_lookup(key):
@@ -400,10 +406,28 @@ def build_openrouter_rows(openrouter_data, endpoints_data):
     return rows
 
 
+def build_note(plans):
+    """Describe each plan's pricing formula from plans.json config."""
+    bits = ['Prices in $/1M tokens unless noted.']
+    for key, p in plans['plans'].items():
+        if p.get('subPrice'):
+            bits.append(
+                f"{p['name']} effective = listed × ({p['subPrice']} ÷ monthly "
+                'credit allowance), realized only if the full monthly allowance is used.'
+            )
+        elif p.get('feeTax'):
+            bits.append(f"{p['name']} real = listed × (1 + service fee) × (1 + tax).")
+        else:
+            bits.append(f"{p['name']} real = listed.")
+    return ' '.join(bits)
+
+
 def main():
     go_data = load_json('opencode-go.json')
     zen_data = load_json('opencode-zen.json')
     goat_data = load_json('command-code-goat.json')
+    pro_data = load_json('command-code-pro.json')
+    max_data = load_json('command-code-max.json')
     deepinfra_data = load_json('deepinfra.json')
     openrouter_data = load_json('openrouter.json')
     endpoints_data = load_json('or_endpoints.json')
@@ -425,6 +449,10 @@ def main():
         all_rows.extend(build_opencode_go_rows(go_data, openrouter_name_ctx, openrouter_id_ctx))
     if goat_data:
         all_rows.extend(build_command_code_goat_rows(goat_data, openrouter_name_ctx, openrouter_id_ctx))
+    if pro_data:
+        all_rows.extend(build_subscription_rows(pro_data, openrouter_name_ctx, openrouter_id_ctx))
+    if max_data:
+        all_rows.extend(build_subscription_rows(max_data, openrouter_name_ctx, openrouter_id_ctx))
     if zen_data:
         all_rows.extend(build_opencode_zen_rows(zen_data, openrouter_name_ctx, openrouter_id_ctx))
     if openrouter_data:
@@ -444,14 +472,9 @@ def main():
             'salesTaxDefault': OPENROUTER_SALES_TAX_DEFAULT,
             'openrouterServiceFee': OPENROUTER_SERVICE_FEE,
             'openrouterServiceFeeMin': OPENROUTER_SERVICE_FEE_MIN,
-            'links': {
-                'opencode-go': 'https://opencode.ai/docs/go',
-                'command-code-goat': 'https://commandcode.ai/docs/plans/goat',
-                'opencode-zen': 'https://opencode.ai/docs/zen',
-                'openrouter': 'https://openrouter.ai',
-                'deepinfra': 'https://deepinfra.com/pricing',
-            },
-            'note': 'Prices in $/1M tokens unless noted. Go effective prices assume $10/mo subscription and are realized only if the full monthly allowance is used. GOAT effective prices assume $10/mo subscription and the per-model monthly credit allowance.',
+            'providers': PLANS['providers'],
+            'plans': PLANS['plans'],
+            'note': build_note(PLANS),
         },
         'rows': all_rows,
     }

@@ -380,9 +380,9 @@
     "name": "Z.ai: GLM Latest",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.00000115",
-      "completion": "0.0000035",
-      "input_cache_read": "0.0000001"
+      "prompt": "0.00000117",
+      "completion": "0.00000396",
+      "input_cache_read": "0.000000234"
     }
   },
   {
@@ -597,9 +597,9 @@
     "name": "DeepSeek V4 Flash Latest",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.00000004998",
-      "completion": "0.00000009996",
-      "input_cache_read": "0.000000009996"
+      "prompt": "0.000000045",
+      "completion": "0.00000009",
+      "input_cache_read": "0.000000009"
     }
   },
   {
@@ -607,9 +607,9 @@
     "name": "DeepSeek: DeepSeek V4 Flash 0731",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.000000065",
-      "completion": "0.00000018",
-      "input_cache_read": "0.000000016"
+      "prompt": "0.00000004998",
+      "completion": "0.00000009996",
+      "input_cache_read": "0.000000009996"
     }
   },
   {
@@ -1874,9 +1874,9 @@
     "name": "DeepSeek: DeepSeek V4 Pro 0423",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.000000859908",
-      "completion": "0.000001719816",
-      "input_cache_read": "0.000000071659"
+      "prompt": "0.000000717924",
+      "completion": "0.000001435848",
+      "input_cache_read": "0.000000059827"
     }
   },
   {
@@ -1884,9 +1884,9 @@
     "name": "DeepSeek: DeepSeek V4 Flash 0423",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.0000000847",
-      "completion": "0.0000001694",
-      "input_cache_read": "0.00000001694"
+      "prompt": "0.00000008106",
+      "completion": "0.00000016212",
+      "input_cache_read": "0.000000016212"
     }
   },
   {
@@ -2360,8 +2360,9 @@
     "name": "Qwen: Qwen3.5-35B-A3B",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.00000008",
-      "completion": "0.00000075"
+      "prompt": "0.0000003125",
+      "completion": "0.00000125",
+      "input_cache_read": "0.00000015625"
     }
   },
   {

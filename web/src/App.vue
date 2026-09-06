@@ -2,12 +2,14 @@
 import { ref, computed, watch } from 'vue'
 import PriceTable from './components/PriceTable.vue'
 import { readParams, writeParams, paramNum } from './lib/urlState.js'
+import { useDark, planColor, planBg } from './lib/theme.js'
 import prices from '../../data/prices.json'
 import pkg from '../package.json'
 
 const meta = prices.meta
 const rows = prices.rows
 const generated = prices.generated_date
+const isDark = useDark()
 
 const version = pkg.version
 const repo = 'https://github.com/hugobatista/opencodego-compare'
@@ -24,13 +26,17 @@ watch(taxPct, (v) => {
 const tax = computed(() => taxPct.value / 100)
 const feePct = ((meta.openrouterServiceFee ?? meta.serviceFee) * 100).toFixed(1)
 
-const SOURCES = [
-  { key: 'opencode-go', name: 'OpenCode Go', url: meta.links['opencode-go'] },
-  { key: 'command-code-goat', name: 'Command Code GOAT', url: meta.links['command-code-goat'] },
-  { key: 'opencode-zen', name: 'OpenCode Zen', url: meta.links['opencode-zen'] },
-  { key: 'openrouter', name: 'OpenRouter', url: meta.links.openrouter },
-  { key: 'deepinfra', name: 'DeepInfra', url: meta.links.deepinfra },
-]
+const SOURCES = computed(() =>
+  Object.entries(meta.plans || {}).map(([key, p]) => ({ key, name: p.name, url: p.url, color: planColor(p, isDark.value) }))
+)
+
+const LEGEND = computed(() =>
+  Object.entries(meta.plans || {}).map(([key, p]) => {
+    if (p.subPrice) return `${p.name}: eff = listed × (${p.subPrice} ÷ monthly allowance) — only if you use the full allowance.`
+    if (p.feeTax) return `${p.name}: real = listed × (1 + ${feePct}% fee, min $0.80) × (1 + tax).`
+    return `${p.name}: real = listed.`
+  })
+)
 </script>
 
 <template>
@@ -42,10 +48,10 @@ const SOURCES = [
         v-for="s in SOURCES"
         :key="s.key"
         class="badge"
-        :class="'b-' + s.key"
         :href="s.url"
         target="_blank"
         rel="noopener"
+        :style="{ color: s.color, background: planBg(s.color) }"
       >
         {{ s.name }}
       </a>
@@ -54,11 +60,8 @@ const SOURCES = [
 
   <div class="legend">
     <span><strong>Real</strong> price on top, <em>listed</em> below.</span>&nbsp;
-    <span><strong>Go:</strong> eff = listed × (10 ÷ monthly allowance), $10/mo — only if you use the full monthly allowance.</span>&nbsp;
-    <span><strong>GOAT:</strong> eff = listed × (10 ÷ per-model monthly credits), $10/mo — only if you use the full allowance.</span>&nbsp;
-    <span><strong>OpenRouter:</strong> real = listed × (1 + {{ feePct }}% fee, min $0.80) × (1 + tax).</span>&nbsp;
-    <span><strong>Zen:</strong> real = listed.</span>&nbsp;
-    <span><strong>DeepInfra:</strong> real = listed.</span>
+    <span v-for="(txt, i) in LEGEND" :key="i">{{ txt }}</span>&nbsp;
+    <span><strong>Allowance:</strong> monthly = usage included per month at full price; weekly = 50%; 5h = 20%.</span>
   </div>
 
   <div class="controls">
