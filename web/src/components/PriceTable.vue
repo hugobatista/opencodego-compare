@@ -27,6 +27,7 @@ const COLS = [
   { id: 'trains',   label: 'Training',        kind: 'choice',  key: 'trains' },
   { id: 'peak',     label: 'Peak slots',      kind: 'choice',  key: 'peak' },
   { id: 'allowance', label: 'Allowance',      kind: 'text',    key: 'textA' },
+  { id: 'commitment', label: 'Commitment',    kind: 'numeric', key: 'valCommit' },
   { id: 'notes',    label: 'Notes',           kind: 'text',    key: 'textN' },
 ]
 
@@ -235,7 +236,7 @@ function fallbackCopy(text) {
 
 const DEFAULT_WIDTHS = {
   maker: 9, model: 14, variant: 13, plan: 10, provider: 9, 'in': 7, out: 7, rd: 6, wr: 6,
-  ctx: 6, lat: 6, tps: 5, logs: 4, trains: 4, peak: 6, allowance: 7, notes: 12,
+  ctx: 6, lat: 6, tps: 5, logs: 4, trains: 4, peak: 6, allowance: 7, commitment: 7, notes: 12,
 }
 const colWidths = reactive({ ...DEFAULT_WIDTHS })
 const colOrder = ref(COLS.map((c) => c.id))
@@ -250,9 +251,10 @@ const CELL_TITLES = {
   logs: 'Provider logs your prompts',
   trains: 'Provider trains on your data',
   peak: 'Peak and off-peak hours',
+  commitment: 'Minimum monthly subscription commitment in USD',
   allowance: 'Monthly allowance = usage included per month at full price; weekly = 50%; 5h = 20%. Effective Go/GOAT price applies only if you use the full monthly allowance',
 }
-const NUM_DISP = { ctx: 'ctxDisp', lat: 'latDisp', tps: 'tpsDisp' }
+const NUM_DISP = { ctx: 'ctxDisp', lat: 'latDisp', tps: 'tpsDisp', commitment: 'textCommitment' }
 
 function colById(id) { return COLS.find((c) => c.id === id) }
 function tdTitle(colId) { return CELL_TITLES[colId] || undefined }
@@ -499,7 +501,7 @@ function tableStyle() {
                 </div>
               </template>
 
-              <template v-else-if="colId === 'ctx' || colId === 'lat' || colId === 'tps'">
+              <template v-else-if="colId === 'ctx' || colId === 'lat' || colId === 'tps' || colId === 'commitment'">
                 {{ r[NUM_DISP[colId]] }}
               </template>
 

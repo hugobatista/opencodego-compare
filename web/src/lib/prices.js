@@ -89,6 +89,14 @@ export function buildRow(row, meta, tax) {
     deepinfra: { label: 'DeepInfra', link: meta.links?.deepinfra },
   }
 
+  const COMMITMENT = {
+    'opencode-go': 10,
+    'command-code-goat': 10,
+    'opencode-zen': 0,
+    openrouter: 0,
+    deepinfra: 0,
+  }
+
   return {
     market: m,
     model: row.model || row.variant,
@@ -130,5 +138,8 @@ export function buildRow(row, meta, tax) {
     textPlan: PLAN[m]?.label || m,
     textA: free ? '' : (m === 'opencode-go' ? fmtAllow(row.effAll).replace(/<br>/g, ' ') : (m === 'command-code-goat' && row.effAll > 0 ? fmtGoatAllow(row.effAll).replace(/<br>/g, ' ') : 'Pay per usage')),
     textN: row.notes || '',
+    commitment: COMMITMENT[m] ?? 0,
+    valCommit: COMMITMENT[m] ?? 0,
+    textCommitment: COMMITMENT[m] > 0 ? '$' + COMMITMENT[m] + '/mo' : '$0',
   }
 }
