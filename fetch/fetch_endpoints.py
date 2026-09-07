@@ -243,7 +243,7 @@ def main():
         models = json.load(f)
 
     # The previous output doubles as the cache.
-    out_path = os.path.join(DATA_DIR, 'or_endpoints.json')
+    out_path = os.path.join(DATA_DIR, 'openrouter-endpoints.json')
     cache = {}
     if os.path.exists(out_path):
         with open(out_path) as f:

@@ -463,7 +463,7 @@ def main():
     max_data = load_json('command-code-max.json')
     deepinfra_data = load_json('deepinfra.json')
     openrouter_data = load_json('openrouter.json')
-    endpoints_data = load_json('or_endpoints.json')
+    endpoints_data = load_json('openrouter-endpoints.json')
     modelmarkets_data = load_json('modelmarkets.json')
 
     openrouter_name_ctx = {}
