@@ -105,7 +105,12 @@ function passesOthers(row, exceptId) {
       const sel = multiFilters[c.id] || []
       if (sel.length === 0) continue
       const v = row[c.key]
-      if (v === null || v === undefined || !sel.includes(String(v))) return false
+      const isEmpty = v === null || v === undefined || v === ''
+      if (isEmpty) {
+        if (!sel.includes('(empty)')) return false
+      } else if (!sel.includes(String(v))) {
+        return false
+      }
     }
   }
   return true
@@ -116,13 +121,16 @@ const distinctOptions = computed(() => {
   for (const c of COLS) {
     if (c.kind === 'numeric') continue
     const set = new Set()
+    let hasEmpty = false
     for (const r of limited.value) {
       if (!passesOthers(r, c.id)) continue
       const v = r[c.key]
-      if (v === null || v === undefined || v === '') continue
+      if (v === null || v === undefined || v === '') { hasEmpty = true; continue }
       set.add(String(v))
     }
-    map[c.id] = [...set].sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+    const sorted = [...set].sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+    if (hasEmpty) sorted.unshift('(empty)')
+    map[c.id] = sorted
   }
   return map
 })
