@@ -27,16 +27,25 @@ const tax = computed(() => taxPct.value / 100)
 const feePct = ((meta.openrouterServiceFee ?? meta.serviceFee) * 100).toFixed(1)
 
 const SOURCES = computed(() =>
-  Object.entries(meta.plans || {}).map(([key, p]) => ({ key, name: p.name, url: p.url, color: planColor(p, isDark.value) }))
+  Object.entries(meta.gateways || {}).map(([key, g]) => ({ key, name: g.name, url: g.url, color: planColor(g, isDark.value) }))
 )
 
-const LEGEND = computed(() =>
-  Object.entries(meta.plans || {}).map(([key, p]) => {
-    if (p.subPrice) return `${p.name}: eff = listed × (${p.subPrice} ÷ monthly allowance) — only if you use the full allowance.`
-    if (p.feeTax) return `${p.name}: real = listed × (1 + ${feePct}% fee, min $0.80) × (1 + tax).`
-    return `${p.name}: real = listed.`
-  })
-)
+const LEGEND = computed(() => {
+  const out = []
+  for (const [key, g] of Object.entries(meta.gateways || {})) {
+    const plans = Object.values(meta.plans || {}).filter((p) => p.gateway === key)
+    const names = plans.map((p) => p.name).join(', ')
+    const head = `${g.name}`
+    if (plans.some((p) => p.subPrice)) {
+      out.push(`${head}: $${Math.min(...plans.map((p) => p.subPrice))}/mo sub. eff = listed × (sub ÷ monthly allowance) — only if you use the full allowance.`)
+    } else if (plans.some((p) => p.feeTax)) {
+      out.push(`${head}: real = listed × (1 + ${feePct}% fee, min $0.80) × (1 + tax).`)
+    } else {
+      out.push(`${head}: real = listed.`)
+    }
+  }
+  return out
+})
 </script>
 
 <template>

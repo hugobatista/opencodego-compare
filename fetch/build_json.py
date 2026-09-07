@@ -116,6 +116,7 @@ MAKER_URLS_NORM = {norm_key(k): v for k, v in MAKER_URLS.items()}
 FAMILIES = load_config('model_families.json')
 FAMILIES_NORM = {norm_key(k): v for k, v in FAMILIES.items()}
 PLANS = load_config('plans.json')
+OR_PROVIDER_NAMES = PLANS['gateways'].get('openrouter', {}).get('providers', {})
 
 
 def maker_lookup(key):
@@ -217,6 +218,26 @@ def resolve_family(row, warned):
     return fam
 
 
+def assign_gateway(row, templates):
+    """Set row['gateway'] (and provider display) from the plan's gateway.
+
+    OpenRouter rows already set gateway/provider in the builder. For the
+    other markets the provider is the gateway's own disclosed provider
+    (deepinfra -> DeepInfra) or empty when undisclosed (opencode, command-code).
+    """
+    if row.get('gateway'):
+        return row
+    plan_key = row.get('market')
+    plan = templates['plans'].get(plan_key) or {}
+    gw = templates['gateways'].get(plan.get('gateway') or '') or {}
+    row['gateway'] = plan.get('gateway')
+    providers = gw.get('providers') or {}
+    if len(providers) == 1:
+        row['provider'] = next(iter(providers.values()))
+        row['providerLink'] = gw.get('providerLink')
+    return row
+
+
 def assign_variants(rows):
     """model -> family (new model), old model -> variant.
 
@@ -302,6 +323,16 @@ def add_model_links(rows, mm_data):
     return rows
 
 
+def or_provider_name(slug):
+    """Display name for an OpenRouter endpoint provider slug.
+
+    'azure/us' -> 'Azure (us)'; unknown bases fall back to 'pretty_noun'.
+    """
+    base, sep, suffix = (slug or '').partition('/')
+    name = OR_PROVIDER_NAMES.get(base) or pretty_noun(base)
+    return f'{name} ({suffix})' if sep else name
+
+
 def build_openrouter_rows(openrouter_data, endpoints_data):
     """Build OpenRouter rows with real prices including fee + tax."""
     rows = []
@@ -372,6 +403,7 @@ def build_openrouter_rows(openrouter_data, endpoints_data):
         for ep in records:
             row = {
                 'market': 'openrouter',
+                'gateway': 'openrouter',
                 'model': name,
                 'base': model_id,
                 'developerId': model_id,
@@ -379,7 +411,7 @@ def build_openrouter_rows(openrouter_data, endpoints_data):
                 'makerLink': maker_link,
                 'variantLink': f'https://openrouter.ai/{model_id}',
                 'plan': 'OpenRouter',
-                'provider': ep['provider'],
+                'provider': or_provider_name(ep['provider']),
                 'providerLink': f'https://openrouter.ai/provider/{ep["provider"]}',
                 'input': ep['prompt'],
                 'output': ep['completion'],
@@ -461,6 +493,9 @@ def main():
     if deepinfra_data:
         all_rows.extend(build_deepinfra_rows(deepinfra_data, openrouter_name_ctx, openrouter_id_ctx))
 
+    for row in all_rows:
+        assign_gateway(row, PLANS)
+
     add_model_links(all_rows, modelmarkets_data)
     assign_variants(all_rows)
 
@@ -473,7 +508,7 @@ def main():
             'salesTaxDefault': OPENROUTER_SALES_TAX_DEFAULT,
             'openrouterServiceFee': OPENROUTER_SERVICE_FEE,
             'openrouterServiceFeeMin': OPENROUTER_SERVICE_FEE_MIN,
-            'providers': PLANS['providers'],
+            'gateways': PLANS['gateways'],
             'plans': PLANS['plans'],
             'note': build_note(PLANS),
         },

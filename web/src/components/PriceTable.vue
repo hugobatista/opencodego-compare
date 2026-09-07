@@ -14,11 +14,12 @@ const props = defineProps({
 const isDark = useDark()
 
 const COLS = [
-  { id: 'maker',    label: 'Maker',           kind: 'text',   key: 'textK' },
+  { id: 'maker',    label: 'Model Maker',      kind: 'text',   key: 'textK' },
   { id: 'model',    label: 'Model',           kind: 'text',   key: 'textM' },
-  { id: 'variant',  label: 'Variant',         kind: 'text',   key: 'textV' },
+  { id: 'variant',  label: 'Model Variant',   kind: 'text',   key: 'textV' },
+  { id: 'gateway',  label: 'Gateway Provider', kind: 'text',  key: 'textG' },
   { id: 'plan',     label: 'Plan',            kind: 'text',   key: 'textPlan' },
-  { id: 'provider', label: 'Provider',        kind: 'text',   key: 'textP' },
+  { id: 'provider', label: 'Inference Provider', kind: 'text', key: 'textP' },
   { id: 'in',       label: 'Input/1M',        kind: 'numeric', key: 'valIn' },
   { id: 'out',      label: 'Output/1M',       kind: 'numeric', key: 'valOut' },
   { id: 'rd',       label: 'Cached Read/1M',  kind: 'numeric', key: 'valRd' },
@@ -238,7 +239,7 @@ function fallbackCopy(text) {
 }
 
 const DEFAULT_WIDTHS = {
-  maker: 9, model: 14, variant: 13, plan: 10, provider: 9, 'in': 7, out: 7, rd: 6, wr: 6,
+  maker: 9, model: 14, variant: 13, gateway: 9, plan: 10, provider: 9, 'in': 7, out: 7, rd: 6, wr: 6,
   ctx: 6, lat: 6, tps: 5, logs: 4, trains: 4, peak: 6, allowance: 7, commitment: 7, notes: 12,
 }
 const colWidths = reactive({ ...DEFAULT_WIDTHS })
@@ -248,6 +249,8 @@ const CELL_TITLES = {
   model: 'Model family — groups all variants',
   variant: 'Specific model variant',
   maker: 'Model manufacturer/creator',
+  gateway: 'Reseller/gateway that serves the model; a plan belongs to it',
+  plan: 'Subscription/pricing plan offered by the gateway',
   ctx: 'Context length',
   lat: '50th percentile latency',
   tps: '50th percentile tokens per second',
@@ -481,6 +484,19 @@ function tableStyle() {
                 </div>
               </template>
 
+              <template v-else-if="colId === 'gateway'">
+                <a
+                  v-if="r.gateway && r.gatewayLink"
+                  :href="r.gatewayLink"
+                  target="_blank"
+                  rel="noopener"
+                  class="prov"
+                  :style="{ color: planColor(r.gatewayMeta, isDark.value) }"
+                >{{ r.gateway }}</a>
+                <span v-else-if="r.gateway" class="prov" :style="{ color: planColor(r.gatewayMeta, isDark.value) }">{{ r.gateway }}</span>
+                <span v-else class="dash">—</span>
+              </template>
+
               <template v-else-if="colId === 'plan'">
                 <a
                   v-if="r.planLink"
@@ -488,9 +504,8 @@ function tableStyle() {
                   target="_blank"
                   rel="noopener"
                   class="plan"
-                  :style="{ color: planColor(r.planMeta, isDark.value) }"
                 >{{ r.plan }}</a>
-                <span v-else class="plan" :style="{ color: planColor(r.planMeta, isDark.value) }">{{ r.plan }}</span>
+                <span v-else class="plan">{{ r.plan }}</span>
               </template>
 
               <template v-else-if="colId === 'provider'">
@@ -656,9 +671,9 @@ a.maker:hover { text-decoration: underline; }
 a.vlink { color: var(--text); text-decoration: none; }
 a.vlink:hover { text-decoration: underline; color: var(--accent); }
 .vname { overflow-wrap: anywhere; }
-a.plan { text-decoration: none; }
+a.plan { color: var(--fg); text-decoration: none; }
 a.plan:hover { text-decoration: underline; }
-.plan { font-weight: 600; font-size: 0.8rem; white-space: normal; overflow-wrap: anywhere; }
+.plan { font-weight: 400; font-size: 0.8rem; white-space: normal; overflow-wrap: anywhere; }
 
 .yesno { font-size: 0.76rem; }
 .yesno.Yes { color: var(--bad); font-weight: 600; }

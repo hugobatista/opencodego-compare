@@ -1,72 +1,157 @@
 {
-  "providers": {
-    "opencode":     { "name": "OpenCode",     "url": "https://opencode.ai" },
-    "command-code": { "name": "Command Code", "url": "https://commandcode.ai" },
-    "openrouter":   { "name": "OpenRouter",   "url": "https://openrouter.ai" },
-    "deepinfra":    { "name": "DeepInfra",    "url": "https://deepinfra.com" }
+  "gateways": {
+    "opencode": {
+      "name": "OpenCode",
+      "url": "https://opencode.ai",
+      "color": "#2e7d32",
+      "colorDark": "#a5d6a7",
+      "providers": {}
+    },
+    "command-code": {
+      "name": "Command Code",
+      "url": "https://commandcode.ai",
+      "color": "#b3541e",
+      "colorDark": "#ffab7d",
+      "providers": {}
+    },
+    "openrouter": {
+      "name": "OpenRouter",
+      "url": "https://openrouter.ai",
+      "color": "#2b6cb0",
+      "colorDark": "#90caf9",
+      "providers": {
+        "aion-labs": "Aion Labs",
+        "akashml": "Akash ML",
+        "alibaba": "Alibaba",
+        "amazon-bedrock": "AWS Bedrock",
+        "ambient": "Ambient",
+        "anthropic": "Anthropic",
+        "arcee-ai": "Arcee AI",
+        "atlas-cloud": "Atlas Cloud",
+        "azure": "Azure",
+        "baidu": "Baidu",
+        "baseten": "Baseten",
+        "cerebras": "Cerebras",
+        "chutes": "Chutes",
+        "claude-on-aws": "Claude on AWS",
+        "cloudflare": "Cloudflare",
+        "cohere": "Cohere",
+        "coreweave": "CoreWeave",
+        "crusoe": "Crusoe",
+        "darkbloom": "Darkbloom",
+        "decart": "DeCart",
+        "deepinfra": "DeepInfra",
+        "deepseek": "DeepSeek",
+        "digitalocean": "DigitalOcean",
+        "fireworks": "Fireworks AI",
+        "friendli": "Friendli AI",
+        "gmicloud": "GMI Cloud",
+        "google-ai-studio": "Google AI Studio",
+        "google-vertex": "Google Vertex AI",
+        "groq": "Groq",
+        "inception": "Inception",
+        "inceptron": "Inceptron",
+        "io-net": "IO.net",
+        "ionstream": "IonStream",
+        "makora": "Makora",
+        "mancer": "Mancer",
+        "mara": "Mara",
+        "meta": "Meta",
+        "minimax": "MiniMax",
+        "mistral": "Mistral",
+        "modal": "Modal",
+        "modelrun": "ModelRun",
+        "moonshotai": "Moonshot AI",
+        "morph": "Morph",
+        "nebius": "Nebius",
+        "nex-agi": "Nex AGI",
+        "nextbit": "NextBit",
+        "novita": "Novita",
+        "open-inference": "Open Inference",
+        "openai": "OpenAI",
+        "openrouter": "OpenRouter",
+        "parasail": "Parasail",
+        "perceptron": "Perceptron",
+        "perplexity": "Perplexity",
+        "phala": "Phala",
+        "poolside": "Poolside",
+        "reka": "Reka",
+        "relace": "Relace",
+        "sail-research": "SAIL Research",
+        "sakana": "Sakana AI",
+        "sambanova": "SambaNova",
+        "sambanova-turbo": "SambaNova Turbo",
+        "seed": "Seed",
+        "siliconflow": "SiliconFlow",
+        "stepfun": "StepFun",
+        "streamlake": "Streamlake",
+        "tencent": "Tencent",
+        "together": "Together AI",
+        "upstage": "Upstage",
+        "venice": "Venice",
+        "wafer": "Wafer",
+        "xai": "xAI",
+        "xiaomi": "Xiaomi",
+        "z-ai": "Z-AI"
+      }
+    },
+    "deepinfra": {
+      "name": "DeepInfra",
+      "url": "https://deepinfra.com",
+      "providerLink": "https://deepinfra.com",
+      "color": "#0e7490",
+      "colorDark": "#67e8f9",
+      "providers": {
+        "deepinfra": "DeepInfra"
+      }
+    }
   },
   "plans": {
     "opencode-go": {
       "name": "OpenCode Go",
-      "provider": "opencode",
+      "gateway": "opencode",
       "url": "https://opencode.ai/docs/go",
-      "subPrice": 10,
-      "color": "#2e7d32",
-      "colorDark": "#a5d6a7"
+      "subPrice": 10
     },
     "opencode-zen": {
       "name": "OpenCode Zen",
-      "provider": "opencode",
-      "url": "https://opencode.ai/docs/zen",
-      "color": "#7c3aed",
-      "colorDark": "#b39ddb"
+      "gateway": "opencode",
+      "url": "https://opencode.ai/docs/zen"
     },
     "command-code-goat": {
       "name": "Command Code GOAT",
-      "provider": "command-code",
+      "gateway": "command-code",
       "url": "https://commandcode.ai/docs/plans/goat",
-      "subPrice": 10,
-      "color": "#b3541e",
-      "colorDark": "#ffab7d"
+      "subPrice": 10
     },
     "command-code-pro": {
       "name": "Command Code Pro",
-      "provider": "command-code",
+      "gateway": "command-code",
       "url": "https://commandcode.ai/docs/plans/pro",
-      "subPrice": 20,
-      "color": "#ad1457",
-      "colorDark": "#f48fb1"
+      "subPrice": 20
     },
     "command-code-max-10x": {
       "name": "Command Code Max 10x",
-      "provider": "command-code",
+      "gateway": "command-code",
       "url": "https://commandcode.ai/docs/plans/max",
-      "subPrice": 100,
-      "color": "#00695c",
-      "colorDark": "#80cbc4"
+      "subPrice": 100
     },
     "command-code-max-20x": {
       "name": "Command Code Max 20x",
-      "provider": "command-code",
+      "gateway": "command-code",
       "url": "https://commandcode.ai/docs/plans/max",
-      "subPrice": 200,
-      "color": "#5e35b1",
-      "colorDark": "#d1c4e9"
+      "subPrice": 200
     },
     "openrouter": {
       "name": "OpenRouter",
-      "provider": "openrouter",
+      "gateway": "openrouter",
       "url": "https://openrouter.ai",
-      "feeTax": true,
-      "color": "#2b6cb0",
-      "colorDark": "#90caf9"
+      "feeTax": true
     },
     "deepinfra": {
       "name": "DeepInfra",
-      "provider": "deepinfra",
-      "url": "https://deepinfra.com/pricing",
-      "color": "#0e7490",
-      "colorDark": "#67e8f9"
+      "gateway": "deepinfra",
+      "url": "https://deepinfra.com/pricing"
     }
   }
 }

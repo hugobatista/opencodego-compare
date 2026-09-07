@@ -76,10 +76,15 @@ export function buildRow(row, meta, tax) {
 
   const peak = row.peakHours || null
 
-  const providerId = plan.provider
-  const prov = providerId ? meta.providers?.[providerId] : null
-  const provider = m === 'openrouter' ? row.provider : (prov?.name || '')
-  const providerLink = m === 'openrouter' ? row.providerLink : (prov?.url || null)
+  const commitment = subPrice || 0
+  const textCommitment = commitment > 0 ? '$' + commitment + '/mo' : '$0'
+
+  const gatewayId = row.gateway || plan.gateway
+  const gw = gatewayId ? meta.gateways?.[gatewayId] : null
+  const gateway = gw?.name || ''
+  const gatewayLink = gw?.url || null
+  const provider = row.provider || ''
+  const providerLink = row.providerLink || null
 
   const allowance = (forText) => {
     const br = forText ? ' ' : '<br>'
@@ -91,6 +96,7 @@ export function buildRow(row, meta, tax) {
   return {
     market: m,
     planMeta: plan,
+    gatewayMeta: gw,
     model: row.model || row.variant,
     variant: row.variant || row.model,
     maker: row.maker || '',
@@ -98,6 +104,8 @@ export function buildRow(row, meta, tax) {
     developerId: row.developerId || '',
     plan: row.plan || plan.name || m,
     planLink: plan.url || null,
+    gateway,
+    gatewayLink,
     provider,
     providerLink,
     variantLink: (m === 'openrouter' || m === 'deepinfra') ? row.variantLink : null,
@@ -128,8 +136,11 @@ export function buildRow(row, meta, tax) {
     textV: row.variant || row.model,
     textK: row.maker || '',
     textP: provider,
+    textG: gateway,
     textPlan: row.plan || plan.name || m,
     textA: allowance(true),
     textN: row.notes || '',
+    valCommit: commitment,
+    textCommitment,
   }
 }
