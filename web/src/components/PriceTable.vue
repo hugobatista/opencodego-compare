@@ -292,7 +292,9 @@ const renderCols = computed(() => {
 const groupedColIds = new Set(GROUPS.flatMap((g) => g.cols))
 const visibleGroups = computed(() => {
   const vis = new Set(renderCols.value)
-  return GROUPS.filter((g) => g.cols.some((c) => vis.has(c)))
+  const pos = new Map(renderCols.value.map((id, i) => [id, i]))
+  const first = (g) => Math.min(...g.cols.map((c) => pos.get(c) ?? Infinity))
+  return GROUPS.filter((g) => g.cols.some((c) => vis.has(c))).sort((a, b) => first(a) - first(b))
 })
 const ungroupedVisible = computed(() => renderCols.value.filter((id) => !groupedColIds.has(id)))
 const groupsContiguous = computed(() => {
@@ -493,6 +495,58 @@ function onHeaderPointerUp() {
   drag.value = null
 }
 
+const gdrag = ref(null)
+function onGroupPointerDown(e, g) {
+  if (e.button !== undefined && e.button !== 0) return
+  gdrag.value = { id: g.label, startX: e.clientX, startY: e.clientY, active: false, overId: null, before: false }
+  window.addEventListener('pointermove', onGroupPointerMove)
+  window.addEventListener('pointerup', onGroupPointerUp)
+  window.addEventListener('pointercancel', onGroupPointerUp)
+}
+function onGroupPointerMove(e) {
+  const d = gdrag.value
+  if (!d) return
+  if (!d.active) {
+    if (Math.abs(e.clientX - d.startX) < 5 && Math.abs(e.clientY - d.startY) < 5) return
+    d.active = true
+  }
+  const th = e.target && e.target.closest ? e.target.closest('th[data-group]') : null
+  const gid = th && th.dataset.group
+  if (!gid) { d.overId = null; return }
+  if (gid === d.id) { d.overId = null; return }
+  const rect = th.getBoundingClientRect()
+  const before = e.clientX < rect.left + rect.width / 2
+  if (d.overId === gid && d.before === before) return
+  d.overId = gid
+  d.before = before
+  moveGroup(d.id, gid, before)
+}
+function moveGroup(fromLabel, toLabel, before) {
+  const fromG = GROUPS.find((g) => g.label === fromLabel)
+  const toG = GROUPS.find((g) => g.label === toLabel)
+  if (!fromG || !toG) return
+  const arr = [...colOrder.value]
+  const fromIdxs = fromG.cols.map((c) => arr.indexOf(c)).filter((i) => i >= 0).sort((a, b) => a - b)
+  if (!fromIdxs.length) return
+  const fromSet = new Set(fromIdxs)
+  const block = fromIdxs.map((i) => arr[i])
+  const without = arr.filter((_, i) => !fromSet.has(i))
+  const toIdxs = toG.cols.map((c) => without.indexOf(c)).filter((i) => i >= 0).sort((a, b) => a - b)
+  if (!toIdxs.length) return
+  const idx = before ? toIdxs[0] : toIdxs[toIdxs.length - 1] + 1
+  without.splice(idx, 0, ...block)
+  colOrder.value = without
+}
+function onGroupPointerUp() {
+  const d = gdrag.value
+  if (!d) return
+  window.removeEventListener('pointermove', onGroupPointerMove)
+  window.removeEventListener('pointerup', onGroupPointerUp)
+  window.removeEventListener('pointercancel', onGroupPointerUp)
+  if (d.active) saveLayout()
+  gdrag.value = null
+}
+
 const resizing = ref(null)
 function onResizeStart(e, colId) {
   e.preventDefault()
@@ -622,6 +676,13 @@ function tableStyle() {
               v-for="g in visibleGroups"
               :key="g.label"
               :colspan="g.cols.filter(c => !hiddenCols.has(c)).length"
+              :data-group="g.label"
+              :class="[
+                gdrag && gdrag.active && gdrag.id === g.label ? 'dragging' : '',
+                gdrag && gdrag.active && gdrag.id !== g.label && gdrag.overId === g.label ? (gdrag.before ? 'drop-left' : 'drop-right') : '',
+              ]"
+              title="Drag to reorder groups."
+              @pointerdown="onGroupPointerDown($event, g)"
             >{{ g.label }}</th>
             <th
               v-if="ungroupedVisible.length"
@@ -878,11 +939,16 @@ thead th {
   user-select: none;
 }
 thead tr.groups th {
-  cursor: default;
+  cursor: grab;
+  touch-action: none;
   font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em;
   color: var(--fg); font-weight: 700; padding: 5px 8px 3px;
   text-align: center; border-bottom: 2px solid var(--border);
 }
+thead tr.groups th:active { cursor: grabbing; }
+thead tr.groups th.dragging { opacity: 0.45; }
+thead tr.groups th.drop-left { box-shadow: inset 2px 0 0 var(--accent); }
+thead tr.groups th.drop-right { box-shadow: inset -2px 0 0 var(--accent); }
 .group-start { border-left: 2px solid var(--border) !important; padding-left: 10px !important; }
 .separator { border-left: 2px solid var(--border) !important; padding-left: 10px !important; }
 thead tr.cols th {
