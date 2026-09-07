@@ -50,6 +50,7 @@ for (const c of COLS) {
 const display = computed(() => props.rows.map((r) => buildRow(r, props.meta, props.tax)))
 
 const onlyCommonModels = ref(true)
+const showBatch = ref(false)
 const norm = (s) => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '')
 const commonFamilies = computed(() => {
   const set = new Set()
@@ -67,14 +68,16 @@ const openrouterMatches = (r) => {
 }
 
 const pool = computed(() => display.value.filter(openrouterMatches))
+const isNotBatch = (r) => showBatch.value || !(r.developerId || '').endsWith(':batch')
+const filteredPool = computed(() => pool.value.filter(isNotBatch))
 
 const openrouterShow = ref(3)
 const limited = computed(() => {
   const N = openrouterShow.value
-  if (N === 'all') return pool.value
+  if (N === 'all') return filteredPool.value
   const byKey = new Map()
   const out = []
-  for (const r of pool.value) {
+  for (const r of filteredPool.value) {
     if (r.market !== 'openrouter') { out.push(r); continue }
     const key = r.developerId || r.model
     const arr = byKey.get(key) || []
@@ -88,7 +91,7 @@ const limited = computed(() => {
   }
   return out
 })
-const hiddenCount = computed(() => Math.max(0, pool.value.length - limited.value.length))
+const hiddenCount = computed(() => Math.max(0, filteredPool.value.length - limited.value.length))
 
 function passesOthers(row, exceptId) {
   for (const c of COLS) {
@@ -145,6 +148,7 @@ if (sortRaw) {
   if (d === '-1') sortDir.value = -1
 }
 if (paramStr(urlParams, 'common', '1') === '0') onlyCommonModels.value = false
+if (paramStr(urlParams, 'batch', '') === '1') showBatch.value = true
 const orRaw = paramStr(urlParams, 'openroutershow', '3')
 if (orRaw === 'all') openrouterShow.value = 'all'
 else if (Number.isInteger(Number(orRaw)) && Number(orRaw) >= 1 && Number(orRaw) <= 5) openrouterShow.value = Number(orRaw)
@@ -198,6 +202,7 @@ function reset() {
   sortKey.value = 'in'
   sortDir.value = 1
   onlyCommonModels.value = true
+  showBatch.value = false
   openrouterShow.value = 3
   writeParams(toParams())
 }
@@ -217,6 +222,7 @@ function toParams() {
   const out = {}
   out.sort = sortKey.value === 'in' && sortDir.value === 1 ? '' : sortKey.value + ':' + sortDir.value
   out.common = onlyCommonModels.value ? '' : '0'
+  out.batch = showBatch.value ? '1' : ''
   out.openroutershow = openrouterShow.value === 3 ? '' : String(openrouterShow.value)
   for (const c of COLS) {
     if (c.kind === 'numeric') {
@@ -431,6 +437,10 @@ function tableStyle() {
       <label class="toggle">
         <input type="checkbox" v-model="onlyCommonModels">
         <span>Only common models</span>
+      </label>
+      <label class="toggle">
+        <input type="checkbox" v-model="showBatch">
+        <span>Show batch models</span>
       </label>
       <label class="plimit">
         <span>Cheapest OR providers/model:</span>
