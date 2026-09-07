@@ -35,6 +35,11 @@
   "deepseekdeepseekr10528": {
     "modelMarketsLink": "https://modelmarkets.ai/models/deepseek-ai/deepseek-r1"
   },
+  "deepseekv4flash": {
+    "developerId": "deepseek/deepseek-v4-flash-0731",
+    "variantLink": "https://openrouter.ai/deepseek/deepseek-v4-flash-0731",
+    "hfLink": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731"
+  },
   "nanobanana": {
     "modelMarketsLink": "https://modelmarkets.ai/models/google-deepmind/gemini-2-5-flash"
   },

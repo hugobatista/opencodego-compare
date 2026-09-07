@@ -435,6 +435,10 @@ def identity_for_row(row, or_index, di_index, mm_index):
         if 'org' in o:
             out['maker'] = o.get('maker') or maker_lookup(o['org']) or pretty_noun(o['org'])
             out['makerLink'] = o.get('makerLink') or maker_url_lookup(o['org'])
+        if 'developerId' in o:
+            out['developerId'] = o['developerId']
+        if 'variantLink' in o:
+            out['variantLink'] = o['variantLink']
         if 'hfLink' in o:
             out['hfLink'] = o['hfLink']
         if 'modelMarketsLink' in o:
