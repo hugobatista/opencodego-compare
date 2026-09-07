@@ -24,7 +24,7 @@
     "maker": "Google DeepMind",
     "makerLink": "https://deepmind.google",
     "hfLink": "https://huggingface.co/google/gemma-4-E4B-it",
-    "modelLink": "https://modelmarkets.ai/models/google-deepmind/gemma-4-e4b-it"
+    "modelMarketsLink": "https://modelmarkets.ai/models/google-deepmind/gemma-4-e4b-it"
   },
   "ling3.0flashfin": {
     "org": "inclusionai",
@@ -33,12 +33,12 @@
     "hfLink": "https://huggingface.co/inclusionAI/Ling-3.0-flash"
   },
   "deepseekdeepseekr10528": {
-    "modelLink": "https://modelmarkets.ai/models/deepseek-ai/deepseek-r1"
+    "modelMarketsLink": "https://modelmarkets.ai/models/deepseek-ai/deepseek-r1"
   },
   "nanobanana": {
-    "modelLink": "https://modelmarkets.ai/models/google-deepmind/gemini-2-5-flash"
+    "modelMarketsLink": "https://modelmarkets.ai/models/google-deepmind/gemini-2-5-flash"
   },
   "nanobanana2lite": {
-    "modelLink": "https://modelmarkets.ai/models/google-deepmind/gemini-3-1-flash-lite"
+    "modelMarketsLink": "https://modelmarkets.ai/models/google-deepmind/gemini-3-1-flash-lite"
   }
 }

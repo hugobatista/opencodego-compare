@@ -324,7 +324,7 @@ def build_di_org_index(deepinfra_data):
 
 
 def match_modelmarkets(mm_data):
-    """Normalized slug -> modelmarkets entry (used only for hfLink/modelLink)."""
+    """Normalized slug -> modelmarkets entry (used only for hfLink/modelMarketsLink)."""
     index = {}
     for entry in mm_data or []:
         index.setdefault(norm_key(entry.get('slug')), entry)
@@ -351,7 +351,7 @@ def identity_for_row(row, or_index, di_index, mm_index):
     Layer 4: catalog_overrides.json (anything) — manual override, highest authority.
     Layer 1: OpenRouter (maker, makerLink, hf) — primary, daily.
     Layer 2: DeepInfra org (maker, makerLink) — covers DI fine-tunes.
-    Layer 3: modelmarkets (hfLink/modelLink only) — fallback for HF gaps.
+    Layer 3: modelmarkets (hfLink/modelMarketsLink only) — fallback for HF gaps.
     Returns a dict of resolved fields (possibly empty).
     """
     base = row.get('model') or row.get('base') or ''
@@ -372,8 +372,8 @@ def identity_for_row(row, or_index, di_index, mm_index):
             CATALOG_OVERRIDES_NORM.get(norm_key(row.get('base') or ''))
         if o and 'hfLink' in o and 'hfLink' not in out:
             out['hfLink'] = o['hfLink']
-        if o and 'modelLink' in o and 'modelLink' not in out:
-            out['modelLink'] = o['modelLink']
+        if o and 'modelMarketsLink' in o and 'modelMarketsLink' not in out:
+            out['modelMarketsLink'] = o['modelMarketsLink']
         mm = _mm_closest(mm_index, norm_key(clean_model_name(or_model_part(base))))
         if mm is None and row.get('base'):
             seg = row['base'].split('/')[-1].split(':')[0]
@@ -382,8 +382,8 @@ def identity_for_row(row, or_index, di_index, mm_index):
                 mm = mm_index[seg]
         if mm and mm.get('hf') and 'hfLink' not in out:
             out['hfLink'] = HUGGINGFACE_BASE + mm['hf']
-        if not row.get('modelLink') and mm:
-            out['modelLink'] = MODELMARKETS_BASE + mm['href']
+        if not row.get('modelMarketsLink') and mm:
+            out['modelMarketsLink'] = MODELMARKETS_BASE + mm['href']
         return out
 
     # L4 static override first (highest authority) — match on both the raw
@@ -395,8 +395,8 @@ def identity_for_row(row, or_index, di_index, mm_index):
             out['makerLink'] = o.get('makerLink') or maker_url_lookup(o['org'])
         if 'hfLink' in o:
             out['hfLink'] = o['hfLink']
-        if 'modelLink' in o:
-            out['modelLink'] = o['modelLink']
+        if 'modelMarketsLink' in o:
+            out['modelMarketsLink'] = o['modelMarketsLink']
         return out
 
     # L1 OpenRouter
@@ -417,12 +417,12 @@ def identity_for_row(row, or_index, di_index, mm_index):
             out['makerLink'] = maker_url_lookup(dorg)
             out['developerId'] = f'{dorg}/{base}'
 
-    # L3 modelmarkets — fallback ONLY for hfLink/modelLink, never maker
+    # L3 modelmarkets — fallback ONLY for hfLink/modelMarketsLink, never maker
     mm = _mm_closest(mm_index, b)
     if mm:
         if 'hfLink' not in out and mm.get('hf'):
             out['hfLink'] = HUGGINGFACE_BASE + mm['hf']
-        out['modelLink'] = MODELMARKETS_BASE + mm['href']
+        out['modelMarketsLink'] = MODELMARKETS_BASE + mm['href']
 
     return out
 
@@ -431,7 +431,7 @@ def add_model_links(rows, mm_data, openrouter_data, deepinfra_data):
     """Set maker/links/developerId on every row via layered sources.
 
     OpenRouter rows keep the maker/developerId/variantLink set by their
-    builder; here they only gain hfLink/modelLink. All other rows get the
+    builder; here they only gain hfLink/modelMarketsLink. All other rows get the
     full identity resolved across the layered sources.
     """
     or_index = build_or_identity_index(openrouter_data)
@@ -443,8 +443,8 @@ def add_model_links(rows, mm_data, openrouter_data, deepinfra_data):
             ident = identity_for_row(row, or_index, di_index, mm_index)
             if ident.get('hfLink'):
                 row['hfLink'] = ident['hfLink']
-            if ident.get('modelLink'):
-                row['modelLink'] = ident['modelLink']
+            if ident.get('modelMarketsLink'):
+                row['modelMarketsLink'] = ident['modelMarketsLink']
             continue
         ident = identity_for_row(row, or_index, di_index, mm_index)
         if ident:
@@ -452,14 +452,14 @@ def add_model_links(rows, mm_data, openrouter_data, deepinfra_data):
             row.setdefault('makerLink', ident.get('makerLink'))
             row.setdefault('developerId', ident.get('developerId'))
             row.setdefault('hfLink', ident.get('hfLink'))
-            row.setdefault('modelLink', ident.get('modelLink'))
+            row.setdefault('modelMarketsLink', ident.get('modelMarketsLink'))
             row.setdefault('variantLink', ident.get('variantLink'))
         else:
             row.setdefault('maker', None)
             row.setdefault('makerLink', None)
             row.setdefault('developerId', None)
             row.setdefault('hfLink', None)
-            row.setdefault('modelLink', None)
+            row.setdefault('modelMarketsLink', None)
             row.setdefault('variantLink', None)
             unresolved.append({
                 'market': row.get('market'),

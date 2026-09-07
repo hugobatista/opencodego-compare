@@ -529,7 +529,7 @@ function tableStyle() {
                 <div class="cell-model">
                   <span class="model-name">{{ r.model }}</span>
                   <span class="model-links">
-                    <a v-if="r.modelLink" :href="r.modelLink" target="_blank" rel="noopener" class="mlink">ModelMarkets</a>
+                    <a v-if="r.modelMarketsLink" :href="r.modelMarketsLink" target="_blank" rel="noopener" class="mlink">ModelMarkets</a>
                     <a v-if="r.hfLink" :href="r.hfLink" target="_blank" rel="noopener" class="mlink">HuggingFace</a>
                   </span>
                 </div>

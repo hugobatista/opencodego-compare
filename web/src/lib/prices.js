@@ -113,7 +113,7 @@ export function buildRow(row, meta, tax) {
     provider,
     providerLink,
     variantLink: row.variantLink || null,
-    modelLink: row.modelLink || null,
+    modelMarketsLink: row.modelMarketsLink || null,
     hfLink: row.hfLink || null,
     notes: row.notes || '',
     privacyNote: row.privacyNote || '',
