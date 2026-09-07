@@ -32,6 +32,9 @@ const COLS = [
   { id: 'peak',     label: 'Peak slots',      kind: 'choice',  key: 'peak' },
   { id: 'allowance', label: 'Allowance',      kind: 'text',    key: 'textA' },
   { id: 'commitment', label: 'Commitment',    kind: 'numeric', key: 'valCommit' },
+  { id: 'intelligence', label: 'Intelligence Index', kind: 'numeric', key: 'intelligenceVal' },
+  { id: 'coding',   label: 'Coding Index',    kind: 'numeric', key: 'codingVal' },
+  { id: 'agentic',  label: 'Agentic Index',   kind: 'numeric', key: 'agenticVal' },
   { id: 'notes',    label: 'Notes',           kind: 'text',    key: 'textN' },
 ]
 
@@ -265,11 +268,11 @@ function fallbackCopy(text) {
 
 const DEFAULT_WIDTHS = {
   maker: 9, model: 14, variant: 13, gateway: 9, plan: 10, provider: 9, 'in': 7, out: 7, rd: 6, wr: 6,
-  ctx: 6, lat: 6, tps: 5, logs: 4, trains: 4, peak: 6, allowance: 7, commitment: 7, notes: 12,
+  ctx: 6, lat: 6, tps: 5, intelligence: 6, coding: 5, agentic: 5, logs: 4, trains: 4, peak: 6, allowance: 7, commitment: 7, notes: 12,
 }
 const colWidths = reactive({ ...DEFAULT_WIDTHS })
 const colOrder = ref(COLS.map((c) => c.id))
-const hiddenCols = ref(new Set())
+const hiddenCols = ref(new Set(['notes']))
 const renderCols = computed(() => colOrder.value.filter((id) => !hiddenCols.value.has(id)))
 function toggleCol(id, show) {
   const h = new Set(hiddenCols.value)
@@ -291,13 +294,16 @@ const CELL_TITLES = {
   ctx: 'Context length',
   lat: '50th percentile latency',
   tps: '50th percentile tokens per second',
+  intelligence: 'Artificial Analysis intelligence index (reasoning, knowledge, instruction following)',
+  coding: 'Artificial Analysis coding index (code generation, debugging, refactoring)',
+  agentic: 'Artificial Analysis agentic index (tool use, multi-step planning, autonomous tasks)',
   logs: 'Provider logs your prompts',
   trains: 'Provider trains on your data',
   peak: 'Peak and off-peak hours',
   commitment: 'Minimum monthly subscription commitment in USD',
   allowance: 'Monthly allowance = usage included per month at full price; weekly = 50%; 5h = 20%. Subscription effective prices apply only if you use the full monthly allowance',
 }
-const NUM_DISP = { ctx: 'ctxDisp', lat: 'latDisp', tps: 'tpsDisp', commitment: 'textCommitment' }
+const NUM_DISP = { ctx: 'ctxDisp', lat: 'latDisp', tps: 'tpsDisp', commitment: 'textCommitment', intelligence: 'intelligenceDisp', coding: 'codingDisp', agentic: 'agenticDisp' }
 
 function colById(id) { return COLS.find((c) => c.id === id) }
 function tdTitle(colId, r) {
@@ -346,7 +352,7 @@ function saveLayout() {
 }
 function resetLayout() {
   colOrder.value = COLS.map((c) => c.id)
-  hiddenCols.value = new Set()
+  hiddenCols.value = new Set(['notes'])
   for (const id of Object.keys(DEFAULT_WIDTHS)) colWidths[id] = DEFAULT_WIDTHS[id]
   saveLayout()
 }
@@ -587,7 +593,7 @@ function tableStyle() {
                 </div>
               </template>
 
-              <template v-else-if="colId === 'ctx' || colId === 'lat' || colId === 'tps' || colId === 'commitment'">
+              <template v-else-if="colId === 'ctx' || colId === 'lat' || colId === 'tps' || colId === 'commitment' || colId === 'intelligence' || colId === 'coding' || colId === 'agentic'">
                 {{ r[NUM_DISP[colId]] }}
               </template>
 

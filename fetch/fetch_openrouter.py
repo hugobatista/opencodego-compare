@@ -32,13 +32,25 @@ def main():
         prompt = float(pricing.get('prompt', '0') or '0')
         completion = float(pricing.get('completion', '0') or '0')
         if prompt > 0 or completion > 0:
-            result.append({
+            bm = m.get('benchmarks') or {}
+            aa = bm.get('artificial_analysis') or {}
+            entry = {
                 'id': m['id'],
                 'name': m.get('name', ''),
                 'hugging_face_id': m.get('hugging_face_id'),
                 'context_length': m.get('context_length'),
                 'pricing': {k: v for k, v in pricing.items() if v},
-            })
+            }
+            ai = aa.get('intelligence_index')
+            ac = aa.get('coding_index')
+            ag = aa.get('agentic_index')
+            if ai is not None or ac is not None or ag is not None:
+                entry['benchmarks'] = {
+                    'intelligence': ai,
+                    'coding': ac,
+                    'agentic': ag,
+                }
+            result.append(entry)
 
     out_path = os.path.join(DATA_DIR, 'openrouter.json')
     with open(out_path, 'w') as f:

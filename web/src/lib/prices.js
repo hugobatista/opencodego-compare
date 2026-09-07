@@ -28,6 +28,11 @@ export function fmtWhole(v, suffix) {
   return Math.round(v).toLocaleString('en-US') + suffix
 }
 
+export function fmtBench(v) {
+  if (v === null || v === undefined) return '—'
+  return Number(v).toFixed(1)
+}
+
 export function fmtBool(v) {
   if (v === null || v === undefined) return '?'
   return v ? 'Yes' : 'No'
@@ -136,6 +141,12 @@ export function buildRow(row, meta, tax) {
     latVal: row.latency ?? null,
     tpsDisp: fmtWhole(row.tps, ' tps'),
     tpsVal: row.tps ?? null,
+    intelligenceDisp: fmtBench(row.intelligence),
+    intelligenceVal: row.intelligence ?? null,
+    codingDisp: fmtBench(row.coding),
+    codingVal: row.coding ?? null,
+    agenticDisp: fmtBench(row.agentic),
+    agenticVal: row.agentic ?? null,
     textM: row.model || row.variant,
     textV: row.variant || row.model,
     textK: row.maker || '',

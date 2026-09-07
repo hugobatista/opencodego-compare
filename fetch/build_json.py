@@ -16,6 +16,8 @@ OPENROUTER_SERVICE_FEE_MIN = 0.80
 
 CONTEXT_RE = re.compile(r'\(\s*[<>≤=]+\s*(\d+)\s*K\s*tokens?\s*\)', re.I)
 
+BENCHMARK_FIELDS = ('intelligence', 'coding', 'agentic')
+
 
 def load_json(name):
     path = os.path.join(DATA_DIR, name)
@@ -69,6 +71,46 @@ def fill_context(rows, name_map, id_map):
             or lookup_openrouter_context(r.get('base'), name_map, id_map)
         )
     return rows
+
+
+def build_benchmark_index(openrouter_data):
+    """Normalized id/name -> benchmarks dict from OpenRouter data."""
+    index = {}
+    for m in openrouter_data or []:
+        bm = m.get('benchmarks')
+        if not bm:
+            continue
+        mid = m.get('id', '')
+        keys = {
+            norm_key(mid),
+            norm_key(mid.split('/')[-1].split(':')[0]),
+            norm_key(or_model_part(m.get('name'))),
+        }
+        for k in keys:
+            if k:
+                index.setdefault(k, bm)
+    return index
+
+
+def fill_benchmarks(rows, bm_index):
+    """Propagate intelligence/coding/agentic to non-OpenRouter rows via developerId."""
+    for r in rows:
+        if r.get('market') == 'openrouter':
+            continue
+        devid = r.get('developerId')
+        if not devid:
+            continue
+        b = norm_key(devid.split('/')[-1].split(':')[0])
+        bm = bm_index.get(b)
+        if not bm and len(b) >= 8:
+            for k, v in bm_index.items():
+                if k in b or b in k:
+                    bm = v
+                    break
+        if bm:
+            for f in BENCHMARK_FIELDS:
+                if f in bm and bm[f] is not None:
+                    r[f] = bm[f]
 
 
 def build_opencode_go_rows(go_data, openrouter_name_ctx, openrouter_id_ctx):
@@ -553,6 +595,8 @@ def build_openrouter_rows(openrouter_data, endpoints_data):
         maker = maker_lookup(model_id.split('/')[0].lstrip('~')) or maker_lookup('openrouter') or 'OpenRouter'
         maker_link = maker_url_lookup(model_id.split('/')[0].lstrip('~')) or maker_url_lookup('openrouter')
 
+        bm = model.get('benchmarks') or {}
+
         for ep in records:
             row = {
                 'market': 'openrouter',
@@ -583,6 +627,9 @@ def build_openrouter_rows(openrouter_data, endpoints_data):
                 'trainsOnData': ep['trainsOnData'],
                 'privacyNote': '',
                 'notes': '',
+                'intelligence': bm.get('intelligence'),
+                'coding': bm.get('coding'),
+                'agentic': bm.get('agentic'),
             }
             if ep['discount']:
                 note = ep.get('discount_note') or f'{ep["discount"]*100:.0f}% off'
@@ -651,6 +698,12 @@ def main():
 
     add_model_links(all_rows, modelmarkets_data, openrouter_data, deepinfra_data)
     assign_variants(all_rows)
+
+    bm_index = build_benchmark_index(openrouter_data)
+    for r in all_rows:
+        for f in BENCHMARK_FIELDS:
+            r.setdefault(f, None)
+    fill_benchmarks(all_rows, bm_index)
 
     for row in all_rows:
         row.pop('base', None)
