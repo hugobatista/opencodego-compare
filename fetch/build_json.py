@@ -42,33 +42,62 @@ def context_from_name(model):
     return int(m.group(1)) * 1000 if m else None
 
 
-def lookup_openrouter_context(base, name_map, id_map):
+CTX_SUFFIX_TOKENS = ('free', 'fast', 'highspeed', 'latest', 'preview', 'exp')
+
+
+def strip_ctx_suffix(b):
+    """Strip end-anchored variant tokens (free/fast/...) for a lookup retry."""
+    for _ in range(3):
+        changed = False
+        for tok in CTX_SUFFIX_TOKENS:
+            if len(b) > len(tok) and b.endswith(tok):
+                b = b[:-len(tok)]
+                changed = True
+        if not changed:
+            break
+    return b
+
+
+def lookup_openrouter_context(base, name_map, id_map, part_map):
     """Find an openrouter context_length for a go/zen base name.
 
-    Mirrors the frontend rule: exact match, or prefix/containment match
-    when the normalized base has 8+ alnum chars (avoids short-name clashes).
+    Order: exact match on the normalized name/id/model-part at any length
+    (exact is unambiguous, so no length floor), retry exact after stripping
+    variant tokens (free/fast/...), then prefix/containment match for
+    8+ alnum chars, preferring prefix relations over bare containment.
     """
     b = norm_key(base)
-    if not b or len(b) < 8:
+    if not b:
         return None
-    exact = name_map.get(b) or id_map.get(b)
-    if exact:
-        return exact
+    for mp in (name_map, id_map, part_map):
+        if b in mp:
+            return mp[b]
+    b2 = strip_ctx_suffix(b)
+    if b2 and b2 != b:
+        for mp in (name_map, id_map, part_map):
+            if b2 in mp:
+                return mp[b2]
+    if len(b) < 8:
+        return None
     cand = []
-    for m in (name_map, id_map):
-        for k, v in m.items():
-            if k in b or b in k:
-                cand.append((abs(len(k) - len(b)), v))
-    return min(cand)[1] if cand else None
+    for bk in (b, b2):
+        if not bk:
+            continue
+        for mp in (name_map, id_map, part_map):
+            for k, v in mp.items():
+                if k in bk or bk in k:
+                    pref = 0 if (k.startswith(bk) or bk.startswith(k)) else 1
+                    cand.append((pref, abs(len(k) - len(bk)), v))
+    return min(cand)[2] if cand else None
 
 
-def fill_context(rows, name_map, id_map):
+def fill_context(rows, name_map, id_map, part_map):
     for r in rows:
         if r.get('context'):
             continue
         r['context'] = (
             context_from_name(r['model'])
-            or lookup_openrouter_context(r.get('base'), name_map, id_map)
+            or lookup_openrouter_context(r.get('base'), name_map, id_map, part_map)
         )
     return rows
 
@@ -113,39 +142,39 @@ def fill_benchmarks(rows, bm_index):
                     r[f] = bm[f]
 
 
-def build_opencode_go_rows(go_data, openrouter_name_ctx, openrouter_id_ctx):
+def build_opencode_go_rows(go_data, openrouter_name_ctx, openrouter_id_ctx, openrouter_part_ctx):
     """OpenCode Go rows already have effective prices computed by the scraper."""
-    return fill_context(go_data, openrouter_name_ctx, openrouter_id_ctx)
+    return fill_context(go_data, openrouter_name_ctx, openrouter_id_ctx, openrouter_part_ctx)
 
 
-def build_opencode_zen_rows(zen_data, openrouter_name_ctx, openrouter_id_ctx):
+def build_opencode_zen_rows(zen_data, openrouter_name_ctx, openrouter_id_ctx, openrouter_part_ctx):
     """OpenCode Zen rows: real = listed (no multiplier)."""
     for row in zen_data:
         row['effIn'] = row['input']
         row['effOut'] = row['output']
         row['effRead'] = row['read']
         row['effWrite'] = row['write']
-    return fill_context(zen_data, openrouter_name_ctx, openrouter_id_ctx)
+    return fill_context(zen_data, openrouter_name_ctx, openrouter_id_ctx, openrouter_part_ctx)
 
 
-def build_command_code_goat_rows(goat_data, openrouter_name_ctx, openrouter_id_ctx):
+def build_command_code_goat_rows(goat_data, openrouter_name_ctx, openrouter_id_ctx, openrouter_part_ctx):
     """Command Code GOAT rows already have effective prices computed by the scraper."""
-    return fill_context(goat_data, openrouter_name_ctx, openrouter_id_ctx)
+    return fill_context(goat_data, openrouter_name_ctx, openrouter_id_ctx, openrouter_part_ctx)
 
 
-def build_subscription_rows(data, openrouter_name_ctx, openrouter_id_ctx):
+def build_subscription_rows(data, openrouter_name_ctx, openrouter_id_ctx, openrouter_part_ctx):
     """Command Code Pro/Max rows already have effective prices computed by the scraper."""
-    return fill_context(data, openrouter_name_ctx, openrouter_id_ctx)
+    return fill_context(data, openrouter_name_ctx, openrouter_id_ctx, openrouter_part_ctx)
 
 
-def build_deepinfra_rows(deepinfra_data, openrouter_name_ctx, openrouter_id_ctx):
+def build_deepinfra_rows(deepinfra_data, openrouter_name_ctx, openrouter_id_ctx, openrouter_part_ctx):
     """DeepInfra rows: real = listed (no multiplier), like Zen."""
     for row in deepinfra_data:
         row['effIn'] = row['input']
         row['effOut'] = row['output']
         row['effRead'] = row['read']
         row['effWrite'] = row['write']
-    return fill_context(deepinfra_data, openrouter_name_ctx, openrouter_id_ctx)
+    return fill_context(deepinfra_data, openrouter_name_ctx, openrouter_id_ctx, openrouter_part_ctx)
 
 
 MODELMARKETS_BASE = 'https://modelmarkets.ai'
@@ -672,30 +701,34 @@ def main():
 
     openrouter_name_ctx = {}
     openrouter_id_ctx = {}
+    openrouter_part_ctx = {}
     if openrouter_data:
         for m in openrouter_data:
             ctx = m.get('context_length')
             if not ctx:
                 continue
             openrouter_name_ctx.setdefault(norm_key(m.get('name')), ctx)
-            openrouter_id_ctx.setdefault(norm_key(m.get('id')), ctx)
+            mid = m.get('id') or ''
+            openrouter_id_ctx.setdefault(norm_key(mid), ctx)
+            part = mid.lstrip('~').split('/')[-1].split(':')[0]
+            openrouter_part_ctx.setdefault(norm_key(part), ctx)
 
     all_rows = []
 
     if go_data:
-        all_rows.extend(build_opencode_go_rows(go_data, openrouter_name_ctx, openrouter_id_ctx))
+        all_rows.extend(build_opencode_go_rows(go_data, openrouter_name_ctx, openrouter_id_ctx, openrouter_part_ctx))
     if goat_data:
-        all_rows.extend(build_command_code_goat_rows(goat_data, openrouter_name_ctx, openrouter_id_ctx))
+        all_rows.extend(build_command_code_goat_rows(goat_data, openrouter_name_ctx, openrouter_id_ctx, openrouter_part_ctx))
     if pro_data:
-        all_rows.extend(build_subscription_rows(pro_data, openrouter_name_ctx, openrouter_id_ctx))
+        all_rows.extend(build_subscription_rows(pro_data, openrouter_name_ctx, openrouter_id_ctx, openrouter_part_ctx))
     if max_data:
-        all_rows.extend(build_subscription_rows(max_data, openrouter_name_ctx, openrouter_id_ctx))
+        all_rows.extend(build_subscription_rows(max_data, openrouter_name_ctx, openrouter_id_ctx, openrouter_part_ctx))
     if zen_data:
-        all_rows.extend(build_opencode_zen_rows(zen_data, openrouter_name_ctx, openrouter_id_ctx))
+        all_rows.extend(build_opencode_zen_rows(zen_data, openrouter_name_ctx, openrouter_id_ctx, openrouter_part_ctx))
     if openrouter_data:
         all_rows.extend(build_openrouter_rows(openrouter_data, endpoints_data))
     if deepinfra_data:
-        all_rows.extend(build_deepinfra_rows(deepinfra_data, openrouter_name_ctx, openrouter_id_ctx))
+        all_rows.extend(build_deepinfra_rows(deepinfra_data, openrouter_name_ctx, openrouter_id_ctx, openrouter_part_ctx))
 
     for row in all_rows:
         assign_gateway(row, PLANS)
