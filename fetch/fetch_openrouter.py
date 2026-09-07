@@ -35,6 +35,7 @@ def main():
             result.append({
                 'id': m['id'],
                 'name': m.get('name', ''),
+                'hugging_face_id': m.get('hugging_face_id'),
                 'context_length': m.get('context_length'),
                 'pricing': {k: v for k, v in pricing.items() if v},
             })

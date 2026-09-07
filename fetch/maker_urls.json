@@ -20,7 +20,7 @@
   "ibm": "https://www.ibm.com/granite",
   "ibm-granite": "https://www.ibm.com/granite",
   "inception": "https://www.inceptionlabs.ai",
-  "inclusionai": "https://inclusion.ai",
+  "inclusionai": "https://www.inclusion-ai.org/",
   "kwaipilot": "https://kwai.do",
   "lerobot": "https://github.com/huggingface/lerobot",
   "mancer": "https://mancer.tech",
@@ -52,6 +52,7 @@
   "sakana": "https://sakana.ai",
   "sao10k": "https://huggingface.co/Sao10K",
   "stepfun": "https://www.stepfun.com",
+  "stepfun-ai": "https://www.stepfun.com",
   "stabilityai": "https://stability.ai",
   "tencent": "https://www.tencent.com",
   "thedrummer": "https://huggingface.co/TheDrummer",
@@ -62,6 +63,7 @@
   "x-ai": "https://x.ai",
   "xai": "https://x.ai",
   "xiaomi": "https://www.mi.com",
+  "xiaomimimo": "https://www.mi.com",
   "z-ai": "https://z.ai",
   "zai-org": "https://z.ai"
 }

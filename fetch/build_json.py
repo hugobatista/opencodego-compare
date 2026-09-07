@@ -116,6 +116,8 @@ MAKER_URLS_NORM = {norm_key(k): v for k, v in MAKER_URLS.items()}
 FAMILIES = load_config('model_families.json')
 FAMILIES_NORM = {norm_key(k): v for k, v in FAMILIES.items()}
 PLANS = load_config('plans.json')
+CATALOG_OVERRIDES = load_config('catalog_overrides.json')
+CATALOG_OVERRIDES_NORM = {norm_key(k): v for k, v in CATALOG_OVERRIDES.items()}
 OR_PROVIDER_NAMES = PLANS['gateways'].get('openrouter', {}).get('providers', {})
 
 
@@ -256,70 +258,221 @@ def assign_variants(rows):
     return rows_out
 
 
+def clean_model_name(name):
+    """Strip parentheticals and trailing 'Free' for name matching."""
+    s = re.sub(r'\s*\(.*?\)\s*', '', name or '')
+    s = re.sub(r'\s+free\s*$', '', s, flags=re.I)
+    return ' '.join(s.split()).strip()
+
+
+def or_model_part(name):
+    """'Xiaomi: MiMo-V2.5' -> 'MiMo-V2.5'. Returns name unchanged if no maker prefix."""
+    if ': ' in (name or ''):
+        return name.split(': ', 1)[-1].strip()
+    return name
+
+
+def or_model_org(model_id):
+    """'~z-ai/glm-latest' -> 'z-ai'; 'xiaomi/mimo-v2.5' -> 'xiaomi'."""
+    seg = (model_id or '').split('/')[0]
+    return seg.lstrip('~').split(':')[0].split(',')[0]
+
+
+def build_or_identity_index(openrouter_data):
+    """Normalized name/id -> {model_id, org, hf} for OpenRouter matching."""
+    index = {}
+    for m in openrouter_data or []:
+        mid = m.get('id', '')
+        rec = {'model_id': mid, 'org': or_model_org(mid), 'hf': m.get('hugging_face_id')}
+        keys = {
+            norm_key(or_model_part(m.get('name'))),
+            norm_key(mid),
+            norm_key(mid.split('/')[-1].split(':')[0]),
+        }
+        for k in keys:
+            if k:
+                index.setdefault(k, rec)
+    return index
+
+
+def _or_exact_or_closest(index, b):
+    if not b:
+        return None
+    if b in index:
+        return index[b]
+    if len(b) < 8:
+        return None
+    cand = []
+    for k, v in index.items():
+        if k in b or b in k:
+            cand.append((abs(len(k) - len(b)), v))
+    return min(cand, key=lambda t: t[0])[1] if cand else None
+
+
+def build_di_org_index(deepinfra_data):
+    """Normalized base/model -> org slug from the DeepInfra variantLink."""
+    index = {}
+    for r in deepinfra_data or []:
+        parts = (r.get('variantLink') or '').split('/')
+        if len(parts) <= 4:
+            continue
+        org = parts[3]
+        for name in (r.get('base'), r.get('model')):
+            if name:
+                index.setdefault(norm_key(name), org)
+    return index
+
+
 def match_modelmarkets(mm_data):
-    """Normalized slug -> modelmarkets entry."""
+    """Normalized slug -> modelmarkets entry (used only for hfLink/modelLink)."""
     index = {}
     for entry in mm_data or []:
         index.setdefault(norm_key(entry.get('slug')), entry)
     return index
 
 
-def link_candidates(row):
-    """Names to try when matching a row to a modelmarkets entry."""
-    base = row.get('base') or row.get('model') or ''
-    if row.get('market') == 'openrouter':
-        yield re.split(r'[:,@]', base)[-1]
-    else:
-        name = re.sub(r'\s*\(.*?\)\s*', '', base)
-        name = re.sub(r'\s+free\s*$', '', name, flags=re.I)
-        yield name.strip()
-    yield row.get('model') or base
+def _mm_closest(mm_index, b):
+    if not b:
+        return None
+    if b in mm_index:
+        return mm_index[b]
+    if len(b) < 8:
+        return None
+    cand = []
+    for k, v in mm_index.items():
+        if k in b or b in k:
+            cand.append((abs(len(k) - len(b)), v))
+    return min(cand, key=lambda t: t[0])[1] if cand else None
 
 
-def match_mm_entry(row, index):
-    matched = None
-    for name in link_candidates(row):
-        entry = index.get(norm_key(name))
-        if entry:
-            matched = entry
-            break
-    if matched is None:
-        candidates = []
-        for name in link_candidates(row):
-            b = norm_key(name)
-            if len(b) < 8:
-                continue
-            for key, entry in index.items():
-                if key in b or b in key:
-                    candidates.append((abs(len(key) - len(b)), entry))
-        if candidates:
-            matched = min(candidates)[1]
-    return matched
+def identity_for_row(row, or_index, di_index, mm_index):
+    """Resolve maker/links for a row across the layered sources.
+
+    Layer 4: catalog_overrides.json (anything) — manual override, highest authority.
+    Layer 1: OpenRouter (maker, makerLink, hf) — primary, daily.
+    Layer 2: DeepInfra org (maker, makerLink) — covers DI fine-tunes.
+    Layer 3: modelmarkets (hfLink/modelLink only) — fallback for HF gaps.
+    Returns a dict of resolved fields (possibly empty).
+    """
+    base = row.get('model') or row.get('base') or ''
+    b = norm_key(clean_model_name(base))
+    market = row.get('market')
+    out = {}
+    if market == 'openrouter':
+        rec = or_index.get(norm_key(or_model_part(base))) or or_index.get(norm_key(base))
+        if rec:
+            out['maker'] = maker_lookup(rec['org']) or \
+                (or_model_part(base).split()[0] if ' ' in base else None)
+            out['makerLink'] = maker_url_lookup(rec['org'])
+            out['developerId'] = rec['model_id']
+            out['variantLink'] = f'https://openrouter.ai/{rec["model_id"]}'
+            if rec['hf']:
+                out['hfLink'] = HUGGINGFACE_BASE + rec['hf']
+        o = CATALOG_OVERRIDES_NORM.get(norm_key(clean_model_name(or_model_part(base)))) or \
+            CATALOG_OVERRIDES_NORM.get(norm_key(row.get('base') or ''))
+        if o and 'hfLink' in o and 'hfLink' not in out:
+            out['hfLink'] = o['hfLink']
+        if o and 'modelLink' in o and 'modelLink' not in out:
+            out['modelLink'] = o['modelLink']
+        mm = _mm_closest(mm_index, norm_key(clean_model_name(or_model_part(base))))
+        if mm is None and row.get('base'):
+            seg = row['base'].split('/')[-1].split(':')[0]
+            seg = norm_key(seg)
+            if seg in mm_index:
+                mm = mm_index[seg]
+        if mm and mm.get('hf') and 'hfLink' not in out:
+            out['hfLink'] = HUGGINGFACE_BASE + mm['hf']
+        if not row.get('modelLink') and mm:
+            out['modelLink'] = MODELMARKETS_BASE + mm['href']
+        return out
+
+    # L4 static override first (highest authority) — match on both the raw
+    # base alias (e.g. DeepInfra 'gemma-4-E4B-it') and the cleaned name.
+    o = CATALOG_OVERRIDES_NORM.get(b) or CATALOG_OVERRIDES_NORM.get(norm_key(row.get('base') or ''))
+    if o:
+        if 'org' in o:
+            out['maker'] = o.get('maker') or maker_lookup(o['org']) or pretty_noun(o['org'])
+            out['makerLink'] = o.get('makerLink') or maker_url_lookup(o['org'])
+        if 'hfLink' in o:
+            out['hfLink'] = o['hfLink']
+        if 'modelLink' in o:
+            out['modelLink'] = o['modelLink']
+        return out
+
+    # L1 OpenRouter
+    rec = _or_exact_or_closest(or_index, b)
+    if rec:
+        out['maker'] = maker_lookup(rec['org']) or pretty_noun(rec['org'])
+        out['makerLink'] = maker_url_lookup(rec['org'])
+        out['developerId'] = f"{rec['org']}/{rec['model_id'].split('/')[-1].split(':')[0]}"
+        out['variantLink'] = f'https://openrouter.ai/{rec["model_id"]}'
+        if rec['hf']:
+            out['hfLink'] = HUGGINGFACE_BASE + rec['hf']
+
+    # L2 DeepInfra org (only fills maker/developerId if still missing)
+    if 'maker' not in out:
+        dorg = di_index.get(b)
+        if dorg:
+            out['maker'] = maker_lookup(dorg) or pretty_noun(dorg)
+            out['makerLink'] = maker_url_lookup(dorg)
+            out['developerId'] = f'{dorg}/{base}'
+
+    # L3 modelmarkets — fallback ONLY for hfLink/modelLink, never maker
+    mm = _mm_closest(mm_index, b)
+    if mm:
+        if 'hfLink' not in out and mm.get('hf'):
+            out['hfLink'] = HUGGINGFACE_BASE + mm['hf']
+        out['modelLink'] = MODELMARKETS_BASE + mm['href']
+
+    return out
 
 
-def add_model_links(rows, mm_data):
-    """Set modelLink/hfLink/developerId/maker on every row via modelmarkets."""
-    index = match_modelmarkets(mm_data)
+def add_model_links(rows, mm_data, openrouter_data, deepinfra_data):
+    """Set maker/links/developerId on every row via layered sources.
+
+    OpenRouter rows keep the maker/developerId/variantLink set by their
+    builder; here they only gain hfLink/modelLink. All other rows get the
+    full identity resolved across the layered sources.
+    """
+    or_index = build_or_identity_index(openrouter_data)
+    di_index = build_di_org_index(deepinfra_data)
+    mm_index = match_modelmarkets(mm_data)
+    unresolved = []
     for row in rows:
-        matched = match_mm_entry(row, index)
-        if matched:
-            row['modelLink'] = MODELMARKETS_BASE + matched['href']
-            hf = matched.get('hf')
-            row['hfLink'] = HUGGINGFACE_BASE + hf if hf else None
-            org = matched.get('org')
-            slug = matched.get('slug')
-            if org and slug and row.get('market') != 'openrouter':
-                row['developerId'] = f'{org}/{slug}'
-            if org:
-                row['maker'] = maker_lookup(org) or pretty_noun(org)
-                row['makerLink'] = maker_url_lookup(org)
+        if row.get('market') == 'openrouter':
+            ident = identity_for_row(row, or_index, di_index, mm_index)
+            if ident.get('hfLink'):
+                row['hfLink'] = ident['hfLink']
+            if ident.get('modelLink'):
+                row['modelLink'] = ident['modelLink']
+            continue
+        ident = identity_for_row(row, or_index, di_index, mm_index)
+        if ident:
+            row.setdefault('maker', ident.get('maker'))
+            row.setdefault('makerLink', ident.get('makerLink'))
+            row.setdefault('developerId', ident.get('developerId'))
+            row.setdefault('hfLink', ident.get('hfLink'))
+            row.setdefault('modelLink', ident.get('modelLink'))
+            row.setdefault('variantLink', ident.get('variantLink'))
         else:
-            row['modelLink'] = None
-            row['hfLink'] = None
-        row.setdefault('developerId', None)
-        row.setdefault('maker', None)
-        row.setdefault('makerLink', None)
-        row.setdefault('variantLink', None)
+            row.setdefault('maker', None)
+            row.setdefault('makerLink', None)
+            row.setdefault('developerId', None)
+            row.setdefault('hfLink', None)
+            row.setdefault('modelLink', None)
+            row.setdefault('variantLink', None)
+            unresolved.append({
+                'market': row.get('market'),
+                'model': row.get('model'),
+                'base': row.get('base'),
+            })
+    if unresolved:
+        print(f'Identity warning: {len(unresolved)} rows unresolved', file=sys.stderr)
+        with open(os.path.join(DATA_DIR, 'unmapped.json'), 'w') as f:
+            json.dump({'generated_date': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC'),
+                       'rows': unresolved}, f, indent=2)
+    elif os.path.exists(os.path.join(DATA_DIR, 'unmapped.json')):
+        os.remove(os.path.join(DATA_DIR, 'unmapped.json'))
     return rows
 
 
@@ -496,7 +649,7 @@ def main():
     for row in all_rows:
         assign_gateway(row, PLANS)
 
-    add_model_links(all_rows, modelmarkets_data)
+    add_model_links(all_rows, modelmarkets_data, openrouter_data, deepinfra_data)
     assign_variants(all_rows)
 
     for row in all_rows:

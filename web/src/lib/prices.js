@@ -112,7 +112,7 @@ export function buildRow(row, meta, tax) {
     gatewayLink,
     provider,
     providerLink,
-    variantLink: (m === 'openrouter' || m === 'deepinfra') ? row.variantLink : null,
+    variantLink: row.variantLink || null,
     modelLink: row.modelLink || null,
     hfLink: row.hfLink || null,
     notes: row.notes || '',
