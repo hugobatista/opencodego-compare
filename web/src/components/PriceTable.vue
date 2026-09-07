@@ -282,7 +282,7 @@ const DEFAULT_WIDTHS = {
 }
 const colWidths = reactive({ ...DEFAULT_WIDTHS })
 const colOrder = ref(COLS.map((c) => c.id))
-const hiddenCols = ref(new Set(['notes']))
+const hiddenCols = ref(new Set(['notes', 'peak', 'allowance', 'commitment']))
 const renderCols = computed(() => {
   const vis = colOrder.value.filter((id) => !hiddenCols.value.has(id))
   const grouped = vis.filter((id) => groupedColIds.has(id))
@@ -329,7 +329,7 @@ function selectAllCols() {
   saveLayout()
 }
 function resetCols() {
-  hiddenCols.value = new Set(['notes'])
+  hiddenCols.value = new Set(['notes', 'peak', 'allowance', 'commitment'])
   saveLayout()
 }
 const collapsedMenuGroups = ref(new Set(GROUPS.map((g) => g.label)))
@@ -436,7 +436,7 @@ function saveLayout() {
 }
 function resetLayout() {
   colOrder.value = COLS.map((c) => c.id)
-  hiddenCols.value = new Set(['notes'])
+  hiddenCols.value = new Set(['notes', 'peak', 'allowance', 'commitment'])
   for (const id of Object.keys(DEFAULT_WIDTHS)) colWidths[id] = DEFAULT_WIDTHS[id]
   saveLayout()
 }
