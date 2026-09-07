@@ -5,11 +5,15 @@ export function fmtMoney(v) {
   return '$' + Number(v).toFixed(3)
 }
 
+const usd = (x) => {
+  const s = Number(x).toFixed(2)
+  return '$' + s.replace(/\.?0+$/, '')
+}
+
 export function fmtAllow(v) {
   const w = v * 0.5
   const f = v * 0.2
-  const money = (x) => Number(x).toFixed(3)
-  return `$${money(v)} monthly<br>$${money(w)} weekly<br>$${money(f)} /5h`
+  return `${usd(v)} monthly<br>${usd(w)} weekly<br>${usd(f)} /5h`
 }
 
 export function fmtCtx(v) {
@@ -59,7 +63,7 @@ export function buildRow(row, meta, tax) {
       if (feeTax) {
         realTip = `Real = listed ${money(rawList)} × (1 + ${(OPENROUTER_SERVICE_FEE * 100).toFixed(1)}% fee) × (1 + ${(tax * 100).toFixed(2)}% tax) = ${money(rawReal)}`
       } else if (subPrice && eff != null && row.effAll > 0) {
-        realTip = `Effective = listed ${money(rawList)} × (${subPrice} ÷ $${Number(row.effAll).toFixed(3)} monthly allowance) = ${money(rawReal)} — only if the full monthly allowance is used`
+        realTip = `Effective = listed ${money(rawList)} × (${subPrice} ÷ ${usd(row.effAll)} monthly allowance) = ${money(rawReal)} — only if the full monthly allowance is used`
       } else {
         realTip = `Real = listed ${money(rawList)}`
       }
