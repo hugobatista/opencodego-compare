@@ -20,10 +20,10 @@ const COLS = [
   { id: 'gateway',  label: 'Gateway Provider', kind: 'text',  key: 'textG' },
   { id: 'plan',     label: 'Plan',            kind: 'text',   key: 'textPlan' },
   { id: 'provider', label: 'Inference Provider', kind: 'text', key: 'textP' },
-  { id: 'in',       label: 'Input/1M',        kind: 'numeric', key: 'valIn' },
-  { id: 'out',      label: 'Output/1M',       kind: 'numeric', key: 'valOut' },
-  { id: 'rd',       label: 'Cached Read/1M',  kind: 'numeric', key: 'valRd' },
-  { id: 'wr',       label: 'Cached Write/1M', kind: 'numeric', key: 'valWr' },
+  { id: 'in',       label: 'Input',           kind: 'numeric', key: 'valIn' },
+  { id: 'out',      label: 'Output',          kind: 'numeric', key: 'valOut' },
+  { id: 'rd',       label: 'Cached Read',     kind: 'numeric', key: 'valRd' },
+  { id: 'wr',       label: 'Cached Write',    kind: 'numeric', key: 'valWr' },
   { id: 'ctx',      label: 'Context',         kind: 'numeric', key: 'ctxVal' },
   { id: 'lat',      label: 'Latency (p50)',   kind: 'numeric', key: 'latVal' },
   { id: 'tps',      label: 'TPS (p50)',       kind: 'numeric', key: 'tpsVal' },
@@ -32,10 +32,20 @@ const COLS = [
   { id: 'peak',     label: 'Peak slots',      kind: 'choice',  key: 'peak' },
   { id: 'allowance', label: 'Allowance',      kind: 'text',    key: 'textA' },
   { id: 'commitment', label: 'Commitment',    kind: 'numeric', key: 'valCommit' },
-  { id: 'intelligence', label: 'Intelligence Index', kind: 'numeric', key: 'intelligenceVal' },
-  { id: 'coding',   label: 'Coding Index',    kind: 'numeric', key: 'codingVal' },
-  { id: 'agentic',  label: 'Agentic Index',   kind: 'numeric', key: 'agenticVal' },
+  { id: 'intelligence', label: 'Intelligence', kind: 'numeric', key: 'intelligenceVal' },
+  { id: 'coding',   label: 'Coding',     kind: 'numeric', key: 'codingVal' },
+  { id: 'agentic',  label: 'Agentic',    kind: 'numeric', key: 'agenticVal' },
   { id: 'notes',    label: 'Notes',           kind: 'text',    key: 'textN' },
+]
+
+const GROUPS = [
+  { label: 'Model',        cols: ['maker', 'model', 'variant'] },
+  { label: 'Provider',     cols: ['gateway', 'plan', 'provider'] },
+  { label: 'Pricing/1M',   cols: ['in', 'out', 'rd', 'wr'] },
+  { label: 'Performance',  cols: ['ctx', 'lat', 'tps'] },
+  { label: 'Privacy',      cols: ['logs', 'trains'] },
+  { label: 'Plan Details', cols: ['peak', 'allowance', 'commitment'] },
+  { label: 'Benchmark Index', cols: ['intelligence', 'coding', 'agentic'] },
 ]
 
 const sortKey = ref('in')
@@ -273,7 +283,78 @@ const DEFAULT_WIDTHS = {
 const colWidths = reactive({ ...DEFAULT_WIDTHS })
 const colOrder = ref(COLS.map((c) => c.id))
 const hiddenCols = ref(new Set(['notes']))
-const renderCols = computed(() => colOrder.value.filter((id) => !hiddenCols.value.has(id)))
+const renderCols = computed(() => {
+  const vis = colOrder.value.filter((id) => !hiddenCols.value.has(id))
+  const grouped = vis.filter((id) => groupedColIds.has(id))
+  const ungrouped = vis.filter((id) => !groupedColIds.has(id))
+  return [...grouped, ...ungrouped]
+})
+const groupedColIds = new Set(GROUPS.flatMap((g) => g.cols))
+const visibleGroups = computed(() => {
+  const vis = new Set(renderCols.value)
+  return GROUPS.filter((g) => g.cols.some((c) => vis.has(c)))
+})
+const ungroupedVisible = computed(() => renderCols.value.filter((id) => !groupedColIds.has(id)))
+const groupsContiguous = computed(() => {
+  const pos = new Map(renderCols.value.map((id, i) => [id, i]))
+  for (const g of GROUPS) {
+    const ps = g.cols.filter((c) => pos.has(c)).map((c) => pos.get(c)).sort((a, b) => a - b)
+    for (let i = 1; i < ps.length; i++) {
+      if (ps[i] !== ps[i - 1] + 1) return false
+    }
+  }
+  return true
+})
+const groupFirstCol = computed(() => {
+  if (!groupsContiguous.value) return new Set()
+  const s = new Set()
+  const vis = new Set(renderCols.value)
+  for (const g of GROUPS) {
+    for (const c of g.cols) {
+      if (vis.has(c)) { s.add(c); break }
+    }
+  }
+  return s
+})
+const firstUngroupedCol = computed(() => ungroupedVisible.value[0] || null)
+function isGroupAllVisible(g) {
+  const vis = new Set(renderCols.value)
+  return g.cols.every((c) => vis.has(c))
+}
+function toggleGroupCols(g, show) {
+  for (const c of g.cols) toggleCol(c, show)
+}
+function selectAllCols() {
+  hiddenCols.value = new Set()
+  saveLayout()
+}
+function resetCols() {
+  hiddenCols.value = new Set(['notes'])
+  saveLayout()
+}
+const collapsedMenuGroups = ref(new Set(GROUPS.map((g) => g.label)))
+function toggleMenuGroup(label) {
+  const s = new Set(collapsedMenuGroups.value)
+  if (s.has(label)) s.delete(label)
+  else s.add(label)
+  collapsedMenuGroups.value = s
+}
+const colSearch = ref('')
+const colSearchNorm = computed(() => norm(colSearch.value))
+watch(colSearch, (q) => {
+  if (!norm(q)) return
+  const s = new Set(collapsedMenuGroups.value)
+  for (const g of GROUPS) {
+    if (g.cols.some((c) => colMatchesSearch(colById(c)))) s.delete(g.label)
+  }
+  collapsedMenuGroups.value = s
+})
+function colMatchesSearch(c) {
+  return !colSearchNorm.value || norm(c.label).includes(colSearchNorm.value) || norm(c.id).includes(colSearchNorm.value)
+}
+function groupHasMatch(g) {
+  return !colSearchNorm.value || g.cols.some((c) => colMatchesSearch(colById(c)))
+}
 function toggleCol(id, show) {
   const h = new Set(hiddenCols.value)
   if (show) h.delete(id)
@@ -315,12 +396,15 @@ function tdTitle(colId, r) {
   return CELL_TITLES[colId] || undefined
 }
 function cellClass(colId, r) {
-  if (colId === 'model') return 'model'
-  if (colId === 'logs' || colId === 'trains') return 'yesno ' + r[colId]
-  if (colId === 'allowance') return 'allow'
-  if (colId === 'notes') return 'notes'
-  if (colById(colId).kind === 'numeric') return 'num'
-  return ''
+  let cls = ''
+  if (groupFirstCol.value.has(colId)) cls += 'group-start '
+  if (colId === firstUngroupedCol.value) cls += 'separator '
+  if (colId === 'model') return cls + 'model'
+  if (colId === 'logs' || colId === 'trains') return cls + 'yesno ' + r[colId]
+  if (colId === 'allowance') return cls + 'allow'
+  if (colId === 'notes') return cls + 'notes'
+  if (colById(colId).kind === 'numeric') return cls + 'num'
+  return cls.trim()
 }
 
 function loadLayout() {
@@ -477,14 +561,52 @@ function tableStyle() {
           Columns <span class="colcount">{{ renderCols.length }}/{{ COLS.length }}</span>
         </button>
         <div v-if="columnsOpen" class="colmenu-panel">
-          <label v-for="c in COLS" :key="c.id" class="colmenu-item">
-            <input
-              type="checkbox"
-              :checked="renderCols.includes(c.id)"
-              @change="toggleCol(c.id, $event.target.checked)"
-            >
-            <span>{{ c.label }}</span>
-          </label>
+          <div class="colmenu-actions">
+            <label class="colmenu-action-item">
+              <input type="checkbox" :checked="renderCols.length === COLS.length" @change="renderCols.length === COLS.length ? resetCols() : selectAllCols()">
+              <span>{{ renderCols.length === COLS.length ? 'Clear' : 'Select all' }}</span>
+            </label>
+            <button type="button" class="colmenu-reset" @click="resetCols">Reset</button>
+          </div>
+          <input
+            v-model="colSearch"
+            type="text"
+            class="colmenu-search"
+            placeholder="Search columns…"
+            @input.stop
+          >
+          <template v-for="g in GROUPS.filter(groupHasMatch)" :key="g.label">
+            <div class="colmenu-item colmenu-group" @click="toggleMenuGroup(g.label)">
+              <input
+                type="checkbox"
+                :checked="isGroupAllVisible(g)"
+                @change.stop="toggleGroupCols(g, $event.target.checked)"
+                @click.stop
+              >
+              <span class="colmenu-chevron" :class="{ open: !collapsedMenuGroups.has(g.label) }">▸</span>
+              <span class="colmenu-group-label">{{ g.label }}</span>
+            </div>
+            <template v-if="!collapsedMenuGroups.has(g.label)">
+              <label v-for="c in g.cols.filter(c => colMatchesSearch(colById(c)))" :key="c.id" class="colmenu-item colmenu-col">
+                <input
+                  type="checkbox"
+                  :checked="renderCols.includes(c)"
+                  @change="toggleCol(c, $event.target.checked)"
+                >
+                <span>{{ colById(c).label }}</span>
+              </label>
+            </template>
+          </template>
+          <template v-for="c in COLS.filter(c => !groupedColIds.has(c.id) && colMatchesSearch(c))" :key="c.id">
+            <label class="colmenu-item colmenu-group">
+              <input
+                type="checkbox"
+                :checked="renderCols.includes(c.id)"
+                @change="toggleCol(c.id, $event.target.checked)"
+              >
+              <span class="colmenu-group-label">{{ c.label }}</span>
+            </label>
+          </template>
         </div>
       </div>
     </div>
@@ -495,6 +617,17 @@ function tableStyle() {
           <col v-for="colId in renderCols" :key="colId" :style="{ width: colWidths[colId] + '%' }">
         </colgroup>
         <thead>
+          <tr class="groups" v-if="groupsContiguous && (visibleGroups.length || ungroupedVisible.length)">
+            <th
+              v-for="g in visibleGroups"
+              :key="g.label"
+              :colspan="g.cols.filter(c => !hiddenCols.has(c)).length"
+            >{{ g.label }}</th>
+            <th
+              v-if="ungroupedVisible.length"
+              :colspan="ungroupedVisible.length"
+            > </th>
+          </tr>
           <tr class="cols">
             <th
               v-for="colId in renderCols"
@@ -502,6 +635,8 @@ function tableStyle() {
               :class="[
                 colById(colId).kind === 'numeric' ? 'num' : '',
                 sortKey === colId ? 'active' : '',
+                groupFirstCol.has(colId) ? 'group-start' : '',
+                colId === firstUngroupedCol ? 'separator' : '',
                 drag && drag.active && drag.id === colId ? 'dragging' : '',
                 drag && drag.active && drag.id !== colId && drag.overId === colId ? (drag.before ? 'drop-left' : 'drop-right') : '',
               ]"
@@ -516,7 +651,7 @@ function tableStyle() {
             </th>
           </tr>
           <tr class="filters">
-            <th v-for="colId in renderCols" :key="colId" :data-col="colId" :class="colById(colId).kind === 'numeric' ? 'num' : ''">
+            <th v-for="colId in renderCols" :key="colId" :data-col="colId" :class="[colById(colId).kind === 'numeric' ? 'num' : '', groupFirstCol.has(colId) ? 'group-start' : '', colId === firstUngroupedCol ? 'separator' : '']">
               <template v-if="colById(colId).kind === 'numeric'">
                 <span class="rng">
                   <input v-model="numFilters[colId].min" placeholder="min" @input.stop>
@@ -687,6 +822,37 @@ function tableStyle() {
 }
 .colmenu-item:hover { background: var(--row-hover); }
 .colmenu-item input { accent-color: var(--accent); cursor: pointer; flex-shrink: 0; }
+.colmenu-group { font-weight: 700; font-size: 0.82rem; margin-top: 4px; }
+.colmenu-group:first-child { margin-top: 0; }
+.colmenu-group-label { text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.72rem; }
+.colmenu-col { padding-left: 20px; }
+.colmenu-chevron {
+  display: inline-block; transition: transform 0.15s ease;
+  font-size: 0.55rem; margin-right: 2px; flex-shrink: 0;
+}
+.colmenu-chevron.open { transform: rotate(90deg); }
+.colmenu-actions {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  padding: 2px 4px 4px; border-bottom: 1px solid var(--border); margin-bottom: 4px;
+}
+.colmenu-action-item {
+  display: flex; align-items: center; gap: 6px; cursor: pointer;
+  font-size: 0.72rem; user-select: none;
+}
+.colmenu-action-item input { accent-color: var(--accent); cursor: pointer; }
+.colmenu-reset {
+  font-size: 0.72rem; padding: 2px 8px; cursor: pointer;
+  border: 1px solid var(--border); border-radius: 4px;
+  background: var(--bg); color: var(--fg);
+}
+.colmenu-reset:hover { border-color: var(--accent); color: var(--accent-strong); }
+.colmenu-search {
+  width: 100%; padding: 5px 8px; margin-bottom: 4px;
+  border: 1px solid var(--border); border-radius: 6px;
+  background: var(--bg); color: var(--fg); font-size: 0.82rem;
+  outline: none;
+}
+.colmenu-search:focus { border-color: var(--accent); }
 .count { color: var(--muted); }
 
 .tablewrap {
@@ -698,7 +864,7 @@ table {
   border-collapse: collapse; font-size: 0.82rem; font-variant-numeric: tabular-nums;
 }
 th, td {
-  border-bottom: 1px solid var(--border); padding: 6px 8px;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 40%, transparent); padding: 6px 8px;
   text-align: left;
 }
 th { vertical-align: middle; }
@@ -711,6 +877,14 @@ thead th {
   background: var(--thead);
   user-select: none;
 }
+thead tr.groups th {
+  cursor: default;
+  font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--fg); font-weight: 700; padding: 5px 8px 3px;
+  text-align: center; border-bottom: 2px solid var(--border);
+}
+.group-start { border-left: 2px solid var(--border) !important; padding-left: 10px !important; }
+.separator { border-left: 2px solid var(--border) !important; padding-left: 10px !important; }
 thead tr.cols th {
   cursor: pointer; border-bottom: 1px solid var(--border);
   font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em;
