@@ -194,6 +194,17 @@ function reset() {
   writeParams(toParams())
 }
 
+const columnsOpen = ref(false)
+const colMenu = ref(null)
+function onColMenuClick(e) {
+  if (colMenu.value && !colMenu.value.contains(e.target)) columnsOpen.value = false
+}
+function setupColMenuWatcher() {
+  if (columnsOpen.value) document.addEventListener('pointerdown', onColMenuClick)
+  else document.removeEventListener('pointerdown', onColMenuClick)
+}
+watch(columnsOpen, setupColMenuWatcher)
+
 function toParams() {
   const out = {}
   out.sort = sortKey.value === 'in' && sortDir.value === 1 ? '' : sortKey.value + ':' + sortDir.value
@@ -244,6 +255,18 @@ const DEFAULT_WIDTHS = {
 }
 const colWidths = reactive({ ...DEFAULT_WIDTHS })
 const colOrder = ref(COLS.map((c) => c.id))
+const hiddenCols = ref(new Set())
+const renderCols = computed(() => colOrder.value.filter((id) => !hiddenCols.value.has(id)))
+function toggleCol(id, show) {
+  const h = new Set(hiddenCols.value)
+  if (show) h.delete(id)
+  else {
+    if (h.size + 1 >= COLS.length) return
+    h.add(id)
+  }
+  hiddenCols.value = h
+  saveLayout()
+}
 
 const CELL_TITLES = {
   model: 'Model family — groups all variants',
@@ -296,15 +319,20 @@ function loadLayout() {
         if (colById(id) && Number.isFinite(w) && w >= 4) colWidths[id] = w
       }
     }
+    if (s && Array.isArray(s.hidden)) {
+      const valid = s.hidden.filter((id) => colById(id))
+      if (valid.length < COLS.length) hiddenCols.value = new Set(valid)
+    }
   } catch (e) { /* ignore corrupted layout */ }
 }
 function saveLayout() {
   try {
-    localStorage.setItem('oc_layout', JSON.stringify({ order: colOrder.value, widths: colWidths }))
+    localStorage.setItem('oc_layout', JSON.stringify({ order: colOrder.value, widths: colWidths, hidden: [...hiddenCols.value] }))
   } catch (e) { /* ignore */ }
 }
 function resetLayout() {
   colOrder.value = COLS.map((c) => c.id)
+  hiddenCols.value = new Set()
   for (const id of Object.keys(DEFAULT_WIDTHS)) colWidths[id] = DEFAULT_WIDTHS[id]
   saveLayout()
 }
@@ -420,17 +448,32 @@ function tableStyle() {
         :disabled="linkCopied"
       >{{ linkCopied ? 'Copied!' : 'Copy link' }}</button>
       <button type="button" class="reset-btn" @click="resetLayout">Reset layout</button>
+      <div ref="colMenu" class="colmenu">
+        <button type="button" class="reset-btn" :class="{ active: columnsOpen }" @click="columnsOpen = !columnsOpen">
+          Columns <span class="colcount">{{ renderCols.length }}/{{ COLS.length }}</span>
+        </button>
+        <div v-if="columnsOpen" class="colmenu-panel">
+          <label v-for="c in COLS" :key="c.id" class="colmenu-item">
+            <input
+              type="checkbox"
+              :checked="renderCols.includes(c.id)"
+              @change="toggleCol(c.id, $event.target.checked)"
+            >
+            <span>{{ c.label }}</span>
+          </label>
+        </div>
+      </div>
     </div>
 
     <div class="tablewrap">
       <table :style="tableStyle()">
         <colgroup>
-          <col v-for="colId in colOrder" :key="colId" :style="{ width: colWidths[colId] + '%' }">
+          <col v-for="colId in renderCols" :key="colId" :style="{ width: colWidths[colId] + '%' }">
         </colgroup>
         <thead>
           <tr class="cols">
             <th
-              v-for="colId in colOrder"
+              v-for="colId in renderCols"
               :key="colId"
               :class="[
                 colById(colId).kind === 'numeric' ? 'num' : '',
@@ -449,7 +492,7 @@ function tableStyle() {
             </th>
           </tr>
           <tr class="filters">
-            <th v-for="colId in colOrder" :key="colId" :data-col="colId" :class="colById(colId).kind === 'numeric' ? 'num' : ''">
+            <th v-for="colId in renderCols" :key="colId" :data-col="colId" :class="colById(colId).kind === 'numeric' ? 'num' : ''">
               <template v-if="colById(colId).kind === 'numeric'">
                 <span class="rng">
                   <input v-model="numFilters[colId].min" placeholder="min" @input.stop>
@@ -469,7 +512,7 @@ function tableStyle() {
         <tbody>
           <tr v-for="(r, i) in sorted" :key="i">
             <td
-              v-for="colId in colOrder"
+              v-for="colId in renderCols"
               :key="colId"
               :class="cellClass(colId, r)"
               :title="tdTitle(colId, r)"
@@ -605,6 +648,21 @@ function tableStyle() {
 }
 .reset-btn:hover { border-color: var(--accent); color: var(--accent); }
 .reset-btn.copied { border-color: var(--ok); color: var(--ok); }
+.reset-btn.active { border-color: var(--accent); color: var(--accent); }
+.colcount { opacity: 0.65; font-size: 0.78rem; }
+.colmenu { position: relative; }
+.colmenu-panel {
+  position: absolute; top: calc(100% + 6px); right: 0; z-index: 30;
+  display: flex; flex-direction: column; gap: 2px; min-width: 210px;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px; box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}
+.colmenu-item {
+  display: flex; align-items: center; gap: 8px; cursor: pointer;
+  font-size: 0.86rem; padding: 4px 8px; border-radius: 5px; user-select: none;
+}
+.colmenu-item:hover { background: var(--row-hover); }
+.colmenu-item input { accent-color: var(--accent); cursor: pointer; flex-shrink: 0; }
 .count { color: var(--muted); }
 
 .tablewrap {
