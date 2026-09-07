@@ -219,9 +219,9 @@
     "name": "Z.ai: GLM Flash Latest",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.000000075",
-      "completion": "0.00000025",
-      "input_cache_read": "0.000000015"
+      "prompt": "0.00000007125",
+      "completion": "0.0000002375",
+      "input_cache_read": "0.00000001425"
     }
   },
   {
@@ -271,9 +271,9 @@
     "name": "DeepSeek: DeepSeek V4 Flash Vision Exp",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.00000022",
-      "completion": "0.00000066",
-      "input_cache_read": "0.000000007",
+      "prompt": "0.00000044",
+      "completion": "0.00000132",
+      "input_cache_read": "0.000000014",
       "overrides": [
         {
           "utc_days": [
@@ -380,9 +380,9 @@
     "name": "Z.ai: GLM Latest",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.00000117",
-      "completion": "0.00000396",
-      "input_cache_read": "0.000000234"
+      "prompt": "0.00000112",
+      "completion": "0.00000352",
+      "input_cache_read": "0.000000208"
     }
   },
   {
@@ -401,7 +401,7 @@
     "pricing": {
       "prompt": "0.0000014",
       "completion": "0.0000044",
-      "input_cache_read": "0.00000014"
+      "input_cache_read": "0.00000026"
     }
   },
   {
@@ -496,9 +496,9 @@
     "name": "DeepSeek: DeepSeek V4 Pro 0813",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.00000112068",
-      "completion": "0.00000336204",
-      "input_cache_read": "0.000000037356"
+      "prompt": "0.0000010494",
+      "completion": "0.0000031482",
+      "input_cache_read": "0.00000003498"
     }
   },
   {
@@ -597,9 +597,9 @@
     "name": "DeepSeek V4 Flash Latest",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.000000045",
-      "completion": "0.00000009",
-      "input_cache_read": "0.000000009"
+      "prompt": "0.00000005",
+      "completion": "0.00000016",
+      "input_cache_read": "0.000000013"
     }
   },
   {
@@ -607,9 +607,9 @@
     "name": "DeepSeek: DeepSeek V4 Flash 0731",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.00000004998",
-      "completion": "0.00000009996",
-      "input_cache_read": "0.000000009996"
+      "prompt": "0.00000014",
+      "completion": "0.00000028",
+      "input_cache_read": "0.000000028"
     }
   },
   {
@@ -1874,9 +1874,9 @@
     "name": "DeepSeek: DeepSeek V4 Pro 0423",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.000000707832",
-      "completion": "0.000001415664",
-      "input_cache_read": "0.000000058986"
+      "prompt": "0.00000095526",
+      "completion": "0.00000191052",
+      "input_cache_read": "0.000000079605"
     }
   },
   {
@@ -1884,9 +1884,9 @@
     "name": "DeepSeek: DeepSeek V4 Flash 0423",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.00000008106",
-      "completion": "0.00000016212",
-      "input_cache_read": "0.000000016212"
+      "prompt": "0.000000088606",
+      "completion": "0.000000177212",
+      "input_cache_read": "0.0000000177212"
     }
   },
   {
@@ -2533,9 +2533,8 @@
     "name": "Qwen: Qwen3.5 397B A17B",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.00000055",
-      "completion": "0.0000035",
-      "input_cache_read": "0.000000225"
+      "prompt": "0.00000039",
+      "completion": "0.00000234"
     }
   },
   {
@@ -3242,9 +3241,9 @@
     "name": "Z.ai: GLM 4.6",
     "context_length": 204800,
     "pricing": {
-      "prompt": "0.00000055",
-      "completion": "0.0000022",
-      "input_cache_read": "0.00000011"
+      "prompt": "0.00000043",
+      "completion": "0.00000175",
+      "input_cache_read": "0.00000008"
     }
   },
   {
