@@ -607,9 +607,9 @@
     "name": "DeepSeek: DeepSeek V4 Flash 0731",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.00000014",
-      "completion": "0.00000028",
-      "input_cache_read": "0.000000028"
+      "prompt": "0.000000065",
+      "completion": "0.00000018",
+      "input_cache_read": "0.000000016"
     }
   },
   {
@@ -1296,9 +1296,9 @@
     "name": "MoonshotAI: Kimi K2.7 Code",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.00000066",
-      "completion": "0.0000034",
-      "input_cache_read": "0.00000018"
+      "prompt": "0.00000071",
+      "completion": "0.0000035",
+      "input_cache_read": "0.00000015"
     }
   },
   {
@@ -1607,7 +1607,7 @@
   {
     "id": "mistralai/mistral-medium-3-5:batch",
     "name": "Mistral: Mistral Medium 3.5 (batch)",
-    "context_length": 32768,
+    "context_length": 262144,
     "pricing": {
       "prompt": "0.00000075",
       "completion": "0.00000375"
@@ -1668,9 +1668,9 @@
     "name": "MoonshotAI Kimi Latest",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.00000255",
-      "completion": "0.00001275",
-      "input_cache_read": "0.00000025599999"
+      "prompt": "0.0000025",
+      "completion": "0.000014",
+      "input_cache_read": "0.00000029"
     }
   },
   {
@@ -2689,9 +2689,8 @@
     "name": "Z.ai: GLM 4.7 Flash",
     "context_length": 202752,
     "pricing": {
-      "prompt": "0.00000006",
-      "completion": "0.0000004",
-      "input_cache_read": "0.00000001"
+      "prompt": "0.0000000605",
+      "completion": "0.0000004"
     }
   },
   {
@@ -3041,8 +3040,7 @@
     "context_length": 262144,
     "pricing": {
       "prompt": "0.0000006",
-      "completion": "0.0000025",
-      "input_cache_read": "0.00000015"
+      "completion": "0.0000025"
     }
   },
   {
@@ -3241,9 +3239,9 @@
     "name": "Z.ai: GLM 4.6",
     "context_length": 204800,
     "pricing": {
-      "prompt": "0.00000043",
-      "completion": "0.00000175",
-      "input_cache_read": "0.00000008"
+      "prompt": "0.00000055",
+      "completion": "0.0000022",
+      "input_cache_read": "0.00000011"
     }
   },
   {
@@ -3506,9 +3504,9 @@
     "name": "DeepSeek: DeepSeek V3.1",
     "context_length": 163840,
     "pricing": {
-      "prompt": "0.00000055",
-      "completion": "0.00000165",
-      "input_cache_read": "0.00000055"
+      "prompt": "0.00000025",
+      "completion": "0.00000095",
+      "input_cache_read": "0.00000013"
     }
   },
   {
@@ -3845,7 +3843,7 @@
     "name": "MiniMax: MiniMax M1",
     "context_length": 1000000,
     "pricing": {
-      "prompt": "0.00000055",
+      "prompt": "0.0000004",
       "completion": "0.0000022"
     }
   },
@@ -4081,8 +4079,8 @@
     "name": "Qwen: Qwen3 14B",
     "context_length": 131072,
     "pricing": {
-      "prompt": "0.00000012",
-      "completion": "0.00000024"
+      "prompt": "0.0000002275",
+      "completion": "0.00000091"
     }
   },
   {
@@ -4247,8 +4245,9 @@
     "name": "DeepSeek: DeepSeek V3 0324",
     "context_length": 163840,
     "pricing": {
-      "prompt": "0.00000025",
-      "completion": "0.000001"
+      "prompt": "0.00000029",
+      "completion": "0.00000114",
+      "input_cache_read": "0.00000011"
     }
   },
   {
