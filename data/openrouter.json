@@ -1,5 +1,15 @@
 [
   {
+    "id": "inception/mercury-2.5",
+    "name": "Inception: Mercury 2.5",
+    "context_length": 260000,
+    "pricing": {
+      "prompt": "0.00000004",
+      "completion": "0.00000015",
+      "input_cache_read": "0.000000004"
+    }
+  },
+  {
     "id": "openai/gpt-6-astra",
     "name": "OpenAI: GPT-6 Astra",
     "context_length": 1050000,
@@ -175,23 +185,13 @@
     }
   },
   {
-    "id": "inception/mercury-2.5-preview",
-    "name": "Inception: Mercury 2.5 Preview",
-    "context_length": 260000,
-    "pricing": {
-      "prompt": "0.00000004",
-      "completion": "0.00000015",
-      "input_cache_read": "0.000000004"
-    }
-  },
-  {
     "id": "ibm-granite/granite-4.2-8b",
     "name": "IBM: Granite 4.2 8B",
     "context_length": 131072,
     "pricing": {
-      "prompt": "0.0000001",
-      "completion": "0.00000015",
-      "input_cache_read": "0.00000005"
+      "prompt": "0.00000006",
+      "completion": "0.00000025",
+      "input_cache_read": "0.000000015"
     }
   },
   {
@@ -219,9 +219,9 @@
     "name": "Z.ai: GLM Flash Latest",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.00000007125",
-      "completion": "0.0000002375",
-      "input_cache_read": "0.00000001425"
+      "prompt": "0.000000075",
+      "completion": "0.00000025",
+      "input_cache_read": "0.000000015"
     }
   },
   {
@@ -248,11 +248,11 @@
   {
     "id": "z-ai/glm-5.3-flash:batch",
     "name": "Z.ai: GLM 5.3 Flash (batch)",
-    "context_length": 1048575,
+    "context_length": 1048576,
     "pricing": {
-      "prompt": "0.00000015",
-      "completion": "0.0000005",
-      "input_cache_read": "0.00000003"
+      "prompt": "0.000000075",
+      "completion": "0.00000025",
+      "input_cache_read": "0.000000015"
     }
   },
   {
@@ -271,90 +271,19 @@
     "name": "DeepSeek: DeepSeek V4 Flash Vision Exp",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.00000044",
-      "completion": "0.00000132",
-      "input_cache_read": "0.000000014",
-      "overrides": [
-        {
-          "utc_days": [
-            "saturday",
-            "sunday"
-          ],
-          "prompt": "0.00000022",
-          "completion": "0.00000066",
-          "input_cache_read": "0.000000007"
-        },
-        {
-          "utc_days": [
-            "monday",
-            "tuesday",
-            "wednesday",
-            "thursday",
-            "friday"
-          ],
-          "utc_start": 0,
-          "utc_end": 100,
-          "prompt": "0.00000022",
-          "completion": "0.00000066",
-          "input_cache_read": "0.000000007"
-        },
-        {
-          "utc_days": [
-            "monday",
-            "tuesday",
-            "wednesday",
-            "thursday",
-            "friday"
-          ],
-          "utc_start": 100,
-          "utc_end": 400,
-          "prompt": "0.00000044",
-          "completion": "0.00000132",
-          "input_cache_read": "0.000000014"
-        },
-        {
-          "utc_days": [
-            "monday",
-            "tuesday",
-            "wednesday",
-            "thursday",
-            "friday"
-          ],
-          "utc_start": 400,
-          "utc_end": 600,
-          "prompt": "0.00000022",
-          "completion": "0.00000066",
-          "input_cache_read": "0.000000007"
-        },
-        {
-          "utc_days": [
-            "monday",
-            "tuesday",
-            "wednesday",
-            "thursday",
-            "friday"
-          ],
-          "utc_start": 600,
-          "utc_end": 1000,
-          "prompt": "0.00000044",
-          "completion": "0.00000132",
-          "input_cache_read": "0.000000014"
-        },
-        {
-          "utc_days": [
-            "monday",
-            "tuesday",
-            "wednesday",
-            "thursday",
-            "friday"
-          ],
-          "utc_start": 1000,
-          "utc_end": 0,
-          "prompt": "0.00000022",
-          "completion": "0.00000066",
-          "input_cache_read": "0.000000007"
-        }
-      ]
+      "prompt": "0.00000022",
+      "completion": "0.00000066",
+      "input_cache_read": "0.000000007"
+    }
+  },
+  {
+    "id": "deepseek/deepseek-v4-flash-vision-exp:batch",
+    "name": "DeepSeek: DeepSeek V4 Flash Vision Exp (batch)",
+    "context_length": 1048576,
+    "pricing": {
+      "prompt": "0.00000011",
+      "completion": "0.00000033",
+      "input_cache_read": "0.0000000035"
     }
   },
   {
@@ -380,9 +309,9 @@
     "name": "Z.ai: GLM Latest",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.00000112",
-      "completion": "0.00000352",
-      "input_cache_read": "0.000000208"
+      "prompt": "0.000001113",
+      "completion": "0.000003498",
+      "input_cache_read": "0.0000002067"
     }
   },
   {
@@ -402,6 +331,16 @@
       "prompt": "0.0000014",
       "completion": "0.0000044",
       "input_cache_read": "0.00000026"
+    }
+  },
+  {
+    "id": "z-ai/glm-5.3:batch",
+    "name": "Z.ai: GLM 5.3 (batch)",
+    "context_length": 1048576,
+    "pricing": {
+      "prompt": "0.0000007",
+      "completion": "0.0000022",
+      "input_cache_read": "0.00000013"
     }
   },
   {
@@ -506,9 +445,9 @@
     "name": "DeepSeek: DeepSeek V4 Pro 0813 (batch)",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.00000132",
-      "completion": "0.00000396",
-      "input_cache_read": "0.00000013"
+      "prompt": "0.00000066",
+      "completion": "0.00000198",
+      "input_cache_read": "0.000000022"
     }
   },
   {
@@ -576,9 +515,9 @@
     "name": "Meta: Muse Glimmer 30B (batch)",
     "context_length": 131072,
     "pricing": {
-      "prompt": "0.00000035",
-      "completion": "0.0000015",
-      "input_cache_read": "0.00000004"
+      "prompt": "0.000000175",
+      "completion": "0.00000075",
+      "input_cache_read": "0.00000002"
     }
   },
   {
@@ -617,9 +556,9 @@
     "name": "DeepSeek: DeepSeek V4 Flash 0731 (batch)",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.00000014",
-      "completion": "0.00000028",
-      "input_cache_read": "0.00000003"
+      "prompt": "0.00000011",
+      "completion": "0.00000033",
+      "input_cache_read": "0.0000000035"
     }
   },
   {
@@ -1225,16 +1164,6 @@
     }
   },
   {
-    "id": "nex-agi/nex-n2-mini",
-    "name": "Nex AGI: Nex-N2-Mini",
-    "context_length": 262144,
-    "pricing": {
-      "prompt": "0.000000025",
-      "completion": "0.0000001",
-      "input_cache_read": "0.0000000025"
-    }
-  },
-  {
     "id": "sakana/fugu-ultra",
     "name": "Sakana: Fugu Ultra",
     "context_length": 1000000,
@@ -1292,6 +1221,16 @@
     }
   },
   {
+    "id": "z-ai/glm-5.2:batch",
+    "name": "Z.ai: GLM 5.2 (batch)",
+    "context_length": 1048576,
+    "pricing": {
+      "prompt": "0.0000007",
+      "completion": "0.0000022",
+      "input_cache_read": "0.00000007"
+    }
+  },
+  {
     "id": "moonshotai/kimi-k2.7-code",
     "name": "MoonshotAI: Kimi K2.7 Code",
     "context_length": 262144,
@@ -1338,16 +1277,6 @@
       "input_cache_read": "0.0000005",
       "input_cache_write": "0.00000625",
       "input_cache_write_1h": "0.00001"
-    }
-  },
-  {
-    "id": "nex-agi/nex-n2-pro",
-    "name": "Nex AGI: Nex-N2-Pro",
-    "context_length": 262144,
-    "pricing": {
-      "prompt": "0.00000025",
-      "completion": "0.000001",
-      "input_cache_read": "0.000000025"
     }
   },
   {
@@ -1668,9 +1597,9 @@
     "name": "MoonshotAI Kimi Latest",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.0000025",
-      "completion": "0.000014",
-      "input_cache_read": "0.00000029"
+      "prompt": "0.0000024",
+      "completion": "0.000012",
+      "input_cache_read": "0.00000024"
     }
   },
   {
@@ -2190,7 +2119,7 @@
   {
     "id": "nvidia/nemotron-3-super-120b-a12b",
     "name": "NVIDIA: Nemotron 3 Super",
-    "context_length": 1000000,
+    "context_length": 262144,
     "pricing": {
       "prompt": "0.000000085",
       "completion": "0.0000004"
@@ -2533,8 +2462,9 @@
     "name": "Qwen: Qwen3.5 397B A17B",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.00000039",
-      "completion": "0.00000234"
+      "prompt": "0.00000055",
+      "completion": "0.0000035",
+      "input_cache_read": "0.000000225"
     }
   },
   {
@@ -3239,9 +3169,9 @@
     "name": "Z.ai: GLM 4.6",
     "context_length": 204800,
     "pricing": {
-      "prompt": "0.00000055",
-      "completion": "0.0000022",
-      "input_cache_read": "0.00000011"
+      "prompt": "0.00000043",
+      "completion": "0.00000175",
+      "input_cache_read": "0.00000008"
     }
   },
   {
@@ -3442,9 +3372,8 @@
     "name": "Qwen: Qwen3 Next 80B A3B Instruct",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.0000001",
-      "completion": "0.0000011",
-      "input_cache_read": "0.00000007"
+      "prompt": "0.00000009",
+      "completion": "0.0000011"
     }
   },
   {
@@ -3771,8 +3700,8 @@
     "name": "Qwen: Qwen3 235B A22B Instruct 2507",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.00000009",
-      "completion": "0.00000055"
+      "prompt": "0.00000022",
+      "completion": "0.00000088"
     }
   },
   {
@@ -3843,7 +3772,7 @@
     "name": "MiniMax: MiniMax M1",
     "context_length": 1000000,
     "pricing": {
-      "prompt": "0.0000004",
+      "prompt": "0.00000055",
       "completion": "0.0000022"
     }
   },
