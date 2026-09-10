@@ -1,5 +1,96 @@
 [
   {
+    "id": "deepseek/deepseek-v4.1-flash",
+    "name": "DeepSeek: DeepSeek V4.1 Flash",
+    "context_length": 1048576,
+    "pricing": {
+      "prompt": "0.0000003",
+      "completion": "0.0000012",
+      "input_cache_read": "0.000000006",
+      "overrides": [
+        {
+          "utc_days": [
+            "saturday",
+            "sunday"
+          ],
+          "prompt": "0.00000015",
+          "completion": "0.0000006",
+          "input_cache_read": "0.000000003"
+        },
+        {
+          "utc_days": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday"
+          ],
+          "utc_start": 0,
+          "utc_end": 100,
+          "prompt": "0.00000015",
+          "completion": "0.0000006",
+          "input_cache_read": "0.000000003"
+        },
+        {
+          "utc_days": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday"
+          ],
+          "utc_start": 100,
+          "utc_end": 400,
+          "prompt": "0.0000003",
+          "completion": "0.0000012",
+          "input_cache_read": "0.000000006"
+        },
+        {
+          "utc_days": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday"
+          ],
+          "utc_start": 400,
+          "utc_end": 600,
+          "prompt": "0.00000015",
+          "completion": "0.0000006",
+          "input_cache_read": "0.000000003"
+        },
+        {
+          "utc_days": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday"
+          ],
+          "utc_start": 600,
+          "utc_end": 1000,
+          "prompt": "0.0000003",
+          "completion": "0.0000012",
+          "input_cache_read": "0.000000006"
+        },
+        {
+          "utc_days": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday"
+          ],
+          "utc_start": 1000,
+          "utc_end": 0,
+          "prompt": "0.00000015",
+          "completion": "0.0000006",
+          "input_cache_read": "0.000000003"
+        }
+      ]
+    }
+  },
+  {
     "id": "inception/mercury-2.5",
     "name": "Inception: Mercury 2.5",
     "context_length": 260000,
@@ -309,9 +400,9 @@
     "name": "Z.ai: GLM Latest",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.000001113",
-      "completion": "0.000003498",
-      "input_cache_read": "0.0000002067"
+      "prompt": "0.000001085",
+      "completion": "0.00000341",
+      "input_cache_read": "0.0000002015"
     }
   },
   {
@@ -2107,6 +2198,16 @@
     }
   },
   {
+    "id": "mistralai/mistral-small-2603:batch",
+    "name": "Mistral: Mistral Small 4 (batch)",
+    "context_length": 262144,
+    "pricing": {
+      "prompt": "0.000000075",
+      "completion": "0.0000003",
+      "input_cache_read": "0.0000000075"
+    }
+  },
+  {
     "id": "z-ai/glm-5-turbo",
     "name": "Z.ai: GLM 5 Turbo",
     "context_length": 202752,
@@ -2308,8 +2409,8 @@
     "name": "Qwen: Qwen3.5-122B-A10B",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.00000029",
-      "completion": "0.0000024"
+      "prompt": "0.00000026",
+      "completion": "0.00000208"
     }
   },
   {
@@ -2472,9 +2573,9 @@
     "name": "MiniMax: MiniMax M2.5",
     "context_length": 204800,
     "pricing": {
-      "prompt": "0.00000027",
-      "completion": "0.00000108",
-      "input_cache_read": "0.000000027"
+      "prompt": "0.0000003",
+      "completion": "0.0000012",
+      "input_cache_read": "0.00000003"
     }
   },
   {
@@ -2848,6 +2949,16 @@
     }
   },
   {
+    "id": "mistralai/ministral-8b-2512:batch",
+    "name": "Mistral: Ministral 3 8B 2512 (batch)",
+    "context_length": 262144,
+    "pricing": {
+      "prompt": "0.000000075",
+      "completion": "0.000000075",
+      "input_cache_read": "0.0000000075"
+    }
+  },
+  {
     "id": "mistralai/ministral-3b-2512",
     "name": "Mistral: Ministral 3 3B 2512",
     "context_length": 131072,
@@ -2865,6 +2976,16 @@
       "prompt": "0.0000005",
       "completion": "0.0000015",
       "input_cache_read": "0.00000005"
+    }
+  },
+  {
+    "id": "mistralai/mistral-large-2512:batch",
+    "name": "Mistral: Mistral Large 3 2512 (batch)",
+    "context_length": 262144,
+    "pricing": {
+      "prompt": "0.00000025",
+      "completion": "0.00000075",
+      "input_cache_read": "0.000000025"
     }
   },
   {
@@ -2970,7 +3091,8 @@
     "context_length": 262144,
     "pricing": {
       "prompt": "0.0000006",
-      "completion": "0.0000025"
+      "completion": "0.0000025",
+      "input_cache_read": "0.00000015"
     }
   },
   {
@@ -3411,15 +3533,6 @@
     }
   },
   {
-    "id": "nousresearch/hermes-4-70b",
-    "name": "Nous: Hermes 4 70B",
-    "context_length": 131072,
-    "pricing": {
-      "prompt": "0.00000013",
-      "completion": "0.0000004"
-    }
-  },
-  {
     "id": "nousresearch/hermes-4-405b",
     "name": "Nous: Hermes 4 405B",
     "context_length": 131072,
@@ -3446,6 +3559,16 @@
       "prompt": "0.0000004",
       "completion": "0.000002",
       "input_cache_read": "0.00000004"
+    }
+  },
+  {
+    "id": "mistralai/mistral-medium-3.1:batch",
+    "name": "Mistral: Mistral Medium 3.1 (batch)",
+    "context_length": 131072,
+    "pricing": {
+      "prompt": "0.0000002",
+      "completion": "0.000001",
+      "input_cache_read": "0.00000002"
     }
   },
   {
@@ -3598,6 +3721,16 @@
     }
   },
   {
+    "id": "mistralai/codestral-2508:batch",
+    "name": "Mistral: Codestral 2508 (batch)",
+    "context_length": 256000,
+    "pricing": {
+      "prompt": "0.00000015",
+      "completion": "0.00000045",
+      "input_cache_read": "0.000000015"
+    }
+  },
+  {
     "id": "qwen/qwen3-coder-30b-a3b-instruct",
     "name": "Qwen: Qwen3 Coder 30B A3B Instruct",
     "context_length": 262144,
@@ -3611,8 +3744,8 @@
     "name": "Qwen: Qwen3 30B A3B Instruct 2507",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.00000004815",
-      "completion": "0.00000019305"
+      "prompt": "0.00000009",
+      "completion": "0.0000003"
     }
   },
   {
@@ -4427,8 +4560,8 @@
     "name": "DeepSeek: DeepSeek V3",
     "context_length": 163840,
     "pricing": {
-      "prompt": "0.00000032",
-      "completion": "0.00000089"
+      "prompt": "0.0000002574",
+      "completion": "0.0000010287"
     }
   },
   {
