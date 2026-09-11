@@ -1,5 +1,35 @@
 [
   {
+    "id": "sakana/fugu-ultra-v2",
+    "name": "Sakana: Fugu Ultra v2",
+    "context_length": 1000000,
+    "pricing": {
+      "prompt": "0.000005",
+      "completion": "0.00003",
+      "web_search": "0.01",
+      "input_cache_read": "0.0000005",
+      "overrides": [
+        {
+          "min_prompt_tokens": 272000,
+          "prompt": "0.00001",
+          "completion": "0.000045",
+          "input_cache_read": "0.000001"
+        }
+      ]
+    }
+  },
+  {
+    "id": "sakana/fugu-max",
+    "name": "Sakana: Fugu Max",
+    "context_length": 1000000,
+    "pricing": {
+      "prompt": "0.000002",
+      "completion": "0.000006",
+      "web_search": "0.01",
+      "input_cache_read": "0.00000025"
+    }
+  },
+  {
     "id": "deepseek/deepseek-v4.1-flash",
     "name": "DeepSeek: DeepSeek V4.1 Flash",
     "context_length": 1048576,
@@ -331,9 +361,9 @@
     "name": "Z.ai: GLM 5.3 Flash",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.000000075",
-      "completion": "0.00000025",
-      "input_cache_read": "0.000000015"
+      "prompt": "0.00000015",
+      "completion": "0.0000005",
+      "input_cache_read": "0.00000003"
     }
   },
   {
@@ -400,9 +430,9 @@
     "name": "Z.ai: GLM Latest",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.000001085",
-      "completion": "0.00000341",
-      "input_cache_read": "0.0000002015"
+      "prompt": "0.00000097",
+      "completion": "0.0000033077",
+      "input_cache_read": "0.000000194"
     }
   },
   {
@@ -526,9 +556,9 @@
     "name": "DeepSeek: DeepSeek V4 Pro 0813",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.0000010494",
-      "completion": "0.0000031482",
-      "input_cache_read": "0.00000003498"
+      "prompt": "0.00000066",
+      "completion": "0.00000198",
+      "input_cache_read": "0.000000066"
     }
   },
   {
@@ -586,9 +616,9 @@
     "name": "Upstage: Solar Pro 4",
     "context_length": 524288,
     "pricing": {
-      "prompt": "0.00000003",
-      "completion": "0.00000012",
-      "input_cache_read": "0.000000006"
+      "prompt": "0.00000009",
+      "completion": "0.00000036",
+      "input_cache_read": "0.000000018"
     }
   },
   {
@@ -843,9 +873,9 @@
     "name": "MoonshotAI: Kimi K3",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.000003",
-      "completion": "0.000015",
-      "input_cache_read": "0.0000003"
+      "prompt": "0.00000234",
+      "completion": "0.0000117",
+      "input_cache_read": "0.000000261"
     }
   },
   {
@@ -1688,9 +1718,9 @@
     "name": "MoonshotAI Kimi Latest",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.0000024",
-      "completion": "0.000012",
-      "input_cache_read": "0.00000024"
+      "prompt": "0.00000234",
+      "completion": "0.0000117",
+      "input_cache_read": "0.000000261"
     }
   },
   {
@@ -2015,8 +2045,8 @@
     "name": "Google: Gemma 4 26B A4B ",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.00000007",
-      "completion": "0.00000034"
+      "prompt": "0.000000042",
+      "completion": "0.00000022"
     }
   },
   {
@@ -2718,7 +2748,7 @@
   {
     "id": "z-ai/glm-4.7-flash",
     "name": "Z.ai: GLM 4.7 Flash",
-    "context_length": 202752,
+    "context_length": 200000,
     "pricing": {
       "prompt": "0.0000000605",
       "completion": "0.0000004"
@@ -4307,9 +4337,8 @@
     "name": "DeepSeek: DeepSeek V3 0324",
     "context_length": 163840,
     "pricing": {
-      "prompt": "0.00000029",
-      "completion": "0.00000114",
-      "input_cache_read": "0.00000011"
+      "prompt": "0.00000025",
+      "completion": "0.000001"
     }
   },
   {
@@ -4781,8 +4810,8 @@
     "name": "Meta: Llama 3.1 70B Instruct",
     "context_length": 131072,
     "pricing": {
-      "prompt": "0.0000004",
-      "completion": "0.0000004"
+      "prompt": "0.00000072",
+      "completion": "0.00000072"
     }
   },
   {
