@@ -1,5 +1,107 @@
 [
   {
+    "id": "inference-net/schematron-v2-turbo",
+    "name": "Inference.net: Schematron V2 Turbo",
+    "context_length": 128000,
+    "pricing": {
+      "prompt": "0.00000003",
+      "completion": "0.00000015"
+    }
+  },
+  {
+    "id": "inference-net/schematron-v2-small",
+    "name": "Inference.net: Schematron V2 Small",
+    "context_length": 128000,
+    "pricing": {
+      "prompt": "0.00000005",
+      "completion": "0.00000023"
+    }
+  },
+  {
+    "id": "~openai/gpt-astra-latest",
+    "name": "OpenAI GPT Astra Latest",
+    "context_length": 1050000,
+    "pricing": {
+      "prompt": "0.00001",
+      "completion": "0.00005",
+      "web_search": "0.01",
+      "input_cache_read": "0.000001",
+      "input_cache_write": "0.0000125",
+      "overrides": [
+        {
+          "min_prompt_tokens": 272000,
+          "prompt": "0.00002",
+          "completion": "0.000075",
+          "input_cache_read": "0.000002",
+          "input_cache_write": "0.000025"
+        }
+      ]
+    }
+  },
+  {
+    "id": "~openai/gpt-sol-latest",
+    "name": "OpenAI GPT Sol Latest",
+    "context_length": 1050000,
+    "pricing": {
+      "prompt": "0.000002",
+      "completion": "0.00001",
+      "web_search": "0.01",
+      "input_cache_read": "0.0000002",
+      "input_cache_write": "0.0000025",
+      "overrides": [
+        {
+          "min_prompt_tokens": 272000,
+          "prompt": "0.000004",
+          "completion": "0.000015",
+          "input_cache_read": "0.0000004",
+          "input_cache_write": "0.000005"
+        }
+      ]
+    }
+  },
+  {
+    "id": "~openai/gpt-terra-latest",
+    "name": "OpenAI GPT Terra Latest",
+    "context_length": 1050000,
+    "pricing": {
+      "prompt": "0.000002",
+      "completion": "0.000012",
+      "web_search": "0.01",
+      "input_cache_read": "0.0000002",
+      "input_cache_write": "0.0000025",
+      "overrides": [
+        {
+          "min_prompt_tokens": 272000,
+          "prompt": "0.000004",
+          "completion": "0.000018",
+          "input_cache_read": "0.0000004",
+          "input_cache_write": "0.000005"
+        }
+      ]
+    }
+  },
+  {
+    "id": "~openai/gpt-luna-latest",
+    "name": "OpenAI GPT Luna Latest",
+    "context_length": 1050000,
+    "pricing": {
+      "prompt": "0.0000002",
+      "completion": "0.0000012",
+      "web_search": "0.01",
+      "input_cache_read": "0.00000002",
+      "input_cache_write": "0.00000025",
+      "overrides": [
+        {
+          "min_prompt_tokens": 272000,
+          "prompt": "0.0000004",
+          "completion": "0.0000018",
+          "input_cache_read": "0.00000004",
+          "input_cache_write": "0.0000005"
+        }
+      ]
+    }
+  },
+  {
     "id": "sakana/fugu-ultra-v2",
     "name": "Sakana: Fugu Ultra v2",
     "context_length": 1000000,
@@ -30,13 +132,23 @@
     }
   },
   {
+    "id": "inclusionai/ling-3.0-flash-vl",
+    "name": "inclusionAI: Ling 3.0 Flash VL",
+    "context_length": 131072,
+    "pricing": {
+      "prompt": "0.00000006",
+      "completion": "0.00000018",
+      "input_cache_read": "0.000000012"
+    }
+  },
+  {
     "id": "deepseek/deepseek-v4.1-flash",
     "name": "DeepSeek: DeepSeek V4.1 Flash",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.0000003",
-      "completion": "0.0000012",
-      "input_cache_read": "0.000000006",
+      "prompt": "0.00000015",
+      "completion": "0.0000006",
+      "input_cache_read": "0.000000003",
       "overrides": [
         {
           "utc_days": [
@@ -361,9 +473,9 @@
     "name": "Z.ai: GLM 5.3 Flash",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.00000015",
-      "completion": "0.0000005",
-      "input_cache_read": "0.00000003"
+      "prompt": "0.000000075",
+      "completion": "0.00000025",
+      "input_cache_read": "0.000000015"
     }
   },
   {
@@ -430,9 +542,9 @@
     "name": "Z.ai: GLM Latest",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.00000097",
-      "completion": "0.0000033077",
-      "input_cache_read": "0.000000194"
+      "prompt": "0.0000008727",
+      "completion": "0.00000336",
+      "input_cache_read": "0.0000001639"
     }
   },
   {
@@ -469,9 +581,9 @@
     "name": "Qwen: Qwen3.8 27B",
     "context_length": 1000000,
     "pricing": {
-      "prompt": "0.00000042",
-      "completion": "0.000003",
-      "input_cache_read": "0.000000085"
+      "prompt": "0.000000214",
+      "completion": "0.00000255",
+      "input_cache_read": "0.00000015"
     }
   },
   {
@@ -556,9 +668,9 @@
     "name": "DeepSeek: DeepSeek V4 Pro 0813",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.00000066",
-      "completion": "0.00000198",
-      "input_cache_read": "0.000000066"
+      "prompt": "0.00000057816",
+      "completion": "0.00000173448",
+      "input_cache_read": "0.000000018396"
     }
   },
   {
@@ -657,9 +769,9 @@
     "name": "DeepSeek V4 Flash Latest",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.00000005",
-      "completion": "0.00000016",
-      "input_cache_read": "0.000000013"
+      "prompt": "0.00000003",
+      "completion": "0.00000007",
+      "input_cache_read": "0.000000003"
     }
   },
   {
@@ -667,9 +779,9 @@
     "name": "DeepSeek: DeepSeek V4 Flash 0731",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.000000065",
-      "completion": "0.00000018",
-      "input_cache_read": "0.000000016"
+      "prompt": "0.00000004",
+      "completion": "0.00000008",
+      "input_cache_read": "0.000000008"
     }
   },
   {
@@ -873,9 +985,9 @@
     "name": "MoonshotAI: Kimi K3",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.00000234",
-      "completion": "0.0000117",
-      "input_cache_read": "0.000000261"
+      "prompt": "0.00000230272875",
+      "completion": "0.000011550195",
+      "input_cache_read": "0.000000263169"
     }
   },
   {
@@ -1336,9 +1448,9 @@
     "name": "Z.ai: GLM 5.2",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.000000966",
-      "completion": "0.000003036",
-      "input_cache_read": "0.0000001932"
+      "prompt": "0.0000006",
+      "completion": "0.000002",
+      "input_cache_read": "0.00000015"
     }
   },
   {
@@ -1718,9 +1830,9 @@
     "name": "MoonshotAI Kimi Latest",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.00000234",
-      "completion": "0.0000117",
-      "input_cache_read": "0.000000261"
+      "prompt": "0.000002125",
+      "completion": "0.0000119",
+      "input_cache_read": "0.0000002465"
     }
   },
   {
@@ -1750,27 +1862,6 @@
       "input_cache_read": "0.0000002",
       "input_cache_write": "0.0000025",
       "input_cache_write_1h": "0.000004"
-    }
-  },
-  {
-    "id": "~openai/gpt-latest",
-    "name": "OpenAI GPT Latest",
-    "context_length": 1050000,
-    "pricing": {
-      "prompt": "0.000002",
-      "completion": "0.00001",
-      "web_search": "0.01",
-      "input_cache_read": "0.0000002",
-      "input_cache_write": "0.0000025",
-      "overrides": [
-        {
-          "min_prompt_tokens": 272000,
-          "prompt": "0.000004",
-          "completion": "0.000015",
-          "input_cache_read": "0.0000004",
-          "input_cache_write": "0.000005"
-        }
-      ]
     }
   },
   {
@@ -1924,9 +2015,9 @@
     "name": "DeepSeek: DeepSeek V4 Pro 0423",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.00000095526",
-      "completion": "0.00000191052",
-      "input_cache_read": "0.000000079605"
+      "prompt": "0.000000809274",
+      "completion": "0.000001618548",
+      "input_cache_read": "0.0000000674395"
     }
   },
   {
@@ -1934,9 +2025,9 @@
     "name": "DeepSeek: DeepSeek V4 Flash 0423",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.000000088606",
-      "completion": "0.000000177212",
-      "input_cache_read": "0.0000000177212"
+      "prompt": "0.00000006678",
+      "completion": "0.00000013356",
+      "input_cache_read": "0.000000013356"
     }
   },
   {
@@ -3121,8 +3212,7 @@
     "context_length": 262144,
     "pricing": {
       "prompt": "0.0000006",
-      "completion": "0.0000025",
-      "input_cache_read": "0.00000015"
+      "completion": "0.0000025"
     }
   },
   {
@@ -3863,8 +3953,9 @@
     "name": "Qwen: Qwen3 235B A22B Instruct 2507",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.00000022",
-      "completion": "0.00000088"
+      "prompt": "0.0000000875",
+      "completion": "0.00000035",
+      "input_cache_read": "0.0000000175"
     }
   },
   {
@@ -3924,7 +4015,7 @@
   {
     "id": "mistralai/mistral-small-3.2-24b-instruct",
     "name": "Mistral: Mistral Small 3.2 24B",
-    "context_length": 131072,
+    "context_length": 256000,
     "pricing": {
       "prompt": "0.000000075",
       "completion": "0.0000002"
