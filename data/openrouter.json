@@ -19,7 +19,7 @@
   },
   {
     "id": "~openai/gpt-astra-latest",
-    "name": "OpenAI GPT Astra Latest",
+    "name": "OpenAI: GPT Astra Latest",
     "context_length": 1050000,
     "pricing": {
       "prompt": "0.00001",
@@ -40,7 +40,7 @@
   },
   {
     "id": "~openai/gpt-sol-latest",
-    "name": "OpenAI GPT Sol Latest",
+    "name": "OpenAI: GPT Sol Latest",
     "context_length": 1050000,
     "pricing": {
       "prompt": "0.000002",
@@ -61,7 +61,7 @@
   },
   {
     "id": "~openai/gpt-terra-latest",
-    "name": "OpenAI GPT Terra Latest",
+    "name": "OpenAI: GPT Terra Latest",
     "context_length": 1050000,
     "pricing": {
       "prompt": "0.000002",
@@ -82,7 +82,7 @@
   },
   {
     "id": "~openai/gpt-luna-latest",
-    "name": "OpenAI GPT Luna Latest",
+    "name": "OpenAI: GPT Luna Latest",
     "context_length": 1050000,
     "pricing": {
       "prompt": "0.0000002",
@@ -473,9 +473,9 @@
     "name": "Z.ai: GLM 5.3 Flash",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.000000075",
-      "completion": "0.00000025",
-      "input_cache_read": "0.000000015"
+      "prompt": "0.00000015",
+      "completion": "0.0000005",
+      "input_cache_read": "0.00000003"
     }
   },
   {
@@ -542,9 +542,9 @@
     "name": "Z.ai: GLM Latest",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.0000008727",
-      "completion": "0.00000336",
-      "input_cache_read": "0.0000001639"
+      "prompt": "0.000000936",
+      "completion": "0.000003168",
+      "input_cache_read": "0.0000001872"
     }
   },
   {
@@ -561,9 +561,9 @@
     "name": "Z.ai: GLM 5.3",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.0000014",
-      "completion": "0.0000044",
-      "input_cache_read": "0.00000026"
+      "prompt": "0.000001092",
+      "completion": "0.000003432",
+      "input_cache_read": "0.0000002028"
     }
   },
   {
@@ -738,8 +738,8 @@
     "name": "Meta: Muse Glimmer 30B",
     "context_length": 131072,
     "pricing": {
-      "prompt": "0.0000003",
-      "completion": "0.0000011",
+      "prompt": "0.00000035",
+      "completion": "0.0000015",
       "input_cache_read": "0.00000004"
     }
   },
@@ -766,12 +766,12 @@
   },
   {
     "id": "~deepseek/deepseek-v4-flash-latest",
-    "name": "DeepSeek V4 Flash Latest",
+    "name": "DeepSeek: DeepSeek V4 Flash Latest",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.00000003",
-      "completion": "0.00000007",
-      "input_cache_read": "0.000000003"
+      "prompt": "0.0000000352",
+      "completion": "0.0000001056",
+      "input_cache_read": "0.00000000112"
     }
   },
   {
@@ -985,9 +985,9 @@
     "name": "MoonshotAI: Kimi K3",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.00000230272875",
-      "completion": "0.000011550195",
-      "input_cache_read": "0.000000263169"
+      "prompt": "0.000002648138063",
+      "completion": "0.00001328272425",
+      "input_cache_read": "0.00000030264435"
     }
   },
   {
@@ -1777,7 +1777,7 @@
   },
   {
     "id": "~anthropic/claude-haiku-latest",
-    "name": "Anthropic Claude Haiku Latest",
+    "name": "Anthropic: Claude Haiku Latest",
     "context_length": 200000,
     "pricing": {
       "prompt": "0.000001",
@@ -1790,7 +1790,7 @@
   },
   {
     "id": "~openai/gpt-mini-latest",
-    "name": "OpenAI GPT Mini Latest",
+    "name": "OpenAI: GPT Mini Latest",
     "context_length": 400000,
     "pricing": {
       "prompt": "0.00000075",
@@ -1801,7 +1801,7 @@
   },
   {
     "id": "~google/gemini-pro-latest",
-    "name": "Google Gemini Pro Latest",
+    "name": "Google: Gemini Pro Latest",
     "context_length": 1048576,
     "pricing": {
       "prompt": "0.000002",
@@ -1827,17 +1827,16 @@
   },
   {
     "id": "~moonshotai/kimi-latest",
-    "name": "MoonshotAI Kimi Latest",
+    "name": "MoonshotAI: Kimi Latest",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.000002125",
-      "completion": "0.0000119",
-      "input_cache_read": "0.0000002465"
+      "prompt": "0.0000021",
+      "completion": "0.00001095"
     }
   },
   {
     "id": "~google/gemini-flash-latest",
-    "name": "Google Gemini Flash Latest",
+    "name": "Google: Gemini Flash Latest",
     "context_length": 1048576,
     "pricing": {
       "prompt": "0.00000075",
@@ -1853,7 +1852,7 @@
   },
   {
     "id": "~anthropic/claude-sonnet-latest",
-    "name": "Anthropic Claude Sonnet Latest",
+    "name": "Anthropic: Claude Sonnet Latest",
     "context_length": 1000000,
     "pricing": {
       "prompt": "0.000002",
@@ -2015,9 +2014,9 @@
     "name": "DeepSeek: DeepSeek V4 Pro 0423",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.000000809274",
-      "completion": "0.000001618548",
-      "input_cache_read": "0.0000000674395"
+      "prompt": "0.0000016",
+      "completion": "0.0000032",
+      "input_cache_read": "0.000000135"
     }
   },
   {
@@ -2025,9 +2024,9 @@
     "name": "DeepSeek: DeepSeek V4 Flash 0423",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.00000006678",
-      "completion": "0.00000013356",
-      "input_cache_read": "0.000000013356"
+      "prompt": "0.00000004928",
+      "completion": "0.00000009856",
+      "input_cache_read": "0.000000009856"
     }
   },
   {
@@ -2136,8 +2135,9 @@
     "name": "Google: Gemma 4 26B A4B ",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.000000042",
-      "completion": "0.00000022"
+      "prompt": "0.00000009",
+      "completion": "0.0000003",
+      "input_cache_read": "0.00000005"
     }
   },
   {
@@ -2694,9 +2694,9 @@
     "name": "MiniMax: MiniMax M2.5",
     "context_length": 204800,
     "pricing": {
-      "prompt": "0.0000003",
-      "completion": "0.0000012",
-      "input_cache_read": "0.00000003"
+      "prompt": "0.00000027",
+      "completion": "0.00000108",
+      "input_cache_read": "0.000000027"
     }
   },
   {
@@ -3212,7 +3212,8 @@
     "context_length": 262144,
     "pricing": {
       "prompt": "0.0000006",
-      "completion": "0.0000025"
+      "completion": "0.0000025",
+      "input_cache_read": "0.00000015"
     }
   },
   {
@@ -3864,8 +3865,8 @@
     "name": "Qwen: Qwen3 30B A3B Instruct 2507",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.00000009",
-      "completion": "0.0000003"
+      "prompt": "0.00000004815",
+      "completion": "0.00000019305"
     }
   },
   {
@@ -4901,8 +4902,8 @@
     "name": "Meta: Llama 3.1 70B Instruct",
     "context_length": 131072,
     "pricing": {
-      "prompt": "0.00000072",
-      "completion": "0.00000072"
+      "prompt": "0.0000004",
+      "completion": "0.0000004"
     }
   },
   {
