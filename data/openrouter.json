@@ -1,5 +1,25 @@
 [
   {
+    "id": "~deepseek/deepseek-pro-latest",
+    "name": "DeepSeek: DeepSeek Pro Latest",
+    "context_length": 1048576,
+    "pricing": {
+      "prompt": "0.00000096",
+      "completion": "0.00000288",
+      "input_cache_read": "0.000000088"
+    }
+  },
+  {
+    "id": "~deepseek/deepseek-flash-latest",
+    "name": "DeepSeek: DeepSeek Flash Latest",
+    "context_length": 1048576,
+    "pricing": {
+      "prompt": "0.00000015",
+      "completion": "0.0000006",
+      "input_cache_read": "0.000000015"
+    }
+  },
+  {
     "id": "inference-net/schematron-v2-turbo",
     "name": "Inference.net: Schematron V2 Turbo",
     "context_length": 128000,
@@ -148,9 +168,9 @@
     "name": "DeepSeek: DeepSeek V4.1 Flash",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.00000015",
-      "completion": "0.0000006",
-      "input_cache_read": "0.000000003",
+      "prompt": "0.0000003",
+      "completion": "0.0000012",
+      "input_cache_read": "0.000000006",
       "overrides": [
         {
           "utc_days": [
@@ -544,9 +564,9 @@
     "name": "Z.ai: GLM Latest",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.00000092",
-      "completion": "0.0000031372",
-      "input_cache_read": "0.000000184"
+      "prompt": "0.0000008775",
+      "completion": "0.00000297",
+      "input_cache_read": "0.0000001755"
     }
   },
   {
@@ -771,9 +791,9 @@
     "name": "DeepSeek: DeepSeek V4 Flash Latest",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.0000000352",
-      "completion": "0.0000001056",
-      "input_cache_read": "0.00000000112"
+      "prompt": "0.00000004",
+      "completion": "0.0000001",
+      "input_cache_read": "0.00000001"
     }
   },
   {
@@ -1450,9 +1470,9 @@
     "name": "Z.ai: GLM 5.2",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.0000006832",
-      "completion": "0.0000021472",
-      "input_cache_read": "0.00000012688"
+      "prompt": "0.0000014",
+      "completion": "0.0000044",
+      "input_cache_read": "0.00000014"
     }
   },
   {
@@ -2346,8 +2366,8 @@
     "name": "NVIDIA: Nemotron 3 Super",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.000000085",
-      "completion": "0.0000004"
+      "prompt": "0.00000008",
+      "completion": "0.00000045"
     }
   },
   {
@@ -2514,9 +2534,8 @@
     "name": "Qwen: Qwen3.5-35B-A3B",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.0000003125",
-      "completion": "0.00000125",
-      "input_cache_read": "0.00000015625"
+      "prompt": "0.0000001625",
+      "completion": "0.0000013"
     }
   },
   {
@@ -4209,32 +4228,6 @@
     }
   },
   {
-    "id": "google/gemini-2.5-pro-preview-05-06",
-    "name": "Google: Gemini 2.5 Pro Preview 05-06",
-    "context_length": 1048576,
-    "pricing": {
-      "prompt": "0.00000125",
-      "completion": "0.00001",
-      "image": "0.00000125",
-      "audio": "0.00000125",
-      "input_audio_cache": "0.000000125",
-      "web_search": "0.014",
-      "internal_reasoning": "0.00001",
-      "input_cache_read": "0.000000125",
-      "input_cache_write": "0.000000375",
-      "overrides": [
-        {
-          "min_prompt_tokens": 200000,
-          "prompt": "0.0000025",
-          "completion": "0.000015",
-          "audio": "0.0000025",
-          "input_audio_cache": "0.00000025",
-          "input_cache_read": "0.00000025"
-        }
-      ]
-    }
-  },
-  {
     "id": "meta-llama/llama-guard-4-12b",
     "name": "Meta: Llama Guard 4 12B",
     "context_length": 163840,
@@ -4414,8 +4407,8 @@
     "name": "Meta: Llama 4 Maverick",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.0000002",
-      "completion": "0.000000696"
+      "prompt": "0.0000001875",
+      "completion": "0.0000006525"
     }
   },
   {
@@ -5066,15 +5059,6 @@
     "pricing": {
       "prompt": "0.000001",
       "completion": "0.000002"
-    }
-  },
-  {
-    "id": "openai/gpt-4-turbo-preview",
-    "name": "OpenAI: GPT-4 Turbo Preview",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": "0.00001",
-      "completion": "0.00003"
     }
   },
   {
