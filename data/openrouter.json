@@ -495,9 +495,9 @@
     "name": "Z.ai: GLM 5.3 Flash",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.00000015",
-      "completion": "0.0000005",
-      "input_cache_read": "0.00000003"
+      "prompt": "0.0000001",
+      "completion": "0.0000003333",
+      "input_cache_read": "0.00000002"
     }
   },
   {
@@ -827,16 +827,6 @@
     }
   },
   {
-    "id": "thinkingmachines/inkling-small:batch",
-    "name": "Thinking Machines: Inkling Small (batch)",
-    "context_length": 524288,
-    "pricing": {
-      "prompt": "0.0000005",
-      "completion": "0.0000012",
-      "input_cache_read": "0.0000001"
-    }
-  },
-  {
     "id": "qwen/qwen3.7-flash",
     "name": "Qwen: Qwen3.7 Flash",
     "context_length": 1000000,
@@ -865,7 +855,7 @@
   },
   {
     "id": "anthropic/claude-opus-5",
-    "name": "Claude Opus 5",
+    "name": "Anthropic: Claude Opus 5",
     "context_length": 1000000,
     "pricing": {
       "prompt": "0.000005",
@@ -878,7 +868,7 @@
   },
   {
     "id": "anthropic/claude-opus-5:batch",
-    "name": "Claude Opus 5 (batch)",
+    "name": "Anthropic: Claude Opus 5 (batch)",
     "context_length": 1000000,
     "pricing": {
       "prompt": "0.0000025",
@@ -1490,9 +1480,9 @@
     "name": "MoonshotAI: Kimi K2.7 Code",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.00000071",
-      "completion": "0.0000035",
-      "input_cache_read": "0.00000015"
+      "prompt": "0.0000007062",
+      "completion": "0.00000321",
+      "input_cache_read": "0.00000018"
     }
   },
   {
@@ -1548,9 +1538,9 @@
     "name": "NVIDIA: Nemotron 3 Ultra",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.0000006",
-      "completion": "0.0000024",
-      "input_cache_read": "0.00000012"
+      "prompt": "0.000000625",
+      "completion": "0.000003125",
+      "input_cache_read": "0.0000001875"
     }
   },
   {
@@ -1852,9 +1842,9 @@
     "name": "MoonshotAI: Kimi Latest",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.0000021",
-      "completion": "0.00001095",
-      "input_cache_read": "0.00000023"
+      "prompt": "0.000001875",
+      "completion": "0.0000105",
+      "input_cache_read": "0.0000002175"
     }
   },
   {
@@ -2171,15 +2161,6 @@
       "prompt": "0.00000009",
       "completion": "0.00000034",
       "input_cache_read": "0.00000005"
-    }
-  },
-  {
-    "id": "google/gemma-4-31b-it:batch",
-    "name": "Google: Gemma 4 31B (batch)",
-    "context_length": 262144,
-    "pricing": {
-      "prompt": "0.00000039",
-      "completion": "0.00000097"
     }
   },
   {
@@ -3819,15 +3800,6 @@
     }
   },
   {
-    "id": "openai/gpt-oss-20b:batch",
-    "name": "OpenAI: gpt-oss-20b (batch)",
-    "context_length": 131072,
-    "pricing": {
-      "prompt": "0.00000005",
-      "completion": "0.0000002"
-    }
-  },
-  {
     "id": "anthropic/claude-opus-4.1",
     "name": "Anthropic: Claude Opus 4.1",
     "context_length": 200000,
@@ -4040,8 +4012,8 @@
     "name": "Mistral: Mistral Small 3.2 24B",
     "context_length": 256000,
     "pricing": {
-      "prompt": "0.000000075",
-      "completion": "0.0000002"
+      "prompt": "0.00000009375",
+      "completion": "0.00000025"
     }
   },
   {
@@ -4049,7 +4021,7 @@
     "name": "MiniMax: MiniMax M1",
     "context_length": 1000000,
     "pricing": {
-      "prompt": "0.00000055",
+      "prompt": "0.0000004",
       "completion": "0.0000022"
     }
   },
