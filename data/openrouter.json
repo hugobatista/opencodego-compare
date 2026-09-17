@@ -4,9 +4,9 @@
     "name": "DeepSeek: DeepSeek Pro Latest",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.00000096",
-      "completion": "0.00000288",
-      "input_cache_read": "0.000000088"
+      "prompt": "0.0000007",
+      "completion": "0.00000296",
+      "input_cache_read": "0.000000033"
     }
   },
   {
@@ -495,9 +495,9 @@
     "name": "Z.ai: GLM 5.3 Flash",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.0000001",
-      "completion": "0.0000003333",
-      "input_cache_read": "0.00000002"
+      "prompt": "0.00000009",
+      "completion": "0.0000003",
+      "input_cache_read": "0.000000018"
     }
   },
   {
@@ -690,9 +690,90 @@
     "name": "DeepSeek: DeepSeek V4 Pro 0813",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.0000009834",
-      "completion": "0.0000029502",
-      "input_cache_read": "0.00000003278"
+      "prompt": "0.00000132",
+      "completion": "0.00000396",
+      "input_cache_read": "0.000000044",
+      "overrides": [
+        {
+          "utc_days": [
+            "saturday",
+            "sunday"
+          ],
+          "prompt": "0.00000066",
+          "completion": "0.00000198",
+          "input_cache_read": "0.000000022"
+        },
+        {
+          "utc_days": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday"
+          ],
+          "utc_start": 0,
+          "utc_end": 100,
+          "prompt": "0.00000066",
+          "completion": "0.00000198",
+          "input_cache_read": "0.000000022"
+        },
+        {
+          "utc_days": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday"
+          ],
+          "utc_start": 100,
+          "utc_end": 400,
+          "prompt": "0.00000132",
+          "completion": "0.00000396",
+          "input_cache_read": "0.000000044"
+        },
+        {
+          "utc_days": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday"
+          ],
+          "utc_start": 400,
+          "utc_end": 600,
+          "prompt": "0.00000066",
+          "completion": "0.00000198",
+          "input_cache_read": "0.000000022"
+        },
+        {
+          "utc_days": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday"
+          ],
+          "utc_start": 600,
+          "utc_end": 1000,
+          "prompt": "0.00000132",
+          "completion": "0.00000396",
+          "input_cache_read": "0.000000044"
+        },
+        {
+          "utc_days": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday"
+          ],
+          "utc_start": 1000,
+          "utc_end": 0,
+          "prompt": "0.00000066",
+          "completion": "0.00000198",
+          "input_cache_read": "0.000000022"
+        }
+      ]
     }
   },
   {
@@ -791,8 +872,8 @@
     "name": "DeepSeek: DeepSeek V4 Flash Latest",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.00000004",
-      "completion": "0.0000001",
+      "prompt": "0.00000003",
+      "completion": "0.00000013",
       "input_cache_read": "0.00000001"
     }
   },
@@ -997,9 +1078,9 @@
     "name": "MoonshotAI: Kimi K3",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.000002648138063",
-      "completion": "0.00001328272425",
-      "input_cache_read": "0.00000030264435"
+      "prompt": "0.000003",
+      "completion": "0.000015",
+      "input_cache_read": "0.0000003"
     }
   },
   {
@@ -1842,9 +1923,9 @@
     "name": "MoonshotAI: Kimi Latest",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.000001875",
-      "completion": "0.0000105",
-      "input_cache_read": "0.0000002175"
+      "prompt": "0.0000021",
+      "completion": "0.00001095",
+      "input_cache_read": "0.00000023"
     }
   },
   {
@@ -2945,9 +3026,8 @@
     "name": "NVIDIA: Nemotron 3 Nano 30B A3B",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.00000005",
-      "completion": "0.0000002",
-      "input_cache_read": "0.00000003"
+      "prompt": "0.00000006",
+      "completion": "0.00000024"
     }
   },
   {
@@ -3386,8 +3466,8 @@
     "name": "Qwen: Qwen3 VL 30B A3B Instruct",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.00000015",
-      "completion": "0.0000006"
+      "prompt": "0.00000013",
+      "completion": "0.00000052"
     }
   },
   {
@@ -5074,8 +5154,8 @@
     "name": "MythoMax 13B",
     "context_length": 8192,
     "pricing": {
-      "prompt": "0.00000006",
-      "completion": "0.00000006"
+      "prompt": "0.00000008",
+      "completion": "0.00000011"
     }
   },
   {
