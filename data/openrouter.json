@@ -1,5 +1,15 @@
 [
   {
+    "id": "unbiased/pareto",
+    "name": "Pareto",
+    "context_length": 262144,
+    "pricing": {
+      "prompt": "0.0000025",
+      "completion": "0.0000075",
+      "input_cache_read": "0.00000025"
+    }
+  },
+  {
     "id": "~deepseek/deepseek-pro-latest",
     "name": "DeepSeek: DeepSeek Pro Latest",
     "context_length": 1048576,
@@ -14,9 +24,9 @@
     "name": "DeepSeek: DeepSeek Flash Latest",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.00000015",
-      "completion": "0.0000006",
-      "input_cache_read": "0.000000015"
+      "prompt": "0.0000001485",
+      "completion": "0.000000594",
+      "input_cache_read": "0.000000004455"
     }
   },
   {
@@ -526,9 +536,9 @@
     "name": "DeepSeek: DeepSeek V4 Flash Vision Exp",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.00000022",
-      "completion": "0.00000066",
-      "input_cache_read": "0.000000007"
+      "prompt": "0.0000002156",
+      "completion": "0.0000006468",
+      "input_cache_read": "0.00000000686"
     }
   },
   {
@@ -841,8 +851,8 @@
     "name": "Meta: Muse Glimmer 30B",
     "context_length": 131072,
     "pricing": {
-      "prompt": "0.00000035",
-      "completion": "0.0000015",
+      "prompt": "0.0000003",
+      "completion": "0.0000011",
       "input_cache_read": "0.00000004"
     }
   },
@@ -872,9 +882,9 @@
     "name": "DeepSeek: DeepSeek V4 Flash Latest",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.00000003",
-      "completion": "0.00000013",
-      "input_cache_read": "0.00000001"
+      "prompt": "0.0000000558",
+      "completion": "0.0000001767",
+      "input_cache_read": "0.0000000088"
     }
   },
   {
@@ -1078,9 +1088,9 @@
     "name": "MoonshotAI: Kimi K3",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.000003",
-      "completion": "0.000015",
-      "input_cache_read": "0.0000003"
+      "prompt": "0.0000021",
+      "completion": "0.00001095",
+      "input_cache_read": "0.00000023"
     }
   },
   {
@@ -1541,9 +1551,9 @@
     "name": "Z.ai: GLM 5.2",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.0000014",
-      "completion": "0.0000044",
-      "input_cache_read": "0.00000014"
+      "prompt": "0.0000005625",
+      "completion": "0.0000018",
+      "input_cache_read": "0.000000105"
     }
   },
   {
@@ -3173,16 +3183,6 @@
     }
   },
   {
-    "id": "mistralai/mistral-large-2512",
-    "name": "Mistral: Mistral Large 3 2512",
-    "context_length": 262144,
-    "pricing": {
-      "prompt": "0.0000005",
-      "completion": "0.0000015",
-      "input_cache_read": "0.00000005"
-    }
-  },
-  {
     "id": "mistralai/mistral-large-2512:batch",
     "name": "Mistral: Mistral Large 3 2512 (batch)",
     "context_length": 262144,
@@ -3856,8 +3856,9 @@
     "name": "OpenAI: gpt-oss-120b",
     "context_length": 131072,
     "pricing": {
-      "prompt": "0.000000037",
-      "completion": "0.00000017"
+      "prompt": "0.00000015",
+      "completion": "0.0000006",
+      "input_cache_read": "0.000000075"
     }
   },
   {
@@ -4729,8 +4730,8 @@
     "name": "DeepSeek: DeepSeek V3",
     "context_length": 163840,
     "pricing": {
-      "prompt": "0.0000002574",
-      "completion": "0.0000010287"
+      "prompt": "0.00000032",
+      "completion": "0.00000089"
     }
   },
   {
