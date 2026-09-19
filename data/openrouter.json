@@ -1,5 +1,24 @@
 [
   {
+    "id": "prism-ml/ternary-bonsai-2-27b",
+    "name": "PrismML: Ternary Bonsai 2 27B",
+    "context_length": 262144,
+    "pricing": {
+      "prompt": "0.000000075",
+      "completion": "0.0000005"
+    }
+  },
+  {
+    "id": "z-ai/glm-5.3-flashx",
+    "name": "Z.ai: GLM 5.3 FlashX",
+    "context_length": 1048576,
+    "pricing": {
+      "prompt": "0.00000037",
+      "completion": "0.00000125",
+      "input_cache_read": "0.000000075"
+    }
+  },
+  {
     "id": "unbiased/pareto",
     "name": "Pareto",
     "context_length": 262144,
@@ -14,9 +33,9 @@
     "name": "DeepSeek: DeepSeek Pro Latest",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.0000007",
-      "completion": "0.00000296",
-      "input_cache_read": "0.000000033"
+      "prompt": "0.00000057816",
+      "completion": "0.00000173448",
+      "input_cache_read": "0.000000018396"
     }
   },
   {
@@ -24,9 +43,9 @@
     "name": "DeepSeek: DeepSeek Flash Latest",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.0000001485",
-      "completion": "0.000000594",
-      "input_cache_read": "0.000000004455"
+      "prompt": "0.00000013",
+      "completion": "0.00000052",
+      "input_cache_read": "0.0000000026"
     }
   },
   {
@@ -178,9 +197,9 @@
     "name": "DeepSeek: DeepSeek V4.1 Flash",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.0000003",
-      "completion": "0.0000012",
-      "input_cache_read": "0.000000006",
+      "prompt": "0.00000015",
+      "completion": "0.0000006",
+      "input_cache_read": "0.000000003",
       "overrides": [
         {
           "utc_days": [
@@ -574,9 +593,9 @@
     "name": "Z.ai: GLM Latest",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.0000008775",
-      "completion": "0.00000297",
-      "input_cache_read": "0.0000001755"
+      "prompt": "0.0000008918",
+      "completion": "0.0000028028",
+      "input_cache_read": "0.00000016562"
     }
   },
   {
@@ -593,9 +612,9 @@
     "name": "Z.ai: GLM 5.3",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.0000014",
-      "completion": "0.0000044",
-      "input_cache_read": "0.00000026"
+      "prompt": "0.00000091",
+      "completion": "0.00000286",
+      "input_cache_read": "0.000000169"
     }
   },
   {
@@ -700,90 +719,9 @@
     "name": "DeepSeek: DeepSeek V4 Pro 0813",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.00000132",
-      "completion": "0.00000396",
-      "input_cache_read": "0.000000044",
-      "overrides": [
-        {
-          "utc_days": [
-            "saturday",
-            "sunday"
-          ],
-          "prompt": "0.00000066",
-          "completion": "0.00000198",
-          "input_cache_read": "0.000000022"
-        },
-        {
-          "utc_days": [
-            "monday",
-            "tuesday",
-            "wednesday",
-            "thursday",
-            "friday"
-          ],
-          "utc_start": 0,
-          "utc_end": 100,
-          "prompt": "0.00000066",
-          "completion": "0.00000198",
-          "input_cache_read": "0.000000022"
-        },
-        {
-          "utc_days": [
-            "monday",
-            "tuesday",
-            "wednesday",
-            "thursday",
-            "friday"
-          ],
-          "utc_start": 100,
-          "utc_end": 400,
-          "prompt": "0.00000132",
-          "completion": "0.00000396",
-          "input_cache_read": "0.000000044"
-        },
-        {
-          "utc_days": [
-            "monday",
-            "tuesday",
-            "wednesday",
-            "thursday",
-            "friday"
-          ],
-          "utc_start": 400,
-          "utc_end": 600,
-          "prompt": "0.00000066",
-          "completion": "0.00000198",
-          "input_cache_read": "0.000000022"
-        },
-        {
-          "utc_days": [
-            "monday",
-            "tuesday",
-            "wednesday",
-            "thursday",
-            "friday"
-          ],
-          "utc_start": 600,
-          "utc_end": 1000,
-          "prompt": "0.00000132",
-          "completion": "0.00000396",
-          "input_cache_read": "0.000000044"
-        },
-        {
-          "utc_days": [
-            "monday",
-            "tuesday",
-            "wednesday",
-            "thursday",
-            "friday"
-          ],
-          "utc_start": 1000,
-          "utc_end": 0,
-          "prompt": "0.00000066",
-          "completion": "0.00000198",
-          "input_cache_read": "0.000000022"
-        }
-      ]
+      "prompt": "0.00000057816",
+      "completion": "0.00000173448",
+      "input_cache_read": "0.000000018396"
     }
   },
   {
@@ -820,7 +758,7 @@
     "name": "NVIDIA: Nemotron 3.5 Lightning",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.00000008",
+      "prompt": "0.00000007",
       "completion": "0.0000002",
       "input_cache_read": "0.00000004"
     }
@@ -851,8 +789,8 @@
     "name": "Meta: Muse Glimmer 30B",
     "context_length": 131072,
     "pricing": {
-      "prompt": "0.0000003",
-      "completion": "0.0000011",
+      "prompt": "0.00000035",
+      "completion": "0.0000015",
       "input_cache_read": "0.00000004"
     }
   },
@@ -882,9 +820,9 @@
     "name": "DeepSeek: DeepSeek V4 Flash Latest",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.0000000558",
-      "completion": "0.0000001767",
-      "input_cache_read": "0.0000000088"
+      "prompt": "0.00000004",
+      "completion": "0.00000008",
+      "input_cache_read": "0.000000016"
     }
   },
   {
@@ -892,9 +830,9 @@
     "name": "DeepSeek: DeepSeek V4 Flash 0731",
     "context_length": 1310720,
     "pricing": {
-      "prompt": "0.00000006",
-      "completion": "0.00000012",
-      "input_cache_read": "0.000000012"
+      "prompt": "0.00000004",
+      "completion": "0.00000008",
+      "input_cache_read": "0.000000016"
     }
   },
   {
@@ -1088,9 +1026,9 @@
     "name": "MoonshotAI: Kimi K3",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.0000021",
-      "completion": "0.00001095",
-      "input_cache_read": "0.00000023"
+      "prompt": "0.0000017",
+      "completion": "0.0000085",
+      "input_cache_read": "0.00000017"
     }
   },
   {
@@ -1551,9 +1489,9 @@
     "name": "Z.ai: GLM 5.2",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.0000005625",
-      "completion": "0.0000018",
-      "input_cache_read": "0.000000105"
+      "prompt": "0.0000005544",
+      "completion": "0.0000017424",
+      "input_cache_read": "0.00000010296"
     }
   },
   {
@@ -1629,9 +1567,9 @@
     "name": "NVIDIA: Nemotron 3 Ultra",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.000000625",
-      "completion": "0.000003125",
-      "input_cache_read": "0.0000001875"
+      "prompt": "0.0000006",
+      "completion": "0.0000024",
+      "input_cache_read": "0.00000012"
     }
   },
   {
@@ -1933,9 +1871,9 @@
     "name": "MoonshotAI: Kimi Latest",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.0000021",
-      "completion": "0.00001095",
-      "input_cache_read": "0.00000023"
+      "prompt": "0.0000017",
+      "completion": "0.0000085",
+      "input_cache_read": "0.00000017"
     }
   },
   {
@@ -2118,9 +2056,9 @@
     "name": "DeepSeek: DeepSeek V4 Pro 0423",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.0000016",
-      "completion": "0.0000032",
-      "input_cache_read": "0.000000135"
+      "prompt": "0.000000503382",
+      "completion": "0.000001006764",
+      "input_cache_read": "0.0000000419485"
     }
   },
   {
@@ -2128,9 +2066,9 @@
     "name": "DeepSeek: DeepSeek V4 Flash 0423",
     "context_length": 1048576,
     "pricing": {
-      "prompt": "0.000000088606",
-      "completion": "0.000000177212",
-      "input_cache_read": "0.0000000177212"
+      "prompt": "0.00000004536",
+      "completion": "0.00000009072",
+      "input_cache_read": "0.000000009072"
     }
   },
   {
@@ -3466,8 +3404,8 @@
     "name": "Qwen: Qwen3 VL 30B A3B Instruct",
     "context_length": 262144,
     "pricing": {
-      "prompt": "0.00000013",
-      "completion": "0.00000052"
+      "prompt": "0.0000002",
+      "completion": "0.0000007"
     }
   },
   {
